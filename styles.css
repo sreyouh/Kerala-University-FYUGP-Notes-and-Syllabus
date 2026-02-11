@@ -1,1 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
 
+body, html {
+  height: 100%;
+  color: #ffffff;
+}
+
+/* Fixed background image */
+.bg {
+  background-image: url("images/ku.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: brightness(0.45);
+}
+
+/* Content scrolling over background */
+.content {
+  min-height: 200vh;
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.title-link {
+  color: #1e90ff;
+  text-decoration: none;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.btn {
+  padding: 18px 35px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #000;
+  font-weight: 600;
+}
+
+.btn span {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.bsc { background-color: #b6e5ff; }
+.ba { background-color: #c8f7dc; }
+.bcom { background-color: #ffe0b5; }
+
+.btn:hover {
+  transform: translateY(-4px);
+  transition: 0.3s ease;
+}
+
+/* Contact Section */
+.contact {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-btn {
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.email {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.telegram {
+  background-color: #2aa9e0;
+  color: white;
+}
