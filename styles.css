@@ -36,13 +36,6 @@ body, html {
   margin-bottom: 25px;
 }
 
-.title-link {
-  color: #1e90ff;
-  text-decoration: none;
-  font-size: 2.2rem;
-  font-weight: 700;
-}
-
 .description {
   text-align: center;
   font-size: 1.1rem;
