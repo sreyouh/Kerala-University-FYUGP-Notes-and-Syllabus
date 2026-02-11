@@ -2,104 +2,130 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
-body, html {
-  height: 100%;
+html {
+  scroll-behavior: smooth; /* smooth scrolling */
+}
+
+body {
   color: #ffffff;
 }
 
 /* Fixed background image */
-.bg {
-  background-image: url("images/ku.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+.bg-image {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background: url("images/ku.jpg") center/cover no-repeat;
   z-index: -1;
-  filter: brightness(0.45);
+  filter: brightness(0.55);
 }
 
-/* Content scrolling over background */
-.content {
-  min-height: 200vh;
+/* Page content scrolls, image doesn't */
+.page-content {
+  min-height: 100vh;
   padding: 80px 20px;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
   max-width: 900px;
   margin: auto;
 }
 
-.title {
-  text-align: center;
-  margin-bottom: 25px;
+.site-link {
+  color: #4da3ff;
+  text-decoration: none;
+  font-size: 2.3rem;
+  font-weight: 700;
 }
 
 .description {
-  text-align: center;
-  font-size: 1.1rem;
+  margin: 25px auto;
+  font-size: 1.05rem;
   line-height: 1.6;
-  margin-bottom: 50px;
+  max-width: 700px;
 }
 
-/* Buttons */
+/* Course buttons */
 .button-group {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 35px;
   flex-wrap: wrap;
-  margin-bottom: 100px;
 }
 
-.btn {
-  padding: 18px 35px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #000;
+.course-btn {
+  width: 120px;
+  padding: 18px 0;
+  border-radius: 14px;
+  text-align: center;
   font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
-.btn span {
-  display: block;
-  font-size: 0.75rem;
-  margin-top: 4px;
-  font-weight: 400;
+.course-btn span {
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
-.bsc { background-color: #b6e5ff; }
-.ba { background-color: #c8f7dc; }
-.bcom { background-color: #ffe0b5; }
-
-.btn:hover {
+.course-btn:hover {
   transform: translateY(-4px);
-  transition: 0.3s ease;
 }
 
-/* Contact Section */
+.bsc { background: #9fc5d6; }
+.ba { background: #b8d8c0; }
+.bcom { background: #d8c3a5; }
+
+/* Features */
+.features {
+  max-width: 800px;
+  margin: 90px auto;
+}
+
+.features h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.features ul {
+  list-style: none;
+  line-height: 2;
+  font-size: 1rem;
+}
+
+/* Contact */
 .contact {
-  margin-top: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  text-align: center;
+  margin: 100px auto 40px;
+}
+
+.contact h2 {
+  margin-bottom: 25px;
 }
 
 .contact-btn {
-  padding: 15px 30px;
+  display: inline-block;
+  margin: 10px;
+  padding: 14px 28px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
+  color: #fff;
 }
 
 .email {
-  background-color: #1e90ff;
-  color: white;
+  background: #1f6fd1;
 }
 
 .telegram {
-  background-color: #2aa9e0;
-  color: white;
+  background: #2da5dd;
 }
