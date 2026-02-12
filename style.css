@@ -226,12 +226,11 @@ select {
   min-width: 900px;
 }
 
-.course-table th,
-.course-table td {
-  padding: 12px 14px;
+th, td {
+  padding: 12px 10px;
   text-align: center;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 0.95rem;
+  border: 1px solid #cfd6e0;   /* FULL GRID BORDERS */
+  font-size: 14px;
 }
 
 /* HEADER */
