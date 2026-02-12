@@ -207,3 +207,52 @@ select {
 .submit-btn:hover {
   background: #102d66;
 }
+/* TABLE TITLES */
+.table-title {
+  margin: 50px 0 15px;
+  font-size: 1.6rem;
+}
+
+/* TABLE WRAPPER FOR RESPONSIVENESS */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* COURSE TABLE */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  min-width: 900px;
+}
+
+.course-table th,
+.course-table td {
+  padding: 12px 14px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+}
+
+/* HEADER */
+.course-table th {
+  background: #0a1f44;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* LINKS */
+.course-table a {
+  color: #0a1f44;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.course-table a:hover {
+  text-decoration: underline;
+}
+
+/* ROW HOVER */
+.course-table tbody tr:hover {
+  background: #f5f7fa;
+}
