@@ -5,13 +5,13 @@ let selectedDiscipline = "";
 
 const disciplineButtons = document.querySelectorAll(".discipline-btn");
 
-disciplineButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
+disciplineButtons.forEach(button => {
+  button.addEventListener("click", () => {
 
-    disciplineButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
+    disciplineButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
 
-    selectedDiscipline = btn.dataset.discipline;
+    selectedDiscipline = button.dataset.discipline;
   });
 });
 
@@ -23,14 +23,37 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     return;
   }
 
-  // Example: chemistry + sem2 → chemsem2.html
-  let pageName = "";
+  let fileName = "";
 
-  if (selectedDiscipline === "chemistry") {
-    pageName = `chem${semester}.html`;
+  switch (selectedDiscipline) {
+    case "chemistry":
+      fileName = `chem${semester}.html`;
+      break;
+
+    case "physics":
+      fileName = `phy${semester}.html`;
+      break;
+
+    case "maths":
+      fileName = `math${semester}.html`;
+      break;
+
+    case "botany":
+      fileName = `bot${semester}.html`;
+      break;
+
+    case "zoology":
+      fileName = `zoo${semester}.html`;
+      break;
+
+    case "cs":
+      fileName = `csc${semester}.html`;
+      break;
+
+    default:
+      alert("Invalid selection");
+      return;
   }
 
-  // (You will later extend this logic for other disciplines)
-
-  window.location.href = pageName;
+  window.location.href = fileName;
 });
