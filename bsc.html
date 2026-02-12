@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FYUGP BSc Disciplines</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-page">
+
+  <section class="bsc-container">
+
+    <h1>FYUGP BSc Disciplines</h1>
+
+    <!-- DISCIPLINE BUTTONS -->
+    <div class="discipline-group">
+      <button class="discipline-btn" data-discipline="maths">FYUGP Mathematics</button>
+      <button class="discipline-btn" data-discipline="physics">FYUGP Physical Science</button>
+      <button class="discipline-btn" data-discipline="chemistry">FYUGP Chemistry</button>
+      <button class="discipline-btn" data-discipline="zoology">FYUGP Zoology</button>
+      <button class="discipline-btn" data-discipline="botany">FYUGP Botany</button>
+      <button class="discipline-btn" data-discipline="cs">FYUGP Computer Science</button>
+    </div>
+
+    <!-- SEMESTER SELECT -->
+    <div class="semester-box">
+      <label for="semester">Choose your semester</label>
+
+      <select id="semester">
+        <option value="">-- Select Semester --</option>
+        <option value="sem1">Semester 1</option>
+        <option value="sem2">Semester 2</option>
+        <option value="sem3">Semester 3</option>
+        <option value="sem4">Semester 4</option>
+        <option value="sem5" disabled>Semester 5 (Not available now)</option>
+        <option value="sem6" disabled>Semester 6 (Not available now)</option>
+        <option value="sem7" disabled>Semester 7 (Not available now)</option>
+        <option value="sem8" disabled>Semester 8 (Not available now)</option>
+      </select>
+    </div>
+
+    <!-- SUBMIT -->
+    <button class="submit-btn" id="submitBtn">Submit</button>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
