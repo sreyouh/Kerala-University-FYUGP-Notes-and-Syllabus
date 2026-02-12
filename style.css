@@ -1,1 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
+/* HERO */
+.hero {
+  background: url("images/ku.jpg") center/cover no-repeat;
+  height: 100vh;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.65);
+  height: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* MENU */
+.menu ul {
+  list-style: none;
+  max-width: 700px;
+  margin: auto;
+}
+
+.menu li {
+  padding: 12px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+/* COURSES */
+.courses {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 50px 20px;
+  background: #f5f7fa;
+}
+
+.course-btn {
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: none;
+  background: #e8edf3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.course-btn:hover {
+  background: #dbe3ec;
+  transform: translateY(-3px);
+}
+
+/* CONTRIBUTION */
+.contribute {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contribute h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.contribute p {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.send-btn {
+  margin-top: 20px;
+  padding: 14px 35px;
+  font-size: 1rem;
+  background: #0a1f44;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.send-btn:hover {
+  background: #102d66;
+}
+
+/* CONTACT */
+.contact {
+  padding: 50px 20px;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+.mail-btn {
+  padding: 14px 35px;
+  font-size: 1rem;
+  background: #ffffff;
+  border: 2px solid #0a1f44;
+  color: #0a1f44;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.mail-btn:hover {
+  background: #0a1f44;
+  color: #ffffff;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  background: #111;
+  color: #ccc;
+}
