@@ -256,3 +256,73 @@ select {
 .course-table tbody tr:hover {
   background: #f5f7fa;
 }
+/* ============================
+   SEMESTER TABLE STYLING
+   ============================ */
+
+.table-title {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #0a1f44;
+}
+
+/* Wrapper to avoid horizontal pain */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+/* Table base */
+.course-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Header */
+.course-table thead th {
+  background: #0a1f44;
+  color: #ffffff;
+  padding: 14px 12px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Body cells */
+.course-table tbody td {
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #222;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Text columns alignment */
+.course-table tbody td:first-child,
+.course-table tbody td:nth-child(2) {
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Row hover */
+.course-table tbody tr:hover {
+  background: #f5f7fa;
+}
+
+/* Links */
+.course-table a {
+  color: #0a1f44;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.course-table a:hover {
+  text-decoration: underline;
+}
