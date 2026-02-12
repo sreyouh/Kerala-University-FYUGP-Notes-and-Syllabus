@@ -1,30 +1,38 @@
-// Prevent scroll lag on mobile
-document.addEventListener("touchmove", function () {}, { passive: true });
 let selectedDiscipline = null;
 let selectedSemester = null;
 
-function selectDiscipline(btn, value) {
-  document.querySelectorAll('#disciplineGroup button')
-    .forEach(b => b.classList.remove('active'));
+/* discipline buttons */
+document.querySelectorAll(".discipline-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".discipline-btn")
+      .forEach(b => b.classList.remove("active"));
 
-  btn.classList.add('active');
-  selectedDiscipline = value;
-}
+    btn.classList.add("active");
+    selectedDiscipline = btn.dataset.discipline;
+  });
+});
 
-function selectSemester(btn, value) {
-  document.querySelectorAll('#semesterGroup button')
-    .forEach(b => b.classList.remove('active'));
+/* semester buttons */
+document.querySelectorAll(".semester-btn").forEach(btn => {
+  if (btn.classList.contains("disabled")) return;
 
-  btn.classList.add('active');
-  selectedSemester = value;
-}
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".semester-btn")
+      .forEach(b => b.classList.remove("active"));
 
-function submitSelection() {
+    btn.classList.add("active");
+    selectedSemester = btn.dataset.semester;
+  });
+});
+
+/* submit */
+document.getElementById("submitBtn").addEventListener("click", () => {
   if (!selectedDiscipline || !selectedSemester) {
-    alert("Please select both discipline and semester.");
+    alert("Please select both discipline and semester");
     return;
   }
 
-  window.location.href =
-    `results.html?course=bsc&discipline=${selectedDiscipline}&sem=${selectedSemester}`;
-}
+  const url = `${selectedDiscipline}-sem${selectedSemester}.html`;
+  window.location.href = url;
+});
+
