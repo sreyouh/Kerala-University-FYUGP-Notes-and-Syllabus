@@ -259,69 +259,135 @@ th, td {
    SEMESTER TABLE STYLING
    ============================ */
 
-.table-title {
-  margin-top: 50px;
-  margin-bottom: 15px;
-  font-size: 1.6rem;
-  color: #0a1f44;
+/* ===============================
+   GLOBAL PAGE BACKGROUND
+   =============================== */
+body.light-page {
+  background: linear-gradient(180deg, #f4f7fb, #eef2f7);
+  color: #111;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
-/* Wrapper to avoid horizontal pain */
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
+/* ===============================
+   MAIN CONTENT CONTAINER
+   =============================== */
+.semester-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 35px 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   HEADINGS & SUBTITLE
+   =============================== */
+h1 {
+  text-align: center;
+  color: #0a1f44;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #5b6b82;
+  font-size: 15px;
   margin-bottom: 30px;
 }
 
-/* Table base */
+.table-title {
+  color: #0a1f44;
+  margin-top: 40px;
+  margin-bottom: 14px;
+}
+
+/* ===============================
+   TABLE WRAPPER
+   =============================== */
+.table-wrapper {
+  background: #f9fbfe;
+  padding: 18px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+/* ===============================
+   TABLE BASE
+   =============================== */
 .course-table {
   width: 100%;
-  min-width: 1000px;
   border-collapse: collapse;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-/* Header */
-.course-table thead th {
-  background: #0a1f44;
+/* ===============================
+   TABLE HEADER
+   =============================== */
+.course-table thead {
+  background-color: #0a1f44;
   color: #ffffff;
-  padding: 14px 12px;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
 }
 
-/* Body cells */
-.course-table tbody td {
+.course-table th {
   padding: 14px 12px;
+  font-size: 14px;
+  font-weight: 600;
   text-align: center;
-  font-size: 0.95rem;
-  color: #222;
-  border-bottom: 1px solid #e5e7eb;
 }
 
-/* Text columns alignment */
-.course-table tbody td:first-child,
-.course-table tbody td:nth-child(2) {
+/* ===============================
+   TABLE BODY
+   =============================== */
+.course-table td {
+  padding: 14px 12px;
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 1px solid #e4ebf5;
+}
+
+/* Left-align text-heavy columns */
+.course-table td:nth-child(1),
+.course-table td:nth-child(2) {
   text-align: left;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-/* Row hover */
+/* ===============================
+   ROW HOVER EFFECT
+   =============================== */
 .course-table tbody tr:hover {
-  background: #f5f7fa;
+  background-color: #f1f6ff;
 }
 
-/* Links */
+/* ===============================
+   LINKS AS BUTTONS
+   =============================== */
 .course-table a {
-  color: #0a1f44;
-  font-weight: 600;
   text-decoration: none;
+  padding: 6px 10px;
+  background-color: #e8f0ff;
+  color: #0a1f44;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .course-table a:hover {
-  text-decoration: underline;
+  background-color: #0a1f44;
+  color: #ffffff;
 }
+
+/* ===============================
+   FOOTER
+   =============================== */
+footer {
+  text-align: center;
+  margin: 30px 0 10px;
+  font-size: 13px;
+  color: #6c7a90;
+}
+
