@@ -109,7 +109,14 @@
   color: #444;
   margin-bottom: 15px;
 }
-
+.highlight-box {
+  max-width: 900px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 50px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 .link {
   color: #0066cc;
   text-decoration: none;
