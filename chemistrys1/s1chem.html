@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chemistry Semester 1 | FYUGP</title>
+  <link rel="stylesheet" href="s1chem.css">
+</head>
 
+<body class="s1-page">
+
+  <header class="s1-header">
+    <h1>Chemistry – Semester I</h1>
+    <p>FYUGP | Kerala University</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input 
+      type="text" 
+      id="courseSearch" 
+      placeholder="Search course (e.g. organic, polymer, environmental...)"
+      onkeyup="filterCourses()"
+    >
+  </div>
+
+  <!-- DSC COURSES -->
+  <section class="course-section">
+    <h2>DSC Courses</h2>
+
+    <div class="course-list">
+
+      <!-- COURSE 1 -->
+      <div class="course-card">
+        <div>
+          <h3>Inorganic Chemistry I</h3>
+          <span>UK1DSCCHE100</span>
+        </div>
+        <a href="chedsc1ino.html" class="select-btn">Select</a>
+      </div>
+
+      <!-- COURSE 2 -->
+      <div class="course-card">
+        <div>
+          <h3>Fundamentals of Chemistry I</h3>
+          <span>UK1DSCCHE101</span>
+        </div>
+        <a href="chedsc1fun.html" class="select-btn">Select</a>
+      </div>
+
+      <!-- COURSE 3 -->
+      <div class="course-card">
+        <div>
+          <h3>Chemical Frontiers – Bonding to Environmental Perspectives</h3>
+          <span>UK1DSCCHE102</span>
+        </div>
+        <a href="chedsc1che.html" class="select-btn">Select</a>
+      </div>
+
+      <!-- COURSE 4 -->
+      <div class="course-card">
+        <div>
+          <h3>Foundations of Inorganic & Polymer Chemistry</h3>
+          <span>UK1DSCCHE103</span>
+        </div>
+        <a href="chedsc1inopoly.html" class="select-btn">Select</a>
+      </div>
+
+      <!-- COURSE 5 -->
+      <div class="course-card">
+        <div>
+          <h3>General Inorganic Chemistry</h3>
+          <span>UK1DSCCHE104</span>
+        </div>
+        <a href="chedsc1genino.html" class="select-btn">Select</a>
+      </div>
+
+      <!-- COURSE 6 -->
+      <div class="course-card">
+        <div>
+          <h3>General Chemistry I</h3>
+          <span>UK1DSCCHE105</span>
+        </div>
+        <a href="chedsc1genche.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MDC COURSES -->
+  <section class="course-section">
+    <h2>MDC Courses</h2>
+
+    <div class="course-list">
+
+      <!-- MDC 1 -->
+      <div class="course-card">
+        <div>
+          <h3>Fundamental Aspects of Environmental Chemistry</h3>
+          <span>UK1MDCCHE100</span>
+        </div>
+        <a href="chemdc1fuas.html" class="select-btn">Select</a>
+      </div>
+
+      <!-- MDC 2 -->
+      <div class="course-card">
+        <div>
+          <h3>Polymers and Biopolymers</h3>
+          <span>UK1MDCCHE101</span>
+        </div>
+        <a href="chemdc1pol.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function filterCourses() {
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".course-card");
+
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
