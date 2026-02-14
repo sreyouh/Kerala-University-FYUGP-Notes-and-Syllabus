@@ -27,8 +27,12 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
 
   switch (selectedDiscipline) {
     case "chemistry":
-      fileName = `chem${semester}.html`;
-      break;
+  if (semester === "1") {
+    fileName = "chemistrys1/s1chem.html";
+  } else {
+    fileName = `chem${semester}.html`;
+  }
+  break;
 
     case "physics":
       fileName = `phy${semester}.html`;
