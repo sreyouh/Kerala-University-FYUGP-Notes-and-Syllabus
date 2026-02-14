@@ -93,31 +93,60 @@
   pointer-events: none;
 }
 
-/* CONTRIBUTION */
-/* DEEPER COLORS + MOBILE ALIGNMENT */
-.highlight-box {
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%) !important;
-  border: 1px solid rgba(10,31,68,0.15) !important;
-}
+
 
 /* FORCE BUTTON COLORS */
-a.send-btn {
-  background: #0a1f44 !important;
-  color: white !important;
-  border: none !important;
-  text-decoration: none !important;
-  padding: 16px 45px !important;
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  border-radius: 50px !important;
-  box-shadow: 0 10px 20px rgba(10,31,68,0.25) !important;
-  display: inline-block !important;
-  margin: 10px 0 !important;
+/* FIXED HIGHLIGHT-BOX - COMPLETE */
+.highlight-box {
+  max-width: 900px;
+  margin: 60px auto;
+  background: linear-gradient(145deg, #f0f4f8, #e2e8f0);
+  padding: 60px 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(10, 31, 68, 0.12);
+  border: 1px solid rgba(10, 31, 68, 0.08);
+  text-align: center;
 }
 
-a.send-btn:hover {
-  background: #1a3a73 !important;
-  transform: translateY(-2px) !important;
+.highlight-box h2 {
+  font-size: 2.2rem;
+  color: #0a1f44;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.highlight-box p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.send-btn, a.send-btn {
+  padding: 16px 45px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #0a1f44 !important;
+  color: white !important;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(10, 31, 68, 0.2);
+  display: inline-block;
+}
+
+.send-btn:hover, a.send-btn:hover {
+  background: #1a3a73;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(10, 31, 68, 0.3);
+}
+
+.link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 /* --- ATTRACTIVE DISCIPLINE BUTTONS --- */
