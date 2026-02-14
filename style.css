@@ -93,50 +93,105 @@
   pointer-events: none;
 }
 
-
 /* CONTRIBUTION */
-.contribute {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.contribute h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-.contribute p {
-  color: #444;
-  margin-bottom: 15px;
-}
+/* --- REFINED CONTRIBUTION SECTION --- */
 .highlight-box {
   max-width: 900px;
   margin: 60px auto;
-  background: #ffffff;
-  padding: 50px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+  padding: 60px 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(10, 31, 68, 0.1);
+  border: 1px solid rgba(10, 31, 68, 0.05);
+  text-align: center;
 }
-.link {
-  color: #0066cc;
-  text-decoration: none;
-  font-weight: 600;
+
+.highlight-box h2 {
+  font-size: 2.2rem;
+  color: #0a1f44;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.highlight-box p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto 30px;
 }
 
 .send-btn {
-  margin-top: 20px;
-  padding: 14px 35px;
-  font-size: 1rem;
+  margin-top: 25px;
+  padding: 16px 45px;
+  font-size: 1.1rem;
+  font-weight: 600;
   background: #0a1f44;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px; /* Rounded pill shape is classier */
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(10, 31, 68, 0.2);
 }
 
 .send-btn:hover {
-  background: #102d66;
+  background: #1a3a73;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(10, 31, 68, 0.3);
 }
+
+/* --- ATTRACTIVE DISCIPLINE BUTTONS --- */
+.discipline-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.discipline-btn {
+  padding: 18px 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #ffffff;
+  color: #0a1f44;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.discipline-btn:hover {
+  border-color: #0a1f44;
+  background: #f8fafc;
+  transform: scale(1.02);
+}
+
+.discipline-btn.active {
+  background: #0a1f44;
+  color: #ffffff;
+  border-color: #0a1f44;
+  box-shadow: 0 8px 15px rgba(10, 31, 68, 0.2);
+}
+
+/* --- REFINED SELECT BOX --- */
+select {
+  padding: 14px;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  appearance: none; /* Removes default arrow to style a custom one if desired */
+  background-color: white;
+}
+
+select:focus {
+  border-color: #0a1f44;
+}
+
+
 
 /* CONTACT */
 .contact {
