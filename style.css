@@ -25,6 +25,22 @@
   letter-spacing: 1px;
 }
 
+.features {
+  max-width: 800px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.feature-card {
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  font-size: 1.05rem;
+  backdrop-filter: blur(6px);
+}
 /* MENU */
 .menu ul {
   list-style: none;
