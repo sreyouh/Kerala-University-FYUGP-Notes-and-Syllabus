@@ -1,1 +1,107 @@
+/* ================================
+   CHEMISTRY COURSE PAGE – COMMON CSS
+   File: chemcourse.css
+   Applies to ALL individual course pages
+   ================================ */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* PAGE WRAPPER */
+.course-container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* COURSE HEADER */
+.course-header {
+  background: linear-gradient(135deg, #0a1f44, #102d66);
+  color: #ffffff;
+  padding: 35px 30px;
+  border-radius: 14px;
+  margin-bottom: 40px;
+}
+
+.course-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.course-header p {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* SECTION TITLE */
+.section-title {
+  margin: 40px 0 15px;
+  font-size: 1.4rem;
+  color: #0a1f44;
+}
+
+/* TABLE WRAPPER */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* COMMON TABLE STYLE */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* TABLE HEAD */
+.course-table th {
+  background: #0a1f44;
+  color: #ffffff;
+  padding: 14px;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+/* TABLE BODY */
+.course-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e3e8f1;
+  font-size: 0.95rem;
+}
+
+.course-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* LINKS */
+.course-table a {
+  color: #0a1f44;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.course-table a:hover {
+  text-decoration: underline;
+}
+
+/* ROW HOVER */
+.course-table tbody tr:hover {
+  background: #f1f6ff;
+}
+
+/* FOOTER SPACE */
+.page-end-space {
+  height: 40px;
+  }
