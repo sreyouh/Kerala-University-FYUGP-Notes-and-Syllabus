@@ -246,76 +246,7 @@ select {
 .submit-btn:hover {
   background: #102d66;
 }
-/* TABLE TITLES */
-.table-title {
-  margin: 50px 0 15px;
-  font-size: 1.6rem;
-}
 
-/* TABLE WRAPPER FOR RESPONSIVENESS */
-.table-wrapper {
-  overflow-x: auto;
-}
-
-/* COURSE TABLE */
-.course-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  min-width: 900px;
-}
-
-th, td {
-  padding: 12px 10px;
-  text-align: center;
-  border: 1px solid #cfd6e0;   /* FULL GRID BORDERS */
-  font-size: 14px;
-}
-
-/* HEADER */
-.course-table th {
-  background: #0a1f44;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-/* LINKS */
-.course-table a {
-  color: #0a1f44;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.course-table a:hover {
-  text-decoration: underline;
-}
-
-/* ROW HOVER */
-.course-table tbody tr:hover {
-  background: #f5f7fa;
-}
-   TABLE BODY
-   =============================== */
-.course-table td {
-  padding: 14px 12px;
-  font-size: 14px;
-  text-align: center;
-  border-bottom: 1px solid #e4ebf5;
-}
-
-/* Left-align text-heavy columns */
-.course-table td:nth-child(1),
-.course-table td:nth-child(2) {
-  text-align: left;
-  font-weight: 500;
-}
-
-/* ===============================
-   ROW HOVER EFFECT
-   =============================== */
-.course-table tbody tr:hover {
-  background-color: #f1f6ff;
-}
 
 
 
