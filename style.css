@@ -56,27 +56,43 @@
 
 /* COURSES */
 .courses {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 25px;
-  padding: 50px 20px;
+  padding: 60px 20px;
   background: #f5f7fa;
 }
 
-.course-btn {
-  padding: 18px 40px;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  border: none;
-  background: #e8edf3;
-  cursor: pointer;
+.course-card {
+  padding: 30px 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
-.course-btn:hover {
-  background: #dbe3ec;
-  transform: translateY(-3px);
+.course-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #0a1f44;
 }
+
+.course-card p {
+  color: #555;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+}
+
+.course-card.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 
 /* CONTRIBUTION */
 .contribute {
