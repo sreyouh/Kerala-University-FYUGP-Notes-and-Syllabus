@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mathematics – Semester I | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+  <header class="s1-header">
+    <h1>Mathematics – Semester I</h1>
+    <p>FYUGP | Kerala University</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="courseSearch"
+      placeholder="Search course (e.g. calculus, number, matrices...)"
+      onkeyup="filterCourses()"
+    >
+  </div>
+
+  <!-- DSC COURSES -->
+  <section class="course-section">
+    <h2>DSC Courses</h2>
+
+    <div class="course-list">
+
+      <!-- DSC COURSES -->
+      <!-- Copy-paste safe structure -->
+
+      <div class="course-card">
+        <div>
+          <h3>Foundations of Mathematics</h3>
+          <span>UK1DSCMAT100</span>
+        </div>
+        <a href="matdsc1foundmat.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Differential Calculus and Linear Algebra</h3>
+          <span>UK1DSCMAT101</span>
+        </div>
+        <a href="matdsc1difcallin.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Differentiation, Sequences and Series</h3>
+          <span>UK1DSCMAT102</span>
+        </div>
+        <a href="matdsc1difseqser.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Differentiation and Linear System of Equations</h3>
+          <span>UK1DSCMAT103</span>
+        </div>
+        <a href="matdsc1diflineeq.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Differentiation and Theory of Numbers</h3>
+          <span>UK1DSCMAT104</span>
+        </div>
+        <a href="matdsc1difthenu.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Differentiation and Complex Numbers</h3>
+          <span>UK1DSCMAT105</span>
+        </div>
+        <a href="matdsc1difcomnu.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Number Theory and Linear System of Equations</h3>
+          <span>UK1DSCMAT106</span>
+        </div>
+        <a href="matdsc1numtlieq.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Relations, Functions and Number Theory</h3>
+          <span>UK1DSCMAT107</span>
+        </div>
+        <a href="matdsc1relfunnum.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Differential Calculus</h3>
+          <span>UK1DSCMAT108</span>
+        </div>
+        <a href="matdsc1dica.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Mathematics for Social Sciences – I</h3>
+          <span>UK1DSCMAT109</span>
+        </div>
+        <a href="matdsc1social.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Matrices and Linear Equations</h3>
+          <span>UK1DSCMAT110</span>
+        </div>
+        <a href="matdsc1matriceline.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MDC COURSES -->
+  <section class="course-section">
+    <h2>MDC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Numerical Ability – I</h3>
+          <span>UK1MDCMAT100</span>
+        </div>
+        <a href="matmdc1numab.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Mathematical Thinking</h3>
+          <span>UK1MDCMAT101</span>
+        </div>
+        <a href="matmdc1matthink.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function filterCourses() {
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".course-card");
+
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+  </html>
