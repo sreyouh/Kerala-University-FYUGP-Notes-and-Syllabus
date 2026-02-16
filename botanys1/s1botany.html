@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Botany – Semester I | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+  <header class="s1-header">
+    <h1>Botany – Semester I</h1>
+    <p>FYUGP | Kerala University</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="courseSearch"
+      placeholder="Search course (e.g. plant, morphology, forensic...)"
+      onkeyup="filterCourses()"
+    >
+  </div>
+
+  <!-- DSC COURSES -->
+  <section class="course-section">
+    <h2>DSC Courses</h2>
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Plant World I</h3>
+          <span>UK1DSCBOT101</span>
+        </div>
+        <a href="UK1DSCBOT101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Introductory Botany</h3>
+          <span>UK1DSCBOT102</span>
+        </div>
+        <a href="UK1DSCBOT102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Fundamentals and Scope of Botany</h3>
+          <span>UK1DSCBOT103</span>
+        </div>
+        <a href="UK1DSCBOT103.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Plants in Daily Life</h3>
+          <span>UK1DSCBOT104</span>
+        </div>
+        <a href="UK1DSCBOT104.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Morphology of Flowering Plants</h3>
+          <span>UK1DSCBOT105</span>
+        </div>
+        <a href="UK1DSCBOT105.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MDC COURSES -->
+  <section class="course-section">
+    <h2>MDC Courses</h2>
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Landscaping and Gardening</h3>
+          <span>UK1MDCBOT101</span>
+        </div>
+        <a href="UK1MDCBOT101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Floriculture</h3>
+          <span>UK1MDCBOT102</span>
+        </div>
+        <a href="UK1MDCBOT102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Botany in Forensic Science</h3>
+          <span>UK1MDCBOT103</span>
+        </div>
+        <a href="UK1MDCBOT103.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function filterCourses() {
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".course-card");
+
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
