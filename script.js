@@ -35,8 +35,13 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   break;
 
     case "physics":
-      fileName = `phy${semester}.html`;
-      break;
+  if (semester === "1") {
+    fileName = "physicss1/s1physics.html";
+  } else {
+    fileName = `phy${semester}.html`;
+  }
+  break;
+
 
     case "maths":
       if (semester === "1") {
