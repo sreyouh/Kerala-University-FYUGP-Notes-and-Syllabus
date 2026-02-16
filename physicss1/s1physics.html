@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics – Semester I | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+  <header class="s1-header">
+    <h1>Physics – Semester I</h1>
+    <p>FYUGP | Kerala University</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="courseSearch"
+      placeholder="Search course (e.g. mechanics, energy, solids...)"
+      onkeyup="filterCourses()"
+    >
+  </div>
+
+  <!-- DSC COURSES -->
+  <section class="course-section">
+    <h2>DSC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Foundation Course in Physics – I</h3>
+          <span>UK1DSCPHY100</span>
+        </div>
+        <a href="UK1DSCPHY100.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Principles of Dynamics</h3>
+          <span>UK1DSCPHY101</span>
+        </div>
+        <a href="UK1DSCPHY101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Properties of Solids</h3>
+          <span>UK1DSCPHY102</span>
+        </div>
+        <a href="UK1DSCPHY102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Introduction to Mechanics and Energy Resources</h3>
+          <span>UK1DSCPHY103</span>
+        </div>
+        <a href="UK1DSCPHY103.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MDC COURSES -->
+  <section class="course-section">
+    <h2>MDC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Elementary Data Analysis</h3>
+          <span>UK1MDCPHY100</span>
+        </div>
+        <a href="UK1MDCPHY100.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Environmental Physics</h3>
+          <span>UK1MDCPHY101</span>
+        </div>
+        <a href="UK1MDCPHY101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Green Energy</h3>
+          <span>UK1MDCPHY102</span>
+        </div>
+        <a href="UK1MDCPHY102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Physics in Arts and Sports</h3>
+          <span>UK1MDCPHY103</span>
+        </div>
+        <a href="UK1MDCPHY103.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Physics of Everyday Appliances</h3>
+          <span>UK1MDCPHY104</span>
+        </div>
+        <a href="UK1MDCPHY104.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function filterCourses() {
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".course-card");
+
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
