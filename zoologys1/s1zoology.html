@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoology – Semester I | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+  <header class="s1-header">
+    <h1>Zoology – Semester I</h1>
+    <p>FYUGP | Kerala University</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="courseSearch"
+      placeholder="Search course (e.g. diversity, nervous, wildlife...)"
+      onkeyup="filterCourses()"
+    >
+  </div>
+
+  <!-- DSC COURSES -->
+  <section class="course-section">
+    <h2>DSC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Non-Chordate Diversity – Part I</h3>
+          <span>UK1DSCZOO101</span>
+        </div>
+        <a href="UK1DSCZOO101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Diversity of Non-chordates</h3>
+          <span>UK1DSCZOO102</span>
+        </div>
+        <a href="UK1DSCZOO102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Wildlife Biology and Conservation</h3>
+          <span>UK1DSCZOO103</span>
+        </div>
+        <a href="UK1DSCZOO103.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Human Nervous System and Behaviour</h3>
+          <span>UK1DSCZOO104</span>
+        </div>
+        <a href="UK1DSCZOO104.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MDC COURSES -->
+  <section class="course-section">
+    <h2>MDC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Health and Sex Education</h3>
+          <span>UK1MDCZOO101</span>
+        </div>
+        <a href="UK1MDCZOO101.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function filterCourses() {
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".course-card");
+
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
