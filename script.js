@@ -59,9 +59,14 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   }
   break;   
 
-    case "zoology":
-      fileName = `zoo${semester}.html`;
-      break;
+     case "zoology":
+  if (semester === "1") {
+    fileName = "zoologys1/s1zoology.html";
+  } else {
+    fileName = `zoo${semester}.html`;
+  }
+  break;
+
 
     case "cs":
       fileName = `csc${semester}.html`;
