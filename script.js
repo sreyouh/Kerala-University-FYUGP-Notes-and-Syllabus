@@ -67,10 +67,18 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   }
   break;
 
+  case "cs":
+  if (semester === "1") {
+    fileName = "css1/s1cs.html";
+  } else {
+    fileName = `csc${semester}.html`;
+  }
+  break;
 
-    case "cs":
-      fileName = `csc${semester}.html`;
-      break;
+
+      
+
+    
 
     default:
       alert("Invalid selection");
