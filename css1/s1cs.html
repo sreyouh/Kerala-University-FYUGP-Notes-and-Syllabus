@@ -1,1 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Science – Semester I | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+  <header class="s1-header">
+    <h1>Computer Science – Semester I</h1>
+    <p>FYUGP | Kerala University</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input
+      type="text"
+      id="courseSearch"
+      placeholder="Search course (e.g. C, web, data, AI...)"
+      onkeyup="filterCourses()"
+    >
+  </div>
+
+  <!-- ================= DSC COURSES ================= -->
+  <section class="course-section">
+    <h2>DSC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Essentials of Computer Science</h3>
+          <span>UK1DSCCSC100</span>
+        </div>
+        <a href="UK1DSCCSC100.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Programming using C</h3>
+          <span>UK1DSCCSC101</span>
+        </div>
+        <a href="UK1DSCCSC101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Digital Electronics</h3>
+          <span>UK1DSCCSC102</span>
+        </div>
+        <a href="UK1DSCCSC102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Introduction to Web Programming</h3>
+          <span>UK1DSCCSC103</span>
+        </div>
+        <a href="UK1DSCCSC103.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Informatics</h3>
+          <span>UK1DSCCSC104</span>
+        </div>
+        <a href="UK1DSCCSC104.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Internet Technology</h3>
+          <span>UK1DSCCSC105</span>
+        </div>
+        <a href="UK1DSCCSC105.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Data Science Fundamentals</h3>
+          <span>UK1DSCCSC106</span>
+        </div>
+        <a href="UK1DSCCSC106.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Introduction to Artificial Intelligence</h3>
+          <span>UK1DSCCSC107</span>
+        </div>
+        <a href="UK1DSCCSC107.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Health Informatics</h3>
+          <span>UK1DSCCSC108</span>
+        </div>
+        <a href="UK1DSCCSC108.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MDC COURSES ================= -->
+  <section class="course-section">
+    <h2>MDC Courses</h2>
+
+    <div class="course-list">
+
+      <div class="course-card">
+        <div>
+          <h3>Web Designing using HTML5 and CSS3</h3>
+          <span>UK1MDCCSC100</span>
+        </div>
+        <a href="UK1MDCCSC100.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Introduction to IT</h3>
+          <span>UK1MDCCSC101</span>
+        </div>
+        <a href="UK1MDCCSC101.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Basics of Microprocessors</h3>
+          <span>UK1MDCCSC102</span>
+        </div>
+        <a href="UK1MDCCSC102.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Introduction to Data Science</h3>
+          <span>UK1MDCCSC103</span>
+        </div>
+        <a href="UK1MDCCSC103.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Animation using Blender</h3>
+          <span>UK1MDCCSC104</span>
+        </div>
+        <a href="UK1MDCCSC104.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Health Informatics</h3>
+          <span>UK1MDCCSC105</span>
+        </div>
+        <a href="UK1MDCCSC105.html" class="select-btn">Select</a>
+      </div>
+
+      <div class="course-card">
+        <div>
+          <h3>Environmental Informatics</h3>
+          <span>UK1MDCCSC106</span>
+        </div>
+        <a href="UK1MDCCSC106.html" class="select-btn">Select</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    function filterCourses() {
+      let input = document.getElementById("courseSearch").value.toLowerCase();
+      let cards = document.querySelectorAll(".course-card");
+
+      cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+            </html>
