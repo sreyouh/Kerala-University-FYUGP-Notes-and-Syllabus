@@ -81,7 +81,7 @@ if (program === "ba") {
       
   case "economics":
   if (semester === "1") {
-    fileName = "economics1/s1economics.html";
+    fileName = "economicss1/s1economics.html";
   } else {
     fileName = `eco${semester}.html`;
   }
