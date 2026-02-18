@@ -1,36 +1,34 @@
 console.log("Kerala University FYUGP site loaded successfully");
 
 let selectedDiscipline = "";
-const program = document.body.dataset.program; // "bsc" or "ba"
 
+/* ================= SAFE PROGRAM DETECTION ================= */
+const program = document.body.dataset.program;
+
+/* 🚨 HARD GUARD: stop script on pages without program */
 if (!program) {
-  console.error("data-program attribute missing on <body>");
+  console.warn("No program detected. Routing disabled on this page.");
 }
 
-const disciplineButtons = document.querySelectorAll(".discipline-btn");
-const submitBtn = document.getElementById("submitBtn");
-const semesterSelect = document.getElementById("semester");
-
 /* ================= DISCIPLINE SELECTION ================= */
+const disciplineButtons = document.querySelectorAll(".discipline-btn");
 
 disciplineButtons.forEach(button => {
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-
+  button.addEventListener("click", () => {
     disciplineButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
-
     selectedDiscipline = button.dataset.discipline;
-    console.log("Selected discipline:", selectedDiscipline);
   });
 });
 
 /* ================= SUBMIT HANDLER ================= */
+document.getElementById("submitBtn")?.addEventListener("click", () => {
+  if (!program) {
+    alert("Invalid program configuration");
+    return;
+  }
 
-submitBtn?.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  const semester = semesterSelect?.value;
+  const semester = document.getElementById("semester").value;
 
   if (!selectedDiscipline || !semester) {
     alert("Please select both discipline and semester");
@@ -86,12 +84,12 @@ submitBtn?.addEventListener("click", (e) => {
   }
 
   /* ================= BA ROUTING ================= */
-  else if (program === "ba") {
+  if (program === "ba") {
     switch (selectedDiscipline) {
 
       case "economics":
         fileName = semester === "1"
-          ? "economics1/s1economics.html"
+          ? "economicss1/s1economics.html"
           : `eco${semester}.html`;
         break;
 
@@ -113,19 +111,25 @@ submitBtn?.addEventListener("click", (e) => {
     }
   }
 
-  else {
-    alert("Invalid program configuration");
-    return;
-  }
-
-  /* ================= FINAL SAFETY CHECK ================= */
-
-  if (!fileName) {
-    alert("Routing error. File not resolved.");
-    console.error("Routing failed:", { program, selectedDiscipline, semester });
-    return;
-  }
-
   console.log("Redirecting to:", fileName);
   window.location.href = fileName;
-});      
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
