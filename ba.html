@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FYUGP BA Disciplines</title>
 
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light-page">
+
+  <section class="bsc-container">
+
+    <h1>FYUGP BA Disciplines</h1>
+
+    <!-- DISCIPLINE BUTTONS -->
+    <div class="discipline-group">
+      <button class="discipline-btn" data-discipline="economics">FYUGP Economics</button>
+      <button class="discipline-btn" data-discipline="political">FYUGP Political Science</button>
+      <button class="discipline-btn" data-discipline="english">FYUGP English</button>
+      <button class="discipline-btn" data-discipline="malayalam">FYUGP Malayalam</button>
+    </div>
+
+    <!-- SEMESTER SELECT -->
+    <div class="semester-box">
+      <label for="semester">Choose your semester</label>
+
+      <select id="semester">
+        <option value="">-- Select Semester --</option>
+        <option value="1">Semester 1</option>
+        <option value="2">Semester 2</option>
+        <option value="3">Semester 3</option>
+        <option value="4">Semester 4</option>
+        <option value="5" disabled>5 (Not available now)</option>
+        <option value="6" disabled>6 (Not available now)</option>
+      </select>
+    </div>
+
+    <!-- SUBMIT -->
+    <button class="submit-btn" id="submitBtn">Submit</button>
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
