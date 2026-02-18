@@ -75,7 +75,29 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   }
   break;
 
+  case "economics":
+  if (semester === "1") {
+    fileName = "economics1/s1economics.html";
+  }
+  break;
 
+case "political":
+  if (semester === "1") {
+    fileName = "politicals1/s1political.html";
+  }
+  break;
+
+case "english":
+  if (semester === "1") {
+    fileName = "englishs1/s1english.html";
+  }
+  break;
+
+case "malayalam":
+  if (semester === "1") {
+    fileName = "malayalams1/s1malayalam.html";
+  }
+  break;
       
 
     
