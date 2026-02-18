@@ -83,7 +83,7 @@ if (program === "ba") {
   if (semester === "1") {
     fileName = "economics1/s1economics.html";
   } else {
-    fileName = 'eco${semester}.html';
+    fileName = `eco${semester}.html`;
   }
   break;
 
