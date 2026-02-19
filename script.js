@@ -94,8 +94,10 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
         break;
 
       case "political":
-        fileName = "politicals1/s1political.html";
-        break;
+  fileName = semester === "1"
+    ? "politicals1/s1political.html"
+    : `political${semester}.html`;
+  break;
 
       case "english":
         fileName = "englishs1/s1english.html";
