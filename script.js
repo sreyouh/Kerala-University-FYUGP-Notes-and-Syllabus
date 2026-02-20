@@ -100,12 +100,12 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   break;
 
       case "english":
-        fileName = "englishs1/s1english.html";
-        break;
+  fileName = "english/english.html";
+  break;
 
-      case "malayalam":
-        fileName = "malayalams1/s1malayalam.html";
-        break;
+case "malayalam":
+  fileName = "malayalam/malayalam.html";
+  break;
 
       default:
         alert("Invalid BA discipline");
