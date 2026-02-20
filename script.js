@@ -100,12 +100,14 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   break;
 
       case "english":
-  fileName = "english/english.html";
-  break;
+      // SAME PAGE FOR ALL SEMESTERS
+      fileName = "english/english.html";
+      break;
 
-case "malayalam":
-  fileName = "malayalam/malayalam.html";
-  break;
+    case "malayalam":
+      // SAME PAGE FOR ALL SEMESTERS
+      fileName = "malayalam/malayalam.html";
+      break;
 
       default:
         alert("Invalid BA discipline");
