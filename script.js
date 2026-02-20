@@ -99,10 +99,16 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     : `political${semester}.html`;
   break;
 
-      case "english":
-      // SAME PAGE FOR ALL SEMESTERS
-      fileName = "english/english.html";
-      break;
+     case "english":
+  if (
+    semester === "1" ||
+    semester === "2" ||
+    semester === "3" ||
+    semester === "4"
+  ) {
+    fileName = "english/english.html";
+  }
+  break;
 
     case "malayalam":
       // SAME PAGE FOR ALL SEMESTERS
