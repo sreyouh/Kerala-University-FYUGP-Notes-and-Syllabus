@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mathematics – Semester II | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Mathematics – Semester II</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card"><div><h3>Theory of Equations, Differential Calculus and Geometry</h3><span>UK2DSCMAT100</span></div><a href="UK2DSCMAT100.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Integration and Multivariate Calculus</h3><span>UK2DSCMAT101</span></div><a href="UK2DSCMAT101.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Integration and Applications of Differentiation</h3><span>UK2DSCMAT102</span></div><a href="UK2DSCMAT102.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Integral Calculus and Vectors</h3><span>UK2DSCMAT103</span></div><a href="UK2DSCMAT103.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Integral Calculus and ODE</h3><span>UK2DSCMAT104</span></div><a href="UK2DSCMAT104.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Applications of Differentiation and ODE</h3><span>UK2DSCMAT105</span></div><a href="UK2DSCMAT105.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Linear Algebra and Graph Theory</h3><span>UK2DSCMAT106</span></div><a href="UK2DSCMAT106.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Mathematics for Social Sciences – II</h3><span>UK2DSCMAT107</span></div><a href="UK2DSCMAT107.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Integral Calculus and Series</h3><span>UK2DSCMAT108</span></div><a href="UK2DSCMAT108.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Matrices and Linear Equations</h3><span>UK2DSCMAT109</span></div><a href="UK2DSCMAT109.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Partial Differentiation and Analytic Functions</h3><span>UK2DSCMAT110</span></div><a href="UK2DSCMAT110.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Differential and Integral Calculus</h3><span>UK2DSCMAT111</span></div><a href="UK2DSCMAT111.html" class="select-btn">Select</a></div>
+
+  </div>
+</section>
+
+<!-- ================= MDC ================= -->
+<section class="course-section">
+  <h2>MDC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card"><div><h3>Numerical Ability – II</h3><span>UK2MDCMAT100</span></div><a href="UK2MDCMAT100.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Business Mathematics</h3><span>UK2MDCMAT101</span></div><a href="UK2MDCMAT101.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Basic Operations Research</h3><span>UK2MDCMAT102</span></div><a href="UK2MDCMAT102.html" class="select-btn">Select</a></div>
+    <div class="course-card"><div><h3>Modular Arithmetic and Cryptography</h3><span>UK2MDCMAT103</span></div><a href="UK2MDCMAT103.html" class="select-btn">Select</a></div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  let input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input) ? "flex" : "none";
+  });
+}
+</script>
+
+</body>
+                                                                                                         </html>
