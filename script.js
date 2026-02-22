@@ -51,14 +51,12 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   if (semester === "1") {
     fileName = "physicss1/s1physics.html";
   } else if (semester === "2") {
-    fileName = "physicss2/S2physics.html";
+    fileName = "physicss2/s2physics.html";
   } else {
     fileName = `phy${semester}.html`;
   }
   break;
 
-
-        
 
       case "maths":
   if (semester === "1") {
