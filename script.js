@@ -42,10 +42,14 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     switch (selectedDiscipline) {
 
       case "chemistry":
-        fileName = semester === "1"
-          ? "chemistrys1/s1chem.html"
-          : `chem${semester}.html`;
-        break;
+  if (semester === "1") {
+    fileName = "chemistrys1/s1chem.html";
+  } else if (semester === "2") {
+    fileName = "chemistrys2/s2chem.html";
+  } else {
+    fileName = `chem${semester}.html`;
+  }
+  break;
 
       case "physics":
   if (semester === "1") {
