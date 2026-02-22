@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chemistry – Semester II | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Chemistry – Semester II</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Organic Chemistry I</h3><span>UK2DSCCHE100</span></div>
+      <a href="UK2DSCCHE100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Fundamentals of Chemistry II</h3><span>UK2DSCCHE101</span></div>
+      <a href="UK2DSCCHE101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Essentials of Inorganic Chemistry</h3><span>UK2DSCCHE102</span></div>
+      <a href="UK2DSCCHE102.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Essentials of Organic Chemistry</h3><span>UK2DSCCHE103</span></div>
+      <a href="UK2DSCCHE103.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Bioorganic Chemistry & Colloids</h3><span>UK2DSCCHE104</span></div>
+      <a href="UK2DSCCHE104.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Biomolecules and Biophysical Chemistry – I</h3><span>UK2DSCCHE105</span></div>
+      <a href="UK2DSCCHE105.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>General Chemistry II</h3><span>UK2DSCCHE106</span></div>
+      <a href="UK2DSCCHE106.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MDC COURSES ================= -->
+<section class="course-section">
+  <h2>MDC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Chemistry in Everyday Life</h3><span>UK2MDCCHE100</span></div>
+      <a href="UK2MDCCHE100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Food Chemistry</h3><span>UK2MDCCHE101</span></div>
+      <a href="UK2MDCCHE101.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  let input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input) ? "flex" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
