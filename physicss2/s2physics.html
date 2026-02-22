@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics – Semester II | FYUGP</title>
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
 
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Physics – Semester II</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Foundation Course in Physics – II</h3><span>UK2DSCPHY100</span></div>
+      <a href="UK2DSCPHY100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Electricity, Magnetism and Acoustics</h3><span>UK2DSCPHY101</span></div>
+      <a href="UK2DSCPHY101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Optics and Thermodynamics</h3><span>UK2DSCPHY102</span></div>
+      <a href="UK2DSCPHY102.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Modern Physics</h3><span>UK2DSCPHY103</span></div>
+      <a href="UK2DSCPHY103.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MDC COURSES ================= -->
+<section class="course-section">
+  <h2>MDC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Archaeo Physics</h3><span>UK2MDCPHY100</span></div>
+      <a href="UK2MDCPHY100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Basics of Artificial Intelligence</h3><span>UK2MDCPHY101</span></div>
+      <a href="UK2MDCPHY101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Beyond the Sky</h3><span>UK2MDCPHY102</span></div>
+      <a href="UK2MDCPHY102.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Foundations in Forensic Science</h3><span>UK2MDCPHY103</span></div>
+      <a href="UK2MDCPHY103.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Medical Physics</h3><span>UK2MDCPHY104</span></div>
+      <a href="UK2MDCPHY104.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  let input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input) ? "flex" : "none";
+  });
+}
+</script>
+
+</body>
+      </html>
