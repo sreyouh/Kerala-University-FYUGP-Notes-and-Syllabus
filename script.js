@@ -79,10 +79,14 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
         break;
 
       case "zoology":
-        fileName = semester === "1"
-          ? "zoologys1/s1zoology.html"
-          : `zoo${semester}.html`;
-        break;
+  if (semester === "1") {
+    fileName = "zoologys1/s1zoology.html";
+  } else if (semester === "2") {
+    fileName = "zoologys2/s2zoology.html";
+  } else {
+    fileName = `zoo${semester}.html`;
+  }
+  break;
 
       case "cs":
         fileName = semester === "1"
