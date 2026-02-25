@@ -93,10 +93,14 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   break;
 
       case "cs":
-        fileName = semester === "1"
-          ? "css1/s1cs.html"
-          : `csc${semester}.html`;
-        break;
+  if (semester === "1") {
+    fileName = "css1/s1cs.html";
+  } else if (semester === "2") {
+    fileName = "css2/s2cs.html";
+  } else {
+    fileName = `cs${semester}.html`;
+  }
+  break;
 
       default:
         alert("Invalid BSc discipline");
