@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Science – Semester II | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS USED ACROSS SITE -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Computer Science – Semester II</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search course..."
+    onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Free and Open Source Softwares</h3><span>UK2DSCCSC100</span></div>
+      <a href="UK2DSCCSC100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Python Programming</h3><span>UK2DSCCSC101</span></div>
+      <a href="UK2DSCCSC101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Computer System Management</h3><span>UK2DSCCSC102</span></div>
+      <a href="UK2DSCCSC102.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Introduction to Biometric Systems</h3><span>UK2DSCCSC103</span></div>
+      <a href="UK2DSCCSC103.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>E-Commerce</h3><span>UK2DSCCSC104</span></div>
+      <a href="UK2DSCCSC104.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Multimedia Systems</h3><span>UK2DSCCSC105</span></div>
+      <a href="UK2DSCCSC105.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Python for Data Analytics</h3><span>UK2DSCCSC106</span></div>
+      <a href="UK2DSCCSC106.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>R Programming for Data Science</h3><span>UK2DSCCSC107</span></div>
+      <a href="UK2DSCCSC107.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Knowledge Representation and Intelligent Agents</h3><span>UK2DSCCSC108</span></div>
+      <a href="UK2DSCCSC108.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Electronic Health Record System</h3><span>UK2DSCCSC109</span></div>
+      <a href="UK2DSCCSC109.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MDC COURSES ================= -->
+<section class="course-section">
+  <h2>MDC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Digital Marketing</h3><span>UK2MDCCSC100</span></div>
+      <a href="UK2MDCCSC100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Office Automation</h3><span>UK2MDCCSC101</span></div>
+      <a href="UK2MDCCSC101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Social Media Management</h3><span>UK2MDCCSC102</span></div>
+      <a href="UK2MDCCSC102.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Digital Logic Systems</h3><span>UK2MDCCSC103</span></div>
+      <a href="UK2MDCCSC103.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Data Science using Python</h3><span>UK2MDCCSC104</span></div>
+      <a href="UK2MDCCSC104.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+      </html>
