@@ -123,11 +123,16 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   }
   break;
 
-      case "political":
-  fileName = semester === "1"
-    ? "politicals1/s1political.html"
-    : `political${semester}.html`;
+     case "political":
+  if (semester === "1") {
+    fileName = "politicals1/s1political.html";
+  } else if (semester === "2") {
+    fileName = "politicals2/s2political.html";
+  } else {
+    fileName = "politicals1/s1political.html"; // fallback safety
+  }
   break;
+        
 
      case "english":
   if (
