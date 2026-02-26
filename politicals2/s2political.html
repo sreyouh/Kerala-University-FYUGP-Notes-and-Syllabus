@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Political Science – Semester II | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Political Science – Semester II</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search course..."
+    onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Indian Constitution at Work</h3>
+        <span>UK2DSCPOS100</span>
+      </div>
+      <a href="UK2DSCPOS100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Issues in Indian Politics</h3>
+        <span>UK2DSCPOS101</span>
+      </div>
+      <a href="UK2DSCPOS101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>India and the World</h3>
+        <span>UK2DSCPOS102</span>
+      </div>
+      <a href="UK2DSCPOS102.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MDC COURSES ================= -->
+<section class="course-section">
+  <h2>MDC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Women’s Rights in India</h3>
+        <span>UK2MDCPOS100</span>
+      </div>
+      <a href="UK2MDCPOS100.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+</html>
