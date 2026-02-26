@@ -113,10 +113,15 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     switch (selectedDiscipline) {
 
       case "economics":
-        fileName = semester === "1"
-          ? "economicss1/s1economics.html"
-          : `eco${semester}.html`;
-        break;
+  if (semester === "1") {
+    fileName = "economicss1/s1economics.html";
+  } else if (semester === "2") {
+    fileName = "economicss2/s2economics.html";
+  } else {
+    alert("Invalid semester selection");
+    return;
+  }
+  break;
 
       case "political":
   fileName = semester === "1"
