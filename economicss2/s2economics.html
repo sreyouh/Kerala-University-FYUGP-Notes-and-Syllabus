@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Economics – Semester II | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS AS EXAMPLE -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Economics – Semester II</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search course..."
+    onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Tools for Economic Analysis</h3>
+        <span>UK2DSCECO100</span>
+      </div>
+      <a href="UK2DSCECO100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Fundamentals of Macroeconomics</h3>
+        <span>UK2DSCECO101</span>
+      </div>
+      <a href="UK2DSCECO101.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>International Political Economy</h3>
+        <span>UK2DSCECO102</span>
+      </div>
+      <a href="UK2DSCECO102.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Managerial Economics</h3>
+        <span>UK2DSCECO103</span>
+      </div>
+      <a href="UK2DSCECO103.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Industrial Economics</h3>
+        <span>UK2DSCECO104</span>
+      </div>
+      <a href="UK2DSCECO104.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Economic History of India</h3>
+        <span>UK2DSCECO105</span>
+      </div>
+      <a href="UK2DSCECO105.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= MDC COURSES ================= -->
+<section class="course-section">
+  <h2>MDC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Global Economic Issues</h3>
+        <span>UK2MDCECO100</span>
+      </div>
+      <a href="UK2MDCECO100.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Survey Techniques in Social Sciences</h3>
+        <span>UK2MDCECO101</span>
+      </div>
+      <a href="UK2MDCECO101.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
