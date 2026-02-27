@@ -61,16 +61,19 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
   }
   break;
 
-
       case "maths":
   if (semester === "1") {
     fileName = "mathss1/s1maths.html";
   } else if (semester === "2") {
     fileName = "mathss2/s2maths.html";
+  } else if (semester === "3") {
+    fileName = "mathss3/s3maths.html";
   } else {
-    fileName = `math${semester}.html`;
+    alert("Mathematics content for this semester is not available now.");
+    return;
   }
   break;
+        
 
       case "botany":
   if (semester === "1") {
