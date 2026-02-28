@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS AS OTHER LIST PAGES -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Physics – Semester III</h1>
+  <p>FYUGP | University of Kerala</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search course..."
+    onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Basic Electronics</h3>
+        <span>UK3DSCPHY200</span>
+      </div>
+      <a href="UK3DSCPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Digital Electronics and Data Science</h3>
+        <span>UK3DSCPHY201</span>
+      </div>
+      <a href="UK3DSCPHY201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Solid State Physics and Spectroscopy</h3>
+        <span>UK3DSCPHY202</span>
+      </div>
+      <a href="UK3DSCPHY202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Heat, Magnetism and Geophysics</h3>
+        <span>UK3DSCPHY203</span>
+      </div>
+      <a href="UK3DSCPHY203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Light, Electricity and Emerging Energy Sources</h3>
+        <span>UK3DSCPHY204</span>
+      </div>
+      <a href="UK3DSCPHY204.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Fundamentals of Earth–Atmosphere System</h3>
+        <span>UK3DSEPHY200</span>
+      </div>
+      <a href="UK3DSEPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Circuit Elements and Network Theorems</h3>
+        <span>UK3DSEPHY201</span>
+      </div>
+      <a href="UK3DSEPHY201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Basics of Nanoscience and Nanotechnology</h3>
+        <span>UK3DSEPHY202</span>
+      </div>
+      <a href="UK3DSEPHY202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Fundamentals of Astrophysics</h3>
+        <span>UK3DSEPHY203</span>
+      </div>
+      <a href="UK3DSEPHY203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Introduction to Medical Physics</h3>
+        <span>UK3DSEPHY204</span>
+      </div>
+      <a href="UK3DSEPHY204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Mathematical Tools for Physics</h3>
+        <span>UK3DSEPHY205</span>
+      </div>
+      <a href="UK3DSEPHY205.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Computer Hardware and Operating System</h3>
+        <span>UK3DSEPHY206</span>
+      </div>
+      <a href="UK3DSEPHY206.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Energy Crisis, Sustainability and Management</h3>
+        <span>UK3VACPHY200</span>
+      </div>
+      <a href="UK3VACPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Introduction to Laboratory Safety and Measurements</h3>
+        <span>UK3VACPHY201</span>
+      </div>
+      <a href="UK3VACPHY201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>The History of Physics and Its Influence on Society</h3>
+        <span>UK3VACPHY202</span>
+      </div>
+      <a href="UK3VACPHY202.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+</html>
