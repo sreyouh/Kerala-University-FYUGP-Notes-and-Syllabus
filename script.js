@@ -56,10 +56,16 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "physicss1/s1physics.html";
   } else if (semester === "2") {
     fileName = "physicss2/s2physics.html";
+  } else if (semester === "3") {
+    fileName = "physicss3/s3physics.html";
   } else {
-    fileName = `phy${semester}.html`;
+    alert("Physics not available for this semester yet");
+    return;
   }
   break;
+
+
+        
 
       case "maths":
   if (semester === "1") {
