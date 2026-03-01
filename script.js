@@ -46,10 +46,14 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "chemistrys1/s1chem.html";
   } else if (semester === "2") {
     fileName = "chemistrys2/s2chem.html";
+  } else if (semester === "3") {
+    fileName = "chemistrys3/s3chem.html";
   } else {
-    fileName = `chem${semester}.html`;
+    alert(" Available soon");
+    return;
   }
   break;
+
 
       case "physics":
   if (semester === "1") {
