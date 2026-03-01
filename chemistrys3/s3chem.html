@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chemistry – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS PATTERN AS OTHER LIST PAGES -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Chemistry – Semester III</h1>
+  <p>FYUGP | University of Kerala</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search course..."
+    onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Physical Chemistry I</h3>
+        <span>UK3DSCCHE200</span>
+      </div>
+      <a href="UK3DSCCHE200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Essentials of Physical Chemistry</h3>
+        <span>UK3DSCCHE201</span>
+      </div>
+      <a href="UK3DSCCHE201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Chemical Insights: From Soil to Petrochemicals</h3>
+        <span>UK3DSCCHE202</span>
+      </div>
+      <a href="UK3DSCCHE202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Natural Product Chemistry</h3>
+        <span>UK3DSCCHE203</span>
+      </div>
+      <a href="UK3DSCCHE203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Chemistry Unveiled: Everyday Applications</h3>
+        <span>UK3DSCCHE204</span>
+      </div>
+      <a href="UK3DSCCHE204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Biomolecules and Biophysical Chemistry II</h3>
+        <span>UK3DSCCHE205</span>
+      </div>
+      <a href="UK3DSCCHE205.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>General Chemistry III</h3>
+        <span>UK3DSCCHE206</span>
+      </div>
+      <a href="UK3DSCCHE206.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Environmental Chemistry I</h3>
+        <span>UK3DSECHE200</span>
+      </div>
+      <a href="UK3DSECHE200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Chemistry for Renewable and Clean Energy I</h3>
+        <span>UK3DSECHE201</span>
+      </div>
+      <a href="UK3DSECHE201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Analytical Chemistry I</h3>
+        <span>UK3DSECHE202</span>
+      </div>
+      <a href="UK3DSECHE202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Industrial Chemistry I</h3>
+        <span>UK3DSECHE203</span>
+      </div>
+      <a href="UK3DSECHE203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Polymer Chemistry I</h3>
+        <span>UK3DSECHE204</span>
+      </div>
+      <a href="UK3DSECHE204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Forensic Chemistry I</h3>
+        <span>UK3DSECHE205</span>
+      </div>
+      <a href="UK3DSECHE205.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Chemistry of Nanomaterials I</h3>
+        <span>UK3DSECHE206</span>
+      </div>
+      <a href="UK3DSECHE206.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Medicinal and Pharmaceutical Chemistry I</h3>
+        <span>UK3DSECHE207</span>
+      </div>
+      <a href="UK3DSECHE207.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Laboratory Safety</h3>
+        <span>UK3VACCHE200</span>
+      </div>
+      <a href="UK3VACCHE200.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
