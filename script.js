@@ -100,10 +100,12 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "zoologys1/s1zoology.html";
   } else if (semester === "2") {
     fileName = "zoologys2/s2zoology.html";
-  } else {
-    fileName = `zoo${semester}.html`;
+  } else if (semester === "3") {
+    fileName = "zoologys3/s3zoology.html";
   }
   break;
+
+        
 
       case "cs":
   if (semester === "1") {
