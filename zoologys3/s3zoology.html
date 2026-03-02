@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoology – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Zoology – Semester III</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search course..."
+    onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Chordate Diversity – Part I</h3>
+        <span>UK3DSCZOO201</span>
+      </div>
+      <a href="UK3DSCZOO201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Diversity of Chordates</h3>
+        <span>UK3DSCZOO202</span>
+      </div>
+      <a href="UK3DSCZOO202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Concepts of Ethology</h3>
+        <span>UK3DSCZOO203</span>
+      </div>
+      <a href="UK3DSCZOO203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Body Functions and Regulation</h3>
+        <span>UK3DSCZOO204</span>
+      </div>
+      <a href="UK3DSCZOO204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Human Parasitology and Vector-borne Diseases</h3>
+        <span>UK3DSCZOO205</span>
+      </div>
+      <a href="UK3DSCZOO205.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Fisheries Science I – Taxonomy and Fishery Biology</h3>
+        <span>UK3DSEZOO201</span>
+      </div>
+      <a href="UK3DSEZOO201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Entomology I – General Entomology</h3>
+        <span>UK3DSEZOO202</span>
+      </div>
+      <a href="UK3DSEZOO202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Environmental Science I – Global Environmental Issues</h3>
+        <span>UK3DSEZOO203</span>
+      </div>
+      <a href="UK3DSEZOO203.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Nutrition, Health and Wellness</h3>
+        <span>UK3VACZOO201</span>
+      </div>
+      <a href="UK3VACZOO201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+        </html>
