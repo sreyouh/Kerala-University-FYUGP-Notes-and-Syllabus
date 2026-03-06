@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Science – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Computer Science – Semester III</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Data Structures</h3><span>UK3DSCCSC200</span></div>
+      <a href="UK3DSCCSC200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>System Software</h3><span>UK3DSCCSC201</span></div>
+      <a href="UK3DSCCSC201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Microprocessor and Assembly Language Programming</h3><span>UK3DSCCSC202</span></div>
+      <a href="UK3DSCCSC202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Computer Graphics</h3><span>UK3DSCCSC203</span></div>
+      <a href="UK3DSCCSC203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Knowledge Representation and Reasoning</h3><span>UK3DSCCSC204</span></div>
+      <a href="UK3DSCCSC204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Visual Programming</h3><span>UK3DSCCSC205</span></div>
+      <a href="UK3DSCCSC205.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Low Code Application Development</h3><span>UK3DSCCSC206</span></div>
+      <a href="UK3DSCCSC206.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Cyber Crimes & Laws</h3><span>UK3DSCCSC207</span></div>
+      <a href="UK3DSCCSC207.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>E-Governance</h3><span>UK3DSCCSC208</span></div>
+      <a href="UK3DSCCSC208.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Data Mining Concepts and Techniques</h3><span>UK3DSCCSC209</span></div>
+      <a href="UK3DSCCSC209.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Data Visualisation</h3><span>UK3DSCCSC210</span></div>
+      <a href="UK3DSCCSC210.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Introduction to Machine Learning</h3><span>UK3DSCCSC211</span></div>
+      <a href="UK3DSCCSC211.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Medical Imaging and Analysis</h3><span>UK3DSCCSC212</span></div>
+      <a href="UK3DSCCSC212.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Health Data Analytics</h3><span>UK3DSCCSC213</span></div>
+      <a href="UK3DSCCSC213.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Introduction to Cyber Security</h3><span>UK3DSECSC200</span></div>
+      <a href="UK3DSECSC200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Data Science Fundamentals</h3><span>UK3DSECSC201</span></div>
+      <a href="UK3DSECSC201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Introduction to Artificial Intelligence</h3><span>UK3DSECSC202</span></div>
+      <a href="UK3DSECSC202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Web Development using HTML5 and CSS3</h3><span>UK3DSECSC203</span></div>
+      <a href="UK3DSECSC203.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Coding Standards and Practices</h3><span>UK3VACCSC200</span></div>
+      <a href="UK3VACCSC200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Professional Ethics in Computer Science</h3><span>UK3VACCSC201</span></div>
+      <a href="UK3VACCSC201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
