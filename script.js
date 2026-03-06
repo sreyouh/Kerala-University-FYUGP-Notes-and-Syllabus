@@ -140,9 +140,10 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "economicss1/s1economics.html";
   } else if (semester === "2") {
     fileName = "economicss2/s2economics.html";
+  } else if (semester === "3") {
+    fileName = "economicss3/s3eco.html";
   } else {
-    alert("Invalid semester selection");
-    return;
+    fileName = `eco${semester}.html`;
   }
   break;
 
