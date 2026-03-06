@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Economics – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Economics – Semester III</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+<h2>DSC Courses</h2>
+
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Microeconomics-1</h3><span>UK3DSCECO200</span></div>
+<a href="UK3DSCECO200.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Human Resource Planning</h3><span>UK3DSCECO201</span></div>
+<a href="UK3DSCECO201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Economic Demography</h3><span>UK3DSCECO202</span></div>
+<a href="UK3DSCECO202.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Economics of the Service Sector</h3><span>UK3DSCECO203</span></div>
+<a href="UK3DSCECO203.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Money and Banking</h3><span>UK3DSCECO204</span></div>
+<a href="UK3DSCECO204.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+<h2>DSE Courses</h2>
+
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Behavioral Economics</h3><span>UK3DSEECO200</span></div>
+<a href="UK3DSEECO200.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Economics of Insurance</h3><span>UK3DSEECO201</span></div>
+<a href="UK3DSEECO201.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+<h2>VAC Courses</h2>
+
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Environment and Climate Change</h3><span>UK3VACECO200</span></div>
+<a href="UK3VACECO200.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display =
+      card.innerText.toLowerCase().includes(input)
+        ? "flex"
+        : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
