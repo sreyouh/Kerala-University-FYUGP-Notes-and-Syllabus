@@ -90,10 +90,16 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "botanys1/s1botany.html";
   } else if (semester === "2") {
     fileName = "botanys2/s2botany.html";
+  } else if (semester === "3") {
+    fileName = "botanys3/s3bot.html";
   } else {
     fileName = `bot${semester}.html`;
   }
   break;
+
+
+
+        
 
       case "zoology":
   if (semester === "1") {
