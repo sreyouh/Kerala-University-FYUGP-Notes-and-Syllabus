@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Botany – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s3-page">
+
+<header class="s3-header">
+  <h1>Botany – Semester III</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Histology and Reproductive Botany</h3><span>UK3DSCBOT201</span></div>
+      <a href="UK3DSCBOT201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Floral Morphology, Systematic Botany and Ethnobotany</h3><span>UK3DSCBOT202</span></div>
+      <a href="UK3DSCBOT202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Bryophytes, Pteridophytes and Gymnosperms</h3><span>UK3DSCBOT203</span></div>
+      <a href="UK3DSCBOT203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Environmental Sciences</h3><span>UK3DSCBOT204</span></div>
+      <a href="UK3DSCBOT204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Biophysics and Biostatistics</h3><span>UK3DSCBOT205</span></div>
+      <a href="UK3DSCBOT205.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Ethnobotany & IPR</h3><span>UK3DSEBOT201</span></div>
+      <a href="UK3DSEBOT201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Forestry</h3><span>UK3DSEBOT202</span></div>
+      <a href="UK3DSEBOT202.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Green initiatives for Sustainability</h3><span>UK3VACBOT201</span></div>
+      <a href="UK3VACBOT201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Bioethics and IPR</h3><span>UK3VACBOT202</span></div>
+      <a href="UK3VACBOT202.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+</html>
