@@ -118,6 +118,8 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "css1/s1cs.html";
   } else if (semester === "2") {
     fileName = "css2/s2cs.html";
+  } else if (semester === "3") {
+    fileName = "css3/s3cs.html";
   } else {
     fileName = `cs${semester}.html`;
   }
