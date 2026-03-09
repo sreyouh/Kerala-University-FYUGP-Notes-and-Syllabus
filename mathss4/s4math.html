@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mathematics – Semester IV | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Mathematics – Semester IV</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Introduction to Real Analysis and Multiple Integrals</h3>
+        <span>UK4DSCMAT200</span>
+      </div>
+      <a href="UK4DSCMAT200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Partial Differentiation and Introduction to Abstract Algebra</h3>
+        <span>UK4DSCMAT201</span>
+      </div>
+      <a href="UK4DSCMAT201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Elementary Graph Theory</h3>
+        <span>UK4DSEMAT200</span>
+      </div>
+      <a href="UK4DSEMAT200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Introduction to Operations Research</h3>
+        <span>UK4DSEMAT201</span>
+      </div>
+      <a href="UK4DSEMAT201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Data Analysis using Python</h3>
+        <span>UK4DSEMAT202</span>
+      </div>
+      <a href="UK4DSEMAT202.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SEC COURSES ================= -->
+<section class="course-section">
+  <h2>SEC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Typesetting Documents with LATEX</h3>
+        <span>UK4SECMAT200</span>
+      </div>
+      <a href="UK4SECMAT200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Numerical Methods</h3>
+        <span>UK4SECMAT201</span>
+      </div>
+      <a href="UK4SECMAT201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div>
+        <h3>Introduction to Mathematical Modeling</h3>
+        <span>UK4VACMAT200</span>
+      </div>
+      <a href="UK4VACMAT200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div>
+        <h3>Mathematics in Nature</h3>
+        <span>UK4VACMAT201</span>
+      </div>
+      <a href="UK4VACMAT201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
