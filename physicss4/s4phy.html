@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Physics – Semester IV | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Physics – Semester IV</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Classical Dynamics</h3><span>UK4DSCPHY200</span></div>
+      <a href="UK4DSCPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Electromagnetics and Transient Currents</h3><span>UK4DSCPHY201</span></div>
+      <a href="UK4DSCPHY201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Atmospheric Thermodynamics (*AP)</h3><span>UK4DSEPHY200</span></div>
+      <a href="UK4DSEPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Basic Digital Principles and Applications (*EL)</h3><span>UK4DSEPHY201</span></div>
+      <a href="UK4DSEPHY201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Synthesis of Nanomaterials (*NS)</h3><span>UK4DSEPHY202</span></div>
+      <a href="UK4DSEPHY202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Solar Terrestrial Physics (*AP)</h3><span>UK4DSEPHY203</span></div>
+      <a href="UK4DSEPHY203.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Physical Aspects of Diagnostics</h3><span>UK4DSEPHY204</span></div>
+      <a href="UK4DSEPHY204.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>C++ Programming for Physics</h3><span>UK4DSEPHY205</span></div>
+      <a href="UK4DSEPHY205.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Fibre Optic Communication</h3><span>UK4DSEPHY206</span></div>
+      <a href="UK4DSEPHY206.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SEC COURSES ================= -->
+<section class="course-section">
+  <h2>SEC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Basic Instrumentation Skills</h3><span>UK4SECPHY200</span></div>
+      <a href="UK4SECPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Wiring and Electrical Devices</h3><span>UK4SECPHY201</span></div>
+      <a href="UK4SECPHY201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Introductory Course on Physics in Financial Market</h3><span>UK4VACPHY200</span></div>
+      <a href="UK4VACPHY200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Research and Publication Ethics</h3><span>UK4VACPHY201</span></div>
+      <a href="UK4VACPHY201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Disaster Management</h3><span>UK4VACPHY202</span></div>
+      <a href="UK4VACPHY202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Capstone Internship</h3><span>UK4INTPHY200</span></div>
+      <a href="UK4INTPHY200.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
