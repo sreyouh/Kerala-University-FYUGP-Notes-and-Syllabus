@@ -152,6 +152,8 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "politicals1/s1political.html";
   } else if (semester === "2") {
     fileName = "politicals2/s2political.html";
+  } else if (semester === "3") {
+    fileName = "politicals3/s3political.html";
   } else {
     fileName = "politicals1/s1political.html"; // fallback safety
   }
