@@ -62,6 +62,8 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "physicss2/s2physics.html";
   } else if (semester === "3") {
     fileName = "physicss3/s3physics.html";
+  } else if (semester === "4") {
+    fileName = "physicss4/s4phy.html";
   } else {
     alert("Physics not available for this semester yet");
     return;
