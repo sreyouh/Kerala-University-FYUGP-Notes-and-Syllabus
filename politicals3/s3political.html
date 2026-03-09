@@ -1,1 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Political Science – Semester III | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Political Science – Semester III</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Dynamics of Indian Political System</h3><span>UK3DSCPOS200</span></div>
+      <a href="UK3DSCPOS200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Contemporary Issues in Global Politics</h3><span>UK3DSCPOS201</span></div>
+      <a href="UK3DSCPOS201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>State and Society in Kerala</h3><span>UK3DSCPOS202</span></div>
+      <a href="UK3DSCPOS202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Essentials of Administration</h3><span>UK3DSCPOS203</span></div>
+      <a href="UK3DSCPOS203.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Political Sociology</h3><span>UK3DSEPOS200</span></div>
+      <a href="UK3DSEPOS200.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Social Inclusion and Exclusion</h3><span>UK3DSEPOS201</span></div>
+      <a href="UK3DSEPOS201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Human Rights in India</h3><span>UK3DSEPOS202</span></div>
+      <a href="UK3DSEPOS202.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Our Laws, Our Rights</h3><span>UK3VACPOS200</span></div>
+      <a href="UK3VACPOS200.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+</html>
