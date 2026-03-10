@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Botany – Semester IV | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Botany – Semester IV</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+<h2>DSC Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Lower Cryptogams, Phytopathology and Microbiology</h3><span>UK4DSCBOT201</span></div>
+<a href="UK4DSCBOT201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Archegoniates and Paleobotany</h3><span>UK4DSCBOT202</span></div>
+<a href="UK4DSCBOT202.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Diversity of Lower Plants</h3><span>UK4DSCBOT203</span></div>
+<a href="UK4DSCBOT203.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Diversity of Non-Flowering Plants and Paleobotany</h3><span>UK4DSCBOT204</span></div>
+<a href="UK4DSCBOT204.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+<h2>DSE Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Herbal Technology</h3><span>UK4DSEBOT201</span></div>
+<a href="UK4DSEBOT201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Food Science and Quality Control</h3><span>UK4DSEBOT202</span></div>
+<a href="UK4DSEBOT202.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= SEC COURSES ================= -->
+<section class="course-section">
+<h2>SEC Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Mushroom Cultivation</h3><span>UK4SECBOT201</span></div>
+<a href="UK4SECBOT201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Organic Agriculture Practices</h3><span>UK4SECBOT202</span></div>
+<a href="UK4SECBOT202.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Basics of Plant Tissue Culture</h3><span>UK4SECBOT203</span></div>
+<a href="UK4SECBOT203.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+<h2>VAC Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Entrepreneurship in Plant Science</h3><span>UK4VACBOT201</span></div>
+<a href="UK4VACBOT201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Biodegradable Waste Management</h3><span>UK4VACBOT202</span></div>
+<a href="UK4VACBOT202.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Phytonutraceuticals</h3><span>UK4VACBOT203</span></div>
+<a href="UK4VACBOT203.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Disaster Management</h3><span>UK4VACBOT204</span></div>
+<a href="UK4VACBOT204.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+                                                 </html>
