@@ -100,6 +100,8 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "botanys2/s2botany.html";
   } else if (semester === "3") {
     fileName = "botanys3/s3bot.html";
+  } else if (semester === "4") {
+    fileName = "botanys4/s4bot.html";
   } else {
     fileName = `bot${semester}.html`;
   }
