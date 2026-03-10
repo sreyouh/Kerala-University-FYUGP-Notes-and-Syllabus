@@ -48,11 +48,16 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "chemistrys2/s2chem.html";
   } else if (semester === "3") {
     fileName = "chemistrys3/s3chem.html";
+  } else if (semester === "4") {
+    fileName = "chemistrys4/s4chem.html";
+  } else if (semester === "5") {
+    alert("Semester 5 Chemistry will be available soon.");
+    return;
   } else {
-    alert(" Available soon");
+    alert("Available soon");
     return;
   }
-  break;
+  break;    
 
 
       case "physics":
