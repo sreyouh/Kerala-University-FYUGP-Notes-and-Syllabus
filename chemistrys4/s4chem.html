@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chemistry – Semester IV | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Chemistry – Semester IV</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+<h2>DSC Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Inorganic Chemistry II</h3><span>UK4DSCCHE200</span></div>
+<a href="UK4DSCCHE200.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Analytical Principles I</h3><span>UK4DSCCHE201</span></div>
+<a href="UK4DSCCHE201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Organic Chemistry II</h3><span>UK4DSCCHE202</span></div>
+<a href="UK4DSCCHE202.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Concepts of Polymer Chemistry</h3><span>UK4DSCCHE203</span></div>
+<a href="UK4DSCCHE203.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+<h2>DSE Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Environmental Chemistry II</h3><span>UK4DSECHE200</span></div>
+<a href="UK4DSECHE200.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Chemistry for Renewable and Clean Energy II</h3><span>UK4DSECHE201</span></div>
+<a href="UK4DSECHE201.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Analytical Chemistry II</h3><span>UK4DSECHE202</span></div>
+<a href="UK4DSECHE202.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Industrial Chemistry II</h3><span>UK4DSECHE203</span></div>
+<a href="UK4DSECHE203.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Polymer Chemistry II</h3><span>UK4DSECHE204</span></div>
+<a href="UK4DSECHE204.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Forensic Chemistry II</h3><span>UK4DSECHE205</span></div>
+<a href="UK4DSECHE205.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Chemistry of Nanomaterials II</h3><span>UK4DSECHE206</span></div>
+<a href="UK4DSECHE206.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Medicinal and Pharmaceutical Chemistry II</h3><span>UK4DSECHE207</span></div>
+<a href="UK4DSECHE207.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= SEC COURSES ================= -->
+<section class="course-section">
+<h2>SEC Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Water Quality Analysis</h3><span>UK4SECCHE200</span></div>
+<a href="UK4SECCHE200.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Practical Skills in Chemistry</h3><span>UK4SECCHE201</span></div>
+<a href="UK4SECCHE201.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+<h2>VAC Courses</h2>
+<div class="course-list">
+
+<div class="course-card">
+<div><h3>Sustainable Chemistry</h3><span>UK4VACCHE200</span></div>
+<a href="UK4VACCHE200.html" class="select-btn">Select</a>
+</div>
+
+<div class="course-card">
+<div><h3>Scientific Communication and Ethics</h3><span>UK4VACCHE201</span></div>
+<a href="UK4VACCHE201.html" class="select-btn">Select</a>
+</div>
+
+</div>
+</section>
+
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+</html>
