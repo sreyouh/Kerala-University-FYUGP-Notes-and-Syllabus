@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zoology – Semester IV | FYUGP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SAME CSS -->
+  <link rel="stylesheet" href="../chemistrys1/s1chem.css">
+</head>
+
+<body class="s1-page">
+
+<header class="s1-header">
+  <h1>Zoology – Semester IV</h1>
+  <p>FYUGP | Kerala University</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="courseSearch" placeholder="Search course..." onkeyup="filterCourses()">
+</div>
+
+<!-- ================= DSC COURSES ================= -->
+<section class="course-section">
+  <h2>DSC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Chordate Diversity-Part II</h3><span>UK4DSCZOO201</span></div>
+      <a href="UK4DSCZOO201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Evolution and Zoogeography</h3><span>UK4DSCZOO202</span></div>
+      <a href="UK4DSCZOO202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Comparative Anatomy of Vertebrates</h3><span>UK4DSCZOO203</span></div>
+      <a href="UK4DSCZOO203.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DSE COURSES ================= -->
+<section class="course-section">
+  <h2>DSE Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Fisheries Science II- Principles of Aquaculture</h3><span>UK4DSEZOO201</span></div>
+      <a href="UK4DSEZOO201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Entomology II- Industrial Entomology</h3><span>UK4DSEZOO202</span></div>
+      <a href="UK4DSEZOO202.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Environmental Science II Environmental Pollution</h3><span>UK4DSEZOO203</span></div>
+      <a href="UK4DSEZOO203.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= VAC COURSES ================= -->
+<section class="course-section">
+  <h2>VAC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Communication and Popularisation of Life Sciences</h3><span>UK4VACZOO201</span></div>
+      <a href="UK4VACZOO201.html" class="select-btn">Select</a>
+    </div>
+
+    <div class="course-card">
+      <div><h3>Bioeconomics and Ecotourism</h3><span>UK4VACZOO202</span></div>
+      <a href="UK4VACZOO202.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= SEC COURSES ================= -->
+<section class="course-section">
+  <h2>SEC Courses</h2>
+  <div class="course-list">
+
+    <div class="course-card">
+      <div><h3>Livestock Management</h3><span>UK4SECZOO201</span></div>
+      <a href="UK4SECZOO201.html" class="select-btn">Select</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function filterCourses() {
+  const input = document.getElementById("courseSearch").value.toLowerCase();
+  document.querySelectorAll(".course-card").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input)
+      ? "flex"
+      : "none";
+  });
+}
+</script>
+
+</body>
+  </html>
