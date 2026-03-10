@@ -116,6 +116,8 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "zoologys2/s2zoology.html";
   } else if (semester === "3") {
     fileName = "zoologys3/s3zoology.html";
+  } else if (semester === "4") {
+    fileName = "zoologys4/s4zoology.html";
   }
   break;
 
