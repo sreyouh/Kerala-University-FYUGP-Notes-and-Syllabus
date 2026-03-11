@@ -1,51 +1,877 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FYUGP BSc Disciplines</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BSc — Kerala University FYUGP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a1628;
+      --deep: #0d1f3c;
+      --gold: #c9a84c;
+      --gold-light: #f0c96a;
+      --slate: #8a9bb5;
+      --white: #ffffff;
+      --card-bg: rgba(255,255,255,0.04);
+      --border: rgba(201,168,76,0.2);
+      --red: #e53e3e;
+    }
 
-  <link rel="stylesheet" href="style.css">
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── CUSTOM CURSOR ── */
+    .cursor {
+      width: 10px; height: 10px;
+      background: var(--gold); border-radius: 50%;
+      position: fixed; pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.5); border-radius: 50%;
+      position: fixed; pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, border-color 0.3s;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 52px;
+      background: rgba(10,22,40,0.7);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.4s, background 0.4s;
+    }
+    nav.scrolled { padding: 13px 52px; background: rgba(10,22,40,0.96); }
+
+    .nav-logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .nav-logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.3px;
+    }
+    .nav-logo-sub {
+      font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.42); font-weight: 400;
+    }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.55); text-decoration: none;
+      font-size: 0.85rem; letter-spacing: 0.5px; transition: color 0.2s;
+      position: relative; padding-bottom: 3px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.55); font-size: 0.85rem; text-decoration: none;
+      border: 1px solid var(--border); padding: 8px 18px; border-radius: 50px;
+      transition: color 0.25s, border-color 0.25s, background 0.25s;
+    }
+    .nav-back:hover { color: var(--gold); border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.06); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 62vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; padding: 140px 24px 80px; overflow: hidden; text-align: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.13) 0%, transparent 70%),
+                  linear-gradient(160deg, #0a1628 0%, #0d1f3c 50%, #071120 100%);
+    }
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(201,168,76,0.09) 0%, transparent 35%);
+      animation: pulse-bg 6s ease-in-out infinite alternate;
+    }
+    @keyframes pulse-bg { from{opacity:0.5} to{opacity:1} }
+
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black, transparent);
+    }
+
+    .orb { position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0; animation: float-orb 8s ease-in-out infinite; }
+    .orb-1 { width: 420px; height: 420px; background: rgba(201,168,76,0.07); top: -120px; right: -120px; }
+    .orb-2 { width: 300px; height: 300px; background: rgba(99,140,210,0.06); bottom: 0; left: -80px; animation-delay: -3s; }
+    @keyframes float-orb { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-30px) scale(1.05)} }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.38);
+      padding: 8px 22px; border-radius: 50px;
+      font-size: 0.82rem; color: var(--white); margin-bottom: 26px;
+      animation: fade-up 0.8s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px; flex-shrink: 0;
+      background: var(--gold-light); border-radius: 50%;
+      animation: blink 1.5s ease infinite; box-shadow: 0 0 8px var(--gold);
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900; line-height: 1.1; margin-bottom: 20px;
+      animation: fade-up 0.8s 0.1s ease both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold) 20%, var(--gold-light) 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1rem; color: var(--slate); max-width: 480px; margin: 0 auto 0;
+      line-height: 1.75; font-weight: 300;
+      animation: fade-up 0.8s 0.2s ease both;
+    }
+
+    @keyframes fade-up { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── DISCIPLINE TABS ── */
+    .selector-section {
+      background: var(--navy);
+      padding: 60px 24px 100px;
+    }
+    .selector-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 500; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+    .section-desc { color: var(--slate); font-size: 0.97rem; line-height: 1.75; }
+
+    .selector-header { margin-bottom: 48px; }
+
+    /* Discipline Pills */
+    .discipline-tabs {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px;
+    }
+    .disc-tab {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--card-bg); border: 1px solid var(--border);
+      padding: 11px 22px; border-radius: 50px;
+      font-size: 0.88rem; color: rgba(255,255,255,0.65); font-weight: 500;
+      cursor: none; transition: all 0.28s ease;
+      backdrop-filter: blur(10px);
+    }
+    .disc-tab:hover { border-color: rgba(201,168,76,0.5); color: var(--white); background: rgba(201,168,76,0.07); transform: translateY(-2px); }
+    .disc-tab.active {
+      background: linear-gradient(135deg, rgba(201,168,76,0.22), rgba(201,168,76,0.08));
+      border-color: rgba(201,168,76,0.7);
+      color: var(--gold-light);
+      box-shadow: 0 0 24px rgba(201,168,76,0.18);
+    }
+    .disc-tab .disc-icon { font-size: 1.1rem; }
+
+    /* Panel */
+    .discipline-panel {
+      display: none;
+      animation: panel-in 0.42s cubic-bezier(0.4,0,0.2,1) both;
+    }
+    .discipline-panel.active { display: block; }
+    @keyframes panel-in { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+
+    .panel-header {
+      display: flex; align-items: center; gap: 20px; margin-bottom: 36px;
+      padding: 28px 32px;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; backdrop-filter: blur(12px);
+    }
+    .panel-icon { font-size: 2.8rem; }
+    .panel-title { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; margin-bottom: 4px; }
+    .panel-desc { color: var(--slate); font-size: 0.88rem; line-height: 1.6; }
+
+    /* Semester Grid */
+    .semester-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .sem-card {
+      position: relative; overflow: hidden;
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px 24px;
+      text-decoration: none; color: var(--white);
+      cursor: none;
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1), border-color 0.3s, box-shadow 0.38s, background 0.3s;
+      backdrop-filter: blur(10px);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .sem-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(201,168,76,0.12) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.38s;
+    }
+    .sem-card:hover::before { opacity: 1; }
+    .sem-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(201,168,76,0.5);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15);
+    }
+    .sem-card.unavailable {
+      opacity: 0.4; pointer-events: none;
+      filter: grayscale(0.3);
+    }
+    .sem-card.coming {
+      opacity: 0.55; pointer-events: none;
+    }
+
+    .sem-num {
+      font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600;
+    }
+    .sem-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem; font-weight: 700; line-height: 1;
+    }
+    .sem-sub { color: var(--slate); font-size: 0.78rem; line-height: 1.5; }
+    .sem-arrow {
+      color: var(--gold); font-size: 0.8rem; margin-top: auto;
+      transition: transform 0.3s; display: inline-block;
+    }
+    .sem-card:hover .sem-arrow { transform: translateX(5px); }
+
+    .soon-badge {
+      position: absolute; top: 14px; right: 14px;
+      background: rgba(229,62,62,0.12); border: 1px solid rgba(229,62,62,0.45);
+      padding: 3px 10px; border-radius: 50px;
+      font-size: 0.6rem; letter-spacing: 1.5px; color: var(--red); font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ── HOW TO USE ── */
+    .howto-section {
+      background: linear-gradient(160deg, #0d1f3c 0%, #071120 100%);
+      padding: 80px 24px; position: relative; overflow: hidden;
+    }
+    .howto-section::before {
+      content: ''; position: absolute; top: -150px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .howto-inner {
+      max-width: 900px; margin: 0 auto; text-align: center;
+    }
+    .howto-inner .section-label, .howto-inner .section-title { text-align: center; }
+    .howto-inner .section-title { margin-bottom: 12px; }
+    .howto-inner .section-desc { margin: 0 auto 52px; max-width: 480px; text-align: center; }
+
+    .steps-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .how-step {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px 28px; text-align: left;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .how-step:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.4); }
+    .how-step-num {
+      width: 40px; height: 40px;
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: var(--gold); font-weight: 700; margin-bottom: 20px;
+    }
+    .how-step-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .how-step-desc { color: var(--slate); font-size: 0.85rem; line-height: 1.65; }
+
+    /* ── FOOTER ── */
+    footer { background: #060d19; border-top: 1px solid rgba(201,168,76,0.1); padding: 40px 24px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; }
+    .footer-logo span { display: block; color: var(--slate); font-family: 'DM Sans', sans-serif; font-size: 0.75rem; margin-top: 4px; }
+    .footer-copy { color: var(--slate); font-size: 0.8rem; }
+    .footer-link { color: var(--gold); text-decoration: none; }
+    .footer-link:hover { text-decoration: underline; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-links { display: none; }
+      body { cursor: auto; }
+      .cursor, .cursor-ring { display: none; }
+      .disc-tab, .sem-card { cursor: pointer; }
+      .panel-header { flex-direction: column; text-align: center; }
+      .semester-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    }
+  </style>
 </head>
+<body>
 
-<body class="light-page" data-program="bsc">
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-  <section class="bsc-container">
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">FYUGP Kerala University</span>
+      <span class="nav-logo-sub">Study Material Sharing Hub</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="index.html#contribute">Contribute</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html" class="nav-back">← Home</a></li>
+    </ul>
+  </nav>
 
-    <h1>FYUGP BSc Disciplines</h1>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-    <!-- DISCIPLINE BUTTONS -->
-    <div class="discipline-group">
-      <button class="discipline-btn" data-discipline="maths">FYUGP Mathematics</button>
-      <button class="discipline-btn" data-discipline="physics">FYUGP Physics</button>
-      <button class="discipline-btn" data-discipline="chemistry">FYUGP Chemistry</button>
-      <button class="discipline-btn" data-discipline="zoology">FYUGP Zoology</button>
-      <button class="discipline-btn" data-discipline="botany">FYUGP Botany</button>
-      <button class="discipline-btn" data-discipline="cs">FYUGP Computer Science</button>
+    <div class="hero-content">
+      <div class="hero-badge">
+        🔬 &nbsp;Bachelor of Science &nbsp;·&nbsp; Kerala University FYUGP
+      </div>
+      <h1>
+        BSc <em>Science</em><br>Resources
+      </h1>
+      <p class="hero-sub">
+        Select your discipline and semester below to access syllabus, curated notes, question banks and previous papers.
+      </p>
     </div>
-
-    <!-- SEMESTER SELECT -->
-    <div class="semester-box">
-      <label for="semester">Choose your semester</label>
-
-      <select id="semester">
-        <option value="">-- Select Semester --</option>
-        <option value="1">Semester 1</option>
-<option value="2">Semester 2</option>
-<option value="3">Semester 3</option>
-<option value="4">Semester 4</option>
-        <option value="5" disabled>5 (Not available now)</option>
-        <option value="6" disabled>6 (Not available now)</option>
-        <option value="7" disabled>7 (Not available now)</option>
-        <option value="8" disabled>8 (Not available now)</option>
-      </select>
-    </div>
-
-    <!-- SUBMIT -->
-    <button class="submit-btn" id="submitBtn">Submit</button>
-
   </section>
 
-  <script src="script.js"></script>
+  <!-- MAIN SELECTOR -->
+  <section class="selector-section">
+    <div class="selector-inner">
+
+      <div class="selector-header reveal">
+        <p class="section-label">BSc Disciplines</p>
+        <h2 class="section-title">Choose Your Subject</h2>
+        <p class="section-desc">Pick a discipline, then select the semester to open its resource page.</p>
+      </div>
+
+      <!-- Discipline Tabs -->
+      <div class="discipline-tabs reveal" style="transition-delay:0.1s">
+        <button class="disc-tab active" data-disc="chemistry" onclick="switchDiscipline('chemistry',this)">
+          <span class="disc-icon">⚗️</span> Chemistry
+        </button>
+        <button class="disc-tab" data-disc="physics" onclick="switchDiscipline('physics',this)">
+          <span class="disc-icon">⚛️</span> Physics
+        </button>
+        <button class="disc-tab" data-disc="maths" onclick="switchDiscipline('maths',this)">
+          <span class="disc-icon">📐</span> Mathematics
+        </button>
+        <button class="disc-tab" data-disc="botany" onclick="switchDiscipline('botany',this)">
+          <span class="disc-icon">🌿</span> Botany
+        </button>
+        <button class="disc-tab" data-disc="zoology" onclick="switchDiscipline('zoology',this)">
+          <span class="disc-icon">🦋</span> Zoology
+        </button>
+        <button class="disc-tab" data-disc="cs" onclick="switchDiscipline('cs',this)">
+          <span class="disc-icon">💻</span> Computer Science
+        </button>
+      </div>
+
+      <!-- ── CHEMISTRY PANEL ── -->
+      <div class="discipline-panel active reveal" id="panel-chemistry" style="transition-delay:0.15s">
+        <div class="panel-header">
+          <div class="panel-icon">⚗️</div>
+          <div>
+            <div class="panel-title">Chemistry</div>
+            <div class="panel-desc">Organic, Inorganic & Physical Chemistry — all semesters under FYUGP curriculum.</div>
+          </div>
+        </div>
+        <div class="semester-grid">
+          <a class="sem-card" href="chemistrys1/s1chem.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">01</span>
+            <span class="sem-sub">DSC,MDC courses</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="chemistrys2/s2chem.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">02</span>
+            <span class="sem-sub">DSC, MDC courses </span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="chemistrys3/s3chem.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">03</span>
+            <span class="sem-sub">DSC,DSE,VAC</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="chemistrys4/s4chem.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">04</span>
+            <span class="sem-sub">DSC,DSE,VAC,SEC</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <div class="sem-card coming">
+            <span class="soon-badge">Soon</span>
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">05</span>
+            <span class="sem-sub">Content coming soon</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">06</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PHYSICS PANEL ── -->
+      <div class="discipline-panel" id="panel-physics">
+        <div class="panel-header">
+          <div class="panel-icon">⚛️</div>
+          <div>
+            <div class="panel-title">Physics</div>
+            <div class="panel-desc">Classical Mechanics, Electromagnetism, Quantum & Modern Physics under FYUGP.</div>
+          </div>
+        </div>
+        <div class="semester-grid">
+          <a class="sem-card" href="physicss1/s1physics.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">01</span>
+            <span class="sem-sub">DSC,MDC courses</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="physicss2/s2physics.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">02</span>
+            <span class="sem-sub">DSC,MDC courses</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="physicss3/s3physics.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">03</span>
+            <span class="sem-sub">VAC and DSE added</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="physicss4/s4phy.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">04</span>
+            <span class="sem-sub">SEC added</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">05</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">06</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MATHEMATICS PANEL ── -->
+      <div class="discipline-panel" id="panel-maths">
+        <div class="panel-header">
+          <div class="panel-icon">📐</div>
+          <div>
+            <div class="panel-title">Mathematics</div>
+            <div class="panel-desc">Calculus, Algebra, Analysis & Applied Mathematics across all FYUGP semesters.</div>
+          </div>
+        </div>
+        <div class="semester-grid">
+          <a class="sem-card" href="mathss1/s1maths.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">01</span>
+            <span class="sem-sub">Calculus & algebra foundations</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="mathss2/s2maths.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">02</span>
+            <span class="sem-sub">Differential equations & matrices</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="mathss3/s3maths.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">03</span>
+            <span class="sem-sub">Real analysis & abstract algebra</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="mathss4/s4math.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">04</span>
+            <span class="sem-sub">Complex analysis & topology</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">05</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">06</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── BOTANY PANEL ── -->
+      <div class="discipline-panel" id="panel-botany">
+        <div class="panel-header">
+          <div class="panel-icon">🌿</div>
+          <div>
+            <div class="panel-title">Botany</div>
+            <div class="panel-desc">Plant Biology, Taxonomy, Ecology & Molecular Botany under FYUGP.</div>
+          </div>
+        </div>
+        <div class="semester-grid">
+          <a class="sem-card" href="botanys1/s1botany.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">01</span>
+            <span class="sem-sub">Plant diversity & cell biology</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="botanys2/s2botany.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">02</span>
+            <span class="sem-sub">Plant anatomy & physiology</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="botanys3/s3bot.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">03</span>
+            <span class="sem-sub">Ecology & taxonomy</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="botanys4/s4bot.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">04</span>
+            <span class="sem-sub">Genetics & molecular botany</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">05</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">06</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ZOOLOGY PANEL ── -->
+      <div class="discipline-panel" id="panel-zoology">
+        <div class="panel-header">
+          <div class="panel-icon">🦋</div>
+          <div>
+            <div class="panel-title">Zoology</div>
+            <div class="panel-desc">Animal Diversity, Physiology, Genetics & Ecology under FYUGP Kerala University.</div>
+          </div>
+        </div>
+        <div class="semester-grid">
+          <a class="sem-card" href="zoologys1/s1zoology.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">01</span>
+            <span class="sem-sub">Animal diversity & cell biology</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="zoologys2/s2zoology.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">02</span>
+            <span class="sem-sub">Comparative anatomy</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="zoologys3/s3zoology.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">03</span>
+            <span class="sem-sub">Physiology & biochemistry</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="zoologys4/s4zoology.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">04</span>
+            <span class="sem-sub">Genetics, ecology & evolution</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">05</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">06</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── COMPUTER SCIENCE PANEL ── -->
+      <div class="discipline-panel" id="panel-cs">
+        <div class="panel-header">
+          <div class="panel-icon">💻</div>
+          <div>
+            <div class="panel-title">Computer Science</div>
+            <div class="panel-desc">Programming, Data Structures, Algorithms & Systems under FYUGP Kerala University.</div>
+          </div>
+        </div>
+        <div class="semester-grid">
+          <a class="sem-card" href="css1/s1cs.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">01</span>
+            <span class="sem-sub">Programming fundamentals & logic</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="css2/s2cs.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">02</span>
+            <span class="sem-sub">Data structures & OOP</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <a class="sem-card" href="css3/s3cs.html">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">03</span>
+            <span class="sem-sub">Algorithms & discrete maths</span>
+            <span class="sem-arrow">→</span>
+          </a>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">04</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">05</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+          <div class="sem-card unavailable">
+            <span class="sem-num">Semester</span>
+            <span class="sem-label">06</span>
+            <span class="sem-sub">Not yet available</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="howto-section">
+    <div class="howto-inner">
+      <p class="section-label reveal">Quick Guide</p>
+      <h2 class="section-title reveal">How to Use This Page</h2>
+      <p class="section-desc reveal">Three simple steps to find everything you need.</p>
+
+      <div class="steps-row">
+        <div class="how-step reveal">
+          <div class="how-step-num">1</div>
+          <div class="how-step-title">Pick a Discipline</div>
+          <div class="how-step-desc">Click on your subject tab — Chemistry, Physics, Maths, Botany, Zoology or CS.</div>
+        </div>
+        <div class="how-step reveal" style="transition-delay:0.1s">
+          <div class="how-step-num">2</div>
+          <div class="how-step-title">Select Your Semester</div>
+          <div class="how-step-desc">Choose the semester card that matches your current academic term.</div>
+        </div>
+        <div class="how-step reveal" style="transition-delay:0.2s">
+          <div class="how-step-num">3</div>
+          <div class="how-step-title">Access Resources</div>
+          <div class="how-step-desc">Browse syllabus, notes, question banks and past papers — all in one place.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        Kerala University FYUGP
+        <span>Syllabus & Notes Portal</span>
+      </div>
+      <p class="footer-copy">
+        © 2026 <a href="https://sreeharis.in/" class="footer-link" target="_blank">sreeharis.in</a> · All Rights Reserved
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Custom cursor ── */
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    });
+    function animRing() {
+      rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    }
+    animRing();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.style.width='16px'; cursor.style.height='16px'; ring.style.width='54px'; ring.style.height='54px'; ring.style.borderColor='var(--gold)'; });
+      el.addEventListener('mouseleave', () => { cursor.style.width='10px'; cursor.style.height='10px'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(201,168,76,0.5)'; });
+    });
+
+    /* ── Navbar shrink ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+    /* ── Scroll reveal ── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Discipline switcher ── */
+    function switchDiscipline(disc, btn) {
+      // tabs
+      document.querySelectorAll('.disc-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      // panels
+      document.querySelectorAll('.discipline-panel').forEach(p => p.classList.remove('active'));
+      const panel = document.getElementById('panel-' + disc);
+      if (panel) {
+        panel.classList.add('active');
+        // re-trigger animation
+        panel.style.animation = 'none';
+        panel.offsetHeight; // reflow
+        panel.style.animation = '';
+      }
+    }
+
+    /* ── BSc ROUTING (no edits) ── */
+    function navigateTo(program, selectedDiscipline, semester) {
+      let fileName = "";
+
+      if (program === "bsc") {
+        switch (selectedDiscipline) {
+
+          case "chemistry":
+            if (semester === "1") {
+              fileName = "chemistrys1/s1chem.html";
+            } else if (semester === "2") {
+              fileName = "chemistrys2/s2chem.html";
+            } else if (semester === "3") {
+              fileName = "chemistrys3/s3chem.html";
+            } else if (semester === "4") {
+              fileName = "chemistrys4/s4chem.html";
+            } else if (semester === "5") {
+              alert("Semester 5 Chemistry will be available soon.");
+              return;
+            } else {
+              alert("Available soon");
+              return;
+            }
+            break;
+
+          case "physics":
+            if (semester === "1") {
+              fileName = "physicss1/s1physics.html";
+            } else if (semester === "2") {
+              fileName = "physicss2/s2physics.html";
+            } else if (semester === "3") {
+              fileName = "physicss3/s3physics.html";
+            } else if (semester === "4") {
+              fileName = "physicss4/s4phy.html";
+            } else {
+              alert("Physics not available for this semester yet");
+              return;
+            }
+            break;
+
+          case "maths":
+            if (semester === "1") {
+              fileName = "mathss1/s1maths.html";
+            } else if (semester === "2") {
+              fileName = "mathss2/s2maths.html";
+            } else if (semester === "3") {
+              fileName = "mathss3/s3maths.html";
+            } else if (semester === "4") {
+              fileName = "mathss4/s4math.html";
+            } else {
+              alert("Mathematics content for this semester is not available now.");
+              return;
+            }
+            break;
+
+          case "botany":
+            if (semester === "1") {
+              fileName = "botanys1/s1botany.html";
+            } else if (semester === "2") {
+              fileName = "botanys2/s2botany.html";
+            } else if (semester === "3") {
+              fileName = "botanys3/s3bot.html";
+            } else if (semester === "4") {
+              fileName = "botanys4/s4bot.html";
+            } else {
+              fileName = `bot${semester}.html`;
+            }
+            break;
+
+          case "zoology":
+            if (semester === "1") {
+              fileName = "zoologys1/s1zoology.html";
+            } else if (semester === "2") {
+              fileName = "zoologys2/s2zoology.html";
+            } else if (semester === "3") {
+              fileName = "zoologys3/s3zoology.html";
+            } else if (semester === "4") {
+              fileName = "zoologys4/s4zoology.html";
+            }
+            break;
+
+          case "cs":
+            if (semester === "1") {
+              fileName = "css1/s1cs.html";
+            } else if (semester === "2") {
+              fileName = "css2/s2cs.html";
+            } else if (semester === "3") {
+              fileName = "css3/s3cs.html";
+            } else {
+              fileName = `cs${semester}.html`;
+            }
+            break;
+
+          default:
+            alert("Invalid BSc discipline");
+            return;
+        }
+      }
+
+      if (fileName) window.location.href = fileName;
+    }
+  </script>
 </body>
 </html>
