@@ -20,6 +20,8 @@
       --card-bg: rgba(255,255,255,0.04);
       --border: rgba(201,168,76,0.2);
       --teal: #3ecfcf;
+      --pink: #ff4d8d;
+      --blue: #4db8ff;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -102,13 +104,12 @@
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
     }
 
-    /* Floating orbs */
     .orb { position: fixed; border-radius: 50%; filter: blur(90px); z-index: 0; pointer-events: none; animation: float-orb 10s ease-in-out infinite; }
     .orb-1 { width: 500px; height: 500px; background: rgba(62,207,207,0.04); top: -150px; left: -100px; }
     .orb-2 { width: 380px; height: 380px; background: rgba(201,168,76,0.05); bottom: -100px; right: -80px; animation-delay: -4s; }
     @keyframes float-orb { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-28px)} }
 
-    /* ── MAIN CONTENT ── */
+    /* ── MAIN ── */
     main {
       position: relative; z-index: 1;
       padding: 140px 24px 100px;
@@ -117,18 +118,13 @@
     }
 
     /* ── PAGE HERO ── */
-    .page-hero {
-      margin-bottom: 80px;
-      animation: fade-up 0.8s ease both;
-    }
+    .page-hero { margin-bottom: 80px; animation: fade-up 0.8s ease both; }
     .page-hero-label {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
       color: var(--teal); margin-bottom: 20px; font-weight: 500;
     }
-    .page-hero-label::before {
-      content: ''; width: 24px; height: 1px; background: var(--teal); display: inline-block;
-    }
+    .page-hero-label::before { content: ''; width: 24px; height: 1px; background: var(--teal); display: inline-block; }
     .page-hero-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 5vw, 4rem);
@@ -139,12 +135,8 @@
       background: linear-gradient(135deg, var(--teal) 10%, var(--gold-light) 90%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .page-hero-desc {
-      color: var(--slate); font-size: 1rem; line-height: 1.75; max-width: 540px;
-      font-weight: 300;
-    }
+    .page-hero-desc { color: var(--slate); font-size: 1rem; line-height: 1.75; max-width: 540px; font-weight: 300; }
 
-    /* Stats row */
     .hub-stats {
       display: flex; gap: 40px; flex-wrap: wrap; margin-top: 36px;
       padding-top: 36px; border-top: 1px solid rgba(201,168,76,0.1);
@@ -154,30 +146,22 @@
       font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900;
       color: var(--gold); display: block; line-height: 1;
     }
-    .hub-stat-label {
-      font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--slate); margin-top: 4px;
-    }
+    .hub-stat-label { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate); margin-top: 4px; }
 
     /* ── SECTION HEADER ── */
     .section-header {
       display: flex; align-items: center; gap: 16px; margin-bottom: 36px;
       animation: fade-up 0.8s 0.2s ease both;
     }
-    .section-header-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, rgba(201,168,76,0.25), transparent);
-    }
-    .section-header-label {
-      font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--gold); font-weight: 600; white-space: nowrap;
-    }
+    .section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.25), transparent); }
+    .section-header-label { font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; white-space: nowrap; }
 
-    /* ── VISUALIZATION GRID ── */
+    /* ── VIZ GRID ── */
     .viz-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 28px;
+      margin-bottom: 52px;
     }
 
     /* ── VIZ CARD ── */
@@ -204,7 +188,17 @@
       box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(62,207,207,0.08);
     }
 
-    /* Card preview area */
+    /* P-N card special glow */
+    .viz-card.pn-card::before {
+      background: radial-gradient(circle at 25% 80%, rgba(255,77,141,0.07) 0%, transparent 50%),
+                  radial-gradient(circle at 75% 20%, rgba(77,184,255,0.07) 0%, transparent 50%);
+    }
+    .viz-card.pn-card:hover {
+      border-color: rgba(77,184,255,0.4);
+      box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,77,141,0.06);
+    }
+
+    /* ── PREVIEW AREA ── */
     .viz-preview {
       position: relative; z-index: 1;
       height: 200px;
@@ -213,33 +207,24 @@
       display: flex; align-items: center; justify-content: center;
       overflow: hidden;
     }
+    .viz-preview.pn-preview {
+      background: linear-gradient(135deg, rgba(255,77,141,0.06) 0%, rgba(77,184,255,0.06) 100%);
+      border-bottom: 1px solid rgba(77,184,255,0.12);
+    }
 
-    /* Animated mini IV curve illustration */
-    .iv-illustration {
-      position: relative; width: 200px; height: 140px;
-    }
-    .iv-illustration svg {
-      width: 100%; height: 100%;
-      filter: drop-shadow(0 0 12px rgba(62,207,207,0.4));
-    }
+    /* I-V illustration */
+    .iv-illustration { position: relative; width: 200px; height: 140px; }
+    .iv-illustration svg { width: 100%; height: 100%; filter: drop-shadow(0 0 12px rgba(62,207,207,0.4)); }
     .iv-axes { stroke: rgba(255,255,255,0.15); stroke-width: 1.5; fill: none; }
     .iv-curve-noon { stroke: var(--gold); stroke-width: 2.5; fill: none; stroke-dasharray: 300; stroke-dashoffset: 300; animation: draw-curve 1.8s 0.6s ease forwards; }
     .iv-curve-morning { stroke: var(--teal); stroke-width: 2; fill: none; stroke-dasharray: 260; stroke-dashoffset: 260; opacity: 0.75; animation: draw-curve 1.8s 1s ease forwards; }
     .iv-curve-evening { stroke: rgba(201,168,76,0.5); stroke-width: 1.5; fill: none; stroke-dasharray: 220; stroke-dashoffset: 220; opacity: 0.55; animation: draw-curve 1.8s 1.3s ease forwards; }
     @keyframes draw-curve { to { stroke-dashoffset: 0; } }
 
-    /* Legend dots */
-    .iv-legend {
-      position: absolute; bottom: 14px; right: 16px;
-      display: flex; flex-direction: column; gap: 5px;
-    }
-    .iv-legend-item {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 0.6rem; color: rgba(255,255,255,0.55); letter-spacing: 0.5px;
-    }
+    .iv-legend { position: absolute; bottom: 14px; right: 16px; display: flex; flex-direction: column; gap: 5px; }
+    .iv-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.6rem; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; }
     .iv-legend-dot { width: 8px; height: 2px; border-radius: 2px; }
 
-    /* Pulse badge on preview */
     .preview-badge {
       position: absolute; top: 14px; left: 14px;
       background: rgba(62,207,207,0.12); border: 1px solid rgba(62,207,207,0.3);
@@ -247,7 +232,87 @@
       font-size: 0.64rem; letter-spacing: 1.5px; text-transform: uppercase;
       color: var(--teal); font-weight: 600;
     }
+    .preview-badge.pn-badge {
+      background: rgba(77,184,255,0.12); border-color: rgba(77,184,255,0.3); color: var(--blue);
+    }
 
+    /* ── P-N MINI ILLUSTRATION ── */
+    .pn-mini { position: relative; width: 224px; height: 130px; }
+    .pn-mini-region { position: absolute; top: 22px; height: 86px; border-radius: 6px; }
+    .pn-mini-p {
+      left: 0; width: 90px;
+      background: linear-gradient(90deg, rgba(255,77,141,0.2), rgba(255,77,141,0.06));
+      border: 1px solid rgba(255,77,141,0.28);
+    }
+    .pn-mini-dep {
+      left: 90px; width: 44px;
+      background: rgba(8,14,30,0.92);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .pn-mini-n {
+      left: 134px; width: 90px;
+      background: linear-gradient(90deg, rgba(77,184,255,0.06), rgba(77,184,255,0.2));
+      border: 1px solid rgba(77,184,255,0.28);
+    }
+    .pn-region-lbl {
+      position: absolute; top: 7px;
+      font-size: 0.55rem; letter-spacing: 2px; font-weight: 700;
+    }
+    .pn-region-lbl.p { left: 32px; color: rgba(255,77,141,0.85); }
+    .pn-region-lbl.n { left: 166px; color: rgba(77,184,255,0.85); }
+    .pn-region-lbl.d { left: 99px; color: rgba(255,255,255,0.18); font-size: 0.42rem; top: 9px; letter-spacing: 1px; }
+
+    /* Particles */
+    .pn-particle {
+      position: absolute;
+      width: 10px; height: 10px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 800;
+      top: 50%; transform: translateY(-50%);
+      line-height: 1;
+    }
+    .pn-particle.hole {
+      border: 1.5px solid rgba(255,77,141,0.95);
+      color: rgba(255,77,141,0.95);
+      box-shadow: 0 0 10px rgba(255,77,141,0.45);
+    }
+    .pn-particle.elec {
+      border: 1.5px solid rgba(77,184,255,0.95);
+      color: rgba(77,184,255,0.95);
+      box-shadow: 0 0 10px rgba(77,184,255,0.45);
+    }
+
+    @keyframes drift-h1 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-68%) translateX(7px)} }
+    @keyframes drift-h2 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-34%) translateX(-5px)} }
+    @keyframes drift-h3 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-72%) translateX(4px)} }
+    @keyframes drift-e1 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-36%) translateX(-7px)} }
+    @keyframes drift-e2 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-70%) translateX(5px)} }
+    @keyframes drift-e3 { 0%,100%{transform:translateY(-50%) translateX(0)} 50%{transform:translateY(-42%) translateX(-4px)} }
+
+    .pn-efield-label {
+      position: absolute; top: 50%; left: 90px; width: 44px;
+      transform: translateY(-130%);
+      display: flex; align-items: center; justify-content: center; gap: 2px;
+      font-size: 0.5rem; color: rgba(255,220,100,0.55); letter-spacing: 0.5px;
+    }
+    .pn-dep-bar {
+      position: absolute; bottom: 8px; left: 90px; width: 44px;
+      height: 2px; background: rgba(255,220,100,0.25); border-radius: 2px;
+    }
+    .pn-flash {
+      position: absolute; top: 50%; left: 112px;
+      transform: translate(-50%, -50%);
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,200,0.5);
+      animation: flash-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes flash-pulse {
+      0%,100%{opacity:0;transform:translate(-50%,-50%) scale(0.5)}
+      50%{opacity:1;transform:translate(-50%,-50%) scale(1.4);box-shadow:0 0 16px rgba(255,255,180,0.7)}
+    }
+
+    /* ── CARD BODY ── */
     .viz-card-body {
       position: relative; z-index: 1;
       padding: 28px 30px 30px;
@@ -262,73 +327,142 @@
     .viz-tag::before {
       content: ''; width: 6px; height: 6px; border-radius: 50%;
       background: var(--teal); box-shadow: 0 0 8px var(--teal);
-      animation: blink-teal 2s ease infinite;
+      animation: blink-dot 2s ease infinite;
     }
-    @keyframes blink-teal { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .viz-tag.pn-tag { color: var(--blue); }
+    .viz-tag.pn-tag::before { background: var(--blue); box-shadow: 0 0 8px var(--blue); }
+    @keyframes blink-dot { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    .viz-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem; font-weight: 700; line-height: 1.25;
-    }
-
-    .viz-desc {
-      color: var(--slate); font-size: 0.87rem; line-height: 1.65; flex: 1;
-    }
+    .viz-title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; line-height: 1.25; }
+    .viz-desc { color: var(--slate); font-size: 0.87rem; line-height: 1.65; flex: 1; }
 
     .viz-meta {
       display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-      padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.08);
-      margin-top: 4px;
+      padding-top: 16px; border-top: 1px solid rgba(201,168,76,0.08); margin-top: 4px;
     }
     .viz-meta-chip {
       display: flex; align-items: center; gap: 5px;
       background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-      padding: 4px 10px; border-radius: 50px;
-      font-size: 0.7rem; color: var(--slate);
+      padding: 4px 10px; border-radius: 50px; font-size: 0.7rem; color: var(--slate);
     }
 
     .viz-cta {
       display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 8px;
-      padding: 12px 24px; border-radius: 50px;
+      margin-top: 8px; padding: 12px 24px; border-radius: 50px;
       background: linear-gradient(135deg, rgba(62,207,207,0.15), rgba(62,207,207,0.06));
       border: 1px solid rgba(62,207,207,0.3);
       color: var(--teal); font-size: 0.84rem; font-weight: 600;
-      text-decoration: none; cursor: none;
-      transition: all 0.3s;
-      align-self: flex-start;
+      text-decoration: none; cursor: none; transition: all 0.3s; align-self: flex-start;
     }
     .viz-cta:hover {
       background: linear-gradient(135deg, rgba(62,207,207,0.25), rgba(62,207,207,0.12));
-      border-color: rgba(62,207,207,0.55);
-      transform: translateX(3px);
+      border-color: rgba(62,207,207,0.55); transform: translateX(3px);
+    }
+    .viz-cta.pn-cta {
+      background: linear-gradient(135deg, rgba(77,184,255,0.15), rgba(255,77,141,0.06));
+      border-color: rgba(77,184,255,0.3); color: var(--blue);
+    }
+    .viz-cta.pn-cta:hover {
+      background: linear-gradient(135deg, rgba(77,184,255,0.25), rgba(255,77,141,0.12));
+      border-color: rgba(77,184,255,0.55);
     }
     .viz-cta-arrow { transition: transform 0.3s; }
     .viz-cta:hover .viz-cta-arrow { transform: translateX(4px); }
 
-    /* ── COMING SOON PLACEHOLDER ── */
+    /* ── PLACEHOLDER ── */
     .viz-card-placeholder {
       position: relative; overflow: hidden;
       background: rgba(255,255,255,0.015);
       border: 1px dashed rgba(201,168,76,0.12);
-      border-radius: 24px;
-      padding: 48px 36px;
+      border-radius: 24px; padding: 48px 36px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 16px; text-align: center;
-      min-height: 280px;
+      gap: 16px; text-align: center; min-height: 280px;
       backdrop-filter: blur(8px);
       animation: fade-up 0.7s 0.4s ease both;
     }
     .placeholder-icon { font-size: 2.5rem; opacity: 0.25; }
-    .placeholder-text {
-      font-size: 0.78rem; color: rgba(255,255,255,0.2);
-      letter-spacing: 1px; font-style: italic;
-    }
+    .placeholder-text { font-size: 0.78rem; color: rgba(255,255,255,0.2); letter-spacing: 1px; font-style: italic; }
     .placeholder-pill {
       background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15);
       padding: 5px 16px; border-radius: 50px;
       font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
       color: rgba(201,168,76,0.4); font-weight: 600;
+    }
+
+    /* ── SEARCH BAR ── */
+    .search-wrap {
+      margin-top: 20px;
+      animation: fade-up 0.7s 0.5s ease both;
+    }
+    .search-label {
+      font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 16px;
+    }
+    .search-box {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 16px; padding: 16px 22px;
+      backdrop-filter: blur(16px);
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .search-box:focus-within {
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.07), 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .search-icon {
+      color: var(--slate); flex-shrink: 0;
+      display: flex; align-items: center;
+      transition: color 0.2s;
+    }
+    .search-box:focus-within .search-icon { color: var(--gold); }
+    .search-input {
+      flex: 1; background: transparent; border: none; outline: none;
+      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 300;
+      color: var(--white); letter-spacing: 0.3px;
+    }
+    .search-input::placeholder { color: rgba(138,155,181,0.5); }
+    .search-shortcut {
+      font-size: 0.7rem; letter-spacing: 1px;
+      color: rgba(138,155,181,0.35);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 3px 8px; border-radius: 6px;
+      flex-shrink: 0; font-family: 'DM Sans', sans-serif;
+    }
+    .search-results {
+      margin-top: 12px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .search-result-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 20px; border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(201,168,76,0.1);
+      text-decoration: none; color: var(--white);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      animation: fade-up 0.3s ease both;
+    }
+    .search-result-item:hover {
+      background: rgba(201,168,76,0.05);
+      border-color: rgba(201,168,76,0.3);
+      transform: translateX(4px);
+    }
+    .search-result-icon {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .search-result-name {
+      font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700;
+    }
+    .search-result-tag {
+      font-size: 0.68rem; letter-spacing: 1px; color: var(--slate); margin-top: 2px;
+    }
+    .search-result-arrow { margin-left: auto; color: var(--gold); font-size: 0.85rem; opacity: 0.6; }
+    .search-no-result {
+      text-align: center; padding: 24px;
+      color: rgba(138,155,181,0.4); font-size: 0.88rem; font-style: italic;
     }
 
     /* ── FOOTER ── */
@@ -345,7 +479,6 @@
 
     @keyframes fade-up { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:translateY(0)} }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       nav.scrolled { padding: 12px 20px; }
@@ -382,16 +515,14 @@
     <!-- PAGE HERO -->
     <div class="page-hero">
       <div class="page-hero-label">Interactive Learning</div>
-      <h1 class="page-hero-title">
-        Science <em>Hub</em>
-      </h1>
+      <h1 class="page-hero-title">Science <em>Hub</em></h1>
       <p class="page-hero-desc">
         Beautiful, interactive visualizations of scientific concepts — built for Kerala University FYUGP students to explore physics, chemistry, and beyond.
       </p>
       <div class="hub-stats">
         <div>
-          <span class="hub-stat-num">1</span>
-          <span class="hub-stat-label">Visualization live</span>
+          <span class="hub-stat-num">2</span>
+          <span class="hub-stat-label">Visualizations live</span>
         </div>
         <div>
           <span class="hub-stat-num">∞</span>
@@ -404,40 +535,44 @@
       </div>
     </div>
 
+    <!-- SEARCH BAR -->
+    <div class="search-wrap">
+      <div class="search-label">Search Visualizations</div>
+      <div class="search-box">
+        <span class="search-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by topic, concept or keyword…" autocomplete="off" spellcheck="false">
+        <span class="search-shortcut">⌘ K</span>
+      </div>
+      <div id="searchResults" class="search-results"></div>
+    </div>
+
     <!-- SECTION HEADER -->
-    <div class="section-header">
+    <div class="section-header" style="margin-top:52px;">
       <span class="section-header-label">Solar & Photovoltaics</span>
       <div class="section-header-line"></div>
     </div>
 
-    <!-- VIZ GRID -->
+    <!-- SINGLE GRID — all projects in order -->
     <div class="viz-grid">
 
       <!-- CARD 1: I-V Solar Cell -->
       <a href="ivsolar.html" class="viz-card">
         <div class="viz-preview">
           <div class="preview-badge">Interactive</div>
-
-          <!-- Animated mini chart -->
           <div class="iv-illustration">
             <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
-              <!-- Axes -->
               <line class="iv-axes" x1="20" y1="120" x2="190" y2="120"/>
               <line class="iv-axes" x1="20" y1="10" x2="20" y2="120"/>
-              <!-- Axis labels -->
               <text x="190" y="132" fill="rgba(255,255,255,0.25)" font-size="8" font-family="DM Sans">V</text>
               <text x="8" y="12" fill="rgba(255,255,255,0.25)" font-size="8" font-family="DM Sans">I</text>
-              <!-- Noon curve (gold) — typical IV shape -->
               <path class="iv-curve-noon" d="M20,30 C40,30 80,32 110,38 C140,46 160,70 170,100 C175,112 178,118 180,120"/>
-              <!-- Morning curve (teal) — lower Isc -->
               <path class="iv-curve-morning" d="M20,50 C40,50 80,52 108,58 C136,66 155,85 165,110 C168,116 170,119 172,120"/>
-              <!-- Evening curve (faint gold) — lowest -->
               <path class="iv-curve-evening" d="M20,68 C38,68 75,70 104,76 C130,84 148,100 158,115 C161,118 163,120 165,120"/>
-              <!-- MPP dots -->
               <circle cx="148" cy="58" r="3" fill="var(--gold)" opacity="0.9"/>
               <circle cx="140" cy="74" r="2.5" fill="var(--teal)" opacity="0.8"/>
             </svg>
-
             <div class="iv-legend">
               <div class="iv-legend-item"><div class="iv-legend-dot" style="background:var(--gold)"></div>Noon</div>
               <div class="iv-legend-item"><div class="iv-legend-dot" style="background:var(--teal)"></div>Morning</div>
@@ -445,7 +580,6 @@
             </div>
           </div>
         </div>
-
         <div class="viz-card-body">
           <div class="viz-tag">Photovoltaics</div>
           <div class="viz-title">I-V Characteristics of a Solar Cell</div>
@@ -457,26 +591,56 @@
             <div class="viz-meta-chip">📐 FYUGP Chemistry</div>
             <div class="viz-meta-chip">🎛️ Interactive</div>
           </div>
-          <span class="viz-cta">
-            Launch Simulation <span class="viz-cta-arrow">→</span>
-          </span>
+          <span class="viz-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
         </div>
       </a>
 
-      <!-- PLACEHOLDER CARDS -->
-      <div class="viz-card-placeholder">
+      <!-- CARD 2: P-N Junction -->
+      <a href="pnjunction.html" class="viz-card pn-card" style="animation-delay:0.1s">
+        <div class="viz-preview pn-preview">
+          <div class="preview-badge pn-badge">Live Animation</div>
+          <div class="pn-mini">
+            <div class="pn-mini-region pn-mini-p"></div>
+            <div class="pn-mini-region pn-mini-dep"></div>
+            <div class="pn-mini-region pn-mini-n"></div>
+            <span class="pn-region-lbl p">P</span>
+            <span class="pn-region-lbl n">N</span>
+            <span class="pn-region-lbl d">DEP</span>
+            <div class="pn-particle hole" style="left:10px; animation:drift-h1 3.1s ease-in-out infinite;">+</div>
+            <div class="pn-particle hole" style="left:36px; animation:drift-h2 3.7s ease-in-out infinite;">+</div>
+            <div class="pn-particle hole" style="left:62px; animation:drift-h3 2.9s ease-in-out infinite;">+</div>
+            <div class="pn-particle elec" style="left:150px; animation:drift-e1 3.3s ease-in-out infinite;">−</div>
+            <div class="pn-particle elec" style="left:176px; animation:drift-e2 2.8s ease-in-out infinite;">−</div>
+            <div class="pn-particle elec" style="left:200px; animation:drift-e3 3.6s ease-in-out infinite;">−</div>
+            <div class="pn-efield-label">← E</div>
+            <div class="pn-dep-bar"></div>
+            <div class="pn-flash"></div>
+          </div>
+        </div>
+        <div class="viz-card-body">
+          <div class="viz-tag pn-tag">Semiconductors</div>
+          <div class="viz-title">P-N Junction Simulation</div>
+          <p class="viz-desc">
+            Watch electrons and holes come alive in real time. Drag the voltage slider to forward or reverse bias the junction — see the depletion region breathe, energy bands bend, and carriers surge or recede. The heart of every diode, LED, and solar cell, right in your browser.
+          </p>
+          <div class="viz-meta">
+            <div class="viz-meta-chip">⚛️ Semiconductor Physics</div>
+            <div class="viz-meta-chip">📐 FYUGP Physics</div>
+            <div class="viz-meta-chip">🎛️ Live Controls</div>
+          </div>
+          <span class="viz-cta pn-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- PLACEHOLDER — next project slot -->
+      <div class="viz-card-placeholder" style="animation-delay:0.2s">
         <div class="placeholder-icon">🔬</div>
         <div class="placeholder-pill">Coming Soon</div>
         <div class="placeholder-text">Next visualization is in the works</div>
       </div>
 
-      <div class="viz-card-placeholder">
-        <div class="placeholder-icon">⚛️</div>
-        <div class="placeholder-pill">Coming Soon</div>
-        <div class="placeholder-text">More science, more interactivity</div>
-      </div>
-
     </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -493,7 +657,6 @@
   </footer>
 
   <script>
-    // Custom cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -506,16 +669,86 @@
       ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
       requestAnimationFrame(animRing);
     })();
-
     document.querySelectorAll('a, button').forEach(el => {
       el.addEventListener('mouseenter', () => { cursor.style.width='16px'; cursor.style.height='16px'; ring.style.width='54px'; ring.style.height='54px'; ring.style.borderColor='var(--gold)'; });
       el.addEventListener('mouseleave', () => { cursor.style.width='10px'; cursor.style.height='10px'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(201,168,76,0.5)'; });
     });
-
-    // Navbar shrink
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+    // ── SEARCH ──
+    const vizData = [
+      {
+        name: 'I-V Characteristics of a Solar Cell',
+        tag: 'Photovoltaics · FYUGP Chemistry',
+        url: 'ivsolar.html',
+        icon: '📈',
+        iconBg: 'rgba(201,168,76,0.12)',
+        keywords: ['iv', 'solar', 'cell', 'current', 'voltage', 'isc', 'voc', 'fill factor', 'photovoltaic', 'irradiance', 'noon', 'morning', 'mpp', 'power', 'curve', 'chemistry', 'renewable', 'graph']
+      },
+      {
+        name: 'P-N Junction Simulation',
+        tag: 'Semiconductors · FYUGP Physics',
+        url: 'pnjunction.html',
+        icon: '⚛️',
+        iconBg: 'rgba(77,184,255,0.12)',
+        keywords: ['pn', 'p-n', 'junction', 'diode', 'semiconductor', 'depletion', 'forward', 'reverse', 'bias', 'electron', 'hole', 'carrier', 'band', 'energy', 'physics', 'silicon', 'voltage', 'led', 'transistor', 'built-in']
+      }
+    ];
+
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      searchResults.innerHTML = '';
+      if (!q) return;
+
+      const matches = vizData.filter(v =>
+        v.name.toLowerCase().includes(q) ||
+        v.tag.toLowerCase().includes(q) ||
+        v.keywords.some(k => k.includes(q))
+      );
+
+      if (matches.length === 0) {
+        searchResults.innerHTML = `<div class="search-no-result">No results for "<em>${searchInput.value}</em>" — try another keyword</div>`;
+        return;
+      }
+
+      matches.forEach((m, i) => {
+        const el = document.createElement('a');
+        el.href = m.url;
+        el.className = 'search-result-item';
+        el.style.animationDelay = `${i * 0.06}s`;
+        el.innerHTML = `
+          <div class="search-result-icon" style="background:${m.iconBg}">${m.icon}</div>
+          <div>
+            <div class="search-result-name">${m.name}</div>
+            <div class="search-result-tag">${m.tag}</div>
+          </div>
+          <span class="search-result-arrow">→</span>`;
+        searchResults.appendChild(el);
+      });
+
+      searchResults.querySelectorAll('a').forEach(el => {
+        el.addEventListener('mouseenter', () => { cursor.style.width='16px'; cursor.style.height='16px'; ring.style.width='54px'; ring.style.height='54px'; ring.style.borderColor='var(--gold)'; });
+        el.addEventListener('mouseleave', () => { cursor.style.width='10px'; cursor.style.height='10px'; ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(201,168,76,0.5)'; });
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      if (e.key === 'Escape') {
+        searchInput.blur();
+        searchResults.innerHTML = '';
+        searchInput.value = '';
+      }
+    });
   </script>
 </body>
 </html>
+
 
