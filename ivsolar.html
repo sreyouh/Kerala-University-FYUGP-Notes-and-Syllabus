@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>I-V Characteristics of a Solar Cell — Interactive Graph | Sreeharis</title>
 <meta name="description" content="Interactive I-V characteristic curve of a solar cell at different times of day — morning, noon, and evening. Visualize Isc, Voc, fill factor and maximum power point. Free tool for Kerala University FYUGP Chemistry students.">
-<style>
-  <script type="application/ld+json">
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LearningResource",
@@ -21,6 +21,8 @@
   }
 }
 </script>
+
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
 
   :root {
@@ -359,10 +361,97 @@
     font-weight: 700;
     margin-bottom: 6px;
   }
+
+  /* ── SEO EXPLANATION SECTION ── */
+  .seo-section {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px 36px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1.6s forwards;
+  }
+
+  .seo-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .seo-section h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 28px 0 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .seo-section p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .seo-section p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .seo-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+    margin: 24px 0;
+  }
+
+  .seo-keyword-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .seo-keyword {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 32px;
+    transition: color 0.2s, border-color 0.2s;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+  .back-link:hover { color: var(--gold); border-color: var(--gold); }
 </style>
 </head>
 <body>
 <div class="container">
+
+  <a href="sciencehub.html" class="back-link">← Back to Science Hub</a>
+
   <header>
     <div class="tag">☀ Photovoltaic Analysis</div>
     <h1>Solar Cell I-V Characteristics</h1>
@@ -493,6 +582,75 @@
         </div>
         <p>Standard Test Condition. Maximum I<sub>SC</sub>, highest V<sub>OC</sub>, maximum power P<sub>max</sub>. The MPP (maximum power point) is where the I-V curve's "knee" bends — at this point, the cell produces its highest wattage. Best Fill Factor here due to lowest series resistance effects.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- ── SEO EXPLANATION SECTION ── -->
+  <div class="seo-section">
+    <h2>What is an I-V Characteristic Curve of a Solar Cell?</h2>
+    <p>
+      The <strong>I-V (Current-Voltage) characteristic curve</strong> of a solar cell is one of the most fundamental graphs in photovoltaic science. It describes the relationship between the electrical current produced by a solar cell and the voltage across its terminals under a given light intensity. By studying the I-V graph of a solar cell, engineers and students can evaluate how efficiently a solar cell converts sunlight into usable electrical energy.
+    </p>
+    <p>
+      When light falls on a solar cell, photons are absorbed by the semiconductor material — typically silicon — and electron-hole pairs are generated. These charge carriers are separated by the built-in electric field of the p-n junction, producing a photocurrent. The I-V curve captures the full range of operating conditions from short circuit (maximum current, zero voltage) to open circuit (zero current, maximum voltage).
+    </p>
+
+    <div class="seo-divider"></div>
+
+    <h3>Key Parameters on the I-V Curve</h3>
+    <p>
+      <strong>Short-Circuit Current (Isc)</strong> is the current flowing through the solar cell when the voltage across it is zero — that is, when the terminals are directly connected. Isc is directly proportional to the intensity of incident light (irradiance). At peak noon with 1000 W/m² irradiance, Isc is at its maximum. During dawn or cloudy conditions, Isc drops significantly because fewer photons are available to generate charge carriers.
+    </p>
+    <p>
+      <strong>Open-Circuit Voltage (Voc)</strong> is the maximum voltage the solar cell produces when no current is drawn — the terminals are left open. Unlike Isc, Voc changes only logarithmically with irradiance. This means even at low light conditions like early morning, Voc remains relatively close to its peak value while Isc drops steeply. Voc depends on the semiconductor material, temperature, and the dark saturation current of the diode.
+    </p>
+    <p>
+      <strong>Maximum Power Point (MPP)</strong> is the point on the I-V curve where the product of current and voltage — that is, the power output — is highest. On the I-V graph, this corresponds to the "knee" of the curve. Solar inverters use Maximum Power Point Tracking (MPPT) algorithms to continuously operate the solar panel at this point regardless of changing conditions.
+    </p>
+    <p>
+      <strong>Fill Factor (FF)</strong> measures the squareness of the I-V curve and is defined as the ratio of the maximum power output to the product of Isc and Voc. A Fill Factor close to 1 represents an ideal solar cell with minimal internal resistance losses. Practical silicon solar cells typically have Fill Factors between 0.70 and 0.85.
+    </p>
+
+    <div class="seo-divider"></div>
+
+    <h3>How Irradiance and Time of Day Affect the I-V Curve</h3>
+    <p>
+      The I-V characteristics of a solar cell change significantly with the time of day because the intensity of sunlight — measured as irradiance in W/m² — varies from sunrise to sunset. Understanding this variation is essential for designing real-world solar energy systems.
+    </p>
+    <p>
+      At <strong>peak noon</strong>, irradiance reaches its maximum of approximately 1000 W/m² under Standard Test Conditions (STC). The I-V curve sits highest on the current axis, Isc is maximum, and the solar cell delivers its greatest power output. This is the reference condition used to rate solar panels.
+    </p>
+    <p>
+      During <strong>morning and evening</strong> (low irradiance, around 100–200 W/m²), photocurrent drops proportionally. The I-V curve shifts downward — Isc is much lower while Voc decreases only slightly. As a result, power output is a small fraction of peak noon output.
+    </p>
+    <p>
+      On <strong>overcast or cloudy days</strong> (irradiance ~400 W/m²), the solar cell still produces meaningful power — roughly 30–40% of its peak capacity. Diffuse light from clouds still carries enough photon energy to generate photocurrent, which is why solar panels continue generating electricity even under cloud cover.
+    </p>
+    <p>
+      At <strong>night</strong>, with zero irradiance, no photocurrent is generated. The solar cell produces no output and behaves as a passive diode element in the circuit.
+    </p>
+
+    <div class="seo-divider"></div>
+
+    <h3>Relevance to Kerala University FYUGP Chemistry</h3>
+    <p>
+      The I-V characteristics of a solar cell are a core topic in the <strong>Chemistry for Renewable and Clean Energy</strong> course under the Kerala University Four Year Undergraduate Programme (FYUGP). Students studying photovoltaics need to understand how the I-V graph is generated, what each parameter means physically, and how environmental conditions like light intensity and temperature affect solar cell performance.
+    </p>
+    <p>
+      This interactive simulation allows FYUGP students to visualize the I-V curve and P-V curve in real time across different irradiance conditions — making abstract concepts from the syllabus tangible and easier to retain for examinations.
+    </p>
+
+    <div class="seo-keyword-row">
+      <span class="seo-keyword">I-V characteristics solar cell</span>
+      <span class="seo-keyword">IV graph solar cell</span>
+      <span class="seo-keyword">photovoltaic I-V curve</span>
+      <span class="seo-keyword">Isc Voc fill factor</span>
+      <span class="seo-keyword">maximum power point</span>
+      <span class="seo-keyword">solar cell irradiance</span>
+      <span class="seo-keyword">FYUGP chemistry</span>
+      <span class="seo-keyword">Kerala University renewable energy</span>
+      <span class="seo-keyword">P-V curve solar panel</span>
+      <span class="seo-keyword">solar cell diode model</span>
     </div>
   </div>
 
@@ -772,7 +930,11 @@ function setMode(mode) {
 // Init & resize
 window.addEventListener('resize', drawCharts);
 setTimeout(drawCharts, 200);
-setTimeout(drawCharts, 800); // re-draw after animations
+setTimeout(drawCharts, 800);
 </script>
 </body>
-  </html>
+</html>
+        
+        
+
+      
