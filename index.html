@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="fyugp.png">
@@ -164,6 +164,221 @@ Sreeharis notes
     }
     .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { width: 100%; }
+
+    /* ── SIDEBAR TRIGGER BUTTON ── */
+    .sidebar-trigger {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 80px;
+      background: linear-gradient(180deg, rgba(201,168,76,0.18) 0%, rgba(201,168,76,0.08) 100%);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-right: none;
+      border-radius: 12px 0 0 12px;
+      cursor: none;
+      backdrop-filter: blur(12px);
+      transition: width 0.3s, background 0.3s, box-shadow 0.3s;
+      box-shadow: -4px 0 24px rgba(201,168,76,0.1);
+    }
+    .sidebar-trigger:hover {
+      width: 38px;
+      background: linear-gradient(180deg, rgba(201,168,76,0.28) 0%, rgba(201,168,76,0.14) 100%);
+      box-shadow: -6px 0 32px rgba(201,168,76,0.22);
+    }
+    .sidebar-trigger span {
+      display: block;
+      width: 14px; height: 1.5px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .sidebar-trigger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .sidebar-trigger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .sidebar-trigger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* ── SIDEBAR PANEL ── */
+    .sidebar {
+      position: fixed;
+      top: 0; right: -380px;
+      width: 340px;
+      height: 100vh;
+      z-index: 150;
+      background: linear-gradient(160deg, rgba(10,22,40,0.98) 0%, rgba(13,31,60,0.99) 100%);
+      border-left: 1px solid rgba(201,168,76,0.25);
+      backdrop-filter: blur(40px);
+      transition: right 0.5s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .sidebar.open { right: 0; }
+
+    /* Sidebar glow decoration */
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(99,140,210,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .sidebar-header {
+      padding: 48px 36px 32px;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      position: relative; z-index: 1;
+    }
+    .sidebar-header-label {
+      font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px; font-weight: 500;
+    }
+    .sidebar-header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--white);
+      line-height: 1.2;
+    }
+    .sidebar-header-sub {
+      font-size: 0.78rem; color: var(--slate); margin-top: 6px; line-height: 1.5;
+    }
+
+    /* Decorative line under header */
+    .sidebar-divider {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 16px 0 0;
+      border-radius: 2px;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative; z-index: 1;
+    }
+
+    .sidebar-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(201,168,76,0.12);
+      background: rgba(255,255,255,0.02);
+      text-decoration: none;
+      color: var(--white);
+      cursor: none;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-nav-item::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .sidebar-nav-item:hover::before { opacity: 1; }
+    .sidebar-nav-item:hover {
+      border-color: rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.04);
+      transform: translateX(-4px);
+      box-shadow: 4px 0 24px rgba(201,168,76,0.1), inset 0 0 0 1px rgba(201,168,76,0.08);
+    }
+
+    .sidebar-nav-item.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .sidebar-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 12px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .sidebar-nav-item:hover .sidebar-item-icon {
+      background: rgba(201,168,76,0.18);
+      box-shadow: 0 0 16px rgba(201,168,76,0.2);
+    }
+
+    .sidebar-item-text { flex: 1; }
+    .sidebar-item-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700; color: var(--white);
+      margin-bottom: 3px;
+    }
+    .sidebar-item-desc {
+      font-size: 0.73rem; color: var(--slate); line-height: 1.4;
+    }
+
+    .sidebar-item-arrow {
+      font-size: 0.85rem; color: var(--gold);
+      opacity: 0; transform: translateX(-6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .sidebar-nav-item:hover .sidebar-item-arrow { opacity: 1; transform: translateX(0); }
+
+    /* Coming Soon pill on blog */
+    .sidebar-pill {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(229,62,62,0.12); border: 1px solid rgba(229,62,62,0.45);
+      padding: 3px 10px; border-radius: 50px;
+      font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--red); font-weight: 700;
+      animation: blink-red 1.4s ease-in-out infinite;
+    }
+    @keyframes blink-red {
+      0%,100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+
+    .sidebar-footer {
+      padding: 24px 36px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      position: relative; z-index: 1;
+    }
+    .sidebar-footer-text {
+      font-size: 0.72rem; color: rgba(255,255,255,0.25);
+      letter-spacing: 0.5px; line-height: 1.6;
+    }
+    .sidebar-footer-text a {
+      color: rgba(201,168,76,0.6); text-decoration: none;
+    }
+    .sidebar-footer-text a:hover { color: var(--gold); }
+
+    /* ── SIDEBAR OVERLAY ── */
+    .sidebar-overlay {
+      position: fixed; inset: 0; z-index: 140;
+      background: rgba(6,13,25,0.6);
+      backdrop-filter: blur(3px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s;
+    }
+    .sidebar-overlay.open { opacity: 1; pointer-events: all; }
 
     /* ── HERO ── */
     .hero {
@@ -390,10 +605,6 @@ Sreeharis notes
       color: var(--red); font-weight: 700; text-transform: uppercase;
       animation: blink-red 1.2s ease-in-out infinite;
     }
-    @keyframes blink-red {
-      0%,100% { opacity: 1; box-shadow: 0 0 10px rgba(229,62,62,0.5); }
-      50% { opacity: 0.35; box-shadow: none; }
-    }
 
     .card-emoji { font-size: 2.8rem; margin-bottom: 20px; display: block; }
     .card-tag {
@@ -500,6 +711,9 @@ Sreeharis notes
       body { cursor: auto; }
       .cursor, .cursor-ring { display: none; }
       .btn-primary, .btn-outline, .btn-insta, .btn-linkedin, .btn-mail { cursor: pointer; }
+      .sidebar-trigger { cursor: pointer; }
+      .sidebar-nav-item:not(.disabled) { cursor: pointer; }
+      .sidebar { width: 300px; right: -320px; }
     }
   </style>
 </head>
@@ -507,6 +721,54 @@ Sreeharis notes
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ── SIDEBAR OVERLAY ── -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ── SIDEBAR PANEL ── -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-header-label">Explore More</div>
+      <div class="sidebar-header-title">Beyond the<br>Classroom</div>
+      <div class="sidebar-header-sub">Interactive science & insights from sreeharis.in</div>
+      <div class="sidebar-divider"></div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="sciencehub.html" class="sidebar-nav-item">
+        <div class="sidebar-item-icon">🔭</div>
+        <div class="sidebar-item-text">
+          <div class="sidebar-item-name">Science Hub</div>
+          <div class="sidebar-item-desc">Interactive visualizations & simulations</div>
+        </div>
+        <div class="sidebar-item-arrow">›</div>
+      </a>
+
+      <div class="sidebar-nav-item disabled">
+        <div class="sidebar-pill">Coming Soon</div>
+        <div class="sidebar-item-icon">✍️</div>
+        <div class="sidebar-item-text">
+          <div class="sidebar-item-name">Blog</div>
+          <div class="sidebar-item-desc">Articles, thoughts & study guides</div>
+        </div>
+        <div class="sidebar-item-arrow">›</div>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-text">
+        Part of <a href="https://sreeharis.in/">sreeharis.in</a> · Kerala University FYUGP Portal<br>
+        Built with ❤️ for students
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SIDEBAR TRIGGER ── -->
+  <button class="sidebar-trigger" id="sidebarTrigger" aria-label="Open sidebar">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -762,6 +1024,35 @@ Sreeharis notes
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('.stat').forEach(el => statObs.observe(el));
+
+    // ── SIDEBAR ──
+    const sidebarTrigger = document.getElementById('sidebarTrigger');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      sidebarOverlay.classList.add('open');
+      sidebarTrigger.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+      sidebarTrigger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    sidebarTrigger.addEventListener('click', () => {
+      sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+    });
+    sidebarOverlay.addEventListener('click', closeSidebar);
+
+    // Close sidebar on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeSidebar();
+    });
   </script>
 </body>
 </html>
+
