@@ -1,1 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Cell I-V Characteristics</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
 
+  :root {
+    --bg: #0a0e1a;
+    --panel: #0f1525;
+    --border: #1e2a45;
+    --gold: #f5c842;
+    --blue: #4fc3f7;
+    --green: #69f0ae;
+    --orange: #ff8c42;
+    --red: #ff5252;
+    --purple: #b39ddb;
+    --text: #e0e8ff;
+    --muted: #7a8aaa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 20%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 80%, rgba(255,255,255,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 90%, rgba(255,255,255,0.2) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, var(--blue) 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.4s forwards;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.6s forwards;
+  }
+
+  /* Condition selector */
+  .selector {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.8s forwards;
+  }
+
+  .btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+  .btn.active { color: #fff; font-weight: 700; }
+  .btn.active-night { border-color: var(--purple); background: rgba(179,157,219,0.1); color: var(--purple); }
+  .btn.active-dawn { border-color: var(--orange); background: rgba(255,140,66,0.1); color: var(--orange); }
+  .btn.active-morning { border-color: var(--blue); background: rgba(79,195,247,0.1); color: var(--blue); }
+  .btn.active-noon { border-color: var(--gold); background: rgba(245,200,66,0.12); color: var(--gold); }
+  .btn.active-all { border-color: var(--green); background: rgba(105,240,174,0.1); color: var(--green); }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Main chart area */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 700px) {
+    .charts-grid { grid-template-columns: 1fr; }
+  }
+
+  .chart-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1s forwards;
+  }
+
+  .chart-card h2 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+
+  .chart-card p {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 16px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  canvas {
+    width: 100% !important;
+    display: block;
+  }
+
+  /* Info cards */
+  .info-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1.2s forwards;
+  }
+
+  .info-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .info-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .info-card .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .info-card .value {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .info-card .sub {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* Explanation section */
+  .explain {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1.4s forwards;
+  }
+
+  .explain h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  .explain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .explain-item {
+    border-left: 2px solid var(--border);
+    padding-left: 14px;
+  }
+
+  .explain-item .cond-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .explain-item p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* Key params table */
+  .params-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+  }
+
+  .params-table th {
+    background: rgba(255,255,255,0.03);
+    padding: 10px 14px;
+    text-align: left;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .params-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(30,42,69,0.5);
+    vertical-align: middle;
+  }
+
+  .params-table tr:last-child td { border-bottom: none; }
+  .params-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .color-swatch {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .physics-box {
+    background: rgba(245,200,66,0.05);
+    border: 1px solid rgba(245,200,66,0.2);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #c8d0e0;
+  }
+
+  .physics-box .eq {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="tag">☀ Photovoltaic Analysis</div>
+    <h1>Solar Cell I-V Characteristics</h1>
+    <p class="subtitle">Current-Voltage curves across light intensity conditions &mdash; from darkness to peak noon</p>
+  </header>
+
+  <div class="selector">
+    <button class="btn active active-all" onclick="setMode('all')" id="btn-all">
+      <span class="dot" style="background:#69f0ae"></span> All Conditions
+    </button>
+    <button class="btn" onclick="setMode('night')" id="btn-night">
+      <span class="dot" style="background:#b39ddb"></span> Night (0 W/m²)
+    </button>
+    <button class="btn" onclick="setMode('dawn')" id="btn-dawn">
+      <span class="dot" style="background:#ff8c42"></span> Dawn (100 W/m²)
+    </button>
+    <button class="btn" onclick="setMode('morning')" id="btn-morning">
+      <span class="dot" style="background:#4fc3f7"></span> Overcast (400 W/m²)
+    </button>
+    <button class="btn" onclick="setMode('noon')" id="btn-noon">
+      <span class="dot" style="background:#f5c842"></span> Peak Noon (1000 W/m²)
+    </button>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h2>I-V Curve</h2>
+      <p>Current (A) vs. Voltage (V)</p>
+      <canvas id="ivChart" height="280"></canvas>
+    </div>
+    <div class="chart-card">
+      <h2>P-V Curve</h2>
+      <p>Power (W) vs. Voltage (V)</p>
+      <canvas id="pvChart" height="280"></canvas>
+    </div>
+  </div>
+
+  <div class="info-row" id="infoRow">
+    <div class="info-card">
+      <div class="label">Short-Circuit Current</div>
+      <div class="value" id="isc-val" style="color:var(--blue)">—</div>
+      <div class="sub">I<sub>SC</sub> &bull; Amps</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Open-Circuit Voltage</div>
+      <div class="value" id="voc-val" style="color:var(--green)">—</div>
+      <div class="sub">V<sub>OC</sub> &bull; Volts</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Max Power (Pmax)</div>
+      <div class="value" id="pmax-val" style="color:var(--gold)">—</div>
+      <div class="sub">P<sub>max</sub> &bull; Watts</div>
+    </div>
+    <div class="info-card">
+      <div class="label">Fill Factor</div>
+      <div class="value" id="ff-val" style="color:var(--orange)">—</div>
+      <div class="sub">FF &bull; Efficiency quality</div>
+    </div>
+  </div>
+
+  <div class="explain">
+    <h3>⚡ Key Parameters Across Conditions</h3>
+    <div style="overflow-x:auto">
+      <table class="params-table">
+        <thead>
+          <tr>
+            <th>Condition</th>
+            <th>Irradiance</th>
+            <th>I<sub>SC</sub> (A)</th>
+            <th>V<sub>OC</sub> (V)</th>
+            <th>P<sub>max</sub> (W)</th>
+            <th>Fill Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="color-swatch" style="background:#b39ddb"></span>Night</td>
+            <td>0 W/m²</td><td>0.000</td><td>0.00 V</td><td>0.00 W</td><td>—</td>
+          </tr>
+          <tr>
+            <td><span class="color-swatch" style="background:#ff8c42"></span>Dawn / Low</td>
+            <td>100 W/m²</td><td>0.80</td><td>0.548 V</td><td>0.32 W</td><td>~0.73</td>
+          </tr>
+          <tr>
+            <td><span class="color-swatch" style="background:#4fc3f7"></span>Overcast / Cloudy</td>
+            <td>400 W/m²</td><td>3.20</td><td>0.575 V</td><td>1.38 W</td><td>~0.75</td>
+          </tr>
+          <tr>
+            <td><span class="color-swatch" style="background:#f5c842"></span>Peak Noon (STC)</td>
+            <td>1000 W/m²</td><td>8.00</td><td>0.600 V</td><td>3.84 W</td><td>~0.80</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="physics-box">
+      <div class="eq">Diode Model: I = I_ph − I₀[exp(qV/nkT) − 1]</div>
+      I_ph = photocurrent (∝ irradiance) &nbsp;|&nbsp; I₀ = dark saturation current<br>
+      q = electron charge &nbsp;|&nbsp; n = ideality factor &nbsp;|&nbsp; k = Boltzmann const &nbsp;|&nbsp; T = temperature<br>
+      <span style="color:var(--green)">P<sub>max</sub> = V<sub>MP</sub> × I<sub>MP</sub></span> &nbsp;|&nbsp; <span style="color:var(--orange)">Fill Factor = P<sub>max</sub> / (V<sub>OC</sub> × I<sub>SC</sub>)</span>
+    </div>
+  </div>
+
+  <div class="explain">
+    <h3>📖 Condition-by-Condition Explanation</h3>
+    <div class="explain-grid">
+      <div class="explain-item" style="border-color:var(--purple)">
+        <div class="cond-label" style="color:var(--purple)">
+          <span class="dot" style="background:var(--purple)"></span> 🌙 NIGHT (0 W/m²)
+        </div>
+        <p>No photons = no photocurrent. The solar cell behaves like a reverse-biased diode with essentially zero output. I<sub>SC</sub> = 0, V<sub>OC</sub> = 0, and power output is zero. The cell is dormant.</p>
+      </div>
+      <div class="explain-item" style="border-color:var(--orange)">
+        <div class="cond-label" style="color:var(--orange)">
+          <span class="dot" style="background:var(--orange)"></span> 🌅 DAWN / LOW LIGHT (100 W/m²)
+        </div>
+        <p>I<sub>SC</sub> drops to ~10% of peak since photocurrent is directly proportional to irradiance. V<sub>OC</sub> drops only logarithmically — stays relatively high. Power is ~8% of peak. Good voltage retention, poor current.</p>
+      </div>
+      <div class="explain-item" style="border-color:var(--blue)">
+        <div class="cond-label" style="color:var(--blue)">
+          <span class="dot" style="background:var(--blue)"></span> ☁ OVERCAST / CLOUDY (400 W/m²)
+        </div>
+        <p>At 40% of STC irradiance, current is ~40% of peak. V<sub>OC</sub> decreases slightly. Power is about 36% of peak — overcast days still generate meaningful energy. Real-world systems often operate in this range.</p>
+      </div>
+      <div class="explain-item" style="border-color:var(--gold)">
+        <div class="cond-label" style="color:var(--gold)">
+          <span class="dot" style="background:var(--gold)"></span> ☀ PEAK NOON / STC (1000 W/m²)
+        </div>
+        <p>Standard Test Condition. Maximum I<sub>SC</sub>, highest V<sub>OC</sub>, maximum power P<sub>max</sub>. The MPP (maximum power point) is where the I-V curve's "knee" bends — at this point, the cell produces its highest wattage. Best Fill Factor here due to lowest series resistance effects.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ─── Solar Cell Model ────────────────────────────────────────────────
+const q = 1.602e-19;
+const k = 1.381e-23;
+const T = 298;  // 25°C
+const n = 1.3;
+const I0 = 2.5e-10;
+
+function computeIV(irradiance, Iph_full = 8.0) {
+  if (irradiance === 0) return { voltages: [], currents: [], powers: [], isc: 0, voc: 0, pmax: 0, ff: 0 };
+
+  const Iph = Iph_full * (irradiance / 1000);
+  const voc_approx = (n * k * T / q) * Math.log(Iph / I0 + 1);
+
+  const Npts = 300;
+  const voltages = [], currents = [], powers = [];
+
+  for (let i = 0; i <= Npts; i++) {
+    const V = (i / Npts) * voc_approx * 1.02;
+    const I = Iph - I0 * (Math.exp((q * V) / (n * k * T)) - 1);
+    if (I < -0.05) break;
+    const Iclamp = Math.max(0, I);
+    voltages.push(V);
+    currents.push(Iclamp);
+    powers.push(V * Iclamp);
+  }
+
+  const isc = currents[0] || 0;
+  const voc = voltages[voltages.length - 1] || 0;
+  const pmax = Math.max(...powers);
+  const ff = (isc > 0 && voc > 0) ? pmax / (isc * voc) : 0;
+
+  return { voltages, currents, powers, isc, voc, pmax, ff };
+}
+
+const conditions = {
+  night:   { irr: 0,    color: '#b39ddb', label: 'Night (0 W/m²)' },
+  dawn:    { irr: 100,  color: '#ff8c42', label: 'Dawn (100 W/m²)' },
+  morning: { irr: 400,  color: '#4fc3f7', label: 'Overcast (400 W/m²)' },
+  noon:    { irr: 1000, color: '#f5c842', label: 'Peak Noon (1000 W/m²)' }
+};
+
+// Pre-compute
+Object.keys(conditions).forEach(k => {
+  conditions[k].data = computeIV(conditions[k].irr);
+});
+
+// ─── Canvas Drawing ──────────────────────────────────────────────────
+let currentMode = 'all';
+
+function drawCharts() {
+  drawIV();
+  drawPV();
+  updateInfo();
+}
+
+function getCanvasDims(canvas) {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const W = Math.floor(rect.width - 48);
+  const H = 280;
+  canvas.width = W;
+  canvas.height = H;
+  return { W, H };
+}
+
+function drawIV() {
+  const canvas = document.getElementById('ivChart');
+  const { W, H } = getCanvasDims(canvas);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { top: 20, right: 20, bottom: 50, left: 56 };
+  const cW = W - pad.left - pad.right;
+  const cH = H - pad.top - pad.bottom;
+
+  const maxV = 0.68, maxI = 9.0;
+
+  drawGrid(ctx, pad, cW, cH, maxV, maxI, 'V (Volts)', 'I (Amps)');
+
+  const keys = currentMode === 'all' ? ['night','dawn','morning','noon'] : [currentMode];
+
+  keys.forEach(k => {
+    const c = conditions[k];
+    if (c.irr === 0) return;
+    const { voltages, currents } = c.data;
+    ctx.beginPath();
+    ctx.strokeStyle = c.color;
+    ctx.lineWidth = currentMode === 'all' ? 2 : 2.5;
+    ctx.shadowColor = c.color;
+    ctx.shadowBlur = currentMode === 'all' ? 4 : 8;
+    voltages.forEach((v, i) => {
+      const x = pad.left + (v / maxV) * cW;
+      const y = pad.top + cH - (currents[i] / maxI) * cH;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // MPP dot
+    const { powers } = c.data;
+    const mppIdx = powers.indexOf(Math.max(...powers));
+    if (mppIdx >= 0) {
+      const mx = pad.left + (voltages[mppIdx] / maxV) * cW;
+      const my = pad.top + cH - (currents[mppIdx] / maxI) * cH;
+      ctx.beginPath();
+      ctx.arc(mx, my, 4, 0, Math.PI * 2);
+      ctx.fillStyle = c.color;
+      ctx.fill();
+    }
+  });
+
+  // Legend
+  if (currentMode === 'all') {
+    ['dawn','morning','noon'].forEach((k, i) => {
+      const c = conditions[k];
+      const lx = pad.left + 10, ly = pad.top + 16 + i * 18;
+      ctx.fillStyle = c.color;
+      ctx.fillRect(lx, ly - 6, 14, 3);
+      ctx.font = '10px Space Mono, monospace';
+      ctx.fillStyle = 'rgba(200,208,224,0.8)';
+      ctx.fillText(c.label, lx + 20, ly);
+    });
+  }
+}
+
+function drawPV() {
+  const canvas = document.getElementById('pvChart');
+  const { W, H } = getCanvasDims(canvas);
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+
+  const pad = { top: 20, right: 20, bottom: 50, left: 56 };
+  const cW = W - pad.left - pad.right;
+  const cH = H - pad.top - pad.bottom;
+
+  const maxV = 0.68, maxP = 5.0;
+
+  drawGrid(ctx, pad, cW, cH, maxV, maxP, 'V (Volts)', 'P (Watts)');
+
+  const keys = currentMode === 'all' ? ['night','dawn','morning','noon'] : [currentMode];
+
+  keys.forEach(k => {
+    const c = conditions[k];
+    if (c.irr === 0) return;
+    const { voltages, powers } = c.data;
+    ctx.beginPath();
+    ctx.strokeStyle = c.color;
+    ctx.lineWidth = currentMode === 'all' ? 2 : 2.5;
+    ctx.shadowColor = c.color;
+    ctx.shadowBlur = currentMode === 'all' ? 4 : 8;
+    voltages.forEach((v, i) => {
+      const x = pad.left + (v / maxV) * cW;
+      const y = pad.top + cH - (powers[i] / maxP) * cH;
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+
+    // Pmax dot
+    const pmx = Math.max(...powers);
+    const pIdx = powers.indexOf(pmx);
+    if (pIdx >= 0) {
+      const px = pad.left + (voltages[pIdx] / maxV) * cW;
+      const py = pad.top + cH - (pmx / maxP) * cH;
+      ctx.beginPath();
+      ctx.arc(px, py, 4, 0, Math.PI * 2);
+      ctx.fillStyle = c.color;
+      ctx.fill();
+      // Dotted Pmax line
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = c.color + '55';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(pad.left, py);
+      ctx.lineTo(px, py);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  });
+}
+
+function drawGrid(ctx, pad, cW, cH, maxX, maxY, labelX, labelY) {
+  const gridColor = 'rgba(30,42,69,0.8)';
+  const axisColor = 'rgba(122,138,170,0.6)';
+  const textColor = 'rgba(122,138,170,0.9)';
+  const nGridX = 6, nGridY = 5;
+
+  ctx.strokeStyle = gridColor;
+  ctx.lineWidth = 1;
+
+  for (let i = 0; i <= nGridY; i++) {
+    const y = pad.top + cH - (i / nGridY) * cH;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, y);
+    ctx.lineTo(pad.left + cW, y);
+    ctx.stroke();
+    const val = ((i / nGridY) * maxY).toFixed(maxY < 2 ? 2 : 1);
+    ctx.fillStyle = textColor;
+    ctx.font = '10px Space Mono, monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText(val, pad.left - 8, y + 4);
+  }
+
+  for (let i = 0; i <= nGridX; i++) {
+    const x = pad.left + (i / nGridX) * cW;
+    ctx.beginPath();
+    ctx.moveTo(x, pad.top);
+    ctx.lineTo(x, pad.top + cH);
+    ctx.stroke();
+    const val = ((i / nGridX) * maxX).toFixed(2);
+    ctx.fillStyle = textColor;
+    ctx.font = '10px Space Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(val, x, pad.top + cH + 18);
+  }
+
+  // Axes
+  ctx.strokeStyle = axisColor;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top + cH);
+  ctx.lineTo(pad.left + cW, pad.top + cH);
+  ctx.stroke();
+
+  // Labels
+  ctx.fillStyle = 'rgba(200,208,224,0.7)';
+  ctx.font = '11px Syne, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(labelX, pad.left + cW / 2, pad.top + cH + 38);
+
+  ctx.save();
+  ctx.translate(14, pad.top + cH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText(labelY, 0, 0);
+  ctx.restore();
+}
+
+function updateInfo() {
+  if (currentMode === 'all') {
+    document.getElementById('isc-val').textContent = '8.00 A';
+    document.getElementById('voc-val').textContent = '0.60 V';
+    document.getElementById('pmax-val').textContent = '3.84 W';
+    document.getElementById('ff-val').textContent = '0.80';
+    return;
+  }
+  const c = conditions[currentMode];
+  const d = c.data;
+  if (c.irr === 0) {
+    document.getElementById('isc-val').textContent = '0.00 A';
+    document.getElementById('voc-val').textContent = '0.00 V';
+    document.getElementById('pmax-val').textContent = '0.00 W';
+    document.getElementById('ff-val').textContent = '—';
+  } else {
+    document.getElementById('isc-val').textContent = d.isc.toFixed(2) + ' A';
+    document.getElementById('voc-val').textContent = d.voc.toFixed(3) + ' V';
+    document.getElementById('pmax-val').textContent = d.pmax.toFixed(2) + ' W';
+    document.getElementById('ff-val').textContent = d.ff.toFixed(2);
+  }
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.btn').forEach(b => {
+    b.className = 'btn';
+  });
+  const btn = document.getElementById('btn-' + mode);
+  btn.className = 'btn active active-' + mode;
+  drawCharts();
+}
+
+// Init & resize
+window.addEventListener('resize', drawCharts);
+setTimeout(drawCharts, 200);
+setTimeout(drawCharts, 800); // re-draw after animations
+</script>
+</body>
+  </html>
