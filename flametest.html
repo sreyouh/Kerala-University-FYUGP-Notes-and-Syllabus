@@ -1,1 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flame Test Interactive Simulation | Metal Ions & Flame Colors | Sreeharis FYUGP</title>
+<meta name="description" content="Interactive flame test simulation — observe characteristic flame colors of metal ions including Sodium, Potassium, Calcium, Strontium, Barium, Copper and Lithium. Free tool for Kerala University FYUGP Chemistry inorganic lab students.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Flame Test Interactive Simulation",
+  "description": "Interactive simulation of flame test showing characteristic colors of metal ions for qualitative analysis.",
+  "url": "https://sreeharis.in/flametest.html",
+  "educationalLevel": "Undergraduate",
+  "about": "Flame Test Metal Ion Colors",
+  "creator": { "@type": "Person", "name": "Sreehari" }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080c10;
+  --panel: #0d1118;
+  --panel2: #111620;
+  --border: #1e2535;
+  --text: #d8e4f0;
+  --muted: #5a7090;
+  --white: #ffffff;
+  --gold: #f5c842;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CURSOR ── */
+.cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(245,200,66,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
+/* ── STARFIELD ── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 35% 62%,rgba(255,255,255,0.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 58% 14%,rgba(255,255,255,0.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 74% 78%,rgba(255,255,255,0.25) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 32%,rgba(255,255,255,0.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 88%,rgba(255,255,255,0.2) 0%,transparent 100%),
+    radial-gradient(1px 1px at 50% 50%,rgba(255,255,255,0.2) 0%,transparent 100%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 52px;
+  background:rgba(8,12,16,0.7);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(245,200,66,0.12);
+  transition:padding .4s,background .4s;
+}
+nav.scrolled{padding:13px 52px;background:rgba(8,12,16,0.96);}
+.nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold);letter-spacing:.3px;}
+.nav-logo-sub{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);font-weight:400;}
+.nav-back{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.5);text-decoration:none;
+  font-size:.85rem;letter-spacing:.5px;transition:color .2s;
+  padding:8px 18px;border-radius:50px;
+  border:1px solid rgba(245,200,66,0.15);
+  background:rgba(245,200,66,0.04);
+}
+.nav-back:hover{color:var(--gold);border-color:rgba(245,200,66,0.4);}
+
+/* ── WRAP ── */
+.wrap{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:120px 20px 80px;}
+
+/* ── HEADER ── */
+header{text-align:center;margin-bottom:52px;animation:fadeUp .7s ease both;}
+.header-tag{
+  display:inline-block;
+  font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(245,200,66,0.4);
+  padding:5px 16px;border-radius:2px;margin-bottom:20px;
+  box-shadow:0 0 20px rgba(245,200,66,0.15);
+}
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(24px,4.5vw,48px);
+  font-weight:900;line-height:1.1;
+  background:linear-gradient(135deg,#fff 0%,var(--gold) 60%,#ff8c00 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:14px;animation:fadeUp .7s .1s ease both;
+}
+header p{color:var(--muted);font-size:15px;font-weight:300;max-width:540px;margin:0 auto;animation:fadeUp .7s .2s ease both;}
+
+/* ── METAL SELECTOR ── */
+.metal-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(110px,1fr));
+  gap:10px;margin-bottom:36px;
+  animation:fadeUp .7s .3s ease both;
+}
+.metal-btn{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:14px 10px;border-radius:12px;
+  border:1px solid var(--border);background:var(--panel);
+  cursor:none;transition:all .25s;
+  position:relative;overflow:hidden;
+}
+.metal-btn::before{
+  content:'';position:absolute;inset:0;
+  opacity:0;transition:opacity .3s;
+}
+.metal-btn:hover::before,.metal-btn.active::before{opacity:1;}
+.metal-btn:hover,.metal-btn.active{transform:translateY(-3px);}
+.metal-symbol{
+  font-family:'Playfair Display',serif;
+  font-size:1.6rem;font-weight:900;line-height:1;
+}
+.metal-name{font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.metal-color-dot{width:10px;height:10px;border-radius:50%;margin-top:2px;}
+
+/* ── MAIN SIMULATION AREA ── */
+.sim-layout{
+  display:grid;
+  grid-template-columns:1fr 340px;
+  gap:24px;margin-bottom:24px;
+  animation:fadeUp .7s .4s ease both;
+}
+@media(max-width:780px){.sim-layout{grid-template-columns:1fr;}}
+
+/* ── LAB CANVAS CARD ── */
+.lab-card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  position:relative;
+}
+#labCanvas{display:block;width:100%;}
+
+/* ── INFO PANEL ── */
+.info-panel{
+  display:flex;flex-direction:column;gap:16px;
+}
+
+.flame-color-display{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;padding:28px 24px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.flame-color-swatch{
+  width:80px;height:80px;border-radius:50%;
+  box-shadow:0 0 40px currentColor;
+  transition:background .6s,box-shadow .6s;
+  position:relative;
+}
+.flame-color-swatch::after{
+  content:'';position:absolute;inset:-8px;border-radius:50%;
+  border:1px solid currentColor;opacity:.3;
+  animation:pulse-ring 2s ease-in-out infinite;
+}
+@keyframes pulse-ring{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.1);opacity:.1}}
+
+.flame-color-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;
+  transition:color .6s;
+}
+.flame-wavelength{
+  font-family:'DM Mono',monospace;
+  font-size:.75rem;letter-spacing:1px;color:var(--muted);
+}
+
+.info-cards{display:flex;flex-direction:column;gap:12px;}
+.info-card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;padding:16px 18px;
+}
+.info-card .lbl{
+  font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:7px;
+}
+.info-card .val{font-size:.9rem;line-height:1.6;color:var(--text);}
+.info-card .val strong{color:var(--white);font-weight:600;}
+
+/* ── SEO TEXT SECTION ── */
+.seo-section{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:16px;padding:36px;
+  animation:fadeUp .7s .6s ease both;
+}
+.seo-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:14px;
+}
+.seo-section h3{
+  font-family:'DM Mono',monospace;font-size:.78rem;
+  font-weight:600;color:var(--gold);margin:22px 0 8px;letter-spacing:1px;text-transform:uppercase;
+}
+.seo-section p{font-size:.9rem;line-height:1.85;color:var(--muted);margin-bottom:10px;}
+.seo-section p strong{color:var(--text);font-weight:500;}
+.seo-divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:18px 0;}
+
+/* Flame color reference table */
+.flame-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-top:16px;}
+.flame-table th{
+  background:rgba(255,255,255,0.03);padding:9px 14px;
+  text-align:left;color:var(--muted);
+  font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;
+  border-bottom:1px solid var(--border);
+}
+.flame-table td{padding:10px 14px;border-bottom:1px solid rgba(30,37,53,0.6);}
+.flame-table tr:last-child td{border-bottom:none;}
+.flame-table tr:hover td{background:rgba(255,255,255,0.02);}
+.color-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:3px 10px;border-radius:50px;
+  font-size:.72rem;font-weight:600;
+}
+
+.kw-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.kw{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:1px;padding:4px 10px;border:1px solid var(--border);border-radius:3px;color:var(--muted);}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  background:#04060a;border-top:1px solid rgba(245,200,66,0.08);padding:36px 24px;
+}
+.footer-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;}
+.footer-logo span{display:block;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:.75rem;margin-top:4px;}
+.footer-copy{color:var(--muted);font-size:.8rem;}
+.footer-link{color:var(--gold);text-decoration:none;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  nav{padding:16px 20px;}
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  .metal-btn{cursor:pointer;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">FYUGP Kerala University</span>
+    <span class="nav-logo-sub">Study Material Sharing Hub</span>
+  </a>
+  <a href="sciencehub.html" class="nav-back">← Science Hub</a>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="header-tag">🔥 Inorganic Chemistry Lab</div>
+    <h1>Flame Test Simulation</h1>
+    <p>Select a metal salt — watch the characteristic flame color appear. Used in qualitative analysis to identify metal ions by their emission spectra.</p>
+  </header>
+
+  <!-- METAL SELECTOR -->
+  <div class="metal-grid" id="metalGrid">
+    <!-- Injected by JS -->
+  </div>
+
+  <!-- SIMULATION LAYOUT -->
+  <div class="sim-layout">
+
+    <!-- LAB CANVAS -->
+    <div class="lab-card">
+      <canvas id="labCanvas"></canvas>
+    </div>
+
+    <!-- INFO PANEL -->
+    <div class="info-panel">
+
+      <div class="flame-color-display" id="colorDisplay">
+        <div class="flame-color-swatch" id="colorSwatch"></div>
+        <div class="flame-color-name" id="colorName">Select a metal</div>
+        <div class="flame-wavelength" id="colorWave">— click any metal above —</div>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="lbl">Metal Ion</div>
+          <div class="val" id="infoIon">—</div>
+        </div>
+        <div class="info-card">
+          <div class="lbl">Electron Transition</div>
+          <div class="val" id="infoTransition">—</div>
+        </div>
+        <div class="info-card">
+          <div class="lbl">Lab Observation</div>
+          <div class="val" id="infoObs">—</div>
+        </div>
+        <div class="info-card">
+          <div class="lbl">Used to Detect</div>
+          <div class="val" id="infoUse">—</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEO / EXPLANATION -->
+  <div class="seo-section">
+    <h2>What is the Flame Test?</h2>
+    <p>The <strong>flame test</strong> is a qualitative analytical technique used in chemistry to identify the presence of certain metal ions in a sample. When a metal salt is introduced into a flame, the heat excites the outer electrons of the metal ions to higher energy levels. As these electrons fall back to their ground state, they release energy in the form of visible light — each metal emitting a characteristic colour unique to its electronic structure.</p>
+    <p>This technique is widely used in <strong>inorganic qualitative analysis</strong>, fireworks manufacture, and spectroscopic identification. In the Kerala University FYUGP Chemistry inorganic laboratory, the flame test is a standard procedure for the identification of cations like Ba²⁺, Sr²⁺, Ca²⁺, Na⁺, K⁺, Li⁺, and Cu²⁺.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Flame Colors of Metal Ions — Quick Reference</h3>
+    <table class="flame-table">
+      <thead>
+        <tr>
+          <th>Metal</th>
+          <th>Ion</th>
+          <th>Flame Color</th>
+          <th>Wavelength</th>
+          <th>Key Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Lithium</strong></td><td>Li⁺</td><td><span class="color-pill" style="background:rgba(220,20,60,0.15);color:#ff4444;">● Crimson Red</span></td><td>~670 nm</td><td>Lithium detection, batteries</td></tr>
+        <tr><td><strong>Sodium</strong></td><td>Na⁺</td><td><span class="color-pill" style="background:rgba(255,215,0,0.15);color:#ffd700;">● Golden Yellow</span></td><td>~589 nm</td><td>Sodium, NaCl, streetlights</td></tr>
+        <tr><td><strong>Potassium</strong></td><td>K⁺</td><td><span class="color-pill" style="background:rgba(200,160,224,0.15);color:#c8a0e0;">● Lilac / Violet</span></td><td>~767 nm</td><td>Potassium salts, fertilisers</td></tr>
+        <tr><td><strong>Calcium</strong></td><td>Ca²⁺</td><td><span class="color-pill" style="background:rgba(255,100,50,0.15);color:#ff6432;">● Brick Red</span></td><td>~622 nm</td><td>Calcium, lime, cement</td></tr>
+        <tr><td><strong>Strontium</strong></td><td>Sr²⁺</td><td><span class="color-pill" style="background:rgba(220,20,60,0.15);color:#dc143c;">● Crimson Red</span></td><td>~606 nm</td><td>Red fireworks, flares</td></tr>
+        <tr><td><strong>Barium</strong></td><td>Ba²⁺</td><td><span class="color-pill" style="background:rgba(57,255,143,0.15);color:#39e87a;">● Pearl Green</span></td><td>~524 nm</td><td>Green fireworks, barium salts</td></tr>
+        <tr><td><strong>Copper</strong></td><td>Cu²⁺</td><td><span class="color-pill" style="background:rgba(0,206,209,0.15);color:#00ced1;">● Blue-Green</span></td><td>~515 nm</td><td>Copper compounds, fireworks</td></tr>
+        <tr><td><strong>Iron</strong></td><td>Fe³⁺</td><td><span class="color-pill" style="background:rgba(255,140,0,0.15);color:#ff8c00;">● Orange-Gold</span></td><td>~580 nm</td><td>Iron detection, steelwork</td></tr>
+      </tbody>
+    </table>
+
+    <div class="seo-divider"></div>
+    <h3>How to Perform the Flame Test</h3>
+    <p><strong>Procedure:</strong> A clean platinum or nichrome wire loop is dipped into concentrated hydrochloric acid and heated in a Bunsen burner flame until no colour is imparted (to remove contamination). The wire is then dipped into the metal salt sample and held in the hottest part of the flame — the blue cone. The colour of the resulting flame is observed and recorded.</p>
+    <p><strong>Why HCl is used:</strong> Hydrochloric acid converts metal salts into their chlorides, which are more volatile and vaporise easily in the flame, producing a clearer and brighter colour emission.</p>
+    <p><strong>Distinguishing similar colours:</strong> Sodium's intense golden yellow can mask other colours. Potassium's lilac flame is best viewed through a blue cobalt glass, which filters out sodium interference. Strontium (crimson) and Lithium (scarlet red) look similar but can be distinguished spectroscopically.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Relevance to Kerala University FYUGP Chemistry</h3>
+    <p>The flame test is a standard experiment in the <strong>inorganic qualitative analysis laboratory</strong> of the Kerala University Four Year Undergraduate Programme (FYUGP) Chemistry course. Students perform flame tests to identify Group 1 and Group 2 metal cations — particularly <strong>Ba²⁺ (pearl green)</strong>, <strong>Sr²⁺ (crimson red)</strong>, <strong>Ca²⁺ (brick red)</strong>, <strong>Na⁺ (golden yellow)</strong>, and <strong>K⁺ (lilac)</strong>. Understanding the electronic basis of flame colours — electron excitation and emission — connects the lab observations to atomic structure theory covered in the FYUGP syllabus.</p>
+
+    <div class="kw-row">
+      <span class="kw">flame test</span>
+      <span class="kw">flame test colors</span>
+      <span class="kw">metal ion identification</span>
+      <span class="kw">barium pearl green</span>
+      <span class="kw">strontium crimson red</span>
+      <span class="kw">calcium brick red</span>
+      <span class="kw">sodium golden yellow</span>
+      <span class="kw">potassium lilac</span>
+      <span class="kw">qualitative analysis</span>
+      <span class="kw">FYUGP chemistry lab</span>
+      <span class="kw">Kerala University inorganic lab</span>
+      <span class="kw">flame test simulation</span>
+      <span class="kw">electron excitation emission</span>
+      <span class="kw">nichrome wire flame test</span>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Flame Test Simulation
+      <span>Part of sreeharis.in · Kerala University FYUGP</span>
+    </div>
+    <p class="footer-copy">© 2026 <a href="https://sreeharis.in/" class="footer-link">sreeharis.in</a> · All Rights Reserved</p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+//  METAL DATA
+// ═══════════════════════════════════════════════
+const METALS = [
+  {
+    symbol:'Li', name:'Lithium', ion:'Li⁺',
+    color:'#ff2a2a', colorName:'Crimson Scarlet', glow:'rgba(255,42,42,0.6)',
+    wave:'~670 nm', btnBg:'rgba(255,42,42,0.12)', btnBorder:'rgba(255,42,42,0.35)',
+    transition:'2p → 2s (electron drops to ground state, emits red photon)',
+    obs:'Vivid crimson-scarlet flame, persistent and bright',
+    use:'Identifying lithium salts, distinguishing from strontium',
+    tubeColor:'rgba(255,42,42,0.35)'
+  },
+  {
+    symbol:'Na', name:'Sodium', ion:'Na⁺',
+    color:'#ffd700', colorName:'Golden Yellow', glow:'rgba(255,215,0,0.7)',
+    wave:'~589 nm (D-lines)', btnBg:'rgba(255,215,0,0.12)', btnBorder:'rgba(255,215,0,0.4)',
+    transition:'3p → 3s (sodium D-lines, most intense flame emission)',
+    obs:'Intense persistent golden-yellow flame, very dominant, can mask other colours',
+    use:'Detecting sodium ions — even trace amounts produce strong yellow',
+    tubeColor:'rgba(255,215,0,0.4)'
+  },
+  {
+    symbol:'K', name:'Potassium', ion:'K⁺',
+    color:'#c8a0e0', colorName:'Lilac / Pale Violet', glow:'rgba(200,160,224,0.6)',
+    wave:'~767 nm & 404 nm', btnBg:'rgba(200,160,224,0.12)', btnBorder:'rgba(200,160,224,0.35)',
+    transition:'4p → 4s (weak emission, best seen through cobalt blue glass)',
+    obs:'Pale lilac-violet flame, fleeting — use cobalt glass to filter sodium interference',
+    use:'Identifying potassium ions in fertilisers, minerals, and salts',
+    tubeColor:'rgba(200,160,224,0.35)'
+  },
+  {
+    symbol:'Ca', name:'Calcium', ion:'Ca²⁺',
+    color:'#ff6432', colorName:'Brick Red', glow:'rgba(255,100,50,0.6)',
+    wave:'~622 nm', btnBg:'rgba(255,100,50,0.12)', btnBorder:'rgba(255,100,50,0.35)',
+    transition:'Calcium atom electron transitions produce orange-red band emission',
+    obs:'Brick red to orange-red flame, moderately intense',
+    use:'Detecting Ca²⁺ in limestone, chalk, cement, and biological samples',
+    tubeColor:'rgba(255,100,50,0.35)'
+  },
+  {
+    symbol:'Sr', name:'Strontium', ion:'Sr²⁺',
+    color:'#dc143c', colorName:'Crimson Red', glow:'rgba(220,20,60,0.65)',
+    wave:'~606 nm & 460 nm', btnBg:'rgba(220,20,60,0.12)', btnBorder:'rgba(220,20,60,0.35)',
+    transition:'Sr atom band emission — crimson stronger than calcium, deeper red',
+    obs:'Bright crimson red flame — brighter and deeper than calcium brick red',
+    use:'Red signal flares, red fireworks, strontium compound identification',
+    tubeColor:'rgba(220,20,60,0.35)'
+  },
+  {
+    symbol:'Ba', name:'Barium', ion:'Ba²⁺',
+    color:'#39e87a', colorName:'Pearl Green', glow:'rgba(57,232,122,0.6)',
+    wave:'~524 nm', btnBg:'rgba(57,232,122,0.1)', btnBorder:'rgba(57,232,122,0.35)',
+    transition:'Barium oxide and hydroxide band emission in the green region',
+    obs:'Distinctive pale yellow-green (pearl green) flame',
+    use:'Identifying barium salts, green fireworks, barium compounds',
+    tubeColor:'rgba(57,232,122,0.3)'
+  },
+  {
+    symbol:'Cu', name:'Copper', ion:'Cu²⁺',
+    color:'#00ced1', colorName:'Blue-Green', glow:'rgba(0,206,209,0.65)',
+    wave:'~515 nm', btnBg:'rgba(0,206,209,0.1)', btnBorder:'rgba(0,206,209,0.35)',
+    transition:'CuCl molecule band emission in blue-green region in presence of HCl',
+    obs:'Vivid blue-green or turquoise flame, especially striking with HCl present',
+    use:'Detecting copper ions, blue-green fireworks, copper compound analysis',
+    tubeColor:'rgba(0,206,209,0.3)'
+  },
+  {
+    symbol:'Fe', name:'Iron', ion:'Fe³⁺',
+    color:'#ff8c00', colorName:'Orange-Gold', glow:'rgba(255,140,0,0.6)',
+    wave:'~580 nm', btnBg:'rgba(255,140,0,0.1)', btnBorder:'rgba(255,140,0,0.35)',
+    transition:'Iron atom produces broad orange emission from multiple transitions',
+    obs:'Dull orange-gold flame, less vivid than sodium, slightly sparkling',
+    use:'Iron detection in minerals, alloys, and qualitative inorganic analysis',
+    tubeColor:'rgba(255,140,0,0.3)'
+  }
+];
+
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+let selectedMetal = null;
+let animFrame;
+let t = 0;
+let particles = [];
+let wireAngle = 0;   // 0 = resting, 1 = in flame
+let wireProgress = 0;
+let isAnimatingWire = false;
+let flameIntensity = 0;
+
+// ═══════════════════════════════════════════════
+//  BUILD METAL BUTTONS
+// ═══════════════════════════════════════════════
+const grid = document.getElementById('metalGrid');
+METALS.forEach((m, i) => {
+  const btn = document.createElement('div');
+  btn.className = 'metal-btn';
+  btn.id = 'mbtn-' + m.symbol;
+  btn.style.cssText = `--btn-color:${m.color};`;
+  btn.innerHTML = `
+    <div class="metal-symbol" style="color:${m.color}">${m.symbol}</div>
+    <div class="metal-name">${m.name}</div>
+    <div class="metal-color-dot" style="background:${m.color};box-shadow:0 0 8px ${m.color}"></div>`;
+  btn.style.setProperty('--c', m.color);
+  btn.style.borderColor = m.btnBorder;
+  btn.addEventListener('click', () => selectMetal(m));
+  // hover glow
+  btn.addEventListener('mouseenter', () => {
+    btn.style.background = m.btnBg;
+    btn.style.boxShadow = `0 0 20px ${m.glow}`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    if (selectedMetal !== m) {
+      btn.style.background = 'var(--panel)';
+      btn.style.boxShadow = 'none';
+    }
+  });
+  grid.appendChild(btn);
+});
+
+// ═══════════════════════════════════════════════
+//  SELECT METAL
+// ═══════════════════════════════════════════════
+function selectMetal(m) {
+  // Reset all buttons
+  METALS.forEach(x => {
+    const b = document.getElementById('mbtn-' + x.symbol);
+    b.classList.remove('active');
+    b.style.background = 'var(--panel)';
+    b.style.boxShadow = 'none';
+    b.style.transform = '';
+  });
+
+  selectedMetal = m;
+  const btn = document.getElementById('mbtn-' + m.symbol);
+  btn.classList.add('active');
+  btn.style.background = m.btnBg;
+  btn.style.boxShadow = `0 0 24px ${m.glow}, 0 0 0 1px ${m.btnBorder}`;
+  btn.style.transform = 'translateY(-3px)';
+
+  // Update info panel
+  const swatch = document.getElementById('colorSwatch');
+  swatch.style.background = m.color;
+  swatch.style.boxShadow = `0 0 40px ${m.glow}, 0 0 80px ${m.glow}`;
+  swatch.style.color = m.color;
+
+  document.getElementById('colorName').textContent = m.colorName;
+  document.getElementById('colorName').style.color = m.color;
+  document.getElementById('colorWave').textContent = `Wavelength: ${m.wave}`;
+  document.getElementById('infoIon').innerHTML = `<strong>${m.name}</strong> — ${m.ion}`;
+  document.getElementById('infoTransition').textContent = m.transition;
+  document.getElementById('infoObs').textContent = m.obs;
+  document.getElementById('infoUse').textContent = m.use;
+
+  // Trigger wire animation
+  isAnimatingWire = true;
+  wireProgress = 0;
+  particles = [];
+  flameIntensity = 0;
+}
+
+// ═══════════════════════════════════════════════
+//  CANVAS
+// ═══════════════════════════════════════════════
+const canvas = document.getElementById('labCanvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  const W = canvas.parentElement.clientWidth;
+  canvas.width = W;
+  canvas.height = Math.max(320, Math.min(460, W * 0.55));
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ═══════════════════════════════════════════════
+//  PARTICLE SYSTEM
+// ═══════════════════════════════════════════════
+function spawnParticle(x, y, color, glow) {
+  particles.push({
+    x, y,
+    vx: (Math.random() - 0.5) * 2.5,
+    vy: -(1.5 + Math.random() * 3.5),
+    life: 1,
+    decay: 0.012 + Math.random() * 0.018,
+    size: 3 + Math.random() * 8,
+    color, glow,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.05 + Math.random() * 0.08
+  });
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW
+// ═══════════════════════════════════════════════
+function draw() {
+  t += 0.016;
+  const W = canvas.width, H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // Dark lab background
+  const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+  bgGrad.addColorStop(0, '#080c10');
+  bgGrad.addColorStop(1, '#04060a');
+  ctx.fillStyle = bgGrad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Lab bench surface
+  const benchY = H * 0.82;
+  ctx.fillStyle = '#0e1520';
+  ctx.fillRect(0, benchY, W, H - benchY);
+  ctx.strokeStyle = '#1a2535';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(0, benchY);
+  ctx.lineTo(W, benchY);
+  ctx.stroke();
+
+  const burnerX = W * 0.52;
+  const burnerY = benchY;
+
+  // ── DRAW BUNSEN BURNER ──
+  drawBurner(burnerX, burnerY, W, H);
+
+  // ── DRAW TEST TUBE RACK (left side) ──
+  drawRack(W * 0.14, benchY, W, H);
+
+  // ── WIRE ANIMATION ──
+  if (isAnimatingWire) {
+    wireProgress = Math.min(1, wireProgress + 0.022);
+    if (wireProgress >= 1) {
+      isAnimatingWire = false;
+      flameIntensity = 1;
+    }
+  }
+
+  // ── DRAW WIRE LOOP ──
+  drawWire(burnerX, burnerY, W, H);
+
+  // ── FLAME ──
+  const flameX = burnerX;
+  const flameBaseY = burnerY - 28;
+  drawFlame(flameX, flameBaseY, W, H);
+
+  // ── PARTICLES ──
+  if (selectedMetal && flameIntensity > 0.3) {
+    const spawnRate = Math.floor(flameIntensity * 4);
+    for (let i = 0; i < spawnRate; i++) {
+      spawnParticle(
+        flameX + (Math.random() - 0.5) * 18,
+        flameBaseY - 20 - Math.random() * 40,
+        selectedMetal.color,
+        selectedMetal.glow
+      );
+    }
+  }
+
+  // Update & draw particles
+  particles = particles.filter(p => p.life > 0);
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy -= 0.04;
+    p.wobble += p.wobbleSpeed;
+    p.x += Math.sin(p.wobble) * 0.4;
+    p.life -= p.decay;
+    p.size *= 0.985;
+
+    const alpha = p.life * 0.8;
+    const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+    grd.addColorStop(0, p.color + 'ff');
+    grd.addColorStop(0.4, p.color + 'aa');
+    grd.addColorStop(1, p.color + '00');
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = grd;
+    ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+
+  // ── LABEL ──
+  if (!selectedMetal) {
+    ctx.save();
+    ctx.font = '500 13px DM Sans, sans-serif';
+    ctx.fillStyle = 'rgba(90,112,144,0.7)';
+    ctx.textAlign = 'center';
+    ctx.fillText('← Select a metal salt to begin', W * 0.5, H * 0.5);
+    ctx.restore();
+  }
+
+  animFrame = requestAnimationFrame(draw);
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW BUNSEN BURNER
+// ═══════════════════════════════════════════════
+function drawBurner(cx, baseY, W, H) {
+  // Base
+  ctx.fillStyle = '#1a2535';
+  ctx.beginPath();
+  ctx.ellipse(cx, baseY + 8, 36, 10, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Barrel
+  const grad = ctx.createLinearGradient(cx - 14, 0, cx + 14, 0);
+  grad.addColorStop(0, '#1e2d42');
+  grad.addColorStop(0.4, '#2a3f5c');
+  grad.addColorStop(1, '#151f2e');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(cx - 13, baseY - 80, 26, 80, [4, 4, 0, 0]);
+  ctx.fill();
+  ctx.strokeStyle = '#2a3f5c';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Collar ring
+  ctx.fillStyle = '#253548';
+  ctx.beginPath();
+  ctx.ellipse(cx, baseY - 78, 15, 5, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Air hole indicator
+  ctx.strokeStyle = 'rgba(100,150,200,0.3)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(cx + 13, baseY - 50, 4, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Gas tube
+  ctx.strokeStyle = '#1e2d42';
+  ctx.lineWidth = 8;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(cx + 13, baseY - 10);
+  ctx.lineTo(cx + 13, baseY + 8);
+  ctx.lineTo(cx + 45, baseY + 8);
+  ctx.stroke();
+
+  // Burner top opening glow
+  if (selectedMetal) {
+    const glow = ctx.createRadialGradient(cx, baseY - 82, 0, cx, baseY - 82, 20);
+    glow.addColorStop(0, selectedMetal.glow.replace('0.6', '0.4'));
+    glow.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(cx, baseY - 82, 20, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW FLAME
+// ═══════════════════════════════════════════════
+function drawFlame(cx, baseY, W, H) {
+  const flicker = Math.sin(t * 8) * 3 + Math.sin(t * 13) * 2;
+  const flicker2 = Math.sin(t * 6 + 1) * 2;
+
+  // Base blue cone (always present)
+  const blueH = 35 + Math.sin(t * 9) * 3;
+  const blueGrad = ctx.createRadialGradient(cx, baseY, 0, cx, baseY - blueH * 0.6, blueH * 0.8);
+  blueGrad.addColorStop(0, 'rgba(100,180,255,0.9)');
+  blueGrad.addColorStop(0.5, 'rgba(80,140,255,0.5)');
+  blueGrad.addColorStop(1, 'rgba(50,100,255,0)');
+  ctx.fillStyle = blueGrad;
+  ctx.beginPath();
+  ctx.moveTo(cx - 10, baseY);
+  ctx.quadraticCurveTo(cx - 14, baseY - blueH * 0.5, cx + flicker2, baseY - blueH);
+  ctx.quadraticCurveTo(cx + 14, baseY - blueH * 0.5, cx + 10, baseY);
+  ctx.closePath();
+  ctx.fill();
+
+  if (!selectedMetal || flameIntensity < 0.05) return;
+
+  const fi = flameIntensity;
+  const color = selectedMetal.color;
+  const glow = selectedMetal.glow;
+
+  // Outer glow halo
+  const haloH = (100 + flicker) * fi;
+  const haloGrad = ctx.createRadialGradient(cx, baseY - haloH * 0.4, 0, cx, baseY - haloH * 0.4, haloH * 1.2);
+  haloGrad.addColorStop(0, glow.replace('0.6', `${0.25 * fi}`));
+  haloGrad.addColorStop(0.5, glow.replace('0.6', `${0.1 * fi}`));
+  haloGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = haloGrad;
+  ctx.beginPath();
+  ctx.ellipse(cx, baseY - haloH * 0.4, haloH * 0.8, haloH * 1.1, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Main coloured flame body
+  const fH = (80 + flicker) * fi;
+  const fW = 22 * fi;
+
+  // Draw multiple flame layers for depth
+  for (let layer = 0; layer < 3; layer++) {
+    const lAlpha = [0.9, 0.6, 0.35][layer];
+    const lScale = [1, 0.75, 0.5][layer];
+    const lOffset = [0, flicker * 0.4, flicker * 0.7][layer];
+
+    const flameGrad = ctx.createLinearGradient(cx, baseY, cx + lOffset, baseY - fH * lScale);
+    flameGrad.addColorStop(0, color + 'ff');
+    flameGrad.addColorStop(0.3, color + 'dd');
+    flameGrad.addColorStop(0.7, color + '88');
+    flameGrad.addColorStop(1, color + '00');
+
+    ctx.fillStyle = flameGrad;
+    ctx.globalAlpha = lAlpha * fi;
+    ctx.beginPath();
+    ctx.moveTo(cx - fW * lScale, baseY);
+    ctx.quadraticCurveTo(
+      cx - fW * lScale * 1.2 + lOffset,
+      baseY - fH * lScale * 0.5,
+      cx + lOffset * 0.6,
+      baseY - fH * lScale
+    );
+    ctx.quadraticCurveTo(
+      cx + fW * lScale * 1.2 + lOffset,
+      baseY - fH * lScale * 0.5,
+      cx + fW * lScale,
+      baseY
+    );
+    ctx.closePath();
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // White hot core
+  const coreGrad = ctx.createRadialGradient(cx, baseY - 15, 0, cx, baseY - 15, 18 * fi);
+  coreGrad.addColorStop(0, `rgba(255,255,255,${0.9 * fi})`);
+  coreGrad.addColorStop(0.4, `rgba(255,255,255,${0.4 * fi})`);
+  coreGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = coreGrad;
+  ctx.beginPath();
+  ctx.ellipse(cx, baseY - 12, 10 * fi, 22 * fi, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Gradually increase intensity
+  flameIntensity = Math.min(1, flameIntensity + 0.015);
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW WIRE
+// ═══════════════════════════════════════════════
+function drawWire(burnerX, burnerY, W, H) {
+  // Wire handle rests at left side, swings into flame
+  const restX = W * 0.22;
+  const restY = burnerY - 20;
+  const flameX = burnerX;
+  const flameY = burnerY - 55;
+
+  // Interpolate position
+  const ease = wireProgress < 1
+    ? wireProgress < 0.5
+      ? 2 * wireProgress * wireProgress
+      : 1 - Math.pow(-2 * wireProgress + 2, 2) / 2
+    : 1;
+
+  const wx = restX + (flameX - restX) * ease;
+  const wy = restY + (flameY - restY) * ease;
+
+  // Handle
+  ctx.save();
+  ctx.strokeStyle = '#4a6080';
+  ctx.lineWidth = 3;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(wx - 60, wy + 40);
+  ctx.lineTo(wx, wy);
+  ctx.stroke();
+
+  // Wire stem
+  ctx.strokeStyle = '#7090b0';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(wx, wy);
+  ctx.lineTo(wx, wy - 30);
+  ctx.stroke();
+
+  // Loop at tip
+  ctx.strokeStyle = selectedMetal && wireProgress > 0.3
+    ? selectedMetal.color
+    : '#8090a0';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(wx, wy - 32, 6, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Glow on loop if in flame
+  if (selectedMetal && wireProgress > 0.7) {
+    const alpha = (wireProgress - 0.7) / 0.3;
+    const g = ctx.createRadialGradient(wx, wy - 32, 0, wx, wy - 32, 14);
+    g.addColorStop(0, selectedMetal.glow.replace('0.6', `${0.8 * alpha}`));
+    g.addColorStop(1, 'transparent');
+    ctx.fillStyle = g;
+    ctx.beginPath();
+    ctx.arc(wx, wy - 32, 14, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+
+  // Sample dish (left side)
+  if (!isAnimatingWire || wireProgress < 0.5) {
+    ctx.fillStyle = '#1e2d42';
+    ctx.beginPath();
+    ctx.ellipse(W * 0.2, burnerY - 5, 22, 7, 0, 0, Math.PI * 2);
+    ctx.fill();
+    if (selectedMetal) {
+      ctx.fillStyle = selectedMetal.tubeColor;
+      ctx.beginPath();
+      ctx.ellipse(W * 0.2, burnerY - 7, 16, 5, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.font = '9px DM Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(selectedMetal ? selectedMetal.symbol + 'Cl' : 'Sample', W * 0.2, burnerY - 16);
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW TEST TUBE RACK
+// ═══════════════════════════════════════════════
+function drawRack(rx, baseY, W, H) {
+  // Rack base
+  ctx.fillStyle = '#111820';
+  ctx.beginPath();
+  ctx.roundRect(rx - 55, baseY - 12, 110, 12, [0, 0, 4, 4]);
+  ctx.fill();
+
+  // Draw 3 test tubes
+  const tubes = [
+    { x: rx - 32, color: selectedMetal ? selectedMetal.tubeColor : 'rgba(100,150,200,0.2)', label: selectedMetal ? selectedMetal.symbol : '—' },
+    { x: rx,      color: 'rgba(100,180,100,0.2)', label: 'HCl' },
+    { x: rx + 32, color: 'rgba(200,180,100,0.15)', label: 'H₂O' }
+  ];
+
+  tubes.forEach(tube => {
+    const tH = 55, tW = 14;
+    const ty = baseY - 12 - tH;
+
+    // Tube body
+    const tGrad = ctx.createLinearGradient(tube.x - tW/2, 0, tube.x + tW/2, 0);
+    tGrad.addColorStop(0, 'rgba(255,255,255,0.06)');
+    tGrad.addColorStop(0.3, 'rgba(255,255,255,0.12)');
+    tGrad.addColorStop(1, 'rgba(255,255,255,0.03)');
+    ctx.fillStyle = tGrad;
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.roundRect(tube.x - tW/2, ty, tW, tH, [tW/2, tW/2, tW/2, tW/2]);
+    ctx.fill();
+    ctx.stroke();
+
+    // Liquid inside
+    ctx.fillStyle = tube.color;
+    ctx.beginPath();
+    ctx.roundRect(tube.x - tW/2 + 2, ty + tH * 0.45, tW - 4, tH * 0.48, [0, 0, tW/2 - 2, tW/2 - 2]);
+    ctx.fill();
+
+    // Shimmer
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.beginPath();
+    ctx.roundRect(tube.x - tW/2 + 3, ty + 6, 3, tH * 0.4, 2);
+    ctx.fill();
+
+    // Label
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.font = '8px DM Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(tube.label, tube.x, ty - 5);
+  });
+}
+
+// ═══════════════════════════════════════════════
+//  CURSOR
+// ═══════════════════════════════════════════════
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx2 = 0, ry2 = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+});
+(function animRing() {
+  rx2 += (mx - rx2) * 0.13; ry2 += (my - ry2) * 0.13;
+  ring.style.left = rx2 + 'px'; ring.style.top = ry2 + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a, .metal-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '16px'; cursor.style.height = '16px';
+    ring.style.width = '54px'; ring.style.height = '54px';
+    ring.style.borderColor = 'var(--gold)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '10px'; cursor.style.height = '10px';
+    ring.style.width = '36px'; ring.style.height = '36px';
+    ring.style.borderColor = 'rgba(245,200,66,0.5)';
+  });
+});
+
+// Navbar
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+// Start loop
+draw();
+</script>
+</body>
+</html>
 
