@@ -465,6 +465,75 @@
       color: rgba(138,155,181,0.4); font-size: 0.88rem; font-style: italic;
     }
 
+    /* ── FLAME CARD ── */
+    .viz-card.flame-card::before {
+      background: radial-gradient(circle at 50% 80%, rgba(255,140,0,0.1) 0%, transparent 55%),
+                  radial-gradient(circle at 70% 10%, rgba(255,215,0,0.06) 0%, transparent 50%);
+    }
+    .viz-card.flame-card:hover {
+      border-color: rgba(255,140,0,0.45);
+      box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,200,0,0.08);
+    }
+    .viz-preview.flame-preview {
+      background: linear-gradient(160deg, #0a0c10 0%, #12100a 50%, #100a08 100%);
+      border-bottom: 1px solid rgba(255,140,0,0.15);
+    }
+    .preview-badge.flame-badge {
+      background: rgba(255,140,0,0.12); border-color: rgba(255,140,0,0.35); color: #ff8c00;
+    }
+    .viz-tag.flame-tag { color: #ff8c00; }
+    .viz-tag.flame-tag::before { background: #ff8c00; box-shadow: 0 0 8px #ff8c00; }
+    .viz-cta.flame-cta {
+      background: linear-gradient(135deg, rgba(255,140,0,0.15), rgba(255,200,0,0.06));
+      border-color: rgba(255,140,0,0.3); color: #ff8c00;
+    }
+    .viz-cta.flame-cta:hover {
+      background: linear-gradient(135deg, rgba(255,140,0,0.25), rgba(255,200,0,0.12));
+      border-color: rgba(255,140,0,0.55);
+    }
+
+    /* Flame mini preview illustration */
+    .flame-mini {
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
+    }
+    .flame-mini-burner {
+      position: relative; width: 28px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .flame-mini-barrel {
+      width: 28px; height: 52px;
+      background: linear-gradient(90deg, #1e2d42, #2a3f5c, #151f2e);
+      border-radius: 4px 4px 0 0;
+      border: 1px solid #2a3f5c;
+    }
+    .flame-mini-flame {
+      position: absolute; top: -42px; left: 50%;
+      transform: translateX(-50%);
+      width: 22px; height: 48px;
+      border-radius: 50% 50% 30% 30%;
+      animation: flame-cycle 2s ease-in-out infinite;
+    }
+    @keyframes flame-cycle {
+      0%   { background: radial-gradient(ellipse at 50% 80%, #ffd700, #ff8c00, transparent); box-shadow: 0 0 18px #ffd700, 0 0 35px rgba(255,140,0,0.5); }
+      16%  { background: radial-gradient(ellipse at 50% 80%, #ff2a2a, #cc0000, transparent); box-shadow: 0 0 18px #ff2a2a, 0 0 35px rgba(255,42,42,0.5); }
+      33%  { background: radial-gradient(ellipse at 50% 80%, #39e87a, #00aa44, transparent); box-shadow: 0 0 18px #39e87a, 0 0 35px rgba(57,232,122,0.5); }
+      50%  { background: radial-gradient(ellipse at 50% 80%, #dc143c, #880022, transparent); box-shadow: 0 0 18px #dc143c, 0 0 35px rgba(220,20,60,0.5); }
+      66%  { background: radial-gradient(ellipse at 50% 80%, #ff6432, #cc3300, transparent); box-shadow: 0 0 18px #ff6432, 0 0 35px rgba(255,100,50,0.5); }
+      83%  { background: radial-gradient(ellipse at 50% 80%, #c8a0e0, #8844cc, transparent); box-shadow: 0 0 18px #c8a0e0, 0 0 35px rgba(200,160,224,0.5); }
+      100% { background: radial-gradient(ellipse at 50% 80%, #ffd700, #ff8c00, transparent); box-shadow: 0 0 18px #ffd700, 0 0 35px rgba(255,140,0,0.5); }
+    }
+    .flame-mini-metals {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    }
+    .flame-mini-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.5rem; font-weight: 700; color: rgba(0,0,0,0.7);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      transition: transform 0.2s;
+    }
+
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
@@ -521,7 +590,7 @@
       </p>
       <div class="hub-stats">
         <div>
-          <span class="hub-stat-num">2</span>
+          <span class="hub-stat-num">3</span>
           <span class="hub-stat-label">Visualizations live</span>
         </div>
         <div>
@@ -632,12 +701,38 @@
         </div>
       </a>
 
-      <!-- PLACEHOLDER — next project slot -->
-      <div class="viz-card-placeholder" style="animation-delay:0.2s">
-        <div class="placeholder-icon">🔬</div>
-        <div class="placeholder-pill">Coming Soon</div>
-        <div class="placeholder-text">Next visualization is in the works</div>
-      </div>
+      <!-- CARD 3: Flame Test -->
+      <a href="flametest.html" class="viz-card flame-card" style="animation-delay:0.2s">
+        <div class="viz-preview flame-preview">
+          <div class="preview-badge flame-badge">Lab Simulation</div>
+          <div class="flame-mini">
+            <div class="flame-mini-burner">
+              <div class="flame-mini-barrel"></div>
+              <div class="flame-mini-flame" id="flameMiniFlame"></div>
+            </div>
+            <div class="flame-mini-metals">
+              <div class="flame-mini-dot" style="background:#39e87a;box-shadow:0 0 8px #39e87a;" title="Ba">Ba</div>
+              <div class="flame-mini-dot" style="background:#dc143c;box-shadow:0 0 8px #dc143c;" title="Sr">Sr</div>
+              <div class="flame-mini-dot" style="background:#ff6432;box-shadow:0 0 8px #ff6432;" title="Ca">Ca</div>
+              <div class="flame-mini-dot" style="background:#ffd700;box-shadow:0 0 8px #ffd700;" title="Na">Na</div>
+              <div class="flame-mini-dot" style="background:#c8a0e0;box-shadow:0 0 8px #c8a0e0;" title="K">K</div>
+            </div>
+          </div>
+        </div>
+        <div class="viz-card-body">
+          <div class="viz-tag flame-tag">Inorganic Chemistry</div>
+          <div class="viz-title">Flame Test Simulation</div>
+          <p class="viz-desc">
+            Dip the wire loop, hold it in the flame — watch Ba glow pearl green, Sr burn crimson red, Ca turn brick red. All 8 metal ions from your inorganic lab, animated with real characteristic colours and emission wavelengths.
+          </p>
+          <div class="viz-meta">
+            <div class="viz-meta-chip">🔥 Qualitative Analysis</div>
+            <div class="viz-meta-chip">📐 FYUGP Chemistry Lab</div>
+            <div class="viz-meta-chip">🎛️ Interactive</div>
+          </div>
+          <span class="viz-cta flame-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
+        </div>
+      </a>
 
     </div>
 
@@ -693,6 +788,14 @@
         icon: '⚛️',
         iconBg: 'rgba(77,184,255,0.12)',
         keywords: ['pn', 'p-n', 'junction', 'diode', 'semiconductor', 'depletion', 'forward', 'reverse', 'bias', 'electron', 'hole', 'carrier', 'band', 'energy', 'physics', 'silicon', 'voltage', 'led', 'transistor', 'built-in']
+      },
+      {
+        name: 'Flame Test Simulation',
+        tag: 'Inorganic Chemistry · FYUGP Chemistry Lab',
+        url: 'flametest.html',
+        icon: '🔥',
+        iconBg: 'rgba(255,140,0,0.12)',
+        keywords: ['flame', 'test', 'flame test', 'metal', 'ion', 'color', 'colour', 'barium', 'strontium', 'calcium', 'sodium', 'potassium', 'lithium', 'copper', 'iron', 'pearl green', 'crimson red', 'brick red', 'golden yellow', 'lilac', 'qualitative', 'analysis', 'inorganic', 'lab', 'nichrome', 'bunsen', 'burner', 'emission', 'wavelength', 'excitation', 'chemistry']
       }
     ];
 
@@ -750,5 +853,8 @@
   </script>
 </body>
 </html>
+
+
+
 
 
