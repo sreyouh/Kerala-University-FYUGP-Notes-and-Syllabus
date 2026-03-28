@@ -31,6 +31,12 @@
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
+      <url>
+  <loc>https://sreeharis.in/bcom.html</loc>
+  <lastmod>2026-03-28T16:58:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+</url>
 <url>
   <loc>https://sreeharis.in/pnjunction.html</loc>
   <lastmod>2026-03-22</lastmod>
