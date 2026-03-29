@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Espace Systems — Web Design, SEO & Digital Solutions for Small Businesses</title>
+<meta name="description" content="Espace Systems builds modern, high-performance websites for small businesses, startups and initiatives. Affordable custom web design, SEO services, domain management and website revival. Contact us today.">
+<meta name="keywords" content="website for small businesses, affordable web design, small business website, web design Kerala, SEO services small business, custom website development, website for startups, affordable website design, business website design, web solutions Kerala, SEO Kerala, website management, dead website revival, Espace Systems">
+<meta name="author" content="Espace Systems">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sreeharis.in/espace.html">
+<link rel="icon" type="image/png" href="fyugp.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Espace Systems — Web Design & SEO for Small Businesses">
+<meta property="og:description" content="Modern websites and SEO services for small businesses and startups. Affordable, professional, results-driven.">
+<meta property="og:url" content="https://sreeharis.in/espace.html">
+<meta property="og:site_name" content="Espace Systems">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Espace Systems — Web Design & SEO for Small Businesses">
+<meta name="twitter:description" content="Modern websites and SEO services for small businesses and startups.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Espace Systems",
+  "url": "https://sreeharis.in/espace.html",
+  "description": "Modern web design, SEO and digital solutions for small businesses, startups and initiatives.",
+  "founder": { "@type": "Person", "name": "Sreehari" },
+  "sameAs": ["https://www.linkedin.com/company/espace-systems/"],
+  "serviceType": ["Web Design", "SEO", "Website Development", "Domain Registration", "Website Management"],
+  "areaServed": "India",
+  "priceRange": "$$"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off: #f8f9fc;
+  --bg2: #f0f3f9;
+  --navy: #0b1d3a;
+  --navy2: #132952;
+  --blue: #1a56db;
+  --blue2: #2d6ef5;
+  --blue-light: #e8effe;
+  --slate: #4a5c7a;
+  --slate2: #6b7fa0;
+  --border: #e2e8f4;
+  --shadow: rgba(11,29,58,0.08);
+  --shadow2: rgba(26,86,219,0.18);
+  --text: #0b1d3a;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CURSOR ── */
+.cursor{width:10px;height:10px;background:var(--blue);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;}
+.cursor-ring{width:34px;height:34px;border:1.5px solid rgba(26,86,219,0.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 60px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:padding .4s,box-shadow .3s;
+}
+nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-brand-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;color:white;font-weight:800;font-family:'Syne',sans-serif;
+  letter-spacing:-0.5px;
+}
+.nav-brand-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:0.3px;}
+.nav-brand-sub{font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate2);}
+
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:0.87rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--blue);}
+
+.nav-cta{
+  padding:9px 22px;border-radius:8px;
+  background:var(--navy);color:white;
+  font-size:0.85rem;font-weight:600;text-decoration:none;cursor:none;
+  transition:background .2s,transform .2s,box-shadow .2s;
+  box-shadow:0 4px 14px rgba(11,29,58,0.25);
+}
+.nav-cta:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,29,58,0.35);}
+
+.nav-back-pill{
+  display:flex;align-items:center;gap:6px;
+  color:var(--slate);text-decoration:none;font-size:0.82rem;font-weight:500;
+  padding:7px 14px;border-radius:8px;border:1px solid var(--border);
+  transition:all .2s;
+}
+.nav-back-pill:hover{color:var(--blue);border-color:var(--blue);background:var(--blue-light);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;padding:130px 24px 100px;
+  overflow:hidden;text-align:center;
+  background:linear-gradient(160deg,var(--white) 0%,var(--off) 50%,var(--bg2) 100%);
+}
+
+/* Geometric background elements */
+.hero-geo{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.geo-circle{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(26,86,219,0.08);
+}
+.geo-c1{width:600px;height:600px;top:-200px;right:-200px;}
+.geo-c2{width:400px;height:400px;bottom:-150px;left:-150px;}
+.geo-c3{width:200px;height:200px;top:30%;left:5%;}
+.geo-dot{
+  position:absolute;border-radius:50%;
+  background:var(--blue);opacity:0.12;
+  animation:float-dot 6s ease-in-out infinite;
+}
+.geo-d1{width:8px;height:8px;top:20%;left:15%;animation-delay:0s;}
+.geo-d2{width:5px;height:5px;top:60%;right:12%;animation-delay:-2s;}
+.geo-d3{width:10px;height:10px;bottom:25%;left:25%;animation-delay:-4s;}
+@keyframes float-dot{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+/* Grid pattern */
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(26,86,219,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(26,86,219,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+}
+
+.hero-content{position:relative;z-index:1;max-width:860px;}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue-light);border:1px solid rgba(26,86,219,0.2);
+  padding:7px 18px;border-radius:50px;
+  font-size:0.78rem;font-weight:600;color:var(--blue);
+  letter-spacing:0.5px;margin-bottom:28px;
+  animation:fade-up .7s ease both;
+}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);animation:blink 1.5s ease infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.6rem,5.5vw,5rem);
+  font-weight:800;line-height:1.05;
+  color:var(--navy);margin-bottom:24px;
+  animation:fade-up .7s .1s ease both;
+  letter-spacing:-1px;
+}
+.hero h1 span{
+  background:linear-gradient(135deg,var(--blue) 0%,#5b8df5 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-sub{
+  font-size:1.1rem;color:var(--slate);max-width:520px;margin:0 auto 48px;
+  line-height:1.8;font-weight:400;
+  animation:fade-up .7s .2s ease both;
+}
+
+.hero-btns{
+  display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  animation:fade-up .7s .3s ease both;
+}
+
+/* Metric chips */
+.hero-metrics{
+  display:flex;gap:32px;justify-content:center;flex-wrap:wrap;
+  margin-top:60px;padding-top:44px;
+  border-top:1px solid var(--border);
+  animation:fade-up .7s .5s ease both;
+}
+.metric{text-align:center;}
+.metric-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--navy);display:block;line-height:1;}
+.metric-label{font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate2);margin-top:5px;}
+
+@keyframes fade-up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── BUTTONS ── */
+.btn-primary{
+  padding:14px 32px;border-radius:10px;
+  background:var(--navy);color:white;
+  font-weight:600;font-size:0.92rem;text-decoration:none;cursor:none;
+  transition:transform .25s,box-shadow .25s,background .2s;
+  box-shadow:0 6px 20px rgba(11,29,58,0.28);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(11,29,58,0.38);}
+
+.btn-secondary{
+  padding:14px 32px;border-radius:10px;
+  background:white;color:var(--navy);
+  border:1.5px solid var(--border);
+  font-weight:600;font-size:0.92rem;text-decoration:none;cursor:none;
+  transition:transform .25s,box-shadow .25s,border-color .2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow);}
+
+/* ── SERVICES ── */
+.services{padding:100px 24px;background:var(--white);}
+.services-inner{max-width:1100px;margin:0 auto;}
+.section-tag{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:14px;display:block;}
+.section-heading{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:16px;letter-spacing:-0.5px;}
+.section-desc{color:var(--slate);font-size:1rem;line-height:1.75;max-width:480px;}
+
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px;}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+
+.service-card{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:20px;padding:36px 32px;
+  transition:transform .35s,box-shadow .35s,border-color .3s,background .3s;
+  position:relative;overflow:hidden;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),#5b8df5);
+  transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
+.service-card:hover::before{transform:scaleX(1);}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 56px var(--shadow);
+  border-color:rgba(26,86,219,0.2);
+  background:var(--white);
+}
+
+.service-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:var(--blue-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:20px;
+  transition:background .3s;
+}
+.service-card:hover .service-icon{background:rgba(26,86,219,0.15);}
+
+.service-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.service-desc{color:var(--slate);font-size:0.88rem;line-height:1.7;}
+.service-tag{
+  display:inline-block;margin-top:18px;
+  font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--blue);font-weight:600;
+}
+
+/* ── WHY US ── */
+.why{padding:100px 24px;background:var(--navy);position:relative;overflow:hidden;}
+.why::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,86,219,0.2) 0%,transparent 70%);
+}
+.why-inner{max-width:1100px;margin:0 auto;}
+.why .section-tag{color:rgba(100,160,255,0.9);}
+.why .section-heading{color:white;}
+.why .section-desc{color:rgba(255,255,255,0.5);}
+.why-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px;}
+
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.why-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;padding:28px 24px;
+  transition:background .3s,border-color .3s,transform .3s;
+}
+.why-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(100,160,255,0.3);transform:translateY(-4px);}
+.why-num{
+  font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;
+  color:rgba(26,86,219,0.6);line-height:1;margin-bottom:14px;
+}
+.why-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:white;margin-bottom:8px;}
+.why-text{color:rgba(255,255,255,0.45);font-size:0.84rem;line-height:1.65;}
+
+/* ── BOOKING / CONTACT ── */
+.contact{padding:100px 24px;background:var(--off);}
+.contact-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+@media(max-width:700px){.contact-inner{grid-template-columns:1fr;gap:40px;}}
+
+.contact-left .section-heading{margin-bottom:16px;}
+.contact-left .section-desc{margin-bottom:32px;}
+
+.contact-links{display:flex;flex-direction:column;gap:14px;}
+.contact-link-item{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 20px;border-radius:12px;
+  background:white;border:1px solid var(--border);
+  text-decoration:none;color:var(--navy);
+  transition:border-color .25s,box-shadow .25s,transform .25s;
+  cursor:none;
+}
+.contact-link-item:hover{border-color:var(--blue);box-shadow:0 6px 20px var(--shadow);transform:translateX(4px);}
+.contact-link-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--blue-light);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.contact-link-label{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--slate2);margin-bottom:2px;}
+.contact-link-val{font-weight:600;font-size:0.9rem;color:var(--navy);}
+
+/* Booking card */
+.booking-card{
+  background:white;border:1px solid var(--border);
+  border-radius:20px;padding:36px;
+  box-shadow:0 8px 32px var(--shadow);
+}
+.booking-card h3{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;
+  color:var(--navy);margin-bottom:6px;
+}
+.booking-card p{color:var(--slate);font-size:0.86rem;line-height:1.65;margin-bottom:24px;}
+
+.form-group{margin-bottom:16px;}
+.form-label{display:block;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;color:var(--slate);margin-bottom:6px;}
+.form-input{
+  width:100%;padding:11px 14px;
+  border:1.5px solid var(--border);border-radius:8px;
+  font-family:'Inter',sans-serif;font-size:0.88rem;color:var(--navy);
+  background:var(--off);outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,0.08);background:white;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+.btn-book{
+  width:100%;padding:13px;border-radius:10px;
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:white;font-weight:700;font-size:0.92rem;
+  border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s;
+  box-shadow:0 6px 20px rgba(11,29,58,0.28);
+  margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:'Inter',sans-serif;
+}
+.btn-book:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(11,29,58,0.38);}
+
+.booking-note{
+  font-size:0.72rem;color:var(--slate2);text-align:center;margin-top:12px;line-height:1.5;
+}
+
+/* Success message */
+.booking-success{
+  display:none;text-align:center;padding:28px 20px;
+}
+.booking-success .success-icon{font-size:2.5rem;margin-bottom:12px;}
+.booking-success h4{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+.booking-success p{color:var(--slate);font-size:0.86rem;line-height:1.65;}
+
+/* ── SEO TEXT ── */
+.seo-band{padding:80px 24px;background:white;}
+.seo-inner{
+  max-width:1000px;margin:0 auto;
+  background:var(--off);border:1px solid var(--border);
+  border-radius:20px;padding:40px 36px;
+}
+.seo-inner h2{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.seo-inner h3{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:600;margin:22px 0 8px;}
+.seo-inner p{color:var(--slate);font-size:0.88rem;line-height:1.85;margin-bottom:10px;}
+.seo-inner p strong{color:var(--navy);font-weight:600;}
+.seo-divider{height:1px;background:var(--border);margin:16px 0;}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:44px 24px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:'Syne',sans-serif;color:white;font-size:1rem;font-weight:700;}
+.footer-brand span{display:block;color:rgba(255,255,255,0.35);font-family:'Inter',sans-serif;font-size:0.72rem;margin-top:3px;font-weight:400;}
+.footer-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.footer-copy{color:rgba(255,255,255,0.35);font-size:0.78rem;}
+.footer-link{color:rgba(100,160,255,0.8);text-decoration:none;font-size:0.78rem;}
+.footer-link:hover{color:white;}
+.footer-back{
+  display:flex;align-items:center;gap:6px;
+  color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;
+  padding:7px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);
+  transition:all .2s;
+}
+.footer-back:hover{color:white;border-color:rgba(255,255,255,0.3);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  nav.scrolled{padding:10px 20px;}
+  .nav-links{display:none;}
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  .btn-primary,.btn-secondary,.nav-cta,.contact-link-item{cursor:pointer;}
+  .btn-book{cursor:pointer;}
+  .services-header,.why-header{flex-direction:column;}
+  .seo-inner{padding:24px 20px;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="espace.html" class="nav-brand">
+    <div class="nav-brand-icon">E</div>
+    <div>
+      <div class="nav-brand-name">Espace Systems</div>
+      <div class="nav-brand-sub">Digital Solutions</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/company/espace-systems/" target="_blank">LinkedIn</a></li>
+  </ul>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="index.html" class="nav-back-pill">← sreeharis.in</a>
+    <a href="#contact" class="nav-cta">Book a Slot</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-geo">
+    <div class="geo-circle geo-c1"></div>
+    <div class="geo-circle geo-c2"></div>
+    <div class="geo-circle geo-c3"></div>
+    <div class="geo-dot geo-d1"></div>
+    <div class="geo-dot geo-d2"></div>
+    <div class="geo-dot geo-d3"></div>
+  </div>
+  <div class="hero-grid-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">⚡ Web Design · SEO · Digital Growth</div>
+
+    <h1>
+      Your Business Deserves<br>
+      a <span>Modern Website</span>
+    </h1>
+
+    <p class="hero-sub">
+      Espace Systems builds high-performance websites for small businesses, startups and emerging initiatives — affordable, professional, and built to rank on Google.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">🚀 Book a Free Slot</a>
+      <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="btn-secondary">💼 View LinkedIn</a>
+    </div>
+
+    <div class="hero-metrics">
+      <div class="metric">
+        <span class="metric-num">100%</span>
+        <span class="metric-label">Custom Design</span>
+      </div>
+      <div class="metric">
+        <span class="metric-num">SEO</span>
+        <span class="metric-label">Built-in from Day 1</span>
+      </div>
+      <div class="metric">
+        <span class="metric-num">Fast</span>
+        <span class="metric-label">Delivery</span>
+      </div>
+      <div class="metric">
+        <span class="metric-num">Low</span>
+        <span class="metric-label">Cost</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div>
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-heading">End-to-End<br>Web Solutions</h2>
+      </div>
+      <p class="section-desc">Everything your business needs to establish and grow its digital presence — under one roof.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <div class="service-title">Custom Website Design</div>
+        <p class="service-desc">Modern, mobile-first websites designed from scratch to reflect your brand identity. No templates — every site is uniquely yours, built for speed and impact.</p>
+        <span class="service-tag">Design & Development →</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.08s">
+        <div class="service-icon">📈</div>
+        <div class="service-title">SEO Services</div>
+        <p class="service-desc">We optimise your website to rank on Google and attract organic traffic. From keyword strategy to technical SEO — we make sure your business gets found online.</p>
+        <span class="service-tag">Search Engine Optimisation →</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.16s">
+        <div class="service-icon">🌐</div>
+        <div class="service-title">Domain & Hosting</div>
+        <p class="service-desc">Complete domain registration and website hosting management. We handle the technical side so you can focus on running your business.</p>
+        <span class="service-tag">Infrastructure →</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.24s">
+        <div class="service-icon">🔧</div>
+        <div class="service-title">Website Management</div>
+        <p class="service-desc">Ongoing maintenance, updates, security and performance monitoring. Your website stays fast, secure and up to date — always.</p>
+        <span class="service-tag">Managed Services →</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.32s">
+        <div class="service-icon">⚡</div>
+        <div class="service-title">Dead Website Revival</div>
+        <p class="service-desc">Underperforming or outdated website? We diagnose, optimise and revive it — improving speed, design, content and SEO to bring it back to life.</p>
+        <span class="service-tag">Website Optimisation →</span>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.4s">
+        <div class="service-icon">🏪</div>
+        <div class="service-title">Small Business Websites</div>
+        <p class="service-desc">Affordable professional websites specifically built for small businesses, local shops, freelancers and startups. Making digital presence accessible for everyone.</p>
+        <span class="service-tag">Small Business Focus →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="why-header reveal">
+      <div>
+        <span class="section-tag">Why Espace</span>
+        <h2 class="section-heading">Built Different,<br>Priced Right</h2>
+      </div>
+      <p class="section-desc">We believe every business — no matter how small — deserves a professional digital presence.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <div class="why-title">Affordable for Everyone</div>
+        <p class="why-text">Professional web solutions at a fraction of typical agency prices. We make quality accessible for small businesses and startups with limited budgets.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.08s">
+        <div class="why-num">02</div>
+        <div class="why-title">SEO from Day One</div>
+        <p class="why-text">Every website we build is SEO-ready from the ground up — structured data, meta tags, performance optimisation and keyword strategy included as standard.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.16s">
+        <div class="why-num">03</div>
+        <div class="why-title">Modern & Fast</div>
+        <p class="why-text">We build with performance as a priority — fast loading times, clean code, and mobile-first design that delivers real results across all devices.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:.24s">
+        <div class="why-num">04</div>
+        <div class="why-title">End-to-End Support</div>
+        <p class="why-text">From the first concept to post-launch management — we're with you at every step. No hand-offs, no confusion, just reliable ongoing support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & BOOKING -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+
+    <div class="contact-left reveal">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-heading">Let's Build<br>Something Great</h2>
+      <p class="section-desc" style="margin-bottom:32px;">
+        Have a project in mind? Book a free consultation slot and we'll discuss your website needs, timeline and budget — no obligation.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:sreeharisunil100@gmail.com" class="contact-link-item">
+          <div class="contact-link-icon">✉️</div>
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-val">sreeharisunil100@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://t.me/sreyouh" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">✈️</div>
+          <div>
+            <div class="contact-link-label">Telegram</div>
+            <div class="contact-link-val">@sreyouh</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">💼</div>
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-val">Espace Systems</div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/sre.youh" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">📸</div>
+          <div>
+            <div class="contact-link-label">Instagram</div>
+            <div class="contact-link-val">@sre.youh</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:.1s">
+      <div class="booking-card" id="bookingForm">
+        <h3>📅 Book a Free Slot</h3>
+        <p>Fill in your details and preferred time — we'll reach out to you at that time to discuss your project.</p>
+
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" id="bookName" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email or Phone</label>
+          <input type="text" class="form-input" id="bookContact" placeholder="email@example.com or +91 XXXXX">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Preferred Date</label>
+            <input type="date" class="form-input" id="bookDate">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Time</label>
+            <input type="time" class="form-input" id="bookTime">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Type</label>
+          <select class="form-input" id="bookType">
+            <option value="">Select a service</option>
+            <option>New Website Design</option>
+            <option>SEO Services</option>
+            <option>Website Revival / Optimisation</option>
+            <option>Website Management</option>
+            <option>Domain & Hosting</option>
+            <option>Other / Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Brief Description (optional)</label>
+          <textarea class="form-input" id="bookDesc" rows="3" placeholder="Tell us a bit about your business or project..." style="resize:vertical;"></textarea>
+        </div>
+
+        <button class="btn-book" onclick="submitBooking()">
+          🚀 Confirm Slot Booking
+        </button>
+        <p class="booking-note">Your details will be sent to Sreehari via Telegram. We'll confirm your slot within 24 hours.</p>
+      </div>
+
+      <div class="booking-success" id="bookingSuccess">
+        <div class="success-icon">✅</div>
+        <h4>Slot Request Sent!</h4>
+        <p>Thank you! Your booking request has been received. Sreehari will confirm your slot and reach out to you at the selected time.</p>
+        <br>
+        <a href="https://t.me/sreyouh" target="_blank" class="btn-primary" style="display:inline-flex;margin:0 auto;cursor:pointer;">Also message on Telegram →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SEO TEXT -->
+<section class="seo-band">
+  <div class="seo-inner reveal">
+    <h2>Website Design & SEO Services for Small Businesses — Espace Systems</h2>
+    <p>
+      <strong>Espace Systems</strong> is a web design and digital solutions company focused on helping small businesses, local startups and emerging initiatives establish a powerful online presence. We specialise in building <strong>modern, high-performance websites</strong> at affordable prices — making professional digital presence accessible to everyone.
+    </p>
+    <p>
+      Whether you need a <strong>new website for your small business</strong>, effective <strong>SEO services to rank on Google</strong>, or help reviving an existing underperforming website — Espace delivers reliable, scalable and cost-effective solutions designed for long-term success.
+    </p>
+
+    <div class="seo-divider"></div>
+    <h3>What We Offer</h3>
+    <p>
+      Our services include <strong>custom website design and development</strong>, <strong>search engine optimisation (SEO)</strong>, domain registration, complete website management, and website revival for dead or outdated sites. Every website we build is mobile-first, fast-loading, and SEO-ready from day one — giving your business the best possible chance to rank organically and attract customers.
+    </p>
+    <p>
+      We also work with businesses that already have a website but aren't seeing results. Through technical improvements, content strategy and on-page SEO enhancements, we optimise and revive underperforming websites to start generating real traffic and leads.
+    </p>
+
+    <div class="seo-divider"></div>
+    <h3>Affordable Web Solutions for Startups & Small Businesses</h3>
+    <p>
+      One of the biggest challenges for small businesses and startups is the cost of professional web design. Espace Systems was founded to solve exactly this problem — delivering agency-quality websites and SEO at prices that small businesses can actually afford. From a simple business landing page to a multi-page company website with integrated SEO, we have a solution for every budget and requirement.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      Espace Systems
+      <span>Web Design · SEO · Digital Solutions</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="footer-link">LinkedIn</a>
+      <a href="https://t.me/sreyouh" target="_blank" class="footer-link">Telegram</a>
+      <span class="footer-copy">© 2026 Espace Systems</span>
+      <a href="index.html" class="footer-back">← sreeharis.in</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='16px';cursor.style.height='16px';ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='var(--blue)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='34px';ring.style.height='34px';ring.style.borderColor='rgba(26,86,219,0.4)';});
+});
+
+// Navbar
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+
+// Reveal
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Set min date to today
+const dateInput = document.getElementById('bookDate');
+if(dateInput){
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+}
+
+// Booking form — opens Telegram with pre-filled message
+function submitBooking(){
+  const name = document.getElementById('bookName').value.trim();
+  const contact = document.getElementById('bookContact').value.trim();
+  const date = document.getElementById('bookDate').value;
+  const time = document.getElementById('bookTime').value;
+  const type = document.getElementById('bookType').value;
+  const desc = document.getElementById('bookDesc').value.trim();
+
+  if(!name || !contact){
+    alert('Please fill in your name and contact details.');
+    return;
+  }
+
+  // Build message for Telegram
+  const msg = `🚀 New Slot Booking — Espace Systems%0A%0A👤 Name: ${encodeURIComponent(name)}%0A📞 Contact: ${encodeURIComponent(contact)}%0A📅 Date: ${date || 'Not specified'}%0A🕐 Time: ${time || 'Not specified'}%0A🛠 Service: ${encodeURIComponent(type) || 'Not specified'}%0A📝 Details: ${encodeURIComponent(desc) || 'None'}`;
+
+  // Open Telegram with pre-filled message
+  window.open(`https://t.me/sreyouh?text=${msg}`, '_blank');
+
+  // Show success state
+  document.getElementById('bookingForm').style.display = 'none';
+  document.getElementById('bookingSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>
