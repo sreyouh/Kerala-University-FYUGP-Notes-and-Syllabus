@@ -534,6 +534,117 @@
       transition: transform 0.2s;
     }
 
+    /* ── TITRATION CARD ── */
+    .viz-card.titr-card::before {
+      background: radial-gradient(circle at 50% 90%, rgba(62,207,207,0.09) 0%, transparent 55%),
+                  radial-gradient(circle at 70% 10%, rgba(255,140,200,0.06) 0%, transparent 50%);
+    }
+    .viz-card.titr-card:hover {
+      border-color: rgba(62,207,207,0.45);
+      box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(62,207,207,0.08);
+    }
+    .viz-preview.titr-preview {
+      background: linear-gradient(160deg, #07101e 0%, #0c1828 50%, #060e1c 100%);
+      border-bottom: 1px solid rgba(62,207,207,0.15);
+    }
+    .preview-badge.titr-badge {
+      background: rgba(62,207,207,0.12); border-color: rgba(62,207,207,0.35); color: var(--teal);
+    }
+    .viz-tag.titr-tag { color: var(--teal); }
+    .viz-tag.titr-tag::before { background: var(--teal); box-shadow: 0 0 8px var(--teal); }
+    .viz-cta.titr-cta {
+      background: linear-gradient(135deg, rgba(62,207,207,0.15), rgba(62,207,207,0.05));
+      border-color: rgba(62,207,207,0.3); color: var(--teal);
+    }
+    .viz-cta.titr-cta:hover {
+      background: linear-gradient(135deg, rgba(62,207,207,0.25), rgba(62,207,207,0.1));
+      border-color: rgba(62,207,207,0.55);
+    }
+
+    /* Titration mini preview */
+    .titr-mini {
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 20px; position: relative; height: 140px; width: 200px;
+    }
+    .titr-burette {
+      display: flex; flex-direction: column; align-items: center;
+      position: relative; margin-bottom: 20px;
+    }
+    .titr-burette-top {
+      width: 24px; height: 8px;
+      background: rgba(160,200,255,0.2); border: 1px solid rgba(160,200,255,0.3);
+      border-radius: 3px 3px 0 0;
+    }
+    .titr-burette-barrel {
+      width: 14px; height: 70px;
+      border: 1px solid rgba(160,200,255,0.35);
+      border-radius: 2px; overflow: hidden; position: relative;
+      background: rgba(100,160,255,0.04);
+    }
+    .titr-burette-fill {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(180deg, rgba(62,207,207,0.4), rgba(62,207,207,0.25));
+      animation: burette-drain 4s linear infinite;
+    }
+    @keyframes burette-drain {
+      0%{height:90%} 100%{height:20%}
+    }
+    .titr-burette-tip {
+      width: 6px; height: 14px;
+      background: rgba(160,200,255,0.25);
+      border-radius: 0 0 3px 3px;
+    }
+    .titr-drop {
+      position: absolute; width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(62,207,207,0.9);
+      box-shadow: 0 0 8px rgba(62,207,207,0.6);
+      left: 50%; transform: translateX(-50%);
+      animation: drop-fall 1.2s ease-in infinite;
+    }
+    @keyframes drop-fall {
+      0%{top:96px;opacity:1}
+      80%{opacity:1}
+      100%{top:160px;opacity:0}
+    }
+    .titr-flask-wrap {
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .titr-flask-neck {
+      width: 14px; height: 20px;
+      border: 1px solid rgba(160,200,255,0.35);
+      border-bottom: none; background: rgba(100,160,255,0.04);
+    }
+    .titr-flask {
+      width: 64px; height: 54px;
+      border: 1px solid rgba(160,200,255,0.4);
+      border-radius: 4px 4px 20px 20px;
+      background: rgba(255,20,147,0.25);
+      animation: flask-color 6s ease-in-out infinite;
+      position: relative; overflow: hidden;
+    }
+    .titr-flask::after {
+      content:''; position:absolute;inset:0;
+      background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.1), transparent 60%);
+    }
+    @keyframes flask-color {
+      0%,40%{ background: rgba(62,207,207,0.2); }
+      60%{ background: rgba(200,150,255,0.3); }
+      70%,100%{ background: rgba(255,20,147,0.35); box-shadow: 0 0 20px rgba(255,20,147,0.4); }
+    }
+    .titr-ph-badge {
+      position: absolute; bottom: 0; right: 0;
+      background: rgba(7,16,30,0.9); border: 1px solid rgba(62,207,207,0.3);
+      padding: 3px 8px; border-radius: 4px;
+      font-size: 0.6rem; font-family: 'DM Sans', monospace;
+      color: var(--teal); font-weight: 600;
+      animation: ph-change 6s ease-in-out infinite;
+    }
+    @keyframes ph-change {
+      0%,40%{ content:'pH 7.0'; color: var(--teal); }
+      70%{ color: #ff69b4; }
+      100%{ color: #ff69b4; }
+    }
+
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
@@ -590,7 +701,7 @@
       </p>
       <div class="hub-stats">
         <div>
-          <span class="hub-stat-num">3</span>
+          <span class="hub-stat-num">4</span>
           <span class="hub-stat-label">Visualizations live</span>
         </div>
         <div>
@@ -734,6 +845,45 @@
         </div>
       </a>
 
+      <!-- CARD 4: Acid-Base Titration -->
+      <a href="titration.html" class="viz-card titr-card" style="animation-delay:0.3s">
+        <div class="viz-preview titr-preview">
+          <div class="preview-badge titr-badge">Virtual Lab</div>
+          <div class="titr-mini">
+            <!-- Mini burette -->
+            <div class="titr-burette">
+              <div class="titr-burette-top"></div>
+              <div class="titr-burette-barrel">
+                <div class="titr-burette-fill"></div>
+              </div>
+              <div class="titr-burette-tip"></div>
+              <div class="titr-drop" id="titrDrop1"></div>
+              <div class="titr-drop" id="titrDrop2" style="animation-delay:0.6s"></div>
+            </div>
+            <!-- Mini flask -->
+            <div class="titr-flask-wrap">
+              <div class="titr-flask" id="titrFlask"></div>
+              <div class="titr-flask-neck"></div>
+            </div>
+            <!-- pH label -->
+            <div class="titr-ph-badge" id="titrPhBadge">pH 7.0</div>
+          </div>
+        </div>
+        <div class="viz-card-body">
+          <div class="viz-tag titr-tag">Volumetric Analysis</div>
+          <div class="viz-title">Acid-Base Titration Lab</div>
+          <p class="viz-desc">
+            Select your acid, base, normality and indicator — watch the animated burette drip into the conical flask, observe the live pH curve, and calculate the unknown normality using N₁V₁ = N₂V₂ at the equivalence point.
+          </p>
+          <div class="viz-meta">
+            <div class="viz-meta-chip">⚗️ Volumetric Analysis</div>
+            <div class="viz-meta-chip">📐 FYUGP Chemistry</div>
+            <div class="viz-meta-chip">🧪 Virtual Lab</div>
+          </div>
+          <span class="viz-cta titr-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
+        </div>
+      </a>
+
     </div>
 
   </main>
@@ -796,6 +946,14 @@
         icon: '🔥',
         iconBg: 'rgba(255,140,0,0.12)',
         keywords: ['flame', 'test', 'flame test', 'metal', 'ion', 'color', 'colour', 'barium', 'strontium', 'calcium', 'sodium', 'potassium', 'lithium', 'copper', 'iron', 'pearl green', 'crimson red', 'brick red', 'golden yellow', 'lilac', 'qualitative', 'analysis', 'inorganic', 'lab', 'nichrome', 'bunsen', 'burner', 'emission', 'wavelength', 'excitation', 'chemistry']
+      },
+      {
+        name: 'Acid-Base Titration Lab',
+        tag: 'Volumetric Analysis · FYUGP Chemistry',
+        url: 'titration.html',
+        icon: '⚗️',
+        iconBg: 'rgba(62,207,207,0.12)',
+        keywords: ['titration', 'acid base', 'acid', 'base', 'burette', 'conical flask', 'phenolphthalein', 'methyl orange', 'methyl red', 'indicator', 'equivalence point', 'endpoint', 'normality', 'n1v1', 'n2v2', 'hcl', 'naoh', 'h2so4', 'koh', 'acetic acid', 'ammonia', 'ph curve', 'volumetric analysis', 'neutralisation', 'neutralization', 'titration simulation', 'virtual lab', 'chemistry lab', 'FYUGP']
       }
     ];
 
@@ -853,6 +1011,12 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
