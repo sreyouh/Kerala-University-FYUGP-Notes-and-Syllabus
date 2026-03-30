@@ -669,23 +669,20 @@ footer{background:var(--navy);padding:44px 24px;}
           <label class="form-label">Brief Description (optional)</label>
           <textarea class="form-input" id="bookDesc" rows="3" placeholder="Tell us a bit about your business or project..." style="resize:vertical;"></textarea>
         </div>
+      <button class="btn-book" onclick="submitBooking()">
+  🚀 Confirm Slot Booking
+</button>
+<p class="booking-note">Your details will be sent to Sreehari via WhatsApp. We'll confirm your slot within 24 hours.</p>
+</div>
 
-        <button class="btn-book" onclick="submitBooking()">
-          🚀 Confirm Slot Booking
-        </button>
-        <p class="booking-note">Your details will be sent to Sreehari via Telegram. We'll confirm your slot within 24 hours.</p>
-      </div>
-
-      <div class="booking-success" id="bookingSuccess">
-        <div class="success-icon">✅</div>
-        <h4>Slot Request Sent!</h4>
-        <p>Thank you! Your booking request has been received. Sreehari will confirm your slot and reach out to you at the selected time.</p>
-        <br>
-        <a href="https://t.me/sreyouh" target="_blank" class="btn-primary" style="display:inline-flex;margin:0 auto;cursor:pointer;">Also message on Telegram →</a>
-      </div>
+<div class="booking-success" id="bookingSuccess">
+  <div class="success-icon">✅</div>
+  <h4>Slot Request Sent!</h4>
+  <p>Thank you! Your booking request has been received. Sreehari will confirm your slot and reach out to you at the selected time.</p>
+  <br>
+  <a href="https://wa.me/919746248584" target="_blank" class="btn-primary" style="display:inline-flex;margin:0 auto;cursor:pointer;">Also message on WhatsApp →</a>
+</div>
     </div>
-
-  </div>
 </section>
 
 <!-- SEO TEXT -->
@@ -782,16 +779,13 @@ function submitBooking(){
     return;
   }
 
-  // Build message for Telegram
   const msg = `🚀 New Slot Booking — Espace Systems%0A%0A👤 Name: ${encodeURIComponent(name)}%0A📞 Contact: ${encodeURIComponent(contact)}%0A📅 Date: ${date || 'Not specified'}%0A🕐 Time: ${time || 'Not specified'}%0A🛠 Service: ${encodeURIComponent(type) || 'Not specified'}%0A📝 Details: ${encodeURIComponent(desc) || 'None'}`;
 
-  // Open Telegram with pre-filled message
-  window.open(`https://t.me/sreyouh?text=${msg}`, '_blank');
+  window.open(`https://wa.me/919746248584?text=${msg}`, '_blank');
 
-  // Show success state
   document.getElementById('bookingForm').style.display = 'none';
   document.getElementById('bookingSuccess').style.display = 'block';
-}
+                      }
 </script>
 </body>
 </html>
