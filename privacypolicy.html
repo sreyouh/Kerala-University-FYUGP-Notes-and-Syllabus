@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — sreeharis.in & Espace Systems</title>
+<meta name="description" content="Privacy Policy for sreeharis.in (Kerala University FYUGP Notes Portal) and Espace Systems (Web Design & Digital Solutions). Learn how we handle your data.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sreeharis.in/privacypolicy.html">
+<link rel="icon" type="image/png" href="/fevicon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0a1628;
+  --deep: #0d1f3c;
+  --gold: #c9a84c;
+  --gold-light: #f0c96a;
+  --slate: #8a9bb5;
+  --white: #ffffff;
+  --border-gold: rgba(201,168,76,0.2);
+  --blue: #1a56db;
+  --blue-light: #e8effe;
+  --text: #0b1d3a;
+  --off: #f8f9fc;
+  --border-light: #e2e8f4;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  cursor: none;
+  line-height: 1.8;
+}
+
+/* ── CURSOR ── */
+.cursor { width: 10px; height: 10px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .3s, height .3s; }
+.cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .3s, height .3s, border-color .3s; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 60px;
+  background: rgba(10,22,40,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-gold);
+  transition: padding .4s;
+}
+nav.scrolled { padding: 12px 60px; }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+.nav-logo span { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.38); font-weight: 400; margin-top: 2px; }
+.nav-back {
+  display: flex; align-items: center; gap: 6px;
+  color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; font-weight: 500;
+  padding: 7px 14px; border-radius: 8px; border: 1px solid rgba(201,168,76,0.25);
+  transition: all .2s;
+}
+.nav-back:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ── HERO BAND ── */
+.pp-hero {
+  padding: 140px 24px 60px;
+  text-align: center;
+  background: linear-gradient(160deg, var(--navy) 0%, var(--deep) 60%, #071120 100%);
+  position: relative; overflow: hidden;
+}
+.pp-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black, transparent);
+}
+.pp-hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.pp-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.35);
+  padding: 7px 20px; border-radius: 50px;
+  font-size: 0.75rem; font-weight: 600; color: var(--gold-light); letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.pp-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; line-height: 1.15; color: var(--white); margin-bottom: 16px;
+}
+.pp-hero h1 em { font-style: italic; color: var(--gold-light); }
+.pp-hero p {
+  color: var(--slate); font-size: 0.92rem; max-width: 520px; margin: 0 auto;
+}
+.pp-meta {
+  display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  margin-top: 32px; padding-top: 28px;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.pp-meta-item { font-size: 0.76rem; color: var(--slate); letter-spacing: 0.5px; }
+.pp-meta-item strong { color: rgba(255,255,255,0.65); font-weight: 500; }
+
+/* ── CONTENT ── */
+.pp-content {
+  max-width: 800px; margin: 0 auto;
+  padding: 64px 24px 100px;
+}
+
+/* Brand dividers */
+.brand-section {
+  margin-bottom: 56px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.brand-section-header {
+  padding: 24px 36px;
+  display: flex; align-items: center; gap: 16px;
+}
+.brand-section-header.fyugp { background: rgba(201,168,76,0.08); border-bottom: 1px solid rgba(201,168,76,0.15); }
+.brand-section-header.espace { background: rgba(26,86,219,0.1); border-bottom: 1px solid rgba(26,86,219,0.2); }
+.brand-icon { font-size: 1.6rem; }
+.brand-label { font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 3px; }
+.brand-label.fyugp { color: var(--gold); }
+.brand-label.espace { color: #5b8df5; }
+.brand-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+.brand-body { padding: 32px 36px; }
+
+/* Policy blocks */
+.policy-block { margin-bottom: 36px; }
+.policy-block:last-child { margin-bottom: 0; }
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700;
+  color: var(--white); margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+h3 {
+  font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase;
+  font-weight: 600; color: var(--gold); margin-bottom: 12px; margin-top: 24px;
+}
+
+p { color: rgba(255,255,255,0.62); font-size: 0.9rem; line-height: 1.85; margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+
+ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+ul li {
+  color: rgba(255,255,255,0.62); font-size: 0.9rem; line-height: 1.7;
+  padding-left: 20px; position: relative;
+}
+ul li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 0.78rem; font-weight: 700; top: 3px; }
+
+strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Data table */
+.data-table {
+  width: 100%; border-collapse: collapse; margin: 16px 0;
+  font-size: 0.86rem;
+}
+.data-table th {
+  text-align: left; padding: 10px 16px;
+  background: rgba(26,86,219,0.15);
+  color: #5b8df5; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+  border-bottom: 1px solid rgba(26,86,219,0.25);
+}
+.data-table td {
+  padding: 12px 16px;
+  color: rgba(255,255,255,0.62);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  vertical-align: top;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td:first-child { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+/* Highlight box */
+.highlight-box {
+  background: rgba(26,86,219,0.08);
+  border: 1px solid rgba(26,86,219,0.25);
+  border-left: 3px solid var(--blue);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.highlight-box p { color: rgba(255,255,255,0.68); margin: 0; }
+
+.note-box {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-left: 3px solid var(--gold);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+.note-box p { color: rgba(255,255,255,0.68); margin: 0; }
+
+/* Grievance officer card */
+.grievance-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-top: 16px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.grievance-card .g-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+.grievance-card .g-role { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.grievance-card .g-detail { font-size: 0.87rem; color: rgba(255,255,255,0.55); }
+.grievance-card .g-detail strong { color: rgba(255,255,255,0.8); }
+
+/* General sections (outside brand blocks) */
+.pp-general {
+  margin-bottom: 48px;
+}
+.pp-general h2 { border-bottom-color: rgba(201,168,76,0.2); }
+
+/* Footer */
+footer {
+  background: #060d19;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding: 36px 24px;
+}
+.footer-inner {
+  max-width: 800px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 0.95rem; }
+.footer-logo span { display: block; color: var(--slate); font-family: 'DM Sans', sans-serif; font-size: 0.72rem; margin-top: 3px; }
+.footer-copy { color: var(--slate); font-size: 0.78rem; }
+.footer-link { color: var(--gold); text-decoration: none; }
+.footer-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  nav.scrolled { padding: 11px 20px; }
+  .brand-section-header { padding: 20px 24px; }
+  .brand-body { padding: 24px 24px; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+  a { cursor: pointer; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    sreeharis.in
+    <span>Privacy Policy</span>
+  </div>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<div class="pp-hero">
+  <div class="pp-hero-inner">
+    <div class="pp-tag">📄 Legal Document</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p>This policy explains how sreeharis.in and Espace Systems collect, use, and protect your information. We believe in full transparency.</p>
+    <div class="pp-meta">
+      <div class="pp-meta-item"><strong>Effective Date:</strong> 4 April 2026</div>
+      <div class="pp-meta-item"><strong>Last Updated:</strong> 4 April 2026</div>
+      <div class="pp-meta-item"><strong>Governing Law:</strong> India (IT Act, 2000 &amp; DPDPA, 2023)</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="pp-content">
+
+  <!-- INTRODUCTION -->
+  <div class="pp-general policy-block">
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy applies to the website <strong>sreeharis.in</strong> and all pages hosted under it, including the Kerala University FYUGP Notes Portal and <strong>Espace Systems</strong> (sreeharis.in/espace). It is operated by <strong>Sreehari S</strong>, an individual based in Kerala, India.</p>
+    <p>By accessing or using any part of this website, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with any part of this policy, please discontinue use of the site.</p>
+    <p>This policy is drafted in compliance with the <strong>Information Technology Act, 2000</strong>, the <strong>Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011</strong>, and the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong>. It also adheres to <strong>Google's Publisher Policies</strong>.</p>
+  </div>
+
+  <!-- SCOPE -->
+  <div class="pp-general policy-block">
+    <h2>2. Scope of This Policy</h2>
+    <p>This single, comprehensive policy covers two distinct services under sreeharis.in, each with different data practices. Please read the section relevant to the service you are using.</p>
+    <ul>
+      <li><strong>sreeharis.in (FYUGP Notes Portal)</strong> — Educational resource platform for Kerala University students. No personal data is collected here.</li>
+      <li><strong>Espace Systems (sreeharis.in/espace)</strong> — A web design and digital solutions service. Limited personal data is collected solely for appointment scheduling.</li>
+    </ul>
+  </div>
+
+  <!-- ── BRAND BLOCK 1: FYUGP ── -->
+  <div class="brand-section">
+    <div class="brand-section-header fyugp">
+      <div class="brand-icon">📚</div>
+      <div>
+        <div class="brand-label fyugp">Section A</div>
+        <div class="brand-name">sreeharis.in — FYUGP Notes & Science Hub</div>
+      </div>
+    </div>
+    <div class="brand-body">
+
+      <div class="policy-block">
+        <h3>Data Collection</h3>
+        <div class="note-box"><p>This website <strong>does not collect any personal data</strong> from its visitors. You can browse all notes, syllabi, question papers, and Science Hub experiments completely anonymously.</p></div>
+        <p>Specifically, we do not collect your name, email address, phone number, IP address (for identification), or any other information that could identify you personally. There are no user accounts, registration forms, or login requirements on this site.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Cookies &amp; Tracking</h3>
+        <p>This site uses <strong>Google AdSense</strong> to display advertisements. Google, as a third-party vendor, may use cookies to serve ads based on your prior visits to this or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to sreeharis.in.</p>
+        <p>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies by visiting the <a href="https://www.networkadvertising.org/choices/" target="_blank" rel="noopener">Network Advertising Initiative opt-out page</a>.</p>
+        <p>We have no control over Google's data practices. Please refer to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for details.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Third-Party Links</h3>
+        <p>This portal may contain links to external websites (such as university official pages or Google Drive for note downloads). We are not responsible for the privacy practices of those external sites. We encourage you to read their privacy policies before sharing any information with them.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Educational Purpose</h3>
+        <p>All content on sreeharis.in — including notes, syllabi, question papers, and Science Hub experiments — is provided purely for <strong>educational purposes</strong> for Kerala University FYUGP students. Content is not used to collect data or profile users in any way.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── BRAND BLOCK 2: ESPACE ── -->
+  <div class="brand-section">
+    <div class="brand-section-header espace">
+      <div class="brand-icon">🚀</div>
+      <div>
+        <div class="brand-label espace">Section B</div>
+        <div class="brand-name">Espace Systems — Web Design &amp; Digital Solutions</div>
+      </div>
+    </div>
+    <div class="brand-body">
+
+      <div class="policy-block">
+        <h3>What Data We Collect</h3>
+        <p>When you submit the <strong>Book a Free Slot</strong> consultation form on the Espace Systems page, we collect the following information:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>Why We Collect It</th>
+              <th>How It Is Used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Full Name</td>
+              <td>To address you correctly</td>
+              <td>Used in our response and scheduling communication</td>
+            </tr>
+            <tr>
+              <td>Phone Number or Email Address</td>
+              <td>To contact you for your consultation</td>
+              <td>Sent via WhatsApp to confirm and conduct the consultation</td>
+            </tr>
+            <tr>
+              <td>Preferred Date &amp; Time</td>
+              <td>To schedule the consultation slot</td>
+              <td>Used to arrange a mutually suitable meeting time</td>
+            </tr>
+            <tr>
+              <td>Project Type &amp; Description</td>
+              <td>To prepare for your consultation</td>
+              <td>Helps us understand your needs before the call</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-box">
+          <p>⚠️ <strong>We do not collect sensitive personal data</strong> as defined under Indian law — including financial information, health data, passwords, or government IDs.</p>
+        </div>
+      </div>
+
+      <div class="policy-block">
+        <h3>How We Collect It</h3>
+        <p>Data is submitted voluntarily by you through the booking form. When you click "Confirm Slot Booking", your information is sent directly via <strong>WhatsApp</strong> to Sreehari S (the founder of Espace Systems). No data is stored in a database or on our servers — the submission opens your WhatsApp application with a pre-filled message.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Purpose of Collection</h3>
+        <p>The information you provide is used <strong>solely and exclusively</strong> for the following purposes:</p>
+        <ul>
+          <li>To schedule and confirm your free consultation appointment</li>
+          <li>To contact you at your preferred date and time</li>
+          <li>To discuss your web design or digital services requirements</li>
+          <li>To provide you with a cost estimate or proposal if requested</li>
+        </ul>
+        <p>We will <strong>not</strong> use your data for any marketing, newsletters, or promotional communications without your explicit consent.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Legal Basis for Processing</h3>
+        <p>Under the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong>, we process your data based on <strong>your informed consent</strong>, which you provide when you voluntarily submit the consultation form. By submitting the form, you agree to the use of your data as described in this policy.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Data Retention</h3>
+        <p>Since no database is maintained, the data you submit exists only within the WhatsApp conversation initiated by your form submission. This conversation is retained for the duration of our business interaction and for a reasonable period thereafter for reference purposes, typically <strong>no longer than 12 months</strong> after our last interaction, unless you request earlier deletion.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Data Sharing &amp; Disclosure</h3>
+        <p>We do <strong>not sell, trade, rent, or otherwise share</strong> your personal information with any third party for commercial purposes. Your data is seen only by Sreehari S (founder, Espace Systems) and is used solely for the consultation you requested.</p>
+        <p>We may disclose your information only if required to do so by law, court order, or a competent governmental authority under Indian law.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Data Security</h3>
+        <p>We take reasonable technical and organisational measures to protect your personal data from unauthorised access, alteration, or disclosure. These include:</p>
+        <ul>
+          <li>The website is served over <strong>HTTPS</strong> (SSL/TLS encryption) to protect data in transit</li>
+          <li>Form submissions are sent directly through WhatsApp's encrypted messaging infrastructure</li>
+          <li>No personal data is stored on unsecured servers or databases by Espace Systems</li>
+        </ul>
+        <p>While we strive to protect your information, please be aware that no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Your Rights Under Indian Law</h3>
+        <p>Under the <strong>DPDPA, 2023</strong>, as a data principal (user), you have the following rights with respect to your personal data:</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request a summary of the personal data we hold about you.</li>
+          <li><strong>Right to Correction:</strong> Request correction of inaccurate or incomplete personal data.</li>
+          <li><strong>Right to Erasure:</strong> Request deletion of your personal data where it is no longer necessary for the purpose it was collected.</li>
+          <li><strong>Right to Withdraw Consent:</strong> Withdraw your consent to processing at any time. Withdrawal does not affect the legality of processing done before withdrawal.</li>
+          <li><strong>Right to Grievance Redressal:</strong> Lodge a complaint with our Grievance Officer (details below) or with the Data Protection Board of India once established.</li>
+        </ul>
+        <p>To exercise any of these rights, contact our Grievance Officer at the details provided below. We will respond within <strong>30 days</strong> of receiving your request, as required under Indian law.</p>
+      </div>
+
+      <div class="policy-block">
+        <h3>Partner Affiliate Links</h3>
+        <p>The Espace Systems page features links to third-party software partners (such as Cal.com, Chatbase, Notion, etc.) through affiliate partnerships. When you click these links and visit a partner's website, you are subject to that partner's own privacy policy. Espace Systems is not responsible for the data practices of these third parties.</p>
+        <p>We may earn a commission if you sign up for a partner service using our link, at no additional cost to you.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHILDREN -->
+  <div class="pp-general policy-block">
+    <h2>3. Children's Privacy</h2>
+    <p>This website is not directed at children under the age of 13. We do not knowingly collect personal data from children. If you are a parent or guardian and believe your child has submitted personal information through our consultation form, please contact us immediately at the email below and we will delete such information promptly.</p>
+  </div>
+
+  <!-- GOOGLE COMPLIANCE -->
+  <div class="pp-general policy-block">
+    <h2>4. Google AdSense &amp; Publisher Policy Compliance</h2>
+    <p>sreeharis.in participates in Google AdSense. We comply with Google's Publisher Policies, which require us to:</p>
+    <ul>
+      <li>Maintain a clearly accessible and up-to-date Privacy Policy</li>
+      <li>Disclose that Google uses cookies and data to serve ads</li>
+      <li>Not click our own ads or encourage others to do so</li>
+      <li>Not display ads alongside inappropriate content</li>
+    </ul>
+    <p>For more information on how Google uses data from sites that use its services, visit: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use our services</a>.</p>
+  </div>
+
+  <!-- CHANGES -->
+  <div class="pp-general policy-block">
+    <h2>5. Changes to This Policy</h2>
+    <p>We reserve the right to update this Privacy Policy at any time. Any changes will be reflected on this page with an updated "Last Updated" date at the top. We encourage you to review this page periodically. Continued use of our website after any changes constitutes your acceptance of the revised policy.</p>
+  </div>
+
+  <!-- GRIEVANCE OFFICER -->
+  <div class="pp-general policy-block">
+    <h2>6. Grievance Officer</h2>
+    <p>In accordance with the <strong>Information Technology Act, 2000</strong> and its associated rules, and the <strong>Digital Personal Data Protection Act, 2023</strong>, the details of the Grievance Officer are provided below. Any grievances regarding the processing of your personal data should be addressed to:</p>
+
+    <div class="grievance-card">
+      <div class="g-role">Grievance Officer</div>
+      <div class="g-name">Sreehari S</div>
+      <div class="g-detail"><strong>Designation:</strong> Founder &amp; Owner, Espace Systems / sreeharis.in</div>
+      <div class="g-detail"><strong>Location:</strong> Kerala, India</div>
+      <div class="g-detail"><strong>Email:</strong> <a href="mailto:sreeharisunil100@gmail.com">Mail to CEO</a></div>
+      <div class="g-detail"><strong>Response Time:</strong> Within 7 (seven) days of receiving your grievance, as mandated by Indian law.</div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="pp-general policy-block">
+    <h2>7. Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please reach out to us:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:sreeharisunil100@gmail.com">Email</a></li>
+      <li><strong>Telegram:</strong> <a href="https://t.me/sreyouh" target="_blank" rel="noopener">telegram</a></li>
+      <li><strong>Website:</strong> <a href="https://sreeharis.in/espace.html">sreeharis.in/espace.html</a></li>
+    </ul>
+    <p style="margin-top:24px; padding-top:20px; border-top: 1px solid rgba(255,255,255,0.08); font-size:0.8rem; color:rgba(255,255,255,0.35);">This Privacy Policy was last reviewed and updated on <strong style="color:rgba(255,255,255,0.5);">4 April 2026</strong>. It is governed by the laws of the Republic of India. Any disputes arising out of or in connection with this policy shall be subject to the exclusive jurisdiction of the courts in Kerala, India.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      sreeharis.in
+      <span>Privacy Policy Document</span>
+    </div>
+    <p class="footer-copy">
+      © 2026 <a href="index.html" class="footer-link">sreeharis.in</a> · <a href="espace.html" class="footer-link">Espace Systems</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='16px';cursor.style.height='16px';ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='var(--gold)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,0.5)';});
+});
+// Navbar
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+</script>
+</body>
+</html>
