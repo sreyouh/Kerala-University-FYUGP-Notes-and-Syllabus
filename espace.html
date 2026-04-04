@@ -384,6 +384,161 @@ nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
 .seo-inner p strong{color:var(--navy);font-weight:600;}
 .seo-divider{height:1px;background:var(--border);margin:16px 0;}
 
+/* ── HERO PARTNERS BADGE ── */
+.hero-partners-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-top: 28px;
+  padding: 11px 20px 11px 14px;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  font-size: 0.82rem; color: var(--slate); font-weight: 500;
+  text-decoration: none; cursor: none;
+  box-shadow: 0 4px 20px var(--shadow);
+  transition: border-color .25s, box-shadow .25s, transform .25s;
+  animation: fade-up .7s .4s ease both;
+}
+.hero-partners-badge:hover {
+  border-color: var(--blue);
+  box-shadow: 0 8px 28px var(--shadow2);
+  transform: translateY(-2px);
+  color: var(--navy);
+}
+.hero-partners-badge strong { color: var(--navy); font-weight: 700; }
+.hero-partners-dots {
+  display: flex; align-items: center;
+}
+.hero-partners-dots span {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -6px; display: inline-block;
+}
+.hero-partners-dots span:first-child { margin-left: 0; }
+.hero-partners-arrow {
+  color: var(--blue); font-weight: 700; font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+/* ── PARTNERS SECTION ── */
+.partners { padding: 100px 24px; background: var(--navy); position: relative; overflow: hidden; }
+.partners::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(26,86,219,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,219,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black, transparent);
+}
+.partners::after {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,86,219,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.partners-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+.partners-header { text-align: center; margin-bottom: 64px; }
+.partners-header .section-tag { color: rgba(100,160,255,0.9); }
+.partners-header .section-heading { color: white; text-align: center; }
+.partners-header .section-desc { color: rgba(255,255,255,0.45); max-width: 520px; margin: 0 auto; text-align: center; }
+
+.partners-note {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 20px;
+  background: rgba(26,86,219,0.15); border: 1px solid rgba(26,86,219,0.3);
+  padding: 8px 20px; border-radius: 50px;
+  font-size: 0.78rem; color: rgba(100,160,255,0.9); font-weight: 500;
+}
+.partners-note::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #4d9fff; animation: blink 1.5s ease infinite;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+.partner-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 26px 24px;
+  text-decoration: none;
+  color: white;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative; overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1), border-color .3s, background .3s, box-shadow .35s;
+  cursor: none;
+}
+.partner-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(26,86,219,0.07) 0%, transparent 60%);
+  opacity: 0; transition: opacity .35s;
+}
+.partner-card:hover::before { opacity: 1; }
+.partner-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(100,160,255,0.35);
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.5), 0 0 0 1px rgba(26,86,219,0.12);
+}
+
+.partner-card-top {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.partner-logo-wrap {
+  width: 52px; height: 52px; border-radius: 12px;
+  background: white;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding: 6px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+}
+.partner-logo-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+}
+
+/* Offer badges */
+.partner-offer {
+  font-size: 0.65rem; font-weight: 800; letter-spacing: 0.5px;
+  padding: 4px 10px; border-radius: 50px;
+  text-transform: uppercase; white-space: nowrap;
+}
+.offer-free { background: rgba(5,150,105,0.2); border: 1px solid rgba(5,150,105,0.5); color: #34d399; }
+.offer-20  { background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.5); color: #a78bfa; }
+.offer-15  { background: rgba(217,119,6,0.2);  border: 1px solid rgba(217,119,6,0.5);  color: #fbbf24; }
+.offer-100 { background: rgba(220,38,38,0.15); border: 1px solid rgba(239,68,68,0.5);  color: #f87171; }
+
+.partner-cat {
+  font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(100,160,255,0.7); font-weight: 600;
+}
+.partner-name {
+  font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700;
+  color: white; line-height: 1.2;
+}
+.partner-desc {
+  font-size: 0.82rem; color: rgba(255,255,255,0.42);
+  line-height: 1.65; flex: 1;
+}
+.partner-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.78rem; font-weight: 600;
+  color: rgba(100,160,255,0.85);
+  padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07);
+  transition: color .2s, gap .2s;
+}
+.partner-card:hover .partner-cta { color: #7dbfff; gap: 11px; }
+
+.partners-disclaimer {
+  text-align: center; margin-top: 44px;
+  font-size: 0.75rem; color: rgba(255,255,255,0.2);
+  line-height: 1.7;
+}
+.partners-disclaimer a { color: rgba(100,160,255,0.5); text-decoration: none; }
+
 /* ── FOOTER ── */
 footer{background:var(--navy);padding:44px 24px;}
 .footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
@@ -436,6 +591,7 @@ footer{background:var(--navy);padding:44px 24px;}
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
+    <li><a href="#partners">Partners</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://www.linkedin.com/company/espace-systems/" target="_blank">LinkedIn</a></li>
   </ul>
@@ -473,6 +629,18 @@ footer{background:var(--navy);padding:44px 24px;}
       <a href="#contact" class="btn-primary">🚀 Book a Free Slot</a>
       <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="btn-secondary">💼 View LinkedIn</a>
     </div>
+
+    <a href="#partners" class="hero-partners-badge">
+      <span class="hero-partners-dots">
+        <span style="background:#1a56db"></span>
+        <span style="background:#7c3aed"></span>
+        <span style="background:#059669"></span>
+        <span style="background:#dc2626"></span>
+        <span style="background:#d97706"></span>
+      </span>
+      Partnered with <strong>11 leading tech companies</strong> — exclusive deals for clients
+      <span class="hero-partners-arrow">→</span>
+    </a>
 
     <div class="hero-metrics">
       <div class="metric">
@@ -714,6 +882,198 @@ footer{background:var(--navy);padding:44px 24px;}
   </div>
 </section>
 
+<!-- PARTNER ECOSYSTEM -->
+<section class="partners" id="partners">
+  <div class="partners-inner">
+
+    <div class="partners-header reveal">
+      <span class="section-tag">Partner Ecosystem</span>
+      <h2 class="section-heading">Tools We Trust &<br>Recommend</h2>
+      <p class="section-desc">Espace Systems is officially partnered with 11 leading technology companies — our clients get exclusive deals and discounts through our affiliate links.</p>
+      <div class="partners-note">Partnered with 11 companies · Exclusive client discounts available</div>
+    </div>
+
+    <div class="partners-grid">
+
+      <!-- 1. Comp AI -->
+      <a href="https://go.trycomp.ai/sreehari-s" target="_blank" class="partner-card reveal">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/compai.png" alt="Comp AI">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">AI · Compensation</div>
+          <div class="partner-name">Comp AI</div>
+        </div>
+        <p class="partner-desc">AI-powered compensation planning and salary benchmarking. Helps teams make smarter, data-driven pay decisions.</p>
+        <div class="partner-cta">Try Comp AI free →</div>
+      </a>
+
+      <!-- 2. Cal.com -->
+      <a href="https://refer.cal.com/sreehari-s-qv17jb-7cf4" target="_blank" class="partner-card reveal" style="transition-delay:.04s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/cal.png" alt="Cal.com">
+          </div>
+          <span class="partner-offer offer-20">20% Off</span>
+        </div>
+        <div>
+          <div class="partner-cat">Scheduling · Productivity</div>
+          <div class="partner-name">Cal.com</div>
+        </div>
+        <p class="partner-desc">Open-source scheduling infrastructure. Let anyone book a meeting with you using a beautiful, customisable booking page.</p>
+        <div class="partner-cta">Get 20% off via Espace →</div>
+      </a>
+
+      <!-- 3. Ranked AI -->
+      <a href="https://try.ranked.ai/for.free" target="_blank" class="partner-card reveal" style="transition-delay:.08s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/rankedai.png" alt="Ranked AI">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">AI · SEO</div>
+          <div class="partner-name">Ranked AI</div>
+        </div>
+        <p class="partner-desc">AI-powered SEO platform that automates keyword research, content strategy and ranking improvements for your website.</p>
+        <div class="partner-cta">Try Ranked AI free →</div>
+      </a>
+
+      <!-- 4. Testimonial -->
+      <a href="https://refer.testimonial.to/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.12s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/testimonial.png" alt="Testimonial">
+          </div>
+          <span class="partner-offer offer-15">15% Off</span>
+        </div>
+        <div>
+          <div class="partner-cat">Social Proof · Marketing</div>
+          <div class="partner-name">Testimonial</div>
+        </div>
+        <p class="partner-desc">Collect video and text testimonials from your customers effortlessly. Embed them anywhere to build trust and convert visitors.</p>
+        <div class="partner-cta">Get 15% off via Espace →</div>
+      </a>
+
+      <!-- 5. Chronicle -->
+      <a href="https://chr.so/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.16s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/chronicle.png" alt="Chronicle">
+          </div>
+          <span class="partner-offer offer-100">100% Free</span>
+        </div>
+        <div>
+          <div class="partner-cat">AI · Presentations</div>
+          <div class="partner-name">Chronicle</div>
+        </div>
+        <p class="partner-desc">Create stunning, interactive presentations with AI. Chronicle makes it easy to build beautiful decks that engage your audience.</p>
+        <div class="partner-cta">Get 100% off via Espace →</div>
+      </a>
+
+      <!-- 6. Superlist -->
+      <a href="https://superli.st/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.2s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/superlist.png" alt="Superlist">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">Productivity · Teams</div>
+          <div class="partner-name">Superlist</div>
+        </div>
+        <p class="partner-desc">A beautiful, powerful task manager for teams and individuals. Organise work, set priorities and collaborate seamlessly.</p>
+        <div class="partner-cta">Try Superlist →</div>
+      </a>
+
+      <!-- 7. PDF AI -->
+      <a href="https://refer.pdf.ai/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.24s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/PDFai.png" alt="PDF AI">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">AI · Documents</div>
+          <div class="partner-name">PDF AI</div>
+        </div>
+        <p class="partner-desc">Chat with any PDF using AI. Upload documents and ask questions — instantly extract insights, summaries and key information.</p>
+        <div class="partner-cta">Try PDF AI free →</div>
+      </a>
+
+      <!-- 8. Magic Patterns -->
+      <a href="https://www.magicpatterns.com?via=sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.28s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/magicpatterns.png" alt="Magic Patterns">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">AI · UI Design</div>
+          <div class="partner-name">Magic Patterns</div>
+        </div>
+        <p class="partner-desc">Generate production-ready UI components and design patterns with AI. Accelerate your product design and development workflow.</p>
+        <div class="partner-cta">Try Magic Patterns →</div>
+      </a>
+
+      <!-- 9. Chatbase -->
+      <a href="https://link.chatbase.co/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.32s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/chatbase.png" alt="Chatbase">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">AI · Chatbots</div>
+          <div class="partner-name">Chatbase</div>
+        </div>
+        <p class="partner-desc">Build a custom AI chatbot trained on your data. Embed it on your website to handle customer queries automatically, 24/7.</p>
+        <div class="partner-cta">Try Chatbase free →</div>
+      </a>
+
+      <!-- 10. Wispr Flow -->
+      <a href="https://ref.wisprflow.ai/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.36s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/wisprflow.png" alt="Wispr Flow">
+          </div>
+        </div>
+        <div>
+          <div class="partner-cat">AI · Voice</div>
+          <div class="partner-name">Wispr Flow</div>
+        </div>
+        <p class="partner-desc">AI-powered voice dictation that works everywhere. Speak naturally and let AI transcribe your words with remarkable accuracy.</p>
+        <div class="partner-cta">Try Wispr Flow →</div>
+      </a>
+
+      <!-- 11. Cap -->
+      <a href="https://go.cap.so/sreehari-s" target="_blank" class="partner-card reveal" style="transition-delay:.4s">
+        <div class="partner-card-top">
+          <div class="partner-logo-wrap">
+            <img src="partnerlogo/cap.png" alt="Cap">
+          </div>
+          <span class="partner-offer offer-20">20% Off</span>
+        </div>
+        <div>
+          <div class="partner-cat">Productivity · Recording</div>
+          <div class="partner-name">Cap</div>
+        </div>
+        <p class="partner-desc">Open-source, beautiful screen recording. Share videos instantly with your team — a modern alternative to Loom, built for simplicity.</p>
+        <div class="partner-cta">Get 20% off via Espace →</div>
+      </a>
+
+    </div>
+
+    <p class="partners-disclaimer">
+      * Discount offers apply when you sign up using Espace Systems' unique affiliate links above.<br>
+      These are affiliate partnerships — we may earn a commission at no extra cost to you.
+    </p>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -790,4 +1150,6 @@ function submitBooking(){
 </script>
 </body>
   </html>
+
+
 
