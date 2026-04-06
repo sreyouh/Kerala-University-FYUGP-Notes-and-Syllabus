@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PRIMARY SEO -->
+  <title>pH Indicator Virtual Lab – Measure pH of Liquids Online | ScienceHub</title>
+  <meta name="description" content="Perform a virtual pH indicator experiment online. Use a pH meter or pH paper strip to measure the acidity and alkalinity of 30+ liquids including juices, household chemicals, and solutions. Free interactive science lab for students and teachers." />
+  <meta name="keywords" content="pH indicator experiment, virtual pH lab, pH meter online, pH of liquids, pH of fruit juices, pH paper strip, acid base indicator, pH scale, virtual science lab, online chemistry experiment, pH of lemon juice, pH of water, pH of vinegar, pH of milk, pH indicator virtual experiment, interactive pH test, ScienceHub pH, free science experiment online, school chemistry lab, pH measurement, litmus test online, universal indicator, pH of orange juice, pH of coffee, pH of blood, pH of soap" />
+  <meta name="author" content="ScienceHub Virtual Labs" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="theme-color" content="#040812" />
+  <link rel="canonical" href="https://sciencehub.com/experiments/ph-indicator" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="pH Indicator Virtual Lab – Measure pH of 30+ Liquids | ScienceHub" />
+  <meta property="og:description" content="Interactive virtual pH lab. Use a pH meter or pH paper strip to test 30+ liquids. Realistic animations, colour changes, and full scientific explanations for every substance." />
+  <meta property="og:url" content="https://sciencehub.com/experiments/ph-indicator" />
+  <meta property="og:site_name" content="ScienceHub Virtual Labs" />
+  <meta property="og:image" content="https://sciencehub.com/assets/ph-indicator-og.jpg" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="pH Indicator Virtual Lab – ScienceHub" />
+  <meta name="twitter:description" content="Measure pH of 30+ liquids virtually. pH meter or pH paper strip. Realistic animations & scientific explanations." />
+  <meta name="twitter:image" content="https://sciencehub.com/assets/ph-indicator-og.jpg" />
+  <meta name="twitter:site" content="@ScienceHubLabs" />
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://sciencehub.com/experiments/ph-indicator","url":"https://sciencehub.com/experiments/ph-indicator","name":"pH Indicator Virtual Lab – ScienceHub","description":"Interactive virtual pH indicator experiment for students. Measure acidity and alkalinity of 30+ liquids using a pH meter or pH paper strip.","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sciencehub.com"},{"@type":"ListItem","position":2,"name":"Experiments","item":"https://sciencehub.com/experiments"},{"@type":"ListItem","position":3,"name":"pH Indicator","item":"https://sciencehub.com/experiments/ph-indicator"}]},"inLanguage":"en-US"},{"@type":"LearningResource","name":"pH Indicator Virtual Experiment","description":"Students select a pH meter or pH paper strip, choose from 30+ substances, and interactively measure pH values with animations and explanations.","educationalLevel":["Middle School","High School","University"],"learningResourceType":"Simulation","educationalUse":["Lab Activity","Self Study","Classroom Demonstration"],"teaches":"pH measurement, acid-base chemistry, indicator chemistry","subject":["Chemistry","Science","Biology"],"isAccessibleForFree":true,"provider":{"@type":"Organization","name":"ScienceHub Virtual Labs","url":"https://sciencehub.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is pH?","acceptedAnswer":{"@type":"Answer","text":"pH is a scale from 0 to 14 measuring acidity or alkalinity. pH 7 is neutral, below 7 is acidic, above 7 is alkaline."}},{"@type":"Question","name":"How does a pH meter work?","acceptedAnswer":{"@type":"Answer","text":"A pH meter measures the voltage between a glass electrode and reference electrode in a solution, converting it to a pH reading."}},{"@type":"Question","name":"What is a pH paper strip?","acceptedAnswer":{"@type":"Answer","text":"pH paper changes colour when dipped in a solution. Comparing the colour to a reference chart estimates the pH value."}},{"@type":"Question","name":"What is the pH of lemon juice?","acceptedAnswer":{"@type":"Answer","text":"Lemon juice has a pH of approximately 2–3, strongly acidic due to its high citric acid content."}},{"@type":"Question","name":"What liquids are acidic?","acceptedAnswer":{"@type":"Answer","text":"Acidic liquids include lemon juice (pH 2–3), vinegar (pH 2–3), orange juice (pH 3–4), coffee (pH 5–5.5), and carbonated drinks (pH 2.5–3.5)."}},{"@type":"Question","name":"What liquids are alkaline?","acceptedAnswer":{"@type":"Answer","text":"Alkaline liquids include bleach (pH 12–13), ammonia solution (pH 11–12), baking soda solution (pH 8–9), and soap solution (pH 9–10)."}}]}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#040812;
+      --bg-card:rgba(7,14,30,0.97);
+      --bg-panel:#0c1530;
+      --border:rgba(80,170,255,0.14);
+      --border2:rgba(80,170,255,0.28);
+      --accent:#00d4ff;
+      --accent2:#7c3aed;
+      --accent3:#10b981;
+      --warn:#f59e0b;
+      --text:#ddeeff;
+      --text-dim:#6a84ad;
+      --Hfont:'Orbitron',sans-serif;
+      --Bfont:'Exo 2',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:var(--Bfont);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 65% 55% at 15% 55%,rgba(124,58,237,0.09) 0%,transparent 70%),
+        radial-gradient(ellipse 50% 40% at 85% 15%,rgba(0,212,255,0.07) 0%,transparent 65%),
+        radial-gradient(ellipse 45% 40% at 55% 95%,rgba(16,185,129,0.05) 0%,transparent 60%);
+    }
+
+    /* NAV */
+    nav{
+      position:sticky;top:0;z-index:200;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 2rem;height:62px;
+      background:rgba(4,8,18,0.9);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-logo{font-family:var(--Hfont);font-size:1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:.06em;text-shadow:0 0 20px rgba(0,212,255,0.5)}
+    .nav-logo span{color:var(--text)}
+    .nav-right{display:flex;align-items:center;gap:.9rem}
+    .nav-tag{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);border-radius:6px;padding:.22rem .65rem;font-size:.68rem;color:var(--accent3);letter-spacing:.07em}
+    .nav-back{display:flex;align-items:center;gap:.4rem;background:rgba(0,212,255,0.08);border:1px solid var(--border2);border-radius:8px;padding:.32rem .85rem;color:var(--accent);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.04em;transition:all .22s}
+    .nav-back:hover{background:rgba(0,212,255,0.16);box-shadow:0 0 14px rgba(0,212,255,0.28)}
+
+    /* HERO */
+    .hero{position:relative;z-index:1;text-align:center;padding:3rem 1rem 2rem}
+    .hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(0,212,255,0.07);border:1px solid rgba(0,212,255,0.22);border-radius:999px;padding:.28rem 1rem;font-size:.72rem;color:var(--accent);letter-spacing:.09em;margin-bottom:1rem;animation:fadeDown .6s ease both}
+    .hero h1{font-family:var(--Hfont);font-size:clamp(1.7rem,4.5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:.7rem;animation:fadeDown .7s .1s ease both}
+    .hero h1 .hl{color:var(--accent);text-shadow:0 0 30px rgba(0,212,255,0.55)}
+    .hero p{color:var(--text-dim);max-width:520px;margin:0 auto 1.5rem;font-size:.97rem;line-height:1.65;animation:fadeDown .7s .2s ease both}
+
+    /* LAYOUT */
+    .lab-wrap{position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:0 1.2rem 5rem;display:grid;grid-template-columns:320px 1fr;gap:1.5rem;align-items:start}
+    @media(max-width:960px){.lab-wrap{grid-template-columns:1fr}}
+
+    /* PANEL */
+    .panel{background:linear-gradient(145deg,rgba(12,21,48,0.97),rgba(7,14,28,0.99));border:1px solid var(--border2);border-radius:16px;padding:1.4rem;backdrop-filter:blur(12px);animation:fadeUp .55s ease both}
+    .panel-hd{display:flex;align-items:center;gap:.5rem;font-family:var(--Hfont);font-size:.67rem;letter-spacing:.13em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
+    .panel-hd-line{flex:1;height:1px;background:linear-gradient(to right,rgba(0,212,255,0.35),transparent)}
+
+    /* METHOD BUTTONS */
+    .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.1rem}
+    .mbtn{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:1rem .6rem;cursor:pointer;background:var(--bg-panel);border:1.5px solid var(--border);border-radius:12px;color:var(--text-dim);font-family:var(--Bfont);font-size:.8rem;font-weight:600;transition:all .25s;user-select:none}
+    .mbtn .micon{font-size:1.9rem;transition:transform .25s}
+    .mbtn:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 0 18px rgba(0,212,255,0.22)}
+    .mbtn:hover .micon{transform:scale(1.15) rotate(-5deg)}
+    .mbtn.active{border-color:var(--accent);background:rgba(0,212,255,0.09);color:var(--accent);box-shadow:0 0 24px rgba(0,212,255,0.28)}
+    .mbtn.active::after{content:'✓';position:absolute;top:7px;right:9px;font-size:.65rem;color:var(--accent3)}
+
+    /* SEARCH */
+    .search-wrap{position:relative;margin-bottom:.8rem}
+    .search-wrap input{width:100%;padding:.62rem 1rem .62rem 2.4rem;background:var(--bg-panel);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--Bfont);font-size:.86rem;outline:none;transition:border-color .2s,box-shadow .2s}
+    .search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,212,255,0.11)}
+    .search-wrap input::placeholder{color:var(--text-dim)}
+    .search-icon{position:absolute;left:.72rem;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:.9rem;pointer-events:none}
+
+    /* SUBSTANCE LIST */
+    .cat-label{font-size:.65rem;letter-spacing:.1em;color:var(--accent2);text-transform:uppercase;font-weight:700;margin:.85rem 0 .35rem .1rem}
+    .sub-list{display:flex;flex-direction:column;gap:.28rem;max-height:420px;overflow-y:auto;padding-right:.3rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+    .sub-item{display:flex;align-items:center;gap:.65rem;padding:.5rem .75rem;background:var(--bg-panel);border:1px solid transparent;border-radius:9px;cursor:pointer;transition:all .2s;user-select:none}
+    .sub-item:hover{border-color:var(--border2);background:rgba(0,212,255,0.05)}
+    .sub-item.selected{border-color:var(--accent);background:rgba(0,212,255,0.10)}
+    .sub-emoji{font-size:1.2rem;min-width:1.4rem;text-align:center}
+    .sub-info{flex:1;min-width:0}
+    .sub-name{font-size:.83rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .sub-ph-prev{font-size:.7rem;color:var(--text-dim);margin-top:.06rem}
+    .sub-bar{width:6px;min-width:6px;height:26px;border-radius:3px}
+    .no-results{text-align:center;color:var(--text-dim);font-size:.84rem;padding:1.5rem 0}
+
+    /* LAB STAGE */
+    .lab-stage{
+      background:linear-gradient(160deg,rgba(10,18,42,0.98),rgba(5,10,22,0.99));
+      border:1px solid var(--border2);border-radius:16px;padding:1.8rem;
+      min-height:580px;display:flex;flex-direction:column;gap:1.4rem;
+      animation:fadeUp .6s .1s ease both;position:relative;overflow:hidden;
+    }
+    .lab-stage::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.025) 1px,transparent 1px);background-size:42px 42px}
+
+    /* STEPS */
+    .steps-bar{display:flex;align-items:center;gap:.5rem;position:relative;z-index:1}
+    .step-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;background:var(--bg-panel);border:2px solid var(--border);color:var(--text-dim);transition:all .3s;flex-shrink:0}
+    .step-dot.done{border-color:var(--accent3);background:rgba(16,185,129,0.14);color:var(--accent3)}
+    .step-dot.active{border-color:var(--accent);background:rgba(0,212,255,0.12);color:var(--accent);box-shadow:0 0 14px rgba(0,212,255,0.28)}
+    .step-line{flex:1;height:1px;background:var(--border);transition:background .4s}
+    .step-line.done{background:var(--accent3)}
+    .step-lbl{font-size:.7rem;color:var(--text-dim)}
+    .step-lbl.active{color:var(--accent);font-weight:600}
+
+    /* EXPERIMENT AREA */
+    .exp-area{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:center;gap:3.5rem;min-height:300px;flex-wrap:wrap;padding-bottom:.5rem}
+
+    /* BEAKER */
+    .beaker-wrap{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+    .beaker-lbl{font-size:.78rem;color:var(--text-dim);letter-spacing:.04em;text-align:center;margin-top:.2rem;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+    /* pH METER */
+    .meter-wrap{display:flex;flex-direction:column;align-items:center}
+    .meter-body{width:92px;background:linear-gradient(180deg,#182540,#0c1826);border:2px solid #243a60;border-radius:14px 14px 6px 6px;padding:10px 8px 12px;box-shadow:0 10px 36px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.06);display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+    .meter-led{position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;background:#00ff44;box-shadow:0 0 8px #00ff44;animation:ledBlink 2s infinite}
+    .meter-screen{width:100%;background:#061210;border:1px solid #0a2820;border-radius:6px;padding:8px 4px 6px;text-align:center;box-shadow:inset 0 2px 10px rgba(0,0,0,0.7);min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative;overflow:hidden}
+    .meter-screen::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,255,100,0.04) 50%,transparent 60%);animation:scanline 2.5s infinite linear;pointer-events:none}
+    .meter-screen-lbl{font-size:.5rem;color:#2a6a4a;letter-spacing:.1em;text-transform:uppercase}
+    .meter-ph-val{font-family:var(--Hfont);font-size:1.65rem;font-weight:700;color:#00ff88;text-shadow:0 0 14px rgba(0,255,136,0.7);transition:color .4s,text-shadow .4s;min-height:2rem;line-height:1}
+    .meter-unit{font-size:.5rem;color:#2a6a4a;letter-spacing:.06em}
+    .meter-brand{font-family:var(--Hfont);font-size:.46rem;color:#1a3858;letter-spacing:.18em;margin-top:1px}
+    .meter-btns{display:flex;gap:4px;margin-top:2px}
+    .mtr-btn{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,#1a3a6a,#0d2050);border:1px solid #2a5090}
+    .mtr-btn.green{background:linear-gradient(135deg,#2a5a20,#183010);border-color:#3a7028}
+
+    /* ELECTRODE */
+    .electrode-cable{width:3px;height:0;background:linear-gradient(180deg,#4a6a9a,#2a4070);border-radius:2px;margin:0 auto;transition:height .65s cubic-bezier(.4,0,.2,1);box-shadow:0 0 6px rgba(74,106,154,0.4)}
+    .electrode-tip{width:13px;background:linear-gradient(180deg,#b8c4d4,#7888a0);border-radius:0 0 7px 7px;margin:0 auto;height:0;transition:height .55s .35s cubic-bezier(.4,0,.2,1);position:relative}
+    .electrode-tip.dipped{box-shadow:0 4px 16px rgba(0,212,255,0.35),0 0 24px rgba(0,212,255,0.18)}
+    .electrode-tip::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:5px;height:5px;background:#c8d8e8;border-radius:50%;box-shadow:0 0 4px rgba(200,216,232,0.8)}
+
+    /* pH PAPER */
+    .paper-wrap{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+    .paper-holder{background:linear-gradient(180deg,#7a6a58,#5a4a38);border-radius:4px 4px 0 0;padding:5px 5px 0;box-shadow:0 4px 14px rgba(0,0,0,0.35);display:flex;flex-direction:column;align-items:center;width:30px}
+    .paper-strip{width:18px;background:#f5f0e8;border-radius:2px;height:0;transition:height .55s .1s,background-color 1.1s .7s,box-shadow 1.1s .7s;box-shadow:inset 0 0 4px rgba(0,0,0,0.1)}
+    .paper-lbl{font-size:.72rem;color:var(--text-dim);text-align:center}
+
+    /* CONTROLS */
+    .controls-bar{position:relative;z-index:1;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    .check-btn{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,#00d4ff,#0099cc);border:none;border-radius:10px;padding:.75rem 1.8rem;color:#000;font-family:var(--Hfont);font-size:.75rem;font-weight:700;letter-spacing:.07em;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+    .check-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18),transparent);opacity:0;transition:opacity .2s}
+    .check-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,255,0.45)}
+    .check-btn:hover::before{opacity:1}
+    .check-btn:active{transform:translateY(0)}
+    .check-btn:disabled{opacity:.38;cursor:not-allowed;transform:none;box-shadow:none}
+    .reset-btn{display:inline-flex;align-items:center;gap:.45rem;background:transparent;border:1px solid var(--border2);border-radius:10px;padding:.72rem 1.15rem;color:var(--text-dim);font-family:var(--Bfont);font-size:.84rem;font-weight:600;cursor:pointer;transition:all .22s}
+    .reset-btn:hover{border-color:var(--warn);color:var(--warn)}
+    .sel-info{margin-left:auto;font-size:.8rem;color:var(--text-dim);background:var(--bg-panel);border:1px solid var(--border);border-radius:8px;padding:.42rem .88rem}
+    .sel-info .si-name{color:var(--text);font-weight:600}
+
+    /* pH SCALE */
+    .scale-section{position:relative;z-index:1}
+    .ph-scale-bar{height:18px;border-radius:999px;position:relative;background:linear-gradient(to right,#ff0000 0%,#ff4400 7.14%,#ff8800 14.3%,#ffcc00 21.4%,#aadd00 28.6%,#44dd00 35.7%,#00cc44 42.9%,#00bb88 50%,#0099cc 57.1%,#0066ff 64.3%,#3300ff 71.4%,#6600cc 78.6%,#990099 85.7%,#cc0066 92.9%,#ff0033 100%);box-shadow:0 3px 20px rgba(0,0,0,0.4);margin-bottom:.5rem}
+    .ph-scale-marker{position:absolute;top:-5px;width:8px;height:28px;background:#fff;border-radius:4px;box-shadow:0 0 14px rgba(255,255,255,0.85);transform:translateX(-50%);transition:left 1.1s cubic-bezier(.4,0,.2,1)}
+    .ph-scale-labels{display:flex;justify-content:space-between;font-size:.62rem;color:var(--text-dim);padding:0 2px}
+    .scale-legend{display:flex;gap:1rem;margin-top:.6rem;flex-wrap:wrap}
+    .sl-item{display:flex;align-items:center;gap:.3rem;font-size:.7rem}
+    .sl-dot{width:9px;height:9px;border-radius:50%}
+
+    /* COLOUR CHART */
+    .colour-chart{display:none;position:relative;z-index:1}
+    .colour-chart.show{display:block}
+    .cc-title{font-family:var(--Hfont);font-size:.68rem;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:.8rem}
+    .cc-grid{display:flex;flex-wrap:wrap;gap:.45rem}
+    .cc-swatch{display:flex;flex-direction:column;align-items:center;gap:.25rem}
+    .cc-color{width:38px;height:38px;border-radius:9px;border:2px solid rgba(255,255,255,0.09);transition:transform .22s,box-shadow .22s}
+    .cc-swatch.active .cc-color{border-color:#fff;box-shadow:0 0 16px rgba(255,255,255,0.55);transform:scale(1.18)}
+    .cc-ph{font-size:.63rem;color:var(--text-dim)}
+
+    /* RESULT */
+    .result-section{display:none;position:relative;z-index:1;animation:fadeUp .5s ease both}
+    .result-section.show{display:block}
+    .result-card{background:linear-gradient(135deg,rgba(0,212,255,0.05),rgba(124,58,237,0.04));border:1px solid var(--border2);border-radius:14px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1.3rem;align-items:start}
+    @media(max-width:600px){.result-card{grid-template-columns:1fr}}
+    .ph-badge{min-width:105px;text-align:center;background:rgba(0,0,0,0.28);border-radius:12px;padding:1rem .8rem;border:2px solid currentColor;transition:all .5s}
+    .ph-badge-val{font-family:var(--Hfont);font-size:2.3rem;font-weight:900;line-height:1;display:block}
+    .ph-badge-lbl{font-size:.6rem;letter-spacing:.1em;margin-top:.3rem;opacity:.75}
+    .ph-badge-type{font-size:.7rem;font-weight:700;letter-spacing:.05em;margin-top:.5rem;padding:.2rem .55rem;border-radius:6px;background:rgba(255,255,255,0.08)}
+    .result-body{display:flex;flex-direction:column;gap:.9rem}
+    .result-name{font-family:var(--Hfont);font-size:1.1rem;font-weight:700}
+    .result-exp{font-size:.9rem;color:var(--text-dim);line-height:1.68}
+    .result-facts{display:flex;flex-wrap:wrap;gap:.5rem}
+    .fact-tag{background:var(--bg-panel);border:1px solid var(--border);border-radius:6px;padding:.24rem .68rem;font-size:.72rem;color:var(--text-dim)}
+    .fact-tag span{color:var(--text);font-weight:600}
+
+    /* KEYFRAMES */
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(300%)}}
+    @keyframes ledBlink{0%,100%{opacity:1}50%{opacity:.3}}
+    @keyframes bubbleRise{0%{transform:translateY(0);opacity:.55}80%{opacity:.25}100%{transform:translateY(-65px);opacity:0}}
+    @keyframes rippleAnim{0%{r:4;opacity:.7}100%{r:38;opacity:0}}
+
+    .bubble{animation:bubbleRise 2.2s infinite ease-in;opacity:0}
+    .hidden{display:none!important}
+
+    /* FOOTER */
+    footer{position:relative;z-index:1;text-align:center;padding:2rem 1rem;color:var(--text-dim);font-size:.77rem;border-top:1px solid var(--border)}
+    footer a{color:var(--accent);text-decoration:none}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Science<span>Hub</span></a>
+  <div class="nav-right">
+    <span class="nav-tag">CHEMISTRY</span>
+    <a href="index.html" class="nav-back">← All Experiments</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">⚗️ &nbsp; VIRTUAL EXPERIMENT · CHEMISTRY · ACID–BASE</div>
+  <h1><span class="hl">pH Indicator</span><br/>Virtual Lab</h1>
+  <p>Measure the acidity or alkalinity of <strong>30+ liquids</strong> using a virtual <strong>pH meter</strong> or <strong>pH paper strip</strong>. Realistic animations, colour changes &amp; full scientific explanations.</p>
+</header>
+
+<!-- MAIN -->
+<main class="lab-wrap" id="lab">
+
+  <!-- LEFT: Controls -->
+  <aside class="panel">
+
+    <div class="panel-hd">STEP 1 <div class="panel-hd-line"></div> Choose Method</div>
+    <div class="method-grid">
+      <button class="mbtn active" id="btn-meter" onclick="selectMethod('meter')">
+        <span class="micon">🔬</span><span>pH Meter</span>
+      </button>
+      <button class="mbtn" id="btn-paper" onclick="selectMethod('paper')">
+        <span class="micon">📋</span><span>pH Paper</span>
+      </button>
+    </div>
+
+    <div class="panel-hd" style="margin-top:.2rem">STEP 2 <div class="panel-hd-line"></div> Pick a Substance</div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="search-input" placeholder="Search 30+ liquids…" oninput="filterSubstances()" autocomplete="off" />
+    </div>
+    <div class="sub-list" id="substance-list"></div>
+
+  </aside>
+
+  <!-- RIGHT: Stage -->
+  <section class="lab-stage">
+
+    <!-- Steps -->
+    <div class="steps-bar">
+      <div class="step-dot done"  id="sd1">✓</div>
+      <div class="step-line done" id="sl1"></div>
+      <div class="step-dot active" id="sd2">2</div>
+      <div class="step-line"      id="sl2"></div>
+      <div class="step-dot"       id="sd3">3</div>
+      <div class="step-line"      id="sl3"></div>
+      <div class="step-dot"       id="sd4">4</div>
+    </div>
+
+    <!-- Visual experiment -->
+    <div class="exp-area" id="exp-area">
+
+      <!-- BEAKER (SVG) -->
+      <div class="beaker-wrap">
+        <svg id="beaker-svg" width="160" height="230" viewBox="0 0 160 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="glassG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%"   stop-color="rgba(130,190,255,0.22)"/>
+              <stop offset="28%"  stop-color="rgba(200,230,255,0.06)"/>
+              <stop offset="72%"  stop-color="rgba(200,230,255,0.04)"/>
+              <stop offset="100%" stop-color="rgba(130,190,255,0.18)"/>
+            </linearGradient>
+            <linearGradient id="liqShine" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="rgba(255,255,255,0.18)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0.12)"/>
+            </linearGradient>
+            <clipPath id="bkClip">
+              <path d="M32 44 L26 200 Q26 212 38 212 L122 212 Q134 212 134 200 L128 44 Z"/>
+            </clipPath>
+            <filter id="liquidGlow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur"/>
+            </filter>
+          </defs>
+
+          <!-- liquid fill -->
+          <g clip-path="url(#bkClip)">
+            <rect id="liquid-rect" x="26" y="125" width="108" height="90" fill="#44aaee" opacity="0.65" style="transition:fill 1.3s ease,opacity .6s ease"/>
+            <rect x="26" y="125" width="108" height="90" fill="url(#liqShine)" opacity="0.45"/>
+            <!-- surface wave -->
+            <path id="wave-path" d="M26 125 Q50 120 80 125 Q110 130 134 125" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+            <!-- bubbles -->
+            <circle class="bubble" cx="55"  cy="195" r="3.5" fill="rgba(255,255,255,0.5)"  style="animation-delay:0s"/>
+            <circle class="bubble" cx="85"  cy="200" r="2.5" fill="rgba(255,255,255,0.4)"  style="animation-delay:.75s"/>
+            <circle class="bubble" cx="108" cy="188" r="3"   fill="rgba(255,255,255,0.45)" style="animation-delay:1.4s"/>
+            <circle class="bubble" cx="68"  cy="205" r="2"   fill="rgba(255,255,255,0.35)" style="animation-delay:.35s"/>
+            <circle class="bubble" cx="95"  cy="210" r="2.5" fill="rgba(255,255,255,0.3)"  style="animation-delay:1.8s"/>
+            <!-- ripple -->
+            <circle id="ripple-el" cx="80" cy="140" r="4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5" opacity="0"/>
+          </g>
+
+          <!-- glass walls -->
+          <path d="M32 44 L26 200 Q26 212 38 212 L122 212 Q134 212 134 200 L128 44 Z" fill="url(#glassG)" stroke="rgba(160,210,255,0.4)" stroke-width="1.5"/>
+          <!-- rim -->
+          <rect x="30" y="40" width="100" height="8" rx="2" fill="rgba(160,210,255,0.14)" stroke="rgba(160,210,255,0.38)" stroke-width="1.2"/>
+          <!-- spout -->
+          <path d="M128 44 L140 33 L145 38 L130 50" fill="rgba(160,210,255,0.12)" stroke="rgba(160,210,255,0.35)" stroke-width="1.1"/>
+          <!-- shine left -->
+          <path d="M40 56 L34 195" stroke="rgba(200,235,255,0.22)" stroke-width="5" stroke-linecap="round"/>
+          <!-- shine right -->
+          <path d="M120 56 L126 190" stroke="rgba(200,235,255,0.1)" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- graduation marks -->
+          <line x1="125" y1="105" x2="134" y2="105" stroke="rgba(160,210,255,0.5)" stroke-width="1"/>
+          <line x1="125" y1="138" x2="134" y2="138" stroke="rgba(160,210,255,0.5)" stroke-width="1"/>
+          <line x1="125" y1="170" x2="134" y2="170" stroke="rgba(160,210,255,0.5)" stroke-width="1"/>
+          <text x="137" y="108" font-size="7.5" fill="rgba(160,210,255,0.5)" font-family="monospace">100</text>
+          <text x="137" y="141" font-size="7.5" fill="rgba(160,210,255,0.5)" font-family="monospace">75</text>
+          <text x="137" y="173" font-size="7.5" fill="rgba(160,210,255,0.5)" font-family="monospace">50</text>
+          <!-- base shadow -->
+          <ellipse cx="80" cy="215" rx="50" ry="5.5" fill="rgba(0,0,0,0.4)"/>
+        </svg>
+        <div class="beaker-lbl" id="beaker-lbl">Add a substance to begin</div>
+      </div>
+
+      <!-- pH METER -->
+      <div class="meter-wrap" id="meter-equipment">
+        <div class="meter-body">
+          <div class="meter-led"></div>
+          <div class="meter-screen">
+            <div class="meter-screen-lbl">pH READING</div>
+            <div class="meter-ph-val" id="meter-display">—</div>
+            <div class="meter-unit">pH units</div>
+          </div>
+          <div class="meter-brand">SCIHUB·PRO</div>
+          <div class="meter-btns">
+            <div class="mtr-btn green"></div>
+            <div class="mtr-btn"></div>
+            <div class="mtr-btn"></div>
+          </div>
+        </div>
+        <div class="electrode-cable" id="electrode-cable"></div>
+        <div class="electrode-tip"   id="electrode-tip"></div>
+      </div>
+
+      <!-- pH PAPER -->
+      <div class="paper-wrap hidden" id="paper-equipment">
+        <div class="paper-holder">
+          <div class="paper-strip" id="paper-strip"></div>
+        </div>
+        <div class="paper-lbl">pH Paper Strip</div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-bar">
+      <button class="check-btn" id="check-btn" onclick="runExperiment()" disabled>▶ &nbsp;CHECK pH</button>
+      <button class="reset-btn" onclick="resetExperiment()">↺ Reset</button>
+      <div class="sel-info" id="sel-info">Select a substance →</div>
+    </div>
+
+    <!-- pH Scale -->
+    <div class="scale-section">
+      <div class="panel-hd" style="margin-bottom:.65rem">pH SCALE <div class="panel-hd-line"></div></div>
+      <div class="ph-scale-bar">
+        <div class="ph-scale-marker" id="scale-marker" style="left:50%"></div>
+      </div>
+      <div class="ph-scale-labels">
+        <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span>
+        <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+        <span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+      </div>
+      <div class="scale-legend">
+        <div class="sl-item"><div class="sl-dot" style="background:#ff4400"></div><span style="color:#ff4400">Strongly Acidic</span></div>
+        <div class="sl-item"><div class="sl-dot" style="background:#aadd00"></div><span style="color:#aadd00">Weakly Acidic</span></div>
+        <div class="sl-item"><div class="sl-dot" style="background:#00bb88"></div><span style="color:#00bb88">Neutral</span></div>
+        <div class="sl-item"><div class="sl-dot" style="background:#0066ff"></div><span style="color:#0066ff">Weakly Alkaline</span></div>
+        <div class="sl-item"><div class="sl-dot" style="background:#9900cc"></div><span style="color:#9900cc">Strongly Alkaline</span></div>
+      </div>
+    </div>
+
+    <!-- Colour Chart (paper mode) -->
+    <div class="colour-chart" id="colour-chart">
+      <div class="cc-title">📋 pH Paper Colour Reference Chart</div>
+      <div class="cc-grid" id="cc-grid"></div>
+    </div>
+
+    <!-- Result -->
+    <div class="result-section" id="result-section">
+      <div class="result-card">
+        <div class="ph-badge" id="result-badge">
+          <span class="ph-badge-val" id="result-value">7.0</span>
+          <div class="ph-badge-lbl">pH VALUE</div>
+          <div class="ph-badge-type" id="result-type">Neutral</div>
+        </div>
+        <div class="result-body">
+          <div class="result-name" id="result-name"></div>
+          <div class="result-exp"  id="result-exp"></div>
+          <div class="result-facts" id="result-facts"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <a href="index.html">ScienceHub Virtual Labs</a> · Interactive pH Indicator Experiment · Chemistry · Acid–Base Science</p>
+  <p style="margin-top:.35rem;font-size:.7rem">For educational purposes only. pH values are approximate and may vary with temperature and concentration.</p>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════
+   SUBSTANCE DATA  (32 items)
+════════════════════════════════════════════ */
+const substances = [
+  // ── FRUIT JUICES ──
+  { id:'lemon',      name:'Lemon Juice',         emoji:'🍋', cat:'Fruit Juices',        ph:2.3,  color:'#f5e830', type:'acid',
+    f1:'Citric acid (5–8%)', f2:'Rich in Vitamin C', f3:'pH 2–3',
+    exp:'Lemon juice is strongly acidic (pH ≈ 2–3) due to its high concentration of citric acid (about 5–8%). Citric acid donates H⁺ ions readily in solution, lowering the pH dramatically. The sharp sour taste you experience is a direct result of this high hydrogen-ion activity. It is one of the most acidic liquids found in a typical kitchen.' },
+  { id:'orange',     name:'Orange Juice',         emoji:'🍊', cat:'Fruit Juices',        ph:3.5,  color:'#f97316', type:'acid',
+    f1:'Citric acid', f2:'Ascorbic acid (Vit C)', f3:'pH 3–4',
+    exp:'Orange juice has a pH of approximately 3–4. It contains both citric acid and ascorbic acid (Vitamin C), both of which contribute hydrogen ions to the solution. Despite being acidic, it is considerably milder than lemon juice. The natural sugars in orange juice partially mask the sour sensation, making the acidity less obvious to taste.' },
+  { id:'apple',      name:'Apple Juice',          emoji:'🍎', cat:'Fruit Juices',        ph:3.8,  color:'#e8b44a', type:'acid',
+    f1:'Malic acid (dominant)', f2:'Fruity aroma esters', f3:'pH 3.5–4',
+    exp:'Apple juice contains predominantly malic acid (from "malum", Latin for apple), giving it a pH around 3.5–4. Malic acid is a diprotic organic acid found naturally in many fruits. The juice is noticeably acidic but far gentler on the palate than citrus. The acidity level depends on apple variety — Granny Smith apples are significantly more acidic than Fuji apples.' },
+  { id:'grape',      name:'Grape Juice',          emoji:'🍇', cat:'Fruit Juices',        ph:3.4,  color:'#9333ea', type:'acid',
+    f1:'Tartaric & malic acid', f2:'Antioxidant-rich', f3:'pH 3–3.8',
+    exp:'Grape juice is mainly acidified by tartaric acid and malic acid, giving it a pH of about 3–3.8. Tartaric acid is relatively unique to grapes and gives wine its characteristic sharp, dry taste. These acids also act as natural preservatives. The polyphenol content (resveratrol, anthocyanins) gives grape juice its deep purple pigmentation.' },
+  { id:'tomato',     name:'Tomato Juice',         emoji:'🍅', cat:'Fruit Juices',        ph:4.2,  color:'#dc2626', type:'acid',
+    f1:'Citric & malic acid', f2:'Lycopene-rich', f3:'pH 4–4.5',
+    exp:'Tomato juice has a pH around 4–4.5. It contains citric, malic, and glutamic acids. Though often treated as a vegetable, tomatoes are botanically fruits. Their moderate acidity makes them ideal for cooking — they balance richer flavours and the acid activates enzymes during sauce-making. The bright red colour comes from lycopene, a powerful antioxidant carotenoid.' },
+  { id:'pineapple',  name:'Pineapple Juice',      emoji:'🍍', cat:'Fruit Juices',        ph:3.5,  color:'#eab308', type:'acid',
+    f1:'Citric acid + bromelain', f2:'Tropical enzyme', f3:'pH 3–3.7',
+    exp:'Pineapple juice has a pH of approximately 3–3.7 and uniquely contains the enzyme bromelain alongside citric acid. Bromelain is a protease that digests proteins — this is why pineapple tenderises meat and why your tongue tingles after eating fresh pineapple (the enzyme is digesting the soft tissue). Canning destroys bromelain, so canned pineapple lacks this effect.' },
+  { id:'mango',      name:'Mango Juice',          emoji:'🥭', cat:'Fruit Juices',        ph:3.9,  color:'#f59e0b', type:'acid',
+    f1:'Citric & tartaric acid', f2:'Beta-carotene source', f3:'pH 3.5–4.5',
+    exp:'Mango juice falls in the pH range of 3.5–4.5 depending on ripeness. Riper mangoes have higher sugar content and a slightly higher pH, while unripe mangoes are more acidic. The rich orange colour comes from beta-carotene and other carotenoids. Mango is one of the richest tropical fruit sources of vitamins A, C, and several B vitamins.' },
+  { id:'cranberry',  name:'Cranberry Juice',      emoji:'🫐', cat:'Fruit Juices',        ph:2.5,  color:'#9f1239', type:'acid',
+    f1:'Quinic acid (dominant)', f2:'UTI prevention', f3:'pH 2.3–2.8',
+    exp:'Cranberry juice is one of the most acidic fruit juices with a pH of about 2.3–2.8. It is notably rich in quinic acid — an organic acid relatively rare in other fruits — along with citric and malic acids. Quinic acid metabolises to hippuric acid in the body, which acidifies urine and has bacteriostatic properties, forming the basis for its traditional use in preventing urinary tract infections.' },
+  { id:'watermelon', name:'Watermelon Juice',     emoji:'🍉', cat:'Fruit Juices',        ph:5.2,  color:'#f43f5e', type:'acid',
+    f1:'Mild citric acid', f2:'~95% water content', f3:'pH 5–5.7',
+    exp:'Watermelon juice is mildly acidic with a pH around 5–5.7 — one of the least acidic fruit juices. It has an exceptionally high water content (~95%) and relatively low acid levels, making it very refreshing and gentle on the digestive system. The red flesh contains lycopene and citrulline, an amino acid that supports cardiovascular health.' },
+  { id:'strawberry', name:'Strawberry Juice',     emoji:'🍓', cat:'Fruit Juices',        ph:3.6,  color:'#ef4444', type:'acid',
+    f1:'Citric & ellagic acid', f2:'Anthocyanin pigments', f3:'pH 3.2–4',
+    exp:'Strawberry juice has a pH of around 3.2–4. It contains citric acid, malic acid, and notably ellagic acid — a polyphenol with antioxidant properties. The vibrant red colour comes from anthocyanin pigments (pelargonidin-3-glucoside), which are also pH indicators themselves, shifting from red in acid to blue-purple in alkaline conditions.' },
+  { id:'coconut',    name:'Coconut Water',        emoji:'🥥', cat:'Fruit Juices',        ph:5.0,  color:'#d4f0c0', type:'acid',
+    f1:'Natural electrolytes', f2:'Potassium-rich', f3:'pH 4.7–5.5',
+    exp:'Coconut water has a pH of approximately 4.7–5.5, making it only mildly acidic and nearly isotonic to human blood plasma. It is exceptionally rich in electrolytes — particularly potassium (more than a banana per cup) — along with sodium, magnesium, and calcium. Its near-neutral pH and electrolyte profile make it a popular natural hydration drink.' },
+  { id:'kiwi',       name:'Kiwi Juice',           emoji:'🥝', cat:'Fruit Juices',        ph:3.5,  color:'#65a30d', type:'acid',
+    f1:'Citric & oxalic acid', f2:'Vitamin C powerhouse', f3:'pH 3.1–3.9',
+    exp:'Kiwi juice has a pH of about 3.1–3.9. It contains citric acid and a notable amount of oxalic acid — the same acid found in spinach and rhubarb. Kiwi is one of the richest fruit sources of Vitamin C, containing even more than oranges per 100g. The fuzzy skin contains actinidin, a cysteine protease similar to bromelain in pineapple.' },
+  { id:'pomegranate',name:'Pomegranate Juice',    emoji:'🍒', cat:'Fruit Juices',        ph:3.0,  color:'#dc143c', type:'acid',
+    f1:'Citric acid + punicalagins', f2:'Highest antioxidant capacity', f3:'pH 2.9–3.4',
+    exp:'Pomegranate juice is quite acidic with a pH of 2.9–3.4. It contains citric acid and significant amounts of punicalagins and punicic acid — polyphenolic compounds unique to pomegranates. Its ORAC (Oxygen Radical Absorbance Capacity) score is among the highest of any fruit juice, making it one of the most powerful dietary antioxidants studied.' },
+  { id:'guava',      name:'Guava Juice',          emoji:'🫙', cat:'Fruit Juices',        ph:3.7,  color:'#fbbf24', type:'acid',
+    f1:'Ascorbic & citric acid', f2:'4× more Vit C than orange', f3:'pH 3.4–4.2',
+    exp:'Guava juice has a pH of approximately 3.4–4.2. It is remarkably rich in ascorbic acid (Vitamin C) — containing up to four times more than orange juice by weight. This makes guava one of the best plant-based sources of Vitamin C globally. The pleasant aroma comes from over 300 volatile compounds identified in guava, including unique sesquiterpenes.' },
+  { id:'peach',      name:'Peach Juice',          emoji:'🍑', cat:'Fruit Juices',        ph:3.9,  color:'#fb923c', type:'acid',
+    f1:'Malic & citric acid', f2:'Rich in Vitamin A', f3:'pH 3.5–4.5',
+    exp:'Peach juice has a pH around 3.5–4.5. It contains malic and citric acids along with natural sugars. The balance of acidity and sweetness gives it a pleasant, rounded flavour. Peaches contain significant beta-carotene (converted to Vitamin A), lutein, and zeaxanthin — carotenoids important for eye health. The fuzzy skin contains more antioxidants than the flesh.' },
+
+  // ── COMMON LIQUIDS ──
+  { id:'pure-water', name:'Pure Water',           emoji:'💧', cat:'Common Liquids',      ph:7.0,  color:'#7dd3fc', type:'neutral',
+    f1:'H₂O — universal solvent', f2:'Kw = 1×10⁻¹⁴', f3:'pH exactly 7 at 25°C',
+    exp:'Pure distilled water has a pH of exactly 7.0 at 25°C — perfectly neutral. Water auto-ionises very slightly: H₂O ⇌ H⁺ + OH⁻, producing equal concentrations of hydrogen and hydroxide ions (1×10⁻⁷ mol/L each). The product [H⁺][OH⁻] = Kw = 1×10⁻¹⁴. The entire pH scale is defined relative to this equilibrium. Importantly, pH changes with temperature — at 37°C (body temperature) neutral pH is closer to 6.8.' },
+  { id:'milk',       name:'Milk',                 emoji:'🥛', cat:'Common Liquids',      ph:6.6,  color:'#f0f9ff', type:'acid',
+    f1:'Lactic acid + casein', f2:'Calcium phosphate buffered', f3:'pH 6.4–6.8',
+    exp:'Fresh milk has a pH of approximately 6.4–6.8 — only very slightly acidic and essentially near-neutral. The mild acidity comes from dissolved CO₂, casein proteins acting as weak acids, and small amounts of lactic acid. As milk sours, lactobacillus bacteria ferment lactose to lactic acid, significantly dropping the pH to 4–5, causing casein proteins to denature and the milk to curdle.' },
+  { id:'vinegar',    name:'Vinegar',              emoji:'🍶', cat:'Common Liquids',      ph:2.5,  color:'#d4c5a0', type:'acid',
+    f1:'Acetic acid 5% (CH₃COOH)', f2:'Food preservative', f3:'pH 2–3',
+    exp:'White vinegar contains approximately 5% acetic acid (ethanoic acid, CH₃COOH), giving it a pH of about 2–3. Acetic acid is classified as a weak acid — it only partially ionises in solution. However, at 5% concentration the H⁺ ion activity is high enough to preserve food effectively by inhibiting bacterial enzyme function and membrane integrity. Malt, cider, and balsamic vinegars have similar pH values.' },
+  { id:'coffee',     name:'Black Coffee',         emoji:'☕', cat:'Common Liquids',      ph:5.0,  color:'#6f4e37', type:'acid',
+    f1:'Chlorogenic acids (dominant)', f2:'Quinic + citric acids', f3:'pH 4.5–5.5',
+    exp:'Black coffee has a pH of approximately 4.5–5.5, placing it in the mildly acidic category. It contains numerous organic acids — chlorogenic, quinic, citric, and acetic acids — many of which form during the Maillard reaction of roasting. Darker roasts paradoxically produce less acidic coffee because extended roasting breaks down chlorogenic acids. Cold-brew coffee is significantly less acidic (pH ~6) because lower extraction temperatures favour fewer acidic compounds.' },
+  { id:'blood',      name:'Human Blood',          emoji:'🩸', cat:'Common Liquids',      ph:7.4,  color:'#b91c1c', type:'base',
+    f1:'Bicarbonate buffer system', f2:'pH tightly 7.35–7.45', f3:'Slight alkaline',
+    exp:'Human blood maintains a very narrow pH range of 7.35–7.45 — slightly alkaline — through one of the most sophisticated buffer systems in biology. Three mechanisms work together: (1) the bicarbonate buffer (HCO₃⁻/H₂CO₃), (2) haemoglobin acting as a protein buffer, and (3) renal excretion of H⁺ or HCO₃⁻. A pH below 7.35 is acidosis; above 7.45 is alkalosis — both are medical emergencies that can be fatal.' },
+  { id:'sea-water',  name:'Sea Water',            emoji:'🌊', cat:'Common Liquids',      ph:8.1,  color:'#38bdf8', type:'base',
+    f1:'Dissolved bicarbonates', f2:'Ocean pH declining', f3:'pH 7.8–8.3',
+    exp:'Ocean seawater has an average pH of about 8.1, slightly alkaline. This is maintained by dissolved bicarbonate and carbonate ions acting as a natural buffer system. Ocean acidification — caused by excess atmospheric CO₂ dissolving into seawater to form carbonic acid (CO₂ + H₂O → H₂CO₃) — is reducing this pH. A drop of just 0.1 pH units represents a 26% increase in H⁺ concentration, threatening coral reefs and shellfish that require alkaline conditions.' },
+  { id:'salt-water', name:'Salt Water (NaCl)',    emoji:'🧂', cat:'Common Liquids',      ph:7.5,  color:'#67e8f9', type:'base',
+    f1:'NaCl — neutral salt', f2:'Does not hydrolyse', f3:'pH 7–8',
+    exp:'A solution of common table salt (NaCl) dissolved in water has a pH of approximately 7–8, essentially neutral. Sodium chloride is the salt of a strong acid (HCl) and a strong base (NaOH), so neither Na⁺ nor Cl⁻ undergoes hydrolysis. Any slight alkalinity observed is usually due to dissolved CO₂ being displaced or trace impurities. Physiological saline (0.9% NaCl) matches body fluid pH at 7.4.' },
+  { id:'beer',       name:'Beer',                 emoji:'🍺', cat:'Common Liquids',      ph:4.2,  color:'#d97706', type:'acid',
+    f1:'Carbonic & organic acids', f2:'Fermented beverage', f3:'pH 3.8–4.7',
+    exp:'Beer has a pH ranging from 3.8–4.7 depending on the style. The acidity comes from carbonic acid (dissolved CO₂), organic acids produced during fermentation (lactic, succinic, acetic acids), and acids extracted from hops and malt during brewing. The mash pH is carefully controlled during brewing (target 5.2–5.4) as it critically affects enzyme activity and the final flavour profile.' },
+  { id:'soda',       name:'Carbonated Drink',     emoji:'🥤', cat:'Common Liquids',      ph:3.0,  color:'#78716c', type:'acid',
+    f1:'Carbonic + phosphoric acid', f2:'CO₂ dissolved at pressure', f3:'pH 2.5–3.5',
+    exp:'Carbonated soft drinks are surprisingly acidic with pH values of 2.5–3.5. Cola drinks contain both carbonic acid (from dissolved CO₂) and added phosphoric acid (H₃PO₄), while other sodas rely mainly on carbonic acid and citric acid. This level of acidity is sufficient to erode tooth enamel (hydroxyapatite dissolves below pH 5.5) with frequent exposure, particularly when sipped slowly over long periods.' },
+
+  // ── HOUSEHOLD CHEMICALS ──
+  { id:'soap',       name:'Soap Solution',        emoji:'🧼', cat:'Household Chemicals', ph:9.5,  color:'#a5f3fc', type:'base',
+    f1:'Sodium stearate (saponified fat)', f2:'Anionic surfactant', f3:'pH 9–10',
+    exp:'Soap solutions have a pH of 9–10, making them mildly alkaline. Soap is made through saponification — the reaction of fats or oils (triglycerides) with a strong base such as NaOH: fat + NaOH → glycerol + sodium salt of fatty acid (soap). The product is a salt of a weak acid (fatty acid) and strong base, making it basic through hydrolysis. The alkaline pH helps emulsify oily dirt and disrupt bacterial cell membranes.' },
+  { id:'baking-soda',name:'Baking Soda Solution', emoji:'🥄', cat:'Household Chemicals', ph:8.5,  color:'#e0f2fe', type:'base',
+    f1:'NaHCO₃ — sodium bicarbonate', f2:'Antacid & leavening agent', f3:'pH 8–9',
+    exp:'A baking soda (sodium bicarbonate, NaHCO₃) solution has a pH of 8–9. NaHCO₃ is the salt of a weak acid (carbonic acid, H₂CO₃) and a strong base (NaOH), resulting in a mildly basic solution through hydrolysis: HCO₃⁻ + H₂O ⇌ H₂CO₃ + OH⁻. It acts as an antacid by neutralising gastric HCl: HCO₃⁻ + H⁺ → H₂O + CO₂. In baking, CO₂ released by acid-NaHCO₃ reaction causes dough to rise.' },
+  { id:'ammonia',    name:'Ammonia Solution',     emoji:'🧪', cat:'Household Chemicals', ph:11.5, color:'#bfdbfe', type:'base',
+    f1:'NH₃ — weak base', f2:'Pungent odour — nitrogen compound', f3:'pH 11–12',
+    exp:'Household ammonia solution (typically 5–10% NH₃ in water) has a pH of 11–12. Ammonia acts as a Brønsted-Lowry base, accepting a proton from water: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻. It is classified as a weak base because this equilibrium lies to the left — it does not fully ionise. Despite this, at 5–10% concentrations it is strongly caustic to skin, eyes, and the respiratory tract due to the high [OH⁻] produced.' },
+  { id:'bleach',     name:'Bleach',               emoji:'🫧', cat:'Household Chemicals', ph:12.5, color:'#f0fdf4', type:'base',
+    f1:'NaOCl — sodium hypochlorite', f2:'Strong oxidising agent', f3:'pH 12–13',
+    exp:'Household bleach (sodium hypochlorite, NaOCl) has a pH of 12–13, making it strongly alkaline. The hypochlorite ion undergoes hydrolysis: OCl⁻ + H₂O ⇌ HOCl + OH⁻, releasing hydroxide ions. Bleach is also a powerful oxidising agent — it oxidises and breaks the chromophore bonds in coloured molecules (destroying pigments) and oxidises proteins in microbial cell walls, killing a broad spectrum of pathogens including bacteria, viruses, and fungi.' },
+  { id:'toothpaste', name:'Toothpaste Solution',  emoji:'🦷', cat:'Household Chemicals', ph:8.5,  color:'#ccfbf1', type:'base',
+    f1:'Fluoride + alkaline agents', f2:'Neutralises plaque acid', f3:'pH 8–9',
+    exp:'Toothpaste is intentionally formulated to be mildly alkaline (pH 8–9) to counteract the acid attack on tooth enamel. Oral bacteria metabolise dietary sugars (fermentable carbohydrates) to produce lactic acid via glycolysis — dropping plaque pH to as low as 4. Hydroxyapatite (tooth enamel) dissolves at pH below 5.5. The alkaline toothpaste neutralises this acid and fluoride ions enhance enamel remineralisation.' },
+  { id:'detergent',  name:'Detergent Solution',   emoji:'🫧', cat:'Household Chemicals', ph:10.0, color:'#e9d5ff', type:'base',
+    f1:'Anionic surfactants (SDS)', f2:'Cleans by emulsification', f3:'pH 9–11',
+    exp:'Laundry and dish detergents have a pH of 9–11. They contain anionic surfactants such as sodium dodecyl sulphate (SDS), derived from strong base reactions, giving them alkaline properties. The high pH helps saponify grease, loosening oils from fibres and surfaces. Builders (sodium carbonate, zeolites) increase the pH further and soften hard water by sequestering Ca²⁺ and Mg²⁺ ions that would reduce surfactant effectiveness.' },
+  { id:'battery-acid',name:'Battery Acid (H₂SO₄)',emoji:'🔋', cat:'Household Chemicals', ph:0.5,  color:'#fef08a', type:'acid',
+    f1:'H₂SO₄ — 30% sulfuric acid', f2:'Strong diprotic acid', f3:'pH ~0',
+    exp:'Car battery electrolyte is dilute sulfuric acid (H₂SO₄) at about 30–50% concentration — one of the most aggressively acidic substances encountered outside industrial chemistry, with a pH close to 0. Sulfuric acid is a strong diprotic acid: H₂SO₄ → H⁺ + HSO₄⁻ → 2H⁺ + SO₄²⁻. Both ionisation steps release protons. The acid participates in the lead-acid battery redox reaction: Pb + PbO₂ + H₂SO₄ → 2PbSO₄ + 2H₂O (discharge).' },
+  { id:'stomach-acid',name:'Stomach Acid (HCl)',  emoji:'💛', cat:'Household Chemicals', ph:1.5,  color:'#fef9c3', type:'acid',
+    f1:'HCl 0.1–0.5 M', f2:'Activates pepsinogen → pepsin', f3:'pH 1–2',
+    exp:'Gastric acid in the human stomach is hydrochloric acid (HCl) at a concentration of about 0.1–0.5 M, giving a pH of 1–2. This extremely acidic environment serves critical functions: it denatures ingested proteins (unfolding their 3D structure for enzyme access), activates the protease pepsinogen to its active form pepsin (which only works at low pH), and kills most swallowed pathogens. The stomach mucosa is protected by a bicarbonate-rich mucus layer 0.2–0.5 mm thick.' },
+];
+
+/* ════════════════════════════
+   pH → colour mapping
+════════════════════════════ */
+const phColors = [
+  '#ff0000','#ff3300','#ff6600','#ff9900','#cccc00',
+  '#88cc00','#44bb00','#00aa55','#0088bb','#0055ff',
+  '#2200ff','#5500cc','#880099','#aa0066','#cc0033'
+];
+function phToColor(ph){ return phColors[Math.min(14,Math.max(0,Math.round(ph)))]; }
+function phToType(ph){ return ph<6.5?'Acidic':ph>7.5?'Alkaline':'Neutral'; }
+function phToTypeColor(ph){ return ph<6.5?'#ff6644':ph>7.5?'#44aaff':'#44dd88'; }
+
+/* ════════════════════════════
+   STATE
+════════════════════════════ */
+let method    = 'meter';
+let selected  = null;
+let animating = false;
+
+/* ════════════════════════════
+   INIT
+════════════════════════════ */
+function init(){
+  buildColorChart();
+  renderList(substances);
+  updateSteps(1);
+}
+
+/* ════════════════════════════
+   METHOD
+════════════════════════════ */
+function selectMethod(m){
+  method = m;
+  document.getElementById('btn-meter').classList.toggle('active', m==='meter');
+  document.getElementById('btn-paper').classList.toggle('active', m==='paper');
+  document.getElementById('meter-equipment').classList.toggle('hidden', m!=='meter');
+  document.getElementById('paper-equipment').classList.toggle('hidden', m!=='paper');
+  document.getElementById('colour-chart').classList.toggle('show', m==='paper');
+  softReset();
+}
+
+/* ════════════════════════════
+   SUBSTANCE LIST
+════════════════════════════ */
+function renderList(list){
+  const el = document.getElementById('substance-list');
+  if(!list.length){ el.innerHTML='<div class="no-results">No substances found. Try another search term.</div>'; return; }
+  const cats = [...new Set(list.map(s=>s.cat))];
+  let h='';
+  cats.forEach(cat=>{
+    h+=`<div class="cat-label">${cat}</div>`;
+    list.filter(s=>s.cat===cat).forEach(s=>{
+      h+=`<div class="sub-item${selected?.id===s.id?' selected':''}" onclick="pickSubstance('${s.id}')" tabindex="0" onkeydown="if(event.key==='Enter')pickSubstance('${s.id}')">
+        <span class="sub-emoji">${s.emoji}</span>
+        <div class="sub-info">
+          <div class="sub-name">${s.name}</div>
+          <div class="sub-ph-prev">pH ≈ ${s.ph}</div>
+        </div>
+        <div class="sub-bar" style="background:${phToColor(s.ph)}"></div>
+      </div>`;
+    });
+  });
+  el.innerHTML=h;
+}
+
+function filterSubstances(){
+  const q=document.getElementById('search-input').value.toLowerCase().trim();
+  renderList(q ? substances.filter(s=>
+    s.name.toLowerCase().includes(q)||
+    s.cat.toLowerCase().includes(q)||
+    s.f1.toLowerCase().includes(q)||
+    String(s.ph).includes(q)
+  ) : substances);
+}
+
+function pickSubstance(id){
+  selected = substances.find(s=>s.id===id);
+  renderList(document.getElementById('search-input').value.toLowerCase().trim()
+    ? substances.filter(s=>s.name.toLowerCase().includes(document.getElementById('search-input').value.toLowerCase()))
+    : substances);
+
+  // Update beaker liquid
+  const liq=document.getElementById('liquid-rect');
+  liq.setAttribute('fill',selected.color);
+  liq.setAttribute('opacity','0.72');
+  document.getElementById('beaker-lbl').textContent=selected.name;
+  document.getElementById('sel-info').innerHTML=`Selected: <span class="si-name">${selected.emoji} ${selected.name}</span>`;
+  document.getElementById('check-btn').disabled=false;
+
+  // Clear old result
+  const rs=document.getElementById('result-section');
+  rs.classList.remove('show'); rs.style.display='none';
+
+  // Reset meter/paper display
+  resetDisplay();
+  updateSteps(2);
+}
+
+/* ════════════════════════════
+   EXPERIMENT
+════════════════════════════ */
+function runExperiment(){
+  if(!selected||animating) return;
+  animating=true;
+  document.getElementById('check-btn').disabled=true;
+  updateSteps(3);
+  method==='meter' ? runMeter() : runPaper();
+}
+
+function runMeter(){
+  const cable=document.getElementById('electrode-cable');
+  const tip=document.getElementById('electrode-tip');
+  // Dip electrode
+  cable.style.height='90px';
+  setTimeout(()=>{
+    tip.style.height='34px';
+    tip.classList.add('dipped');
+    animateRipple();
+    setTimeout(()=>{
+      countPH(selected.ph,()=>{
+        moveMarker(selected.ph);
+        setTimeout(()=>{ showResult(); animating=false; updateSteps(4); },700);
+      });
+    },700);
+  },450);
+}
+
+function runPaper(){
+  const strip=document.getElementById('paper-strip');
+  // Dip strip
+  strip.style.height='90px';
+  animateRipple();
+  setTimeout(()=>{
+    const col=phToColor(selected.ph);
+    strip.style.backgroundColor=col;
+    strip.style.boxShadow=`0 0 18px ${col}99`;
+    highlightSwatch(selected.ph);
+    moveMarker(selected.ph);
+    setTimeout(()=>{ showResult(); animating=false; updateSteps(4); },900);
+  },1000);
+}
+
+function countPH(target,cb){
+  const disp=document.getElementById('meter-display');
+  const start=7.0; const dur=1300; const t0=performance.now();
+  (function step(now){
+    const t=Math.min(1,(now-t0)/dur);
+    const e=t<.5?2*t*t:-1+(4-2*t)*t;
+    const v=start+(target-start)*e;
+    disp.textContent=v.toFixed(1);
+    const c=phToColor(v);
+    disp.style.color=c; disp.style.textShadow=`0 0 20px ${c}cc`;
+    t<1?requestAnimationFrame(step):(disp.textContent=target.toFixed(1),cb&&cb());
+  })(t0);
+}
+
+function moveMarker(ph){
+  document.getElementById('scale-marker').style.left=(ph/14*100)+'%';
+}
+
+function animateRipple(){
+  const el=document.getElementById('ripple-el');
+  el.setAttribute('r','4'); el.setAttribute('opacity','0.7');
+  let r=4,op=0.7,start=null;
+  (function step(ts){
+    if(!start)start=ts;
+    const p=Math.min(1,(ts-start)/900);
+    el.setAttribute('r', 4+p*36);
+    el.setAttribute('opacity', 0.7*(1-p));
+    if(p<1)requestAnimationFrame(step);
+    else{el.setAttribute('r','4');el.setAttribute('opacity','0');}
+  })(performance.now());
+}
+
+/* ════════════════════════════
+   RESULT
+════════════════════════════ */
+function showResult(){
+  const s=selected;
+  const tc=phToTypeColor(s.ph); const pc=phToColor(s.ph);
+  document.getElementById('result-value').textContent=s.ph.toFixed(1);
+  document.getElementById('result-value').style.color=pc;
+  document.getElementById('result-type').textContent=phToType(s.ph);
+  document.getElementById('result-name').textContent=`${s.emoji} ${s.name}`;
+  document.getElementById('result-name').style.color=pc;
+  document.getElementById('result-exp').textContent=s.exp;
+  document.getElementById('result-badge').style.borderColor=pc;
+  document.getElementById('result-badge').style.color=pc;
+  document.getElementById('result-facts').innerHTML=
+    [s.f1,s.f2,s.f3].map(f=>`<span class="fact-tag"><span>${f}</span></span>`).join('');
+  const rs=document.getElementById('result-section');
+  rs.style.display='block';
+  requestAnimationFrame(()=>rs.classList.add('show'));
+}
+
+/* ════════════════════════════
+   COLOUR CHART
+════════════════════════════ */
+function buildColorChart(){
+  document.getElementById('cc-grid').innerHTML=
+    Array.from({length:15},(_,i)=>`
+      <div class="cc-swatch" id="cc-${i}">
+        <div class="cc-color" style="background:${phColors[i]}"></div>
+        <div class="cc-ph">${i}</div>
+      </div>`).join('');
+}
+function highlightSwatch(ph){
+  document.querySelectorAll('.cc-swatch').forEach(e=>e.classList.remove('active'));
+  const idx=Math.min(14,Math.max(0,Math.round(ph)));
+  document.getElementById('cc-'+idx)?.classList.add('active');
+}
+
+/* ════════════════════════════
+   STEPS
+════════════════════════════ */
+function updateSteps(active){
+  [1,2,3,4].forEach(i=>{
+    const dot=document.getElementById('sd'+i);
+    const line=document.getElementById('sl'+i);
+    dot.className='step-dot'+(i<active?' done':i===active?' active':'');
+    dot.textContent=i<active?'✓':i;
+    if(line) line.className='step-line'+(i<active?' done':'');
+  });
+}
+
+/* ════════════════════════════
+   RESET
+════════════════════════════ */
+function resetDisplay(){
+  const disp=document.getElementById('meter-display');
+  disp.textContent='—'; disp.style.color='#00ff88'; disp.style.textShadow='0 0 14px rgba(0,255,136,0.7)';
+  document.getElementById('electrode-cable').style.height='0';
+  document.getElementById('electrode-tip').style.height='0';
+  document.getElementById('electrode-tip').classList.remove('dipped');
+  document.getElementById('paper-strip').style.height='0';
+  document.getElementById('paper-strip').style.backgroundColor='#f5f0e8';
+  document.getElementById('paper-strip').style.boxShadow='none';
+  document.getElementById('scale-marker').style.left='50%';
+  document.querySelectorAll('.cc-swatch').forEach(e=>e.classList.remove('active'));
+}
+
+function softReset(){
+  animating=false;
+  document.getElementById('check-btn').disabled=!selected;
+  const rs=document.getElementById('result-section');
+  rs.classList.remove('show'); rs.style.display='none';
+  resetDisplay();
+  updateSteps(selected?2:1);
+}
+
+function resetExperiment(){
+  selected=null; animating=false;
+  document.getElementById('check-btn').disabled=true;
+  document.getElementById('sel-info').innerHTML='Select a substance →';
+  document.getElementById('beaker-lbl').textContent='Add a substance to begin';
+  const liq=document.getElementById('liquid-rect');
+  liq.setAttribute('fill','#44aaee'); liq.setAttribute('opacity','0.3');
+  renderList(substances);
+  const rs=document.getElementById('result-section');
+  rs.classList.remove('show'); rs.style.display='none';
+  resetDisplay();
+  updateSteps(1);
+}
+
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
