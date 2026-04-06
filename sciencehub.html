@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="fyugp.png">
-  <link rel="shortcut icon" type="image/png" href="fyugp.png">
+  <link rel="icon" type="image/png" href="espace.png">
+  <link rel="shortcut icon" type="image/png" href="espace.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Science Hub — Interactive Visualizations | Sreeharis</title>
@@ -722,6 +722,95 @@
       border-radius: 3px;
     }
 
+    /* ── pH INDICATOR CARD ── */
+    .viz-card.ph-card::before {
+      background: radial-gradient(circle at 20% 80%, rgba(255,0,80,0.07) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(0,200,100,0.07) 0%, transparent 50%);
+    }
+    .viz-card.ph-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,212,255,0.08);
+    }
+    .viz-preview.ph-preview {
+      background: linear-gradient(160deg, #060c10 0%, #081418 50%, #060a0e 100%);
+      border-bottom: 1px solid rgba(0,212,255,0.15);
+    }
+    .preview-badge.ph-badge {
+      background: rgba(0,212,255,0.12); border-color: rgba(0,212,255,0.35); color: #00d4ff;
+    }
+    .viz-tag.ph-tag { color: #00d4ff; }
+    .viz-tag.ph-tag::before { background: #00d4ff; box-shadow: 0 0 8px #00d4ff; }
+    .viz-cta.ph-cta {
+      background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(124,58,237,0.06));
+      border-color: rgba(0,212,255,0.3); color: #00d4ff;
+    }
+    .viz-cta.ph-cta:hover {
+      background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(124,58,237,0.12));
+      border-color: rgba(0,212,255,0.55);
+    }
+
+    /* pH mini preview illustration */
+    .ph-mini {
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+      position: relative; width: 200px; height: 140px; justify-content: center;
+    }
+    .ph-scale-mini {
+      width: 170px; height: 14px; border-radius: 999px;
+      background: linear-gradient(to right,
+        #ff0000 0%, #ff4400 7%, #ff8800 14%, #ffcc00 21%, #aadd00 29%,
+        #44dd00 36%, #00cc44 43%, #00bb88 50%, #0099cc 57%,
+        #0066ff 64%, #3300ff 71%, #6600cc 79%, #990099 86%, #cc0066 100%);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .ph-marker {
+      position: absolute; top: -4px; width: 3px; height: 22px;
+      background: white; border-radius: 2px; box-shadow: 0 0 8px rgba(255,255,255,0.8);
+      animation: ph-marker-move 4s ease-in-out infinite;
+    }
+    @keyframes ph-marker-move {
+      0%   { left: 5%;  }
+      25%  { left: 25%; }
+      50%  { left: 55%; }
+      75%  { left: 75%; }
+      100% { left: 5%;  }
+    }
+    .ph-scale-labels {
+      display: flex; justify-content: space-between; width: 170px;
+      font-size: 0.5rem; color: rgba(255,255,255,0.35); margin-top: -8px;
+    }
+    .ph-beakers {
+      display: flex; gap: 8px; align-items: flex-end;
+    }
+    .ph-beaker-mini {
+      width: 22px; height: 28px; border-radius: 2px 2px 5px 5px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      animation: ph-color-change 4s ease-in-out infinite;
+    }
+    .ph-beaker-mini:nth-child(1) { animation-delay: 0s;    background: rgba(255,50,50,0.6);  }
+    .ph-beaker-mini:nth-child(2) { animation-delay: 0.5s;  background: rgba(255,150,0,0.6);  }
+    .ph-beaker-mini:nth-child(3) { animation-delay: 1s;    background: rgba(50,220,80,0.6);  }
+    .ph-beaker-mini:nth-child(4) { animation-delay: 1.5s;  background: rgba(0,150,255,0.6);  }
+    .ph-beaker-mini:nth-child(5) { animation-delay: 2s;    background: rgba(120,50,220,0.6); }
+    @keyframes ph-color-change {
+      0%,80%{ opacity:1 } 40%{ opacity:0.4 } 100%{ opacity:1 }
+    }
+    .ph-reading-badge {
+      position: absolute; top: 8px; right: 10px;
+      background: rgba(4,8,18,0.9); border: 1px solid rgba(0,212,255,0.4);
+      padding: 3px 8px; border-radius: 4px;
+      font-size: 0.6rem; color: #00d4ff; font-weight: 700;
+      font-family: 'DM Sans', monospace;
+      animation: ph-reading-cycle 4s ease-in-out infinite;
+    }
+    @keyframes ph-reading-cycle {
+      0%   { content: 'pH 2.3'; }
+      25%  { color: #ff4400; }
+      50%  { color: #00cc44; }
+      75%  { color: #0066ff; }
+      100% { color: #00d4ff; }
+    }
+
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
@@ -778,7 +867,7 @@
       </p>
       <div class="hub-stats">
         <div>
-          <span class="hub-stat-num">5</span>
+          <span class="hub-stat-num">6</span>
           <span class="hub-stat-label">Visualizations live</span>
         </div>
         <div>
@@ -996,6 +1085,52 @@
 
     </div>
 
+    <!-- SECTION HEADER: Chemistry -->
+    <div class="section-header" style="margin-top:16px;">
+      <span class="section-header-label">Analytical Chemistry</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="viz-grid">
+
+      <!-- CARD 6: pH Indicator -->
+      <a href="ph.html" class="viz-card ph-card" style="animation-delay:0.5s">
+        <div class="viz-preview ph-preview">
+          <div class="preview-badge ph-badge">Virtual Lab</div>
+          <div class="ph-mini">
+            <div class="ph-scale-mini">
+              <div class="ph-marker"></div>
+            </div>
+            <div class="ph-scale-labels">
+              <span>0</span><span>2</span><span>4</span><span>6</span><span>7</span><span>8</span><span>10</span><span>12</span><span>14</span>
+            </div>
+            <div class="ph-beakers">
+              <div class="ph-beaker-mini"></div>
+              <div class="ph-beaker-mini"></div>
+              <div class="ph-beaker-mini"></div>
+              <div class="ph-beaker-mini"></div>
+              <div class="ph-beaker-mini"></div>
+            </div>
+            <div class="ph-reading-badge">pH 2.3</div>
+          </div>
+        </div>
+        <div class="viz-card-body">
+          <div class="viz-tag ph-tag">Acid-Base Chemistry</div>
+          <div class="viz-title">pH Indicator Virtual Lab</div>
+          <p class="viz-desc">
+            Dip a pH meter or paper strip into 36 substances — juices, household chemicals, biological fluids and more. Watch the colour change in real time, read the exact pH value, and explore the full acid-to-alkali spectrum from lemon juice to bleach.
+          </p>
+          <div class="viz-meta">
+            <div class="viz-meta-chip">🧪 36 Substances</div>
+            <div class="viz-meta-chip">📐 FYUGP Chemistry</div>
+            <div class="viz-meta-chip">🎛️ Virtual Lab</div>
+          </div>
+          <span class="viz-cta ph-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -1003,10 +1138,10 @@
     <div class="footer-inner">
       <div class="footer-logo">
         Science Hub
-        <span>Part of sreeharis.in · Developed by Espace Systems</span>
+        <span>Part of <a href="https://sreeharis.in" class="footer-link" target="_blank">sreeharis.in</a> · Developed by <a href="https://sreeharis.in/espace.html" class="footer-link" target="_blank">Espace Systems</a></span>
       </div>
       <p class="footer-copy">
-        © 2026 <a href="https://sreeharis.in/" class="footer-link" target="_blank">sreeharis.in</a> · <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
+        © 2026 <a href="https://sreeharis.in" class="footer-link" target="_blank">sreeharis.in</a> · <a href="https://sreeharis.in/privacypolicy.html" class="footer-link">Privacy Policy</a>
       </p>
     </div>
   </footer>
@@ -1072,6 +1207,14 @@
         icon: '⚛️',
         iconBg: 'rgba(255,215,0,0.12)',
         keywords: ['rutherford', 'gold foil', 'alpha', 'alpha particle', 'scattering', 'nucleus', 'nuclear', 'atomic model', 'geiger', 'marsden', 'deflection', 'backscatter', 'back scatter', 'zns', 'zinc sulphide', 'fluorescent screen', 'lead box', 'radioactive', 'impact parameter', 'coulomb', 'gold', 'foil', 'plum pudding', 'thomson', 'physics', 'FYUGP', 'atom', 'proton', 'nuclear model', 'experiment']
+      },
+      {
+        name: 'pH Indicator Virtual Lab',
+        tag: 'Acid-Base Chemistry · FYUGP Chemistry',
+        url: 'ph.html',
+        icon: '🧪',
+        iconBg: 'rgba(0,212,255,0.12)',
+        keywords: ['ph', 'ph indicator', 'ph meter', 'ph paper', 'acid', 'base', 'alkaline', 'neutral', 'ph scale', 'lemon juice', 'vinegar', 'bleach', 'ammonia', 'milk', 'blood', 'water', 'orange juice', 'coffee', 'soap', 'juice', 'liquid', 'acidity', 'alkalinity', 'indicator', 'litmus', 'universal indicator', 'ph test', 'virtual lab', 'chemistry', 'FYUGP', 'substances', '36', 'colour change', 'color change', 'beaker', 'electrode']
       }
     ];
 
@@ -1129,6 +1272,30 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
