@@ -1,1 +1,1 @@
-# Kerala-University-FYUGP-Notes and Syllabus
+# Kerala-University-FYUGP-syllubus and notes
