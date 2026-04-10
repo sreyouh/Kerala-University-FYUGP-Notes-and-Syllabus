@@ -1,1 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refraction of Light Through a Prism — Interactive Simulation | Science Hub | Sreeharis</title>
+  <meta name="description" content="Explore refraction of light through a glass prism with this interactive simulation. Adjust the angle of incidence with a live slider, watch white light split into the full visible spectrum, observe the normal, incident ray, refracted ray, and angle of deviation — all governed by Snell's Law. Free virtual optics lab for FYUGP students." />
+  <meta name="keywords" content="refraction of light through a prism, refraction through a prism, refraction experiment, prism refraction simulation, Snell's law simulation, angle of incidence refraction, angle of deviation prism, refractive index glass prism, dispersion of white light, ROYGBIV prism, visible spectrum simulation, virtual optics lab, refraction through a prism experiment, Kerala University FYUGP physics, optics simulation, FYUGP physics lab" />
+  <meta name="author" content="Sreehari S, Espace Systems" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#04060f" />
+  <link rel="canonical" href="https://sreeharis.in/refraction.html" />
+  <link rel="icon" type="image/png" href="espace.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Refraction of Light Through a Prism — Sreeharis Science Hub" />
+  <meta property="og:description" content="Watch white light split into ROYGBIV through a glass prism. Drag the angle slider for live ray bending." />
+  <meta property="og:url" content="https://sreeharis.in/refraction.html" />
+  <meta property="og:image" content="https://sreeharis.in/refraction-og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://sreeharis.in/refraction.html","url":"https://sreeharis.in/refraction.html","name":"Refraction of Light Through a Prism — Interactive Simulation","description":"Interactive simulation of refraction of light through a glass prism with angle slider and rainbow dispersion.","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sreeharis.in/"},{"@type":"ListItem","position":2,"name":"Science Hub","item":"https://sreeharis.in/sciencehub.html"},{"@type":"ListItem","position":3,"name":"Refraction Through a Prism","item":"https://sreeharis.in/refraction.html"}]}},{"@type":"LearningResource","name":"Refraction of Light Through a Prism","educationalLevel":["High School","University","FYUGP"],"learningResourceType":"Simulation","teaches":"Refraction, Snell's Law, Dispersion, Refractive index, Angle of deviation","subject":["Physics","Optics"],"isAccessibleForFree":true},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is refraction of light?","acceptedAnswer":{"@type":"Answer","text":"Refraction is the bending of light as it passes from one medium to another of different optical density."}},{"@type":"Question","name":"What is Snell's Law?","acceptedAnswer":{"@type":"Answer","text":"n₁ sin θ₁ = n₂ sin θ₂, where n and θ are refractive indices and angles measured from the normal."}},{"@type":"Question","name":"Why does a prism split white light into colours?","acceptedAnswer":{"@type":"Answer","text":"Glass has a slightly different refractive index for each wavelength. Violet bends most, red bends least — this dispersion separates white light into ROYGBIV."}},{"@type":"Question","name":"What is the angle of deviation in a prism?","acceptedAnswer":{"@type":"Answer","text":"The angle of deviation is the angle between the original incident ray and the final emergent ray after passing through the prism."}}]}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #04060f;
+      --gold: #c9a84c;
+      --gl: #f0c96a;
+      --sl: #7a8fa8;
+      --wh: #f0f4ff;
+      --tl: #3ecfcf;
+      --bd: rgba(201,168,76,0.18);
+      --pu: #a78bfa;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--wh); overflow-x: hidden; cursor: none; min-height: 100vh; }
+
+    .cursor { width: 10px; height: 10px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .3s, height .3s; }
+    .cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .3s, height .3s, border-color .3s; }
+
+    .pbg { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 60% at 15% 20%, rgba(120,60,255,0.06) 0%, transparent 60%),
+                  radial-gradient(ellipse 60% 50% at 85% 80%, rgba(201,168,76,0.05) 0%, transparent 60%),
+                  linear-gradient(160deg, #04060f 0%, #070c1a 60%, #030509 100%); }
+    .pgrid { position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(201,168,76,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent); }
+    .orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none; animation: forb 12s ease-in-out infinite; }
+    .o1 { width: 600px; height: 600px; background: rgba(100,40,220,0.04); top: -200px; left: -150px; }
+    .o2 { width: 450px; height: 450px; background: rgba(201,168,76,0.04); bottom: -150px; right: -100px; animation-delay: -5s; }
+    @keyframes forb { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 20px 52px; background: rgba(4,6,15,0.75); backdrop-filter: blur(24px); border-bottom: 1px solid var(--bd); transition: padding .4s, background .4s; }
+    nav.scrolled { padding: 13px 52px; background: rgba(4,6,15,0.97); }
+    .nl { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .nlm { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--gold); }
+    .nls { font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .nb { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.55); text-decoration: none; font-size: .85rem; padding: 8px 18px; border-radius: 50px; border: 1px solid rgba(201,168,76,0.15); background: rgba(201,168,76,0.04); backdrop-filter: blur(8px); transition: all .2s; }
+    .nb:hover { color: var(--gold); border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.08); }
+    .nba { transition: transform .2s; }
+    .nb:hover .nba { transform: translateX(-3px); }
+
+    main { position: relative; z-index: 1; padding: 130px 24px 80px; max-width: 1100px; margin: 0 auto; }
+
+    .hero { margin-bottom: 48px; animation: fup .8s ease both; }
+    .hlbl { display: inline-flex; align-items: center; gap: 10px; font-size: .68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--tl); margin-bottom: 16px; font-weight: 500; }
+    .hlbl::before { content: ''; width: 24px; height: 1px; background: var(--tl); display: inline-block; }
+    .htit { font-family: 'Playfair Display', serif; font-size: clamp(2rem,4.5vw,3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 14px; }
+    .htit em { font-style: italic; background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 40%, var(--gl) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hdsc { color: var(--sl); font-size: .97rem; line-height: 1.75; max-width: 580px; font-weight: 300; }
+    .hbdg { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+    .hb { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 50px; font-size: .68rem; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+    .hb1 { background: rgba(100,60,220,0.12); border: 1px solid rgba(120,80,240,0.3); color: #a78bfa; }
+    .hb2 { background: rgba(62,207,207,0.1); border: 1px solid rgba(62,207,207,0.28); color: var(--tl); }
+    .hb3 { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.28); color: var(--gold); }
+
+    /* SIM BOX */
+    .sbox { background: linear-gradient(145deg, rgba(8,12,28,0.98), rgba(4,7,18,0.99)); border: 1px solid rgba(120,80,240,0.22); border-radius: 28px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.7); animation: fup .8s .1s ease both; margin-bottom: 36px; }
+    .stbar { display: flex; align-items: center; justify-content: space-between; padding: 15px 24px; border-bottom: 1px solid rgba(120,80,240,0.14); background: rgba(8,5,22,0.7); }
+    .sdots { display: flex; gap: 6px; align-items: center; }
+    .sd { width: 10px; height: 10px; border-radius: 50%; }
+    .sdr { background: #ff5f56; } .sdy { background: #ffbd2e; } .sdg { background: #27c93f; }
+    .slbl { font-size: .66rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(167,139,250,0.42); margin-left: 10px; }
+    .carea { position: relative; background: #030509; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .carea::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(90,50,200,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(90,50,200,0.015) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+    #c { display: block; }
+
+    /* CONTROLS */
+    .cpanel { padding: 22px 28px 24px; border-top: 1px solid rgba(120,80,240,0.12); background: rgba(5,7,18,0.88); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+    @media(max-width:660px) { .cpanel { grid-template-columns: 1fr; } }
+    .cg { display: flex; flex-direction: column; gap: 9px; }
+    .clbl { font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(167,139,250,0.6); font-weight: 600; }
+    .cvr { display: flex; align-items: baseline; gap: 3px; }
+    .cv { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--gl); line-height: 1; }
+    .cu { font-size: .72rem; color: var(--sl); }
+    input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: rgba(120,80,240,0.2); border-radius: 4px; outline: none; cursor: none; margin-top: 6px; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d4a8ff, #7c3aed); border: 2px solid rgba(167,139,250,0.5); box-shadow: 0 0 14px rgba(124,58,237,0.7); cursor: none; }
+    input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d4a8ff, #7c3aed); border: 2px solid rgba(167,139,250,0.5); cursor: none; }
+    .irow { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 4px; }
+    .chip { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 4px 10px; border-radius: 8px; font-size: .7rem; color: var(--sl); display: flex; align-items: center; gap: 5px; }
+    .cdot { width: 6px; height: 6px; border-radius: 50%; }
+    .trow { display: flex; gap: 7px; flex-wrap: wrap; }
+    .tbtn { padding: 6px 13px; border-radius: 8px; font-size: .71rem; font-weight: 600; border: 1px solid rgba(167,139,250,0.2); background: rgba(124,58,237,0.05); color: rgba(167,139,250,0.5); cursor: none; transition: all .2s; }
+    .tbtn.on { background: rgba(124,58,237,0.2); border-color: rgba(167,139,250,0.5); color: #d4b8ff; box-shadow: 0 0 10px rgba(124,58,237,0.22); }
+    .tbtn:hover { border-color: rgba(167,139,250,0.36); color: rgba(167,139,250,0.82); }
+
+    /* SNELL BAR */
+    .snbar { margin: 0 28px 24px; background: rgba(124,58,237,0.07); border: 1px solid rgba(124,58,237,0.2); border-radius: 14px; padding: 15px 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .sneq { font-family: 'Playfair Display', serif; font-size: .98rem; font-weight: 700; color: rgba(212,184,255,0.88); }
+    .sneq span { color: var(--gl); }
+    .snchips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .snc { background: rgba(4,6,15,0.75); border: 1px solid rgba(167,139,250,0.17); border-radius: 9px; padding: 5px 11px; font-size: .7rem; color: var(--sl); }
+    .snc strong { color: var(--wh); }
+
+    /* EXPLANATION */
+    .expl { background: rgba(255,255,255,0.025); border: 1px solid var(--bd); border-radius: 24px; padding: 44px 48px; animation: fup .8s .3s ease both; margin-bottom: 36px; }
+    @media(max-width:660px) { .expl { padding: 26px 18px; } }
+    .exhd { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+    .exhdl { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(201,168,76,0.25), transparent); }
+    .exhdt { font-size: .65rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; white-space: nowrap; }
+    .extit { font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; margin-bottom: 13px; }
+    .exbd { color: var(--sl); line-height: 1.8; font-size: .93rem; font-weight: 300; }
+    .exbd p { margin-bottom: 15px; }
+    .exbd strong { color: var(--wh); font-weight: 500; }
+    .hl { color: #a78bfa; }
+    .exgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; margin: 24px 0; }
+    @media(max-width:600px) { .exgrid { grid-template-columns: 1fr; } }
+    .exf { background: rgba(124,58,237,0.05); border: 1px solid rgba(124,58,237,0.14); border-radius: 14px; padding: 18px 20px; }
+    .exft { font-size: .67rem; letter-spacing: 1.8px; text-transform: uppercase; color: #a78bfa; font-weight: 600; margin-bottom: 7px; }
+    .exfb { font-size: .87rem; color: var(--sl); line-height: 1.6; }
+    .exfb strong { color: var(--wh); }
+    .fml { background: rgba(4,6,15,0.85); border: 1px solid rgba(167,139,250,0.17); border-radius: 12px; padding: 15px 22px; margin: 16px 0; font-family: monospace; font-size: .92rem; color: #d4b8ff; letter-spacing: .4px; }
+    .fc { color: rgba(167,139,250,0.36); font-size: .79rem; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .84rem; }
+    th { text-align: left; padding: 9px 13px; font-size: .62rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(167,139,250,0.52); border-bottom: 1px solid rgba(167,139,250,0.13); font-weight: 600; }
+    td { padding: 9px 13px; color: var(--sl); border-bottom: 1px solid rgba(255,255,255,0.032); }
+    tr:last-child td { border-bottom: none; }
+    .sw { display: inline-block; width: 11px; height: 11px; border-radius: 3px; margin-right: 7px; vertical-align: middle; }
+
+    footer { position: relative; z-index: 1; background: #030509; border-top: 1px solid rgba(201,168,76,0.1); padding: 40px 24px; }
+    .fi { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .flo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; }
+    .flo span { display: block; color: var(--sl); font-family: 'DM Sans', sans-serif; font-size: .75rem; margin-top: 4px; }
+    .fcp { color: var(--sl); font-size: .8rem; }
+    .fla { color: var(--gold); text-decoration: none; }
+    .fla:hover { text-decoration: underline; }
+
+    @keyframes fup { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+    @media(max-width:768px) {
+      nav { padding: 16px 20px; } nav.scrolled { padding: 12px 20px; }
+      main { padding: 110px 14px 60px; }
+      body { cursor: auto; } .cursor, .cursor-ring { display: none; }
+      input[type=range], .tbtn { cursor: pointer; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+<div class="pbg"></div>
+<div class="pgrid"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+
+<nav id="topnav">
+  <a href="index.html" class="nl">
+    <span class="nlm">FYUGP Kerala University</span>
+    <span class="nls">Study Material Sharing Hub</span>
+  </a>
+  <a href="sciencehub.html" class="nb">
+    <span class="nba">←</span> Science Hub
+  </a>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="hlbl">Optics · Wave Physics</div>
+    <h1 class="htit">Refraction of Light<br><em>Through a Prism</em></h1>
+    <p class="hdsc">Drag the angle slider and watch white light shatter into the full visible spectrum. Snell's Law governs every ray — with normal lines, angle labels, and deviation readout updating live.</p>
+    <div class="hbdg">
+      <span class="hb hb1">🔭 Wave Optics</span>
+      <span class="hb hb2">📐 Snell's Law</span>
+      <span class="hb hb3">🎓 FYUGP Physics</span>
+    </div>
+  </div>
+
+  <div class="sbox">
+    <div class="stbar">
+      <div class="sdots">
+        <div class="sd sdr"></div><div class="sd sdy"></div><div class="sd sdg"></div>
+        <span class="slbl">Prism Refraction Lab — Live Simulation</span>
+      </div>
+      <span style="font-size:.63rem;color:rgba(167,139,250,0.38);letter-spacing:1.5px;">BOROSILICATE GLASS · n ≈ 1.52</span>
+    </div>
+
+    <div class="carea">
+      <canvas id="c"></canvas>
+    </div>
+
+    <div class="cpanel">
+      <div class="cg">
+        <div class="clbl">Angle of Incidence</div>
+        <div class="cvr"><span class="cv" id="vAng">35</span><span class="cu">°</span></div>
+        <input type="range" id="sldr" min="10" max="70" value="35" step="1">
+        <div class="irow">
+          <div class="chip"><div class="cdot" style="background:#a78bfa"></div>θ₁ — incident</div>
+        </div>
+      </div>
+      <div class="cg">
+        <div class="clbl">Refracted Angle (589 nm)</div>
+        <div class="cvr"><span class="cv" id="vRef">22.1</span><span class="cu">°</span></div>
+        <div class="irow" style="margin-top:10px;">
+          <div class="chip"><div class="cdot" style="background:#ffd700"></div>θ₂ — refracted</div>
+          <div class="chip">Deviation: <strong id="vDev" style="color:var(--gl);margin-left:3px;">--°</strong></div>
+        </div>
+      </div>
+      <div class="cg">
+        <div class="clbl">Display Options</div>
+        <div class="trow" style="margin-top:6px;">
+          <button class="tbtn on" id="tN" onclick="tog('normal')">Normal</button>
+          <button class="tbtn on" id="tA" onclick="tog('angles')">Angles</button>
+          <button class="tbtn on" id="tS" onclick="tog('spectrum')">Spectrum</button>
+          <button class="tbtn on" id="tL" onclick="tog('labels')">Labels</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="snbar">
+      <div class="sneq">n₁ sin θ₁ = n₂ sin θ₂ &nbsp;·&nbsp; <span id="vSn">1.00 × sin 35° = 1.517 × sin 22.1°</span></div>
+      <div class="snchips">
+        <div class="snc">n<sub>air</sub> = <strong>1.000</strong></div>
+        <div class="snc">n<sub>glass</sub> ≈ <strong>1.52</strong></div>
+        <div class="snc">Prism apex: <strong>60°</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <article class="expl">
+    <div class="exhd">
+      <span class="exhdt">Physics Deep Dive</span>
+      <div class="exhdl"></div>
+    </div>
+    <h2 class="extit">How Light Bends Through a Prism</h2>
+    <div class="exbd">
+      <p>When a ray of white light strikes the surface of a glass prism, it crosses a boundary between two media of different <strong>optical density</strong> — air (n ≈ 1.00) and glass (n ≈ 1.52). At this boundary, light slows down and <strong>bends toward the normal</strong>. This bending is called <span class="hl">refraction</span>, governed by <strong>Snell's Law</strong>:</p>
+      <div class="fml">
+        n₁ sin θ₁ = n₂ sin θ₂ &nbsp;&nbsp;<span class="fc">// Snell's Law at each face</span><br><br>
+        θ_r = arcsin( (n₁/n₂) × sin θ_i ) &nbsp;&nbsp;<span class="fc">// solving for refracted angle</span><br><br>
+        δ = (i − r₁) + (e − r₂) &nbsp;&nbsp;<span class="fc">// total angle of deviation</span>
+      </div>
+      <p>At the second face the ray exits the glass — bending <strong>away from the normal</strong> back into air. The angular difference between the original incident direction and the final emergent ray is the <strong>angle of deviation (δ)</strong>.</p>
+      <div class="exgrid">
+        <div class="exf"><div class="exft">Why colours separate</div><div class="exfb">Glass is a <strong>dispersive medium</strong> — refractive index varies with wavelength. <strong>Violet (400 nm)</strong> n ≈ 1.531 bends most. <strong>Red (700 nm)</strong> n ≈ 1.510 bends least. This is <strong>dispersion</strong>.</div></div>
+        <div class="exf"><div class="exft">The Normal Line</div><div class="exfb">The <strong>normal</strong> is perpendicular to the prism face at the point of incidence. All Snell's Law angles — θ₁ and θ₂ — are measured from this normal, not from the surface itself.</div></div>
+        <div class="exf"><div class="exft">Angle of Deviation</div><div class="exfb">The <strong>angle of deviation (δ)</strong> is the angle between the original incident ray and the final emergent ray. It reaches a minimum at the <strong>angle of minimum deviation</strong>.</div></div>
+        <div class="exf"><div class="exft">Cauchy's Equation</div><div class="exfb">Wavelength-dependence: <strong>n(λ) = A + B/λ²</strong>. For borosilicate glass, A ≈ 1.5046, B ≈ 4200 nm² — used directly in this simulation for each spectral ray.</div></div>
+      </div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;margin:22px 0 11px;color:var(--wh);">Visible Spectrum — Refractive Indices (Borosilicate Glass)</h3>
+      <table>
+        <thead><tr><th>Colour</th><th>λ (nm)</th><th>n(λ)</th><th>Bending</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sw" style="background:#ff2200"></span>Red</td><td>700</td><td>1.5100</td><td>Least ↓</td></tr>
+          <tr><td><span class="sw" style="background:#ff8800"></span>Orange</td><td>620</td><td>1.5140</td><td>↑</td></tr>
+          <tr><td><span class="sw" style="background:#ffee00"></span>Yellow</td><td>589</td><td>1.5170</td><td>↑</td></tr>
+          <tr><td><span class="sw" style="background:#44dd00"></span>Green</td><td>530</td><td>1.5200</td><td>↑</td></tr>
+          <tr><td><span class="sw" style="background:#0088ff"></span>Blue</td><td>470</td><td>1.5240</td><td>↑</td></tr>
+          <tr><td><span class="sw" style="background:#4400cc"></span>Indigo</td><td>440</td><td>1.5270</td><td>↑</td></tr>
+          <tr><td><span class="sw" style="background:#8800ff"></span>Violet</td><td>400</td><td>1.5310</td><td>Most ↑</td></tr>
+        </tbody>
+      </table>
+      <p>Each wavelength follows its own Snell's Law computation, producing the rainbow fan emerging from the second prism face. Drag the slider to see how the angle of incidence changes the spread and deviation of all colours simultaneously.</p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="fi">
+    <div class="flo">Refraction of Light Through a Prism
+      <span>Part of <a href="https://sreeharis.in" class="fla" target="_blank">sreeharis.in</a> · Developed by <a href="https://sreeharis.in/espace.html" class="fla" target="_blank">Espace Systems</a></span>
+    </div>
+    <p class="fcp">© 2026 <a href="https://sreeharis.in" class="fla" target="_blank">sreeharis.in</a> · <a href="https://sreeharis.in/privacypolicy.html" class="fla">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════
+//  CURSOR
+// ═══════════════════════════════════════
+const cur = document.getElementById('cur');
+const curR = document.getElementById('curR');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+(function loop(){ rx+=(mx-rx)*0.13; ry+=(my-ry)*0.13; curR.style.left=rx+'px'; curR.style.top=ry+'px'; requestAnimationFrame(loop); })();
+document.querySelectorAll('a,button,input').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur.style.width='16px'; cur.style.height='16px'; curR.style.width='54px'; curR.style.height='54px'; curR.style.borderColor='var(--gold)'; });
+  el.addEventListener('mouseleave', () => { cur.style.width='10px'; cur.style.height='10px'; curR.style.width='36px'; curR.style.height='36px'; curR.style.borderColor='rgba(201,168,76,0.5)'; });
+});
+window.addEventListener('scroll', () => document.getElementById('topnav').classList.toggle('scrolled', scrollY > 60));
+
+// ═══════════════════════════════════════
+//  TOGGLES
+// ═══════════════════════════════════════
+const OPT = { normal:true, angles:true, spectrum:true, labels:true };
+function tog(k) {
+  OPT[k] = !OPT[k];
+  document.getElementById({normal:'tN',angles:'tA',spectrum:'tS',labels:'tL'}[k]).classList.toggle('on', OPT[k]);
+  draw();
+}
+
+// ═══════════════════════════════════════
+//  CANVAS SETUP
+// ═══════════════════════════════════════
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+function setSize() {
+  const W = canvas.parentElement.clientWidth;
+  const H = Math.max(320, Math.min(460, W * 0.5));
+  canvas.width  = W;
+  canvas.height = H;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+}
+
+// ═══════════════════════════════════════
+//  SNELL'S LAW (scalar, degrees)
+//  returns refracted angle in degrees
+// ═══════════════════════════════════════
+function snell(theta1_deg, n1, n2) {
+  const sinR = (n1 / n2) * Math.sin(theta1_deg * Math.PI / 180);
+  if (Math.abs(sinR) > 1) return null; // TIR
+  return Math.asin(sinR) * 180 / Math.PI;
+}
+
+// Cauchy for borosilicate glass (λ in nm)
+function nGlass(wl) { return 1.5046 + 4200 / (wl * wl); }
+
+// ═══════════════════════════════════════
+//  SPECTRUM
+// ═══════════════════════════════════════
+// Each entry: [wavelength_nm, r, g, b, label]
+const COLORS = [
+  [700, 255,  20,   0, 'Red'],
+  [660, 255,  80,   0, ''],
+  [630, 255, 140,   0, 'Orange'],
+  [589, 255, 215,   0, 'Yellow'],
+  [555, 160, 230,   0, ''],
+  [530,  50, 210,  20, 'Green'],
+  [505,   0, 190, 110, ''],
+  [470,   0, 100, 255, 'Blue'],
+  [440,  60,  20, 210, 'Indigo'],
+  [405, 130,   0, 255, 'Violet'],
+];
+
+// ═══════════════════════════════════════
+//  MAIN DRAW — completely coordinate-based, no vector math
+// ═══════════════════════════════════════
+function draw() {
+  const W = canvas.width;
+  const H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const incDeg = parseFloat(document.getElementById('sldr').value);
+
+  // ─── PRISM COORDINATES ───────────────────────────────────
+  // Equilateral triangle, apex at top, pointing up
+  // Centred at (cx, cy), side length = side
+  const cx    = W * 0.46;
+  const cy    = H * 0.50;
+  const side  = Math.min(W, H) * 0.40;
+  const triH  = side * Math.sqrt(3) / 2;   // full height of triangle
+
+  // 3 vertices
+  const apex = { x: cx,            y: cy - triH * 0.60 };  // top apex
+  const bL   = { x: cx - side/2,   y: cy + triH * 0.40 };  // bottom left
+  const bR   = { x: cx + side/2,   y: cy + triH * 0.40 };  // bottom right
+
+  // ─── LEFT FACE ANGLE ─────────────────────────────────────
+  // Left face goes from apex (top) down to bL (bottom-left)
+  // Angle of left face from vertical:
+  const leftFaceAngle = Math.atan2(bL.x - apex.x, bL.y - apex.y); // ~30° for equilateral
+  // In degrees: for equilateral triangle this is exactly 30°
+
+  // ─── HIT POINT ON LEFT FACE ──────────────────────────────
+  // Place hit point 45% of the way down the left face
+  const t = 0.45;
+  const hitLx = apex.x + t * (bL.x - apex.x);
+  const hitLy = apex.y + t * (bL.y - apex.y);
+
+  // ─── INCIDENT RAY ────────────────────────────────────────
+  // The left face makes an angle with the horizontal.
+  // For an equilateral prism the left face tilts at 60° from horizontal.
+  // Normal to left face points outward (left-upward).
+  // We define: left face surface angle from horizontal = 60° (pointing upper-right to lower-left)
+  // Normal angle from horizontal = 60° - 90° = -30° ... let's just compute it.
+
+  // Left face direction vector (from apex down to bL):
+  const fDx = bL.x - apex.x;  // negative (goes left)
+  const fDy = bL.y - apex.y;  // positive (goes down)
+  const fLen = Math.sqrt(fDx*fDx + fDy*fDy);
+  const fUx = fDx / fLen;  // unit face direction
+  const fUy = fDy / fLen;
+
+  // Outward normal to left face (rotate face direction 90° clockwise = (y, -x)):
+  // This gives the outward-pointing (left) normal
+  const normLx = fUy;   // = sin(60°) ≈ 0.866
+  const normLy = -fUx;  // = cos(60°) ≈ 0.5
+  // Verify it points left (away from prism interior): normLx should be negative
+  // For equilateral: fUx = -0.5, fUy = 0.866 → normLx=0.866, normLy=0.5 → points right, flip it
+  // We need to ensure it points AWAY from the prism centroid
+  const cenX = (apex.x + bL.x + bR.x) / 3;
+  const cenY = (apex.y + bL.y + bR.y) / 3;
+  const midLx = (apex.x + bL.x) / 2;
+  const midLy = (apex.y + bL.y) / 2;
+  let nLx = normLx, nLy = normLy;
+  if ((midLx - cenX) * nLx + (midLy - cenY) * nLy < 0) { nLx = -nLx; nLy = -nLy; }
+
+  // Normal angle (from positive X axis):
+  const normAngle = Math.atan2(nLy, nLx); // angle of outward normal
+
+  // Incident ray angle: the ray comes from the left.
+  // Angle of incidence incDeg is measured FROM the outward normal.
+  // The incident ray direction (going INTO the face) is:
+  //   angle = normAngle + 180° + incDeg  (come from opposite side, rotated by incidence angle)
+  // We rotate the incoming ray upward from the reversed normal:
+  const incRayAngle = normAngle + Math.PI - incDeg * Math.PI / 180;
+  // Direction of incident ray:
+  const incDirX = Math.cos(incRayAngle);
+  const incDirY = Math.sin(incRayAngle);
+
+  // Source point (step back along incident ray from hit point):
+  const srcLen = side * 0.85;
+  const srcX = hitLx - incDirX * srcLen;
+  const srcY = hitLy - incDirY * srcLen;
+
+  // ─── REFRACTION AT LEFT FACE (air → glass) ───────────────
+  // For each colour, compute theta2 using Snell's law
+  const nAir = 1.0;
+
+  // ─── RIGHT FACE GEOMETRY ─────────────────────────────────
+  // Right face: apex → bR
+  const rfDx = bR.x - apex.x;
+  const rfDy = bR.y - apex.y;
+  const rfLen = Math.sqrt(rfDx*rfDx + rfDy*rfDy);
+  const rfUx = rfDx / rfLen;
+  const rfUy = rfDy / rfLen;
+  // Outward normal to right face (rotate 90° CCW = (-y, x)):
+  let nRx = -rfUy, nRy = rfUx;
+  const midRx = (apex.x + bR.x) / 2;
+  const midRy = (apex.y + bR.y) / 2;
+  if ((midRx - cenX) * nRx + (midRy - cenY) * nRy < 0) { nRx = -nRx; nRy = -nRy; }
+  const normRAngle = Math.atan2(nRy, nRx);
+
+  // ─── TRACE EACH COLOUR ───────────────────────────────────
+  // For each wavelength:
+  //   1. Snell at entry: theta2 = snell(incDeg, nAir, ng)
+  //   2. Inside ray direction
+  //   3. Intersect with right face
+  //   4. Snell at exit: theta4 = snell(theta3_inside, ng, nAir)
+  //   5. Emergent ray direction
+
+  // The inside ray angle from horizontal:
+  // The refracted ray is on the OTHER side of the normal from the incident,
+  // and the angle from the normal is theta2.
+  // Inside ray angle = -(normAngle + 180° - theta2)  ... let's think carefully.
+  // Incident ray comes in at angle incRayAngle.
+  // Normal points outward at normAngle.
+  // Refracted ray bends toward normal (into glass).
+  // Refracted ray angle from inward normal = theta2.
+  // Inward normal angle = normAngle + π
+  // The refracted ray is on the transmitted side, rotated theta2 from inward normal,
+  // on the SAME side as the incident ray was (same face of normal plane).
+
+  // Use scalar angle approach:
+  // incDeg is measured from the outward normal.
+  // The face surface angle (from horiz): surfAngle = normAngle - π/2
+  // Incident ray hits from the left. The refracted ray inside bends toward normal.
+
+  // The direction of the refracted ray inside the glass:
+  // It makes angle theta2 with the INWARD normal of left face.
+  // Inward normal angle = normAngle + π = normAngle - π (same thing mod 2π)
+  // The side the ray is on: same side as incident ray relative to normal line.
+  // Since incident comes from left (incRayAngle ≈ pointing right),
+  // and the normal points left, the incident is from the normal's outward side.
+  // Refracted goes INTO glass = away from outward normal.
+
+  // Rotation direction: incident is rotated +incDeg from reversed-normal (→ comes from above-normal).
+  // Refracted is rotated +theta2 from inward normal, same rotation side.
+  // So: refractedAngle = (normAngle + π) + theta2  ... but which sign of theta2?
+  // Match the same rotational offset as incident relative to outward normal:
+  // offset sign = sign of (incRayAngle - (normAngle + π))
+
+  const incRelAngle = incRayAngle - (normAngle + Math.PI);
+  const rotSign = incRelAngle >= 0 ? 1 : -1;
+  // But for a typical setup (ray from upper-left), rotSign should be consistent.
+  // Let's just always use +rotSign for the inside ray:
+
+  let yData = null;
+
+  const rays = COLORS.map(([wl, r, g, b, lbl]) => {
+    const ng = nGlass(wl);
+    const theta2 = snell(incDeg, nAir, ng);
+    if (theta2 === null) return null;
+
+    // Inside ray direction angle:
+    const insideAngle = (normAngle + Math.PI) + rotSign * theta2 * Math.PI / 180;
+    const inDx = Math.cos(insideAngle);
+    const inDy = Math.sin(insideAngle);
+
+    // Intersect inside ray (from hitL) with right face segment (apex → bR):
+    // hitL + t*(inDx,inDy) = apex + s*(bR-apex)
+    // t*inDx - s*(bR.x-apex.x) = apex.x - hitLx
+    // t*inDy - s*(bR.y-apex.y) = apex.y - hitLy
+    const a11=inDx,   a12=-(bR.x-apex.x);
+    const a21=inDy,   a22=-(bR.y-apex.y);
+    const b1=apex.x-hitLx, b2=apex.y-hitLy;
+    const det = a11*a22 - a12*a21;
+    if (Math.abs(det) < 1e-9) return null;
+    const tRay = (b1*a22 - b2*a12) / det;
+    const sRay = (a11*b2 - a21*b1) / det;
+    if (tRay < 0 || sRay < 0 || sRay > 1) return null;
+
+    const hitRx = hitLx + tRay * inDx;
+    const hitRy = hitLy + tRay * inDy;
+
+    // Angle of inside ray with right face's inward normal:
+    // Inward normal of right face = -(nRx, nRy)
+    const inNRx = -nRx, inNRy = -nRy;
+    const inNRAngle = Math.atan2(inNRy, inNRx);
+    // Angle between inside ray and inward normal of right face:
+    const dotInNR = inDx*inNRx + inDy*inNRy;
+    const theta3 = Math.acos(Math.max(-1, Math.min(1, dotInNR))) * 180 / Math.PI;
+
+    // Refraction at exit face (glass → air):
+    const theta4 = snell(theta3, ng, nAir);
+    if (theta4 === null) return null; // TIR
+
+    // Emergent ray angle:
+    // The ray exits on the outward side of the right face.
+    // Outward normal of right face at angle normRAngle.
+    // The emergent ray is on the outward side, at angle theta4 from outward normal.
+    // Same rotation side as inside ray was from inward normal:
+    const insideRelAngle = insideAngle - inNRAngle;
+    const exitRotSign = insideRelAngle >= 0 ? 1 : -1;
+    const emergentAngle = normRAngle + exitRotSign * theta4 * Math.PI / 180;
+    const emDx = Math.cos(emergentAngle);
+    const emDy = Math.sin(emergentAngle);
+
+    if (wl === 589) {
+      // Angle of deviation: angle between incident direction and emergent direction
+      const dot = incDirX*emDx + incDirY*emDy;
+      const dev = Math.acos(Math.max(-1, Math.min(1, dot))) * 180 / Math.PI;
+      yData = { theta2, dev };
+    }
+
+    return { wl, r, g, b, lbl, hitRx, hitRy, emDx, emDy, theta2 };
+  }).filter(Boolean);
+
+  // ══════════════════════════════════════
+  //  DRAW EVERYTHING
+  // ══════════════════════════════════════
+
+  // ─── 1. DRAW PRISM ───────────────────────────────────────
+  // Ambient glow
+  const gCx = (apex.x + bL.x + bR.x) / 3;
+  const gCy = (apex.y + bL.y + bR.y) / 3;
+  const gR  = side * 0.55;
+  const glo = ctx.createRadialGradient(gCx, gCy, 0, gCx, gCy, gR);
+  glo.addColorStop(0, 'rgba(140,100,255,0.10)');
+  glo.addColorStop(1, 'rgba(140,100,255,0)');
+  ctx.fillStyle = glo;
+  ctx.beginPath(); ctx.arc(gCx, gCy, gR, 0, Math.PI*2); ctx.fill();
+
+  // Glass body
+  const bodyGrad = ctx.createLinearGradient(bL.x, apex.y, bR.x, bR.y);
+  bodyGrad.addColorStop(0,   'rgba(165,135,255,0.22)');
+  bodyGrad.addColorStop(0.4, 'rgba(200,180,255,0.12)');
+  bodyGrad.addColorStop(1,   'rgba(90,110,225,0.09)');
+  ctx.save();
+  ctx.shadowBlur = 30;
+  ctx.shadowColor = 'rgba(160,120,255,0.18)';
+  ctx.fillStyle = bodyGrad;
+  ctx.beginPath();
+  ctx.moveTo(apex.x, apex.y); ctx.lineTo(bL.x, bL.y); ctx.lineTo(bR.x, bR.y);
+  ctx.closePath(); ctx.fill();
+  ctx.restore();
+
+  // Sheen overlay
+  const sheenGrad = ctx.createLinearGradient(apex.x, apex.y, bR.x, bR.y);
+  sheenGrad.addColorStop(0,   'rgba(255,255,255,0)');
+  sheenGrad.addColorStop(0.4, 'rgba(255,255,255,0.07)');
+  sheenGrad.addColorStop(0.6, 'rgba(255,255,255,0.12)');
+  sheenGrad.addColorStop(1,   'rgba(255,255,255,0)');
+  ctx.fillStyle = sheenGrad;
+  ctx.beginPath();
+  ctx.moveTo(apex.x, apex.y); ctx.lineTo(bL.x, bL.y); ctx.lineTo(bR.x, bR.y);
+  ctx.closePath(); ctx.fill();
+
+  // Edges
+  const edges = [
+    [apex, bL, 'rgba(220,200,255,0.7)', 'rgba(160,130,235,0.3)'],
+    [apex, bR, 'rgba(200,175,255,0.5)', 'rgba(145,118,225,0.25)'],
+    [bL,   bR, 'rgba(175,150,245,0.3)', 'rgba(120,98,215,0.15)'],
+  ];
+  edges.forEach(([A, B, c1, c2]) => {
+    const g = ctx.createLinearGradient(A.x, A.y, B.x, B.y);
+    g.addColorStop(0, c1); g.addColorStop(1, c2);
+    ctx.save();
+    ctx.strokeStyle = g; ctx.lineWidth = 1.8;
+    ctx.shadowBlur = 8; ctx.shadowColor = 'rgba(210,188,255,0.3)';
+    ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+    ctx.restore();
+  });
+
+  // Apex highlight dot
+  const apexG = ctx.createRadialGradient(apex.x, apex.y, 0, apex.x, apex.y, 9);
+  apexG.addColorStop(0, 'rgba(245,230,255,0.9)'); apexG.addColorStop(1, 'rgba(200,178,255,0)');
+  ctx.fillStyle = apexG;
+  ctx.beginPath(); ctx.arc(apex.x, apex.y, 9, 0, Math.PI*2); ctx.fill();
+
+  // Prism label
+  ctx.save();
+  ctx.font = '500 11px DM Sans, sans-serif';
+  ctx.fillStyle = 'rgba(200,178,255,0.42)';
+  ctx.textAlign = 'center';
+  ctx.fillText('Glass Prism  (60°)', gCx, bR.y + 22);
+  ctx.fillText('n ≈ 1.52', gCx, bR.y + 36);
+  ctx.textAlign = 'left';
+  ctx.restore();
+
+  // ─── 2. DRAW INCIDENT WHITE BEAM ─────────────────────────
+  // Bright white/yellow glowing line from source to hit point
+  ctx.save();
+  ctx.shadowBlur = 22; ctx.shadowColor = 'rgba(255,255,200,0.5)';
+  ctx.strokeStyle = 'rgba(255,255,220,0.92)'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(srcX, srcY); ctx.lineTo(hitLx, hitLy); ctx.stroke();
+  // Wide glow pass
+  ctx.shadowBlur = 45; ctx.shadowColor = 'rgba(255,255,200,0.18)';
+  ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(255,255,200,0.08)';
+  ctx.beginPath(); ctx.moveTo(srcX, srcY); ctx.lineTo(hitLx, hitLy); ctx.stroke();
+  ctx.restore();
+
+  // Source glow dot
+  const sg = ctx.createRadialGradient(srcX, srcY, 0, srcX, srcY, 20);
+  sg.addColorStop(0, 'rgba(255,255,180,0.9)'); sg.addColorStop(1, 'rgba(255,255,180,0)');
+  ctx.fillStyle = sg; ctx.beginPath(); ctx.arc(srcX, srcY, 20, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,220,0.95)'; ctx.beginPath(); ctx.arc(srcX, srcY, 3.5, 0, Math.PI*2); ctx.fill();
+
+  if (OPT.labels) {
+    ctx.save();
+    ctx.font = '600 11px DM Sans, sans-serif';
+    ctx.fillStyle = 'rgba(255,255,200,0.6)';
+    ctx.fillText('White Light', srcX + 8, srcY - 12);
+    ctx.restore();
+  }
+
+  if (rays.length === 0) {
+    ctx.save(); ctx.font = '13px DM Sans'; ctx.fillStyle = 'rgba(255,100,100,0.7)';
+    ctx.textAlign = 'center'; ctx.fillText('Angle too steep — try reducing it', W/2, H/2);
+    ctx.textAlign = 'left'; ctx.restore();
+    return;
+  }
+
+  // ─── 3. RAYS INSIDE PRISM ────────────────────────────────
+  // Draw faint coloured lines from hitL to hitR (inside glass)
+  rays.forEach(ray => {
+    if (!OPT.spectrum && ray.wl !== 589) return;
+    ctx.save();
+    const alpha = OPT.spectrum ? 0.45 : 0.75;
+    ctx.strokeStyle = `rgba(${ray.r},${ray.g},${ray.b},${alpha})`;
+    ctx.lineWidth = OPT.spectrum ? 1.2 : 2;
+    ctx.beginPath(); ctx.moveTo(hitLx, hitLy); ctx.lineTo(ray.hitRx, ray.hitRy); ctx.stroke();
+    ctx.restore();
+  });
+
+  // ─── 4. EMERGENT RAINBOW RAYS ────────────────────────────
+  const eLen = side * 1.2;
+  rays.forEach((ray, i) => {
+    if (!OPT.spectrum && ray.wl !== 589) return;
+
+    const ex = ray.hitRx + ray.emDx * eLen;
+    const ey = ray.hitRy + ray.emDy * eLen;
+
+    ctx.save();
+    if (OPT.spectrum) {
+      const grad = ctx.createLinearGradient(ray.hitRx, ray.hitRy, ex, ey);
+      grad.addColorStop(0,    `rgba(${ray.r},${ray.g},${ray.b},0.95)`);
+      grad.addColorStop(0.65, `rgba(${ray.r},${ray.g},${ray.b},0.55)`);
+      grad.addColorStop(1,    `rgba(${ray.r},${ray.g},${ray.b},0.0)`);
+      ctx.strokeStyle = grad; ctx.lineWidth = 2.8;
+      ctx.shadowBlur = 18; ctx.shadowColor = `rgba(${ray.r},${ray.g},${ray.b},0.5)`;
+      ctx.beginPath(); ctx.moveTo(ray.hitRx, ray.hitRy); ctx.lineTo(ex, ey); ctx.stroke();
+      // Wide glow pass
+      ctx.lineWidth = 7; ctx.globalAlpha = 0.18;
+      ctx.shadowBlur = 32; ctx.strokeStyle = `rgba(${ray.r},${ray.g},${ray.b},1)`;
+      ctx.beginPath(); ctx.moveTo(ray.hitRx, ray.hitRy); ctx.lineTo(ex, ey); ctx.stroke();
+    } else {
+      // Yellow only
+      const grad = ctx.createLinearGradient(ray.hitRx, ray.hitRy, ex, ey);
+      grad.addColorStop(0, 'rgba(255,215,0,0.9)'); grad.addColorStop(1, 'rgba(255,215,0,0)');
+      ctx.strokeStyle = grad; ctx.lineWidth = 2.4;
+      ctx.shadowBlur = 16; ctx.shadowColor = 'rgba(255,215,0,0.5)';
+      ctx.beginPath(); ctx.moveTo(ray.hitRx, ray.hitRy); ctx.lineTo(ex, ey); ctx.stroke();
+    }
+    ctx.restore();
+
+    // Labels on first (Red) and last (Violet)
+    if (OPT.labels && OPT.spectrum) {
+      if (i === 0 || i === rays.length - 1) {
+        ctx.save();
+        ctx.font = '600 10.5px DM Sans, sans-serif';
+        ctx.fillStyle = `rgba(${ray.r},${ray.g},${ray.b},0.88)`;
+        ctx.shadowBlur = 6; ctx.shadowColor = `rgba(${ray.r},${ray.g},${ray.b},0.5)`;
+        ctx.fillText(i === 0 ? 'Red  700nm' : 'Violet  405nm', ex + 7, ey + 4);
+        ctx.restore();
+      }
+    }
+  });
+
+  // ─── 5. NORMAL LINES ─────────────────────────────────────
+  if (OPT.normal && rays.length > 0) {
+    const ref = rays.find(r => r.wl === 589) || rays[0];
+    const nLen = side * 0.38;
+    drawNormal(hitLx, hitLy, nLx, nLy, nLen);
+    drawNormal(ref.hitRx, ref.hitRy, nRx, nRy, nLen);
+  }
+
+  // ─── 6. ANGLE ARCS & LABELS ──────────────────────────────
+  if (OPT.angles && yData) {
+    // θ₁ at left face entry
+    const backIncAngle = incRayAngle + Math.PI; // direction back toward source
+    drawArc(hitLx, hitLy, normAngle, backIncAngle - normAngle, 44, '#a78bfa', `θ₁=${incDeg}°`);
+    // θ₂ at left face (refracted inside)
+    const ref2 = rays.find(r => r.wl === 589);
+    if (ref2) {
+      const insideAngle589 = (normAngle + Math.PI) + rotSign * yData.theta2 * Math.PI / 180;
+      drawArc(hitLx, hitLy, normAngle + Math.PI, insideAngle589 - (normAngle + Math.PI), 28, '#ffd700', `θ₂=${yData.theta2.toFixed(1)}°`);
+    }
+  }
+
+  // ─── 7. UPDATE UI ────────────────────────────────────────
+  document.getElementById('vAng').textContent = incDeg;
+  if (yData) {
+    document.getElementById('vRef').textContent = yData.theta2.toFixed(1);
+    document.getElementById('vDev').textContent = yData.dev.toFixed(1) + '°';
+    const n589 = nGlass(589);
+    document.getElementById('vSn').textContent =
+      `1.00 × sin ${incDeg}° = ${n589.toFixed(3)} × sin ${yData.theta2.toFixed(1)}°`;
+  }
+}
+
+// ═══════════════════════════════════════
+//  DRAW HELPERS
+// ═══════════════════════════════════════
+function drawNormal(x, y, nx, ny, len) {
+  ctx.save();
+  ctx.setLineDash([5, 5]);
+  ctx.strokeStyle = 'rgba(255,255,255,0.30)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(x - nx * len, y - ny * len);
+  ctx.lineTo(x + nx * len, y + ny * len);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+// Draw an angle arc at (cx,cy)
+// startAngle = base direction angle (radians)
+// sweep = arc sweep (radians, + or -)
+// radius = arc radius
+function drawArc(cx, cy, startAngle, sweep, radius, color, label) {
+  const endAngle = startAngle + sweep;
+  ctx.save();
+  ctx.strokeStyle = color; ctx.lineWidth = 1.4; ctx.globalAlpha = 0.8;
+  ctx.beginPath();
+  if (sweep >= 0) ctx.arc(cx, cy, radius, startAngle, endAngle, false);
+  else            ctx.arc(cx, cy, radius, startAngle, endAngle, true);
+  ctx.stroke();
+  // Label at mid-arc
+  const midA = startAngle + sweep / 2;
+  const lx = cx + (radius + 16) * Math.cos(midA);
+  const ly = cy + (radius + 16) * Math.sin(midA);
+  ctx.font = 'bold 10px DM Sans, sans-serif';
+  ctx.fillStyle = color; ctx.globalAlpha = 0.95;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(label, lx, ly);
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.restore();
+}
+
+// ═══════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════
+document.getElementById('sldr').addEventListener('input', draw);
+window.addEventListener('resize', () => { setSize(); draw(); });
+setSize();
+draw();
+</script>
+</body>
+</html>
 
