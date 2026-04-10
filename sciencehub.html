@@ -9,7 +9,7 @@
   <title>Science Hub — Free Interactive Science Experiment Simulations | Kerala University FYUGP | Sreeharis</title>
   <meta name="title" content="Science Hub | Free Interactive Science Experiment Simulations for FYUGP Students — Sreeharis.in">
   <meta name="description" content="Science Hub by Sreeharis.in — free interactive science experiment simulations and visualizations for Kerala University FYUGP students. Explore solar cell I-V characteristics, P-N junction, flame test, acid-base titration, Rutherford scattering and pH indicator experiments online. No download needed.">
-  <meta name="keywords" content="science hub, sreeharis science hub, interactive science experiments, science experiment simulation, science experiment visualization, online science experiments, virtual science lab, virtual chemistry lab, virtual physics lab, free science simulations, FYUGP science experiments, Kerala University science simulations, FYUGP chemistry lab simulations, FYUGP physics simulations, solar cell IV characteristics simulation, IV characteristics of solar cell, solar cell interactive visualization, photovoltaic simulation, PN junction simulation, PN junction visualization, semiconductor simulation, depletion region simulation, flame test simulation, flame test colors online, flame test virtual lab, metal ion flame test, acid base titration simulation, titration virtual lab, titration experiment online, pH titration curve, Rutherford gold foil experiment simulation, Rutherford scattering simulation, alpha particle scattering, nuclear model experiment, pH indicator simulation, science visualization online, FYUGP BSc chemistry experiments, FYUGP BSc physics experiments, Kerala University FYUGP lab, interactive chemistry experiments, interactive physics experiments, browser based science simulations, sreeharis.in">
+  <meta name="keywords" content="science hub, sreeharis science hub, interactive science experiments, science experiment simulation, science experiment visualization, online science experiments, virtual science lab, virtual chemistry lab, virtual physics lab, free science simulations, FYUGP science experiments, Kerala University science simulations, FYUGP chemistry lab simulations, FYUGP physics simulations, solar cell IV characteristics simulation, IV characteristics of solar cell, solar cell interactive visualization, photovoltaic simulation, PN junction simulation, PN junction visualization, semiconductor simulation, depletion region simulation, flame test simulation, flame test colors online, flame test virtual lab, metal ion flame test, acid base titration simulation, titration virtual lab, titration experiment online, pH titration curve, Rutherford gold foil experiment simulation, Rutherford scattering simulation, alpha particle scattering, nuclear model experiment, pH indicator simulation, refraction of light through a prism, refraction through a prism, refraction experiment, prism simulation, Snell's law simulation, light dispersion prism, angle of incidence refraction, ROYGBIV prism, visible spectrum simulation, refraction through a prism experiment, science visualization online, FYUGP BSc chemistry experiments, FYUGP BSc physics experiments, Kerala University FYUGP lab, interactive chemistry experiments, interactive physics experiments, browser based science simulations, sreeharis.in">
   <meta name="author" content="Sreehari S, Espace Systems">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#0a1628">
@@ -58,14 +58,15 @@
     "@type": "ItemList",
     "name": "Interactive Science Experiment Simulations — Sreeharis Science Hub",
     "url": "https://sreeharis.in/sciencehub.html",
-    "numberOfItems": 6,
+    "numberOfItems": 7,
     "itemListElement": [
       {"@type":"ListItem","position":1,"name":"I-V Characteristics of a Solar Cell — Interactive Simulation","url":"https://sreeharis.in/ivsolar.html","description":"Explore how current-voltage curves of a solar cell shift with time of day — visualizing Isc, Voc, and the maximum power point across morning, noon, and evening irradiance levels."},
       {"@type":"ListItem","position":2,"name":"P-N Junction Simulation — Live Interactive Visualization","url":"https://sreeharis.in/pnjunction.html","description":"Watch electrons and holes move in real time. Drag the voltage slider to forward or reverse bias the junction and see the depletion region, energy bands, and carrier flow change live."},
       {"@type":"ListItem","position":3,"name":"Flame Test Simulation — Virtual Chemistry Lab","url":"https://sreeharis.in/flametest.html","description":"Interactive flame test simulation showing characteristic emission colors of 8 metal ions including Ba, Sr, Ca, Na, K with real wavelengths. Virtual chemistry lab for FYUGP students."},
       {"@type":"ListItem","position":4,"name":"Acid-Base Titration Virtual Lab","url":"https://sreeharis.in/titration.html","description":"Virtual acid-base titration simulation. Select acid, base, normality and indicator. Watch the live pH curve and calculate unknown normality using N1V1=N2V2 at equivalence point."},
       {"@type":"ListItem","position":5,"name":"Rutherford Gold Foil Experiment Simulation","url":"https://sreeharis.in/scattering.html","description":"Fire alpha particles at gold foil and observe scattering, deflection and back-reflection in this interactive Rutherford scattering simulation. Discover the nuclear model of the atom."},
-      {"@type":"ListItem","position":6,"name":"pH Indicator Simulation — Virtual Lab","url":"https://sreeharis.in/ph.html","description":"Interactive pH indicator simulation for FYUGP Chemistry students. Visualize color changes of common indicators across the pH scale."}
+      {"@type":"ListItem","position":6,"name":"pH Indicator Simulation — Virtual Lab","url":"https://sreeharis.in/ph.html","description":"Interactive pH indicator simulation for FYUGP Chemistry students. Visualize color changes of common indicators across the pH scale."},
+      {"@type":"ListItem","position":7,"name":"Refraction of Light Through a Prism — Interactive Simulation","url":"https://sreeharis.in/refraction.html","description":"Drag the angle slider and watch white light split into the full visible spectrum. Live Snell's Law physics with real refractive indices for each wavelength, normal lines, and angle labels."}
     ]
   }
   </script>
@@ -891,6 +892,48 @@
       100% { color: #00d4ff; }
     }
 
+    /* ── REFRACTION CARD ── */
+    .viz-card.refr-card::before {
+      background: radial-gradient(circle at 30% 60%, rgba(100,40,220,0.10) 0%, transparent 50%),
+                  radial-gradient(circle at 75% 25%, rgba(255,200,0,0.07) 0%, transparent 50%);
+    }
+    .viz-card.refr-card:hover {
+      border-color: rgba(167,139,250,0.45);
+      box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(167,139,250,0.08);
+    }
+    .viz-preview.refr-preview {
+      background: linear-gradient(160deg, #04020f 0%, #06041a 50%, #030210 100%);
+      border-bottom: 1px solid rgba(167,139,250,0.15);
+    }
+    .preview-badge.refr-badge {
+      background: rgba(167,139,250,0.12); border-color: rgba(167,139,250,0.35); color: #a78bfa;
+    }
+    .viz-tag.refr-tag { color: #a78bfa; }
+    .viz-tag.refr-tag::before { background: #a78bfa; box-shadow: 0 0 8px #a78bfa; }
+    .viz-cta.refr-cta {
+      background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(96,165,250,0.06));
+      border-color: rgba(167,139,250,0.3); color: #a78bfa;
+    }
+    .viz-cta.refr-cta:hover {
+      background: linear-gradient(135deg, rgba(167,139,250,0.25), rgba(96,165,250,0.12));
+      border-color: rgba(167,139,250,0.55);
+    }
+
+    /* Refraction mini preview — prism + rainbow rays */
+    .refr-mini {
+      position: relative; width: 210px; height: 145px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .refr-mini svg { overflow: visible; }
+    .refr-ray {
+      stroke-linecap: round;
+      animation: refr-shimmer 3s ease-in-out infinite;
+    }
+    @keyframes refr-shimmer {
+      0%,100%{ opacity: 0.85 }
+      50%{ opacity: 1 }
+    }
+
     /* ── FOOTER ── */
     footer {
       position: relative; z-index: 1;
@@ -947,7 +990,7 @@
       </p>
       <div class="hub-stats">
         <div>
-          <span class="hub-stat-num">6</span>
+          <span class="hub-stat-num">7</span>
           <span class="hub-stat-label">Visualizations live</span>
         </div>
         <div>
@@ -1211,6 +1254,67 @@
 
     </div>
 
+    <!-- SECTION HEADER: Wave Optics -->
+    <div class="section-header" style="margin-top:16px;">
+      <span class="section-header-label">Wave Optics</span>
+      <div class="section-header-line"></div>
+    </div>
+
+    <div class="viz-grid">
+
+      <!-- CARD 7: Refraction Through a Prism -->
+      <a href="refraction.html" class="viz-card refr-card" style="animation-delay:0.6s">
+        <div class="viz-preview refr-preview">
+          <div class="preview-badge refr-badge">Live Physics</div>
+          <div class="refr-mini">
+            <svg viewBox="0 0 210 145" width="210" height="145">
+              <!-- Prism -->
+              <defs>
+                <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="rgba(180,160,255,0.55)"/>
+                  <stop offset="50%"  stop-color="rgba(140,120,220,0.18)"/>
+                  <stop offset="100%" stop-color="rgba(100,80,200,0.08)"/>
+                </linearGradient>
+              </defs>
+              <polygon points="105,18 58,118 152,118" fill="url(#prismGrad)" stroke="rgba(200,180,255,0.6)" stroke-width="1.4"/>
+              <!-- Left highlight -->
+              <line x1="105" y1="18" x2="58" y2="118" stroke="rgba(230,210,255,0.55)" stroke-width="1.4"/>
+              <!-- Incident white beam -->
+              <line x1="12" y1="68" x2="76" y2="88" stroke="rgba(255,255,255,0.85)" stroke-width="2.2"
+                class="refr-ray" style="animation-delay:0s"/>
+              <!-- Emergent rainbow rays -->
+              <line x1="136" y1="88" x2="198" y2="55"  stroke="rgba(255,34,0,0.9)"   stroke-width="1.8" class="refr-ray" style="animation-delay:0.1s"/>
+              <line x1="136" y1="88" x2="196" y2="62"  stroke="rgba(255,140,0,0.9)"  stroke-width="1.8" class="refr-ray" style="animation-delay:0.15s"/>
+              <line x1="136" y1="88" x2="194" y2="69"  stroke="rgba(255,220,0,0.9)"  stroke-width="1.8" class="refr-ray" style="animation-delay:0.2s"/>
+              <line x1="136" y1="88" x2="192" y2="77"  stroke="rgba(60,220,30,0.9)"  stroke-width="1.8" class="refr-ray" style="animation-delay:0.25s"/>
+              <line x1="136" y1="88" x2="190" y2="85"  stroke="rgba(0,120,255,0.9)"  stroke-width="1.8" class="refr-ray" style="animation-delay:0.3s"/>
+              <line x1="136" y1="88" x2="188" y2="94"  stroke="rgba(50,0,200,0.9)"   stroke-width="1.8" class="refr-ray" style="animation-delay:0.35s"/>
+              <line x1="136" y1="88" x2="186" y2="103" stroke="rgba(130,0,255,0.9)"  stroke-width="1.8" class="refr-ray" style="animation-delay:0.4s"/>
+              <!-- Normal dashed line at left face -->
+              <line x1="56" y1="70" x2="96" y2="106" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
+              <!-- Source glow -->
+              <circle cx="12" cy="68" r="5" fill="rgba(255,255,255,0.2)"/>
+              <circle cx="12" cy="68" r="2" fill="rgba(255,255,255,0.8)"/>
+            </svg>
+          </div>
+        </div>
+        <div class="viz-card-body">
+          <div class="viz-tag refr-tag">Wave Optics</div>
+          <div class="viz-title">Refraction Through a Prism</div>
+          <p class="viz-desc">
+            Drag the angle-of-incidence slider and watch white light split into the full ROYGBIV spectrum in real time. Every ray is computed live with Snell's Law using real wavelength-dependent refractive indices — with normals, angle labels, and deviation readout.
+          </p>
+          <div class="viz-meta">
+            <div class="viz-meta-chip">🔭 Snell's Law</div>
+            <div class="viz-meta-chip">📐 FYUGP Physics</div>
+            <div class="viz-meta-chip">🌈 Live Dispersion</div>
+          </div>
+          <span class="viz-cta refr-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
+        </div>
+      </a>
+
+    </div>
+
   </main>
 
   <!-- FOOTER -->
@@ -1295,6 +1399,14 @@
         icon: '🧪',
         iconBg: 'rgba(0,212,255,0.12)',
         keywords: ['ph', 'ph indicator', 'ph meter', 'ph paper', 'acid', 'base', 'alkaline', 'neutral', 'ph scale', 'lemon juice', 'vinegar', 'bleach', 'ammonia', 'milk', 'blood', 'water', 'orange juice', 'coffee', 'soap', 'juice', 'liquid', 'acidity', 'alkalinity', 'indicator', 'litmus', 'universal indicator', 'ph test', 'virtual lab', 'chemistry', 'FYUGP', 'substances', '36', 'colour change', 'color change', 'beaker', 'electrode']
+      },
+      {
+        name: 'Refraction of Light Through a Prism',
+        tag: 'Wave Optics · FYUGP Physics',
+        url: 'refraction.html',
+        icon: '🌈',
+        iconBg: 'rgba(167,139,250,0.12)',
+        keywords: ['refraction', 'prism', 'refraction through a prism', 'refraction experiment', 'refraction of light', 'snell', 'snells law', 'snell law', 'angle of incidence', 'angle of refraction', 'angle of deviation', 'refractive index', 'dispersion', 'white light', 'spectrum', 'rainbow', 'roygbiv', 'wavelength', 'optics', 'light bending', 'normal', 'glass prism', 'visible spectrum', 'light dispersion', 'prism simulation', 'refraction through a prism experiment', 'wave optics', 'physics', 'FYUGP', 'light ray', 'incident ray', 'refracted ray', 'emergent ray', 'cauchy', 'borosilicate']
       }
     ];
 
@@ -1352,6 +1464,102 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
