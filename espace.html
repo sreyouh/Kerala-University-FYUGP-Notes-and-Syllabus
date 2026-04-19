@@ -37,6 +37,8 @@
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init('nZMEORorgdobmeVVk');</script>
 <style>
 :root {
   --white: #ffffff;
@@ -803,18 +805,18 @@ footer{background:var(--navy);padding:44px 24px;}
           <textarea class="form-input" id="bookDesc" rows="3" placeholder="Tell us a bit about your business or project..." style="resize:vertical;"></textarea>
         </div>
         <p class="booking-note" style="margin-bottom:10px;">By submitting, you agree to our <a href="privacypolicy.html" style="color:var(--blue);text-decoration:none;font-weight:600;">Privacy Policy</a>.</p>
-      <button class="btn-book" onclick="submitBooking()">
+      <button class="btn-book" id="btnBook" onclick="submitBooking()">
   🚀 Confirm Slot Booking
 </button>
-<p class="booking-note">Your details will be sent to Sreehari via WhatsApp. We'll confirm your slot within 24 hours.</p>
+<p class="booking-note">Your details will be sent directly and securely. We'll confirm your slot within 24 hours.</p>
 </div>
 
 <div class="booking-success" id="bookingSuccess">
   <div class="success-icon">✅</div>
-  <h4>Slot Request Sent!</h4>
-  <p>Thank you! Your booking request has been received. Sreehari will confirm your slot and reach out to you at the selected time.</p>
+  <h4>Booking Request Sent!</h4>
+  <p>Thank you! Your details have been received. Sreehari will confirm your slot and reach out to you at the selected time.</p>
   <br>
-  <a href="https://wa.me/919746248584" target="_blank" class="btn-primary" style="display:inline-flex;margin:0 auto;cursor:pointer;">Also message on WhatsApp →</a>
+  <a href="https://t.me/sreyouh" target="_blank" class="btn-primary" style="display:inline-flex;margin:0 auto;cursor:pointer;">Also reach via Telegram →</a>
 </div>
     </div>
 <div class="contact-left reveal">
@@ -1131,30 +1133,64 @@ if(dateInput){
   dateInput.min = today;
 }
 
-// Booking form — opens Telegram with pre-filled message
+// Booking form — EmailJS silent submission
 function submitBooking(){
-  const name = document.getElementById('bookName').value.trim();
+  const name    = document.getElementById('bookName').value.trim();
   const contact = document.getElementById('bookContact').value.trim();
-  const date = document.getElementById('bookDate').value;
-  const time = document.getElementById('bookTime').value;
-  const type = document.getElementById('bookType').value;
-  const desc = document.getElementById('bookDesc').value.trim();
+  const date    = document.getElementById('bookDate').value;
+  const time    = document.getElementById('bookTime').value;
+  const service = document.getElementById('bookType').value;
+  const details = document.getElementById('bookDesc').value.trim();
 
   if(!name || !contact){
     alert('Please fill in your name and contact details.');
     return;
   }
 
-  const msg = `🚀 New Slot Booking — Espace Systems%0A%0A👤 Name: ${encodeURIComponent(name)}%0A📞 Contact: ${encodeURIComponent(contact)}%0A📅 Date: ${date || 'Not specified'}%0A🕐 Time: ${time || 'Not specified'}%0A🛠 Service: ${encodeURIComponent(type) || 'Not specified'}%0A📝 Details: ${encodeURIComponent(desc) || 'None'}`;
+  // Disable button and show loading state
+  const btn = document.getElementById('btnBook');
+  btn.disabled = true;
+  btn.textContent = '⏳ Sending...';
 
-  window.open(`https://wa.me/919746248584?text=${msg}`, '_blank');
+  const templateParams = {
+    name:    name,
+    contact: contact,
+    date:    date    || 'Not specified',
+    time:    time    || 'Not specified',
+    service: service || 'Not specified',
+    details: details || 'None',
+    message: `Name: ${name}\nContact: ${contact}\nDate: ${date||'Not specified'}\nTime: ${time||'Not specified'}\nService: ${service||'Not specified'}\nDetails: ${details||'None'}`
+  };
 
-  document.getElementById('bookingForm').style.display='none';
-  document.getElementById('bookingSuccess').style.display='block';
+  emailjs.send('service_8t18tr6', 'template_m3c31qj', templateParams)
+    .then(function(){
+      // Success — show success state silently
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('bookingSuccess').style.display = 'block';
+    }, function(error){
+      // If EmailJS fails, fallback to WhatsApp so booking is never lost
+      console.error('EmailJS error:', error);
+      const msg = `🚀 New Booking — Espace Systems%0A%0A👤 Name: ${encodeURIComponent(name)}%0A📞 Contact: ${encodeURIComponent(contact)}%0A📅 Date: ${date||'Not specified'}%0A🕐 Time: ${time||'Not specified'}%0A🛠 Service: ${encodeURIComponent(service)||'Not specified'}%0A📝 Details: ${encodeURIComponent(details)||'None'}`;
+      window.open(`https://wa.me/919746248584?text=${msg}`, '_blank');
+      document.getElementById('bookingForm').style.display = 'none';
+      document.getElementById('bookingSuccess').style.display = 'block';
+    });
 }
 </script>
 </body>
   </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
