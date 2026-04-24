@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- ══ PRIMARY SEO ══ -->
+<title>Young's Double Slit Experiment — Interactive Wave Interference Simulation | Sreeharis Science Hub</title>
+<meta name="title" content="Young's Double Slit Experiment — Interactive Simulation with Live Intensity Graph | Sreeharis">
+<meta name="description" content="Interactive simulation of Young's double slit experiment. Adjust slit separation (d), wavelength (λ), slit width, and screen distance (D) in real time. Watch coherent wavefronts interfere and generate the fringe pattern with a live intensity plot. Free FYUGP physics simulation.">
+<meta name="keywords" content="Young's double slit experiment, Young's double slit experiment simulation, Young's experiment, double slit experiment, YDSE, YDSE simulation, double slit interference, wave interference simulation, interference pattern, interference fringes, fringe width, fringe spacing, bright fringes, dark fringes, constructive interference, destructive interference, coherent light, coherent sources, path difference, phase difference, wavelength of light, slit separation, slit width, screen distance, Young double slit, Young's double slit physics, wave optics, wave nature of light, Huygens principle, wavefront, diffraction, laser double slit, monochromatic light, intensity pattern, intensity graph, central maximum, secondary maxima, minima, bandwidth formula, beta formula, FYUGP wave optics, FYUGP physics simulation, Kerala University physics, interactive physics simulation, light waves, constructive destructive interference, fringe pattern simulation, double slit experiment visualization, online physics lab">
+<meta name="author" content="Sreehari S · Espace Systems">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#03010c">
+
+<!-- ══ CANONICAL ══ -->
+<link rel="canonical" href="https://sreeharis.in/doubleslit.html">
+
+<!-- ══ OPEN GRAPH ══ -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Young's Double Slit Experiment — Interactive Wave Interference Simulation">
+<meta property="og:description" content="Adjust slit separation, wavelength, and screen distance in real time. Watch coherent wavefronts interfere and generate bright and dark fringes with a live intensity graph. Free FYUGP physics simulation.">
+<meta property="og:url" content="https://sreeharis.in/doubleslit.html">
+<meta property="og:site_name" content="Sreeharis Science Hub">
+<meta property="og:image" content="https://sreeharis.in/preview.jpg">
+
+<!-- ══ TWITTER CARD ══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Young's Double Slit Experiment — Interactive Simulation">
+<meta name="twitter:description" content="Adjust slit separation, wavelength and screen distance. Watch wave interference produce bright and dark fringes with live intensity graph. FYUGP Physics.">
+<meta name="twitter:image" content="https://sreeharis.in/preview.jpg">
+
+<!-- ══ STRUCTURED DATA ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Young's Double Slit Experiment — Interactive Wave Interference Simulation",
+  "alternateName": ["Young's Experiment", "YDSE Simulation", "Double Slit Experiment", "Young Double Slit Experiment"],
+  "description": "Interactive browser-based simulation of Young's double slit experiment (1801). Adjust slit separation d, slit width a, wavelength λ, and screen distance D in real time. Observe coherent wavefronts expanding from two slits, interfering constructively and destructively, and producing the characteristic bright and dark fringe pattern on the screen. Includes a live intensity plot, fringe width calculator, and detailed physics notes.",
+  "url": "https://sreeharis.in/doubleslit.html",
+  "educationalLevel": "Undergraduate",
+  "learningResourceType": ["Simulation", "Interactive", "Visualization"],
+  "subject": ["Wave Optics", "Physics", "Interference", "Diffraction"],
+  "keywords": "Young's double slit experiment, YDSE, wave interference, fringe pattern, constructive destructive interference, wave optics",
+  "teaches": ["Wave interference", "Huygens principle", "Path difference and phase difference", "Fringe width formula β = λD/d", "Constructive and destructive interference conditions", "Single slit diffraction envelope"],
+  "inLanguage": "en",
+  "creator": {
+    "@type": "Organization",
+    "name": "Espace Systems",
+    "url": "https://sreeharis.in/espace.html"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Sreeharis Science Hub",
+    "url": "https://sreeharis.in/sciencehub.html"
+  },
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "student",
+    "audienceType": "Kerala University FYUGP BSc Physics students"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://sreeharis.in/"},
+      {"@type":"ListItem","position":2,"name":"Science Hub","item":"https://sreeharis.in/sciencehub.html"},
+      {"@type":"ListItem","position":3,"name":"Young's Double Slit Experiment","item":"https://sreeharis.in/doubleslit.html"}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Young's double slit experiment?",
+      "acceptedAnswer": {"@type":"Answer","text":"Young's double slit experiment (1801) demonstrates the wave nature of light. A coherent light source illuminates two closely spaced slits. Light diffracts from each slit and the two wavefronts overlap, producing an interference pattern of alternating bright (constructive) and dark (destructive) fringes on a distant screen."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula for fringe width in Young's experiment?",
+      "acceptedAnswer": {"@type":"Answer","text":"The fringe width β = λD/d, where λ is the wavelength of light, D is the distance from the slits to the screen, and d is the slit separation. Increasing λ or D increases fringe width; increasing d decreases it."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the condition for constructive interference in Young's experiment?",
+      "acceptedAnswer": {"@type":"Answer","text":"Constructive interference (bright fringes) occurs when the path difference Δ = d·sinθ = nλ, where n = 0, ±1, ±2, … The central maximum is at n = 0."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the condition for destructive interference in Young's experiment?",
+      "acceptedAnswer": {"@type":"Answer","text":"Destructive interference (dark fringes) occurs when the path difference Δ = d·sinθ = (n + ½)λ, where n = 0, ±1, ±2, … This produces zero intensity at those points on the screen."}
+    }
+  ]
+}
+</script>
+
+<link rel="icon" type="image/png" href="espace.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════
+   ROOT & RESET
+══════════════════════════════════════════ */
+:root {
+  --bg: #03010c;
+  --bg2: #06021a;
+  --violet: #7c4dff;
+  --violet2: #a07aff;
+  --violet-dim: rgba(124,77,255,0.35);
+  --cyan: #00e5ff;
+  --cyan2: #00bcd4;
+  --gold: #c9a84c;
+  --gold2: #f0c96a;
+  --slate: #8a9bb5;
+  --white: #ffffff;
+  --border: rgba(124,77,255,0.22);
+  --border2: rgba(0,229,255,0.15);
+  --card: rgba(255,255,255,0.03);
+  --mono: 'DM Mono', monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  overflow-x:hidden;
+  cursor:none;
+  min-height:100vh;
+}
+
+/* ── CURSOR ── */
+.cursor{width:10px;height:10px;background:var(--violet2);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(124,77,255,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 52px;
+  background:rgba(3,1,12,0.88);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  transition:padding .4s;
+}
+nav.scrolled{padding:12px 52px;}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;gap:2px;}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--violet2);}
+.nav-logo-sub{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.32);}
+.nav-back{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.84rem;
+  padding:8px 18px;border-radius:50px;
+  border:1px solid rgba(124,77,255,0.22);background:rgba(124,77,255,0.05);
+  transition:all .2s;
+}
+.nav-back:hover{color:var(--violet2);border-color:rgba(124,77,255,0.5);background:rgba(124,77,255,0.1);}
+
+/* ── HERO ── */
+.page-hero{
+  padding:130px 24px 50px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 0%, rgba(124,77,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 100%, rgba(0,229,255,0.05) 0%, transparent 60%),
+    linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(124,77,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,77,255,0.04) 1px,transparent 1px);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 30%,black,transparent);
+}
+.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(124,77,255,0.1);border:1px solid rgba(124,77,255,0.35);
+  padding:8px 22px;border-radius:50px;
+  font-size:0.72rem;font-weight:600;color:var(--violet2);letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:24px;animation:fade-up .7s ease both;
+}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);animation:blink 1.6s ease infinite;box-shadow:0 0 10px var(--cyan);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.1}}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,5vw,3.8rem);
+  font-weight:900;line-height:1.1;margin-bottom:18px;
+  animation:fade-up .7s .1s ease both;
+}
+.hero h1 em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--violet2) 0%,var(--cyan) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  color:var(--slate);font-size:0.98rem;line-height:1.82;max-width:560px;margin:0 auto 36px;
+  animation:fade-up .7s .2s ease both;
+}
+.hero-chips{
+  display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+  animation:fade-up .7s .3s ease both;
+}
+.hero-chip{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  padding:6px 14px;border-radius:50px;font-size:0.74rem;color:var(--slate);
+}
+@keyframes fade-up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════════════════════════════════════
+   MAIN LAYOUT
+══════════════════════════════════════════ */
+.exp-section{max-width:1100px;margin:0 auto;padding:48px 24px 80px;}
+
+/* ── PHASE INDICATOR ── */
+.phase-bar{
+  display:flex;gap:0;
+  background:rgba(255,255,255,0.02);border:1px solid rgba(124,77,255,0.15);
+  border-radius:14px;padding:5px;margin-bottom:36px;
+}
+.phase-step{
+  flex:1;padding:10px 14px;border-radius:10px;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.5px;
+  color:rgba(255,255,255,0.25);text-align:center;transition:all .35s;
+}
+.phase-step.active{background:rgba(124,77,255,0.14);color:var(--violet2);border:1px solid rgba(124,77,255,0.35);}
+.phase-step.done{color:rgba(160,122,255,0.45);}
+
+/* ══════════════════════════════════════════
+   MAIN SIMULATION CANVAS
+══════════════════════════════════════════ */
+.sim-wrap{
+  position:relative;
+  background:radial-gradient(ellipse 80% 80% at 50% 50%, #05020f 0%, #020109 100%);
+  border:1px solid rgba(124,77,255,0.25);
+  border-radius:22px;overflow:hidden;
+  margin-bottom:24px;
+  box-shadow:0 0 80px rgba(0,0,0,0.9),inset 0 0 60px rgba(0,0,0,0.6);
+}
+#simCanvas{display:block;width:100%;}
+.sim-label{
+  position:absolute;font-size:0.64rem;letter-spacing:1.5px;text-transform:uppercase;
+  font-weight:600;pointer-events:none;
+}
+.lbl-source{top:14px;left:18px;color:rgba(160,122,255,0.55);}
+.lbl-barrier{top:14px;color:rgba(200,200,220,0.4);}
+.lbl-screen{top:14px;right:18px;color:rgba(0,229,255,0.5);}
+
+/* live readouts */
+.live-readouts{
+  display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;
+}
+.readout-chip{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(124,77,255,0.18);
+  padding:10px 16px;border-radius:10px;flex:1;min-width:140px;
+}
+.readout-label{font-size:0.65rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);font-weight:600;}
+.readout-val{font-family:var(--mono);font-size:1.05rem;color:var(--violet2);font-weight:500;margin-top:2px;}
+.readout-unit{font-size:0.65rem;color:rgba(160,122,255,0.5);margin-left:3px;}
+
+/* ══════════════════════════════════════════
+   CONTROLS
+══════════════════════════════════════════ */
+.controls-panel{
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(124,77,255,0.18);
+  border-radius:18px;padding:26px 28px;
+  margin-bottom:24px;
+}
+.ctrl-title{
+  font-size:0.66rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--violet2);font-weight:600;margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.ctrl-title::before{content:'';width:18px;height:1px;background:var(--violet2);}
+.ctrl-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+.ctrl-group{display:flex;flex-direction:column;gap:8px;}
+.ctrl-label{
+  font-size:0.7rem;font-weight:600;color:rgba(255,255,255,0.5);
+  letter-spacing:0.3px;display:flex;justify-content:space-between;align-items:center;
+}
+.ctrl-label span{color:var(--violet2);font-family:var(--mono);font-size:0.78rem;}
+.ctrl-slider{
+  -webkit-appearance:none;width:100%;height:4px;border-radius:4px;outline:none;
+  background:linear-gradient(90deg,var(--violet) var(--pct,50%),rgba(255,255,255,0.08) var(--pct,50%));
+}
+.ctrl-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--violet2);cursor:none;
+  box-shadow:0 0 10px rgba(124,77,255,0.7);transition:transform .2s;
+}
+.ctrl-slider::-webkit-slider-thumb:hover{transform:scale(1.3);}
+
+/* wavelength slider special */
+#wlSlider{
+  background:linear-gradient(90deg,
+    #ff0000 0%, #ff7700 14%, #ffff00 28%, #00ff00 42%,
+    #0077ff 57%, #4400ff 71%, #8800ff 85%, #cc00ff 100%);
+}
+
+/* Preset buttons */
+.preset-row{display:flex;gap:8px;flex-wrap:wrap;}
+.preset-btn{
+  padding:7px 14px;border-radius:8px;font-size:0.74rem;font-weight:600;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(124,77,255,0.2);
+  color:rgba(255,255,255,0.45);cursor:none;transition:all .2s;
+}
+.preset-btn.active{background:rgba(124,77,255,0.2);border-color:rgba(160,122,255,0.6);color:var(--violet2);}
+.preset-btn:hover:not(.active){color:rgba(255,255,255,0.75);border-color:rgba(124,77,255,0.4);}
+
+/* ══════════════════════════════════════════
+   INTENSITY PLOT
+══════════════════════════════════════════ */
+.intensity-section{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border2);
+  border-radius:18px;padding:24px 28px;
+  margin-bottom:24px;
+}
+.int-title{
+  font-size:0.66rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--cyan);font-weight:600;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.int-title::before{content:'';width:18px;height:1px;background:var(--cyan);}
+#intensityCanvas{display:block;width:100%;border-radius:8px;}
+
+/* ══════════════════════════════════════════
+   OBSERVATION / EXPLANATION CARDS
+══════════════════════════════════════════ */
+.obs-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;margin-bottom:40px;
+}
+.obs-card{
+  background:var(--card);border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px;padding:22px;position:relative;overflow:hidden;
+}
+.obs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0;}
+.obs-card.bright::before{background:linear-gradient(90deg,var(--violet),var(--violet2));}
+.obs-card.dark::before{background:linear-gradient(90deg,#222,#555);}
+.obs-card.fringe::before{background:linear-gradient(90deg,var(--cyan),var(--cyan2));}
+.obs-card.envelope::before{background:linear-gradient(90deg,var(--gold),var(--gold2));}
+
+.obs-icon{font-size:1.8rem;margin-bottom:12px;display:block;}
+.obs-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:8px;}
+.obs-desc{color:var(--slate);font-size:0.85rem;line-height:1.72;}
+.obs-formula{
+  background:rgba(124,77,255,0.08);border:1px solid rgba(124,77,255,0.2);
+  border-radius:8px;padding:8px 12px;margin-top:12px;
+  font-family:var(--mono);font-size:0.82rem;color:var(--violet2);text-align:center;
+}
+.obs-formula.cyan{background:rgba(0,229,255,0.07);border-color:rgba(0,229,255,0.2);color:var(--cyan);}
+.obs-formula.gold{background:rgba(201,168,76,0.08);border-color:rgba(201,168,76,0.25);color:var(--gold2);}
+
+/* ══════════════════════════════════════════
+   PHYSICS NOTES
+══════════════════════════════════════════ */
+.notes-section{margin-bottom:48px;}
+.notes-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:6px;}
+.notes-sub{color:var(--slate);font-size:0.88rem;margin-bottom:24px;}
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;}
+.note-card{
+  background:var(--card);border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px;padding:20px 22px;
+}
+.note-card h4{font-size:0.82rem;font-weight:700;color:var(--violet2);margin-bottom:10px;letter-spacing:0.3px;}
+.note-card p,.note-card li{color:var(--slate);font-size:0.84rem;line-height:1.72;}
+.note-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.note-card li::before{content:'→ ';color:var(--violet2);font-weight:700;}
+.formula-box{
+  background:rgba(124,77,255,0.07);border:1px solid rgba(124,77,255,0.22);
+  border-radius:8px;padding:10px 14px;margin:10px 0;
+  font-family:var(--mono);font-size:0.86rem;color:var(--violet2);
+  text-align:center;letter-spacing:0.5px;
+}
+.formula-box.c{color:var(--cyan);background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.18);}
+.formula-box.g{color:var(--gold2);background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.22);}
+
+/* ══════════════════════════════════════════
+   HISTORY TIMELINE
+══════════════════════════════════════════ */
+.timeline{
+  background:rgba(255,255,255,0.02);border:1px solid rgba(124,77,255,0.16);
+  border-radius:18px;padding:32px;margin-bottom:48px;
+}
+.timeline-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:24px;}
+.timeline-items{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:20px;align-items:flex-start;position:relative;}
+.tl-item:not(:last-child)::after{
+  content:'';position:absolute;left:24px;top:38px;bottom:-4px;width:1px;
+  background:rgba(124,77,255,0.2);
+}
+.tl-dot{
+  width:48px;height:48px;border-radius:50%;flex-shrink:0;margin-bottom:24px;
+  background:rgba(124,77,255,0.12);border:1px solid rgba(124,77,255,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;font-weight:700;color:var(--violet2);font-family:var(--mono);
+}
+.tl-body strong{display:block;color:var(--white);font-size:0.92rem;font-weight:600;margin-bottom:4px;}
+.tl-body p{color:var(--slate);font-size:0.84rem;line-height:1.65;}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{
+  background:#020109;border-top:1px solid rgba(124,77,255,0.1);padding:40px 24px;
+  position:relative;z-index:1;
+}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:'Playfair Display',serif;color:var(--violet2);font-size:1rem;}
+.footer-logo span{display:block;color:var(--slate);font-family:'DM Sans',sans-serif;font-size:0.75rem;margin-top:4px;}
+.footer-copy{color:var(--slate);font-size:0.8rem;}
+.footer-link{color:var(--violet2);text-decoration:none;}
+.footer-link:hover{text-decoration:underline;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:14px 20px;}nav.scrolled{padding:11px 20px;}
+  .exp-section{padding:40px 16px 60px;}
+  .controls-panel{padding:20px;}
+  .ctrl-grid{grid-template-columns:1fr;}
+  body{cursor:auto;}.cursor,.cursor-ring{display:none;}
+  button,.preset-btn{cursor:pointer;}
+  .phase-bar{flex-wrap:wrap;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="sciencehub.html" class="nav-logo">
+    <span class="nav-logo-main">Science Hub</span>
+    <span class="nav-logo-sub">by sreeharis.in</span>
+  </a>
+  <a href="sciencehub.html" class="nav-back">← Back to Hub</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">🌊 Thomas Young · 1801 · Wave Optics</div>
+    <h1>Young's <em>Double Slit</em><br>Experiment</h1>
+    <p class="hero-sub">Adjust slit separation, wavelength, and screen distance in real time. Watch coherent wavefronts interfere and paint bright and dark fringes — exactly as Thomas Young proved the wave nature of light in 1801.</p>
+    <div class="hero-chips">
+      <div class="hero-chip">🌊 Wave Interference</div>
+      <div class="hero-chip">📐 FYUGP Physics</div>
+      <div class="hero-chip">📊 Live Intensity Graph</div>
+      <div class="hero-chip">🎛️ Real-time Controls</div>
+      <div class="hero-chip">🔬 Huygens Wavefronts</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIMENT SECTION -->
+<div class="exp-section">
+
+  <!-- PHASE BAR -->
+  <div class="phase-bar">
+    <div class="phase-step active" id="ph1">1 · Wavefronts</div>
+    <div class="phase-step" id="ph2">2 · Interference</div>
+    <div class="phase-step" id="ph3">3 · Fringes</div>
+    <div class="phase-step" id="ph4">4 · Intensity Plot</div>
+  </div>
+
+  <!-- MAIN CANVAS -->
+  <div class="sim-wrap" id="simWrap">
+    <canvas id="simCanvas"></canvas>
+    <div class="sim-label lbl-source">⚡ Coherent Source</div>
+    <div class="sim-label lbl-barrier" id="lblBarrier">▐ Double Slit</div>
+    <div class="sim-label lbl-screen">Screen →</div>
+  </div>
+
+  <!-- LIVE READOUTS -->
+  <div class="live-readouts">
+    <div class="readout-chip">
+      <div>
+        <div class="readout-label">Fringe Width β</div>
+        <div class="readout-val" id="rdBeta">—<span class="readout-unit">mm</span></div>
+      </div>
+    </div>
+    <div class="readout-chip">
+      <div>
+        <div class="readout-label">Path Diff. (n=1)</div>
+        <div class="readout-val" id="rdPath">—<span class="readout-unit">nm</span></div>
+      </div>
+    </div>
+    <div class="readout-chip">
+      <div>
+        <div class="readout-label">Wavelength λ</div>
+        <div class="readout-val" id="rdWL">—<span class="readout-unit">nm</span></div>
+      </div>
+    </div>
+    <div class="readout-chip">
+      <div>
+        <div class="readout-label">Visible Fringes</div>
+        <div class="readout-val" id="rdFringes">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls-panel">
+    <div class="ctrl-title">Experiment Parameters</div>
+    <div class="ctrl-grid">
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">Wavelength λ <span id="wlVal">550 nm</span></div>
+        <input type="range" class="ctrl-slider" id="wlSlider" min="380" max="780" value="550" oninput="updateAll()">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">Slit Separation d <span id="dVal">0.25 mm</span></div>
+        <input type="range" class="ctrl-slider" id="dSlider" min="1" max="20" value="8" oninput="updateAll()">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">Slit Width a <span id="aVal">0.05 mm</span></div>
+        <input type="range" class="ctrl-slider" id="aSlider" min="1" max="10" value="2" oninput="updateAll()">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">Screen Distance D <span id="DVal">1.00 m</span></div>
+        <input type="range" class="ctrl-slider" id="DSlider" min="2" max="20" value="10" oninput="updateAll()">
+      </div>
+
+      <div class="ctrl-group">
+        <div class="ctrl-label">Wave Speed <span id="speedVal">Normal</span></div>
+        <input type="range" class="ctrl-slider" id="speedSlider" min="1" max="5" value="3" oninput="updateAll()">
+      </div>
+
+    </div>
+    <div style="margin-top:20px;">
+      <div class="ctrl-label" style="margin-bottom:10px;">Quick Presets</div>
+      <div class="preset-row">
+        <button class="preset-btn active" id="pr0" onclick="applyPreset(0,this)">🔴 Red Laser (650nm)</button>
+        <button class="preset-btn" id="pr1" onclick="applyPreset(1,this)">🟢 Green Laser (532nm)</button>
+        <button class="preset-btn" id="pr2" onclick="applyPreset(2,this)">🔵 Blue Laser (450nm)</button>
+        <button class="preset-btn" id="pr3" onclick="applyPreset(3,this)">🔬 Close Slits</button>
+        <button class="preset-btn" id="pr4" onclick="applyPreset(4,this)">🔭 Wide Slits</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTENSITY PLOT -->
+  <div class="intensity-section">
+    <div class="int-title">Live Intensity Distribution I(y)</div>
+    <canvas id="intensityCanvas"></canvas>
+  </div>
+
+  <!-- OBSERVATION CARDS -->
+  <div style="font-size:0.66rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet2);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px;">
+    <span style="width:18px;height:1px;background:var(--violet2);display:inline-block;"></span>What You're Observing
+  </div>
+  <div class="obs-grid">
+
+    <div class="obs-card bright">
+      <span class="obs-icon">✨</span>
+      <div class="obs-title">Bright Fringes (Maxima)</div>
+      <p class="obs-desc">When wavefronts from the two slits arrive in phase, they reinforce each other — constructive interference. The path difference is an integer multiple of the wavelength.</p>
+      <div class="obs-formula">Δ = d·sinθ = nλ &nbsp;&nbsp; (n = 0, ±1, ±2…)</div>
+      <p class="obs-desc" style="margin-top:10px;">Position of nth bright fringe: <br>y<sub>n</sub> = nλD/d</p>
+    </div>
+
+    <div class="obs-card dark">
+      <span class="obs-icon">🌑</span>
+      <div class="obs-title">Dark Fringes (Minima)</div>
+      <p class="obs-desc">When wavefronts arrive exactly out of phase (half-wavelength path difference extra), they cancel completely — destructive interference. Zero intensity at these points.</p>
+      <div class="obs-formula">Δ = d·sinθ = (n + ½)λ</div>
+      <p class="obs-desc" style="margin-top:10px;">Position of nth dark fringe: <br>y<sub>n</sub> = (2n+1)λD/2d</p>
+    </div>
+
+    <div class="obs-card fringe">
+      <span class="obs-icon">📏</span>
+      <div class="obs-title">Fringe Width β</div>
+      <p class="obs-desc">The distance between two consecutive bright (or dark) fringes is constant and called the fringe width β. It increases with wavelength and screen distance, and decreases with slit separation.</p>
+      <div class="obs-formula cyan">β = λD / d</div>
+      <p class="obs-desc" style="margin-top:10px;">All fringes are equally spaced. The central maximum is the brightest.</p>
+    </div>
+
+    <div class="obs-card envelope">
+      <span class="obs-icon">📉</span>
+      <div class="obs-title">Single Slit Envelope</div>
+      <p class="obs-desc">The overall intensity is also modulated by single-slit diffraction from each slit. Fringes near the edges get weaker and eventually vanish where the single-slit pattern has its minima.</p>
+      <div class="obs-formula gold">Envelope: sinc²(πa·sinθ/λ)</div>
+      <p class="obs-desc" style="margin-top:10px;">Narrower slits → wider envelope → more visible fringes.</p>
+    </div>
+
+  </div>
+
+  <!-- PHYSICS NOTES -->
+  <div class="notes-section">
+    <div class="notes-title">📚 Physics Notes — FYUGP Examination Ready</div>
+    <p class="notes-sub">All key concepts, conditions, and formulae you need.</p>
+    <div class="notes-grid">
+
+      <div class="note-card">
+        <h4>The Experiment Setup</h4>
+        <ul>
+          <li>Coherent monochromatic light source S</li>
+          <li>Two narrow slits S₁ and S₂ separated by d</li>
+          <li>Screen at distance D from the slits</li>
+          <li>Slits act as two coherent secondary sources (Huygens)</li>
+          <li>Interference observed between D and d apart</li>
+        </ul>
+      </div>
+
+      <div class="note-card">
+        <h4>Key Formulae</h4>
+        <div class="formula-box">β = λD / d</div>
+        <div class="formula-box c">y_n = nλD / d (bright)</div>
+        <div class="formula-box g">y_n = (2n−1)λD / 2d (dark)</div>
+        <p>Path diff.: Δ = d·y/D for small angles</p>
+      </div>
+
+      <div class="note-card">
+        <h4>Conditions for Sustained Interference</h4>
+        <ul>
+          <li>Sources must be coherent (same frequency and constant phase difference)</li>
+          <li>Sources must be monochromatic</li>
+          <li>Amplitudes should be comparable</li>
+          <li>Slits must be narrow (comparable to λ)</li>
+          <li>Small separation d compared to D</li>
+        </ul>
+      </div>
+
+      <div class="note-card">
+        <h4>Effect of Changing Variables</h4>
+        <ul>
+          <li><strong style="color:var(--violet2)">↑ λ</strong> → ↑ β (wider fringes, redder light)</li>
+          <li><strong style="color:var(--violet2)">↑ D</strong> → ↑ β (farther screen, wider fringes)</li>
+          <li><strong style="color:var(--violet2)">↑ d</strong> → ↓ β (closer slits, narrower fringes)</li>
+          <li><strong style="color:var(--violet2)">↑ a</strong> → narrower diffraction envelope</li>
+          <li>Immerse in medium n → β reduces to β/n</li>
+        </ul>
+      </div>
+
+      <div class="note-card">
+        <h4>Intensity Distribution</h4>
+        <div class="formula-box">I = I₀ cos²(δ/2) · sinc²(β/2)</div>
+        <p>where δ = 2πd sinθ/λ is the phase difference between the two slits, and β = 2πa sinθ/λ is the single-slit phase parameter. Maximum intensity is 4I₀ at constructive interference.</p>
+      </div>
+
+      <div class="note-card">
+        <h4>Coherence</h4>
+        <p>Young used a single source S with two holes S₁, S₂ to ensure coherence — the two secondary sources always have the same frequency and a constant phase difference. Modern experiments use a laser beam directly on two slits. The coherence length must exceed the path difference for fringes to form.</p>
+      </div>
+
+      <div class="note-card">
+        <h4>Missing Orders</h4>
+        <p>When d/a is an integer, some interference maxima coincide with diffraction minima and disappear — these are called <em>missing orders</em>. For example, if d = 2a, the 2nd, 4th, 6th… orders are missing from the pattern.</p>
+        <div class="formula-box">Missing order: n = d/a × m</div>
+      </div>
+
+      <div class="note-card">
+        <h4>Historical Significance</h4>
+        <p>Thomas Young (1801) performed this experiment to settle the Newton vs Huygens debate on the nature of light. The clear interference pattern could only be explained by the wave theory. Einstein's 1905 photon theory later showed light is also a particle — wave-particle duality. Even single photons fired one at a time build up the same fringe pattern (quantum interference).</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- HISTORY TIMELINE -->
+  <div class="timeline">
+    <div class="timeline-title">📜 Historical Timeline</div>
+    <div class="timeline-items">
+      <div class="tl-item">
+        <div class="tl-dot">1678</div>
+        <div class="tl-body">
+          <strong>Huygens' Wave Theory</strong>
+          <p>Christiaan Huygens proposes that light travels as a wave. Each point on a wavefront acts as a new source of secondary spherical waves — the principle used in this experiment.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1704</div>
+        <div class="tl-body">
+          <strong>Newton's Corpuscular Theory</strong>
+          <p>Isaac Newton argues light is made of particles ("corpuscles"). His enormous authority suppresses the wave theory for nearly a century.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1801</div>
+        <div class="tl-body">
+          <strong>Young's Double Slit Experiment</strong>
+          <p>Thomas Young demonstrates interference of light through two slits, producing alternating bright and dark fringes. This is definitive proof of the wave nature of light and ends the corpuscular theory debate.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1864</div>
+        <div class="tl-body">
+          <strong>Maxwell's Electromagnetic Theory</strong>
+          <p>James Clerk Maxwell proves light is an electromagnetic wave with his equations, providing the theoretical underpinning for Young's result.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1905</div>
+        <div class="tl-body">
+          <strong>Einstein's Photon — Wave-Particle Duality</strong>
+          <p>Einstein explains the photoelectric effect using photons — light quanta. Combined with Young's wave experiment, this established wave-particle duality: light is both wave and particle.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1927</div>
+        <div class="tl-body">
+          <strong>Quantum Double Slit</strong>
+          <p>Davisson and Germer show electrons also produce interference patterns — matter waves. The double slit experiment becomes the central thought-experiment of quantum mechanics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Young's Double Slit Experiment
+      <span>Science Hub · sreeharis.in · Developed by <a href="espace.html" class="footer-link">Espace Systems</a></span>
+    </div>
+    <p class="footer-copy">
+      © 2026 <a href="https://sreeharis.in/" class="footer-link" target="_blank">sreeharis.in</a> · <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT — PHYSICS ENGINE
+══════════════════════════════════════════ -->
+<script>
+/* ── CURSOR ── */
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,.preset-btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='16px';cursor.style.height='16px';ring.style.width='54px';ring.style.height='54px';ring.style.borderColor='rgba(160,122,255,0.7)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(124,77,255,0.5)';});
+});
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+
+/* ══════════════════════════════════════════
+   WAVELENGTH → RGB
+══════════════════════════════════════════ */
+function wavelengthToRGB(wl){
+  // wl in nm 380–780
+  let r,g,b;
+  if(wl<380){r=0.5;g=0;b=0.5;}
+  else if(wl<440){r=(440-wl)/60;g=0;b=1;}
+  else if(wl<490){r=0;g=(wl-440)/50;b=1;}
+  else if(wl<510){r=0;g=1;b=(510-wl)/20;}
+  else if(wl<580){r=(wl-510)/70;g=1;b=0;}
+  else if(wl<645){r=1;g=(645-wl)/65;b=0;}
+  else if(wl<=780){r=1;g=0;b=0;}
+  else{r=0.5;g=0;b=0;}
+  // intensity falloff at ends
+  let a=1;
+  if(wl<420) a=0.3+(wl-380)/40*0.7;
+  if(wl>700) a=0.3+(780-wl)/80*0.7;
+  return {r:Math.round(r*255),g:Math.round(g*255),b:Math.round(b*255),a};
+}
+
+/* ══════════════════════════════════════════
+   CANVAS SETUP
+══════════════════════════════════════════ */
+const simCanvas=document.getElementById('simCanvas');
+const sc=simCanvas.getContext('2d');
+const intCanvas=document.getElementById('intensityCanvas');
+const ic=intCanvas.getContext('2d');
+
+let W,H,IW,IH;
+let BARRIER_X,SCREEN_X,SOURCE_X;
+
+function resize(){
+  const wrap=document.getElementById('simWrap');
+  W=wrap.clientWidth;
+  H=Math.max(300,Math.min(460,W*0.45));
+  simCanvas.width=W;simCanvas.height=H;
+  simCanvas.style.height=H+'px';
+  IW=document.querySelector('.intensity-section').clientWidth-56;
+  IH=Math.max(120,Math.min(200,IW*0.22));
+  intCanvas.width=IW;intCanvas.height=IH;
+  intCanvas.style.height=IH+'px';
+  SOURCE_X=W*0.06;
+  BARRIER_X=W*0.32;
+  SCREEN_X=W*0.94;
+  // update barrier label position
+  document.getElementById('lblBarrier').style.left=(BARRIER_X-30)+'px';
+}
+resize();
+window.addEventListener('resize',()=>{resize();drawAll();});
+
+/* ══════════════════════════════════════════
+   PHYSICS PARAMETERS
+══════════════════════════════════════════ */
+let params={
+  lambda:550,  // nm
+  d:8,         // slider 1–20 → maps to 0.05–1.5 mm
+  a:2,         // slider 1–10 → maps to 0.02–0.25 mm
+  D:10,        // slider 2–20 → maps to 0.5–3 m
+  speed:3
+};
+
+// Mapping functions — real units
+function getD_mm(){ return 0.05+params.d/20*1.45; }   // mm
+function getA_mm(){ return 0.02+params.a/10*0.23; }   // mm
+function getD_m(){  return 0.5+params.D/20*2.5; }      // m
+
+/* ── FRINGE WIDTH β = λD/d (in mm) ── */
+function getFringeWidth(){
+  const l=params.lambda*1e-9;  // m
+  const D=getD_m();
+  const d=getD_mm()*1e-3;      // m
+  return (l*D/d)*1000;         // mm
+}
+
+/* ── INTENSITY at screen position y (mm from centre) ── */
+function intensity(y_mm){
+  const y=y_mm*1e-3;           // m
+  const l=params.lambda*1e-9;
+  const D=getD_m();
+  const d=getD_mm()*1e-3;
+  const a=getA_mm()*1e-3;
+
+  // Double slit interference
+  const delta=Math.PI*d*y/(l*D);    // phase = π·d·y / (λ·D)
+  const Idouble=Math.cos(delta)*Math.cos(delta);
+
+  // Single slit envelope
+  const beta_arg=Math.PI*a*y/(l*D);
+  const Isinc=beta_arg===0 ? 1 : Math.pow(Math.sin(beta_arg)/beta_arg,2);
+
+  return Idouble*Isinc;
+}
+
+/* ══════════════════════════════════════════
+   WAVE ANIMATION
+══════════════════════════════════════════ */
+let phase=0;
+let animId=null;
+
+function getSlitPositions(){
+  const d_px=(getD_mm()/1.5)*H*0.4; // scale d to pixels sensibly
+  const clamp=Math.min(d_px,H*0.38);
+  return [H/2-clamp/2, H/2+clamp/2];
+}
+
+function drawSim(t){
+  sc.clearRect(0,0,W,H);
+
+  // ── BACKGROUND ──
+  sc.fillStyle='#05020f';
+  sc.fillRect(0,0,W,H);
+  // subtle radial centre glow — safe radii guaranteed
+  const bg=sc.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(1,W*0.6));
+  bg.addColorStop(0,'rgba(10,4,30,1)');
+  bg.addColorStop(1,'rgba(2,1,9,1)');
+  sc.fillStyle=bg;sc.fillRect(0,0,W,H);
+
+  // Subtle grid
+  sc.strokeStyle='rgba(124,77,255,0.03)';sc.lineWidth=0.5;
+  for(let x=0;x<W;x+=40){sc.beginPath();sc.moveTo(x,0);sc.lineTo(x,H);sc.stroke();}
+  for(let y2=0;y2<H;y2+=40){sc.beginPath();sc.moveTo(0,y2);sc.lineTo(W,y2);sc.stroke();}
+
+  const {r,g,b,a:wla}=wavelengthToRGB(params.lambda);
+  const C=`rgba(${r},${g},${b}`;  // colour prefix — close with alpha+)
+  const [s1y,s2y]=getSlitPositions();
+  const slitW_px=Math.max(4,10-params.a*0.6);
+
+  // ── INCIDENT PLANE WAVES (left of barrier) ──
+  const incCount=9;
+  for(let i=0;i<incCount;i++){
+    const frac=((i/incCount)+t)%1; // 0→1
+    const xw=SOURCE_X+frac*(BARRIER_X-SOURCE_X);
+    const alpha=Math.sin(frac*Math.PI)*0.55*wla; // fade in then fade out
+    sc.strokeStyle=`${C},${Math.max(0,alpha)})`;
+    sc.lineWidth=1.4;
+    sc.beginPath();sc.moveTo(xw,H*0.04);sc.lineTo(xw,H*0.96);sc.stroke();
+  }
+
+  // ── SOURCE GLOW ──
+  const srcR=Math.max(1,26);
+  const sg=sc.createRadialGradient(SOURCE_X,H/2,0,SOURCE_X,H/2,srcR);
+  sg.addColorStop(0,`${C},${wla})`);
+  sg.addColorStop(0.5,`${C},${0.4*wla})`);
+  sg.addColorStop(1,`${C},0)`);
+  sc.fillStyle=sg;
+  sc.beginPath();sc.arc(SOURCE_X,H/2,srcR,0,Math.PI*2);sc.fill();
+
+  // ── BARRIER ──
+  const bw=7;
+  sc.fillStyle='rgba(180,185,215,0.2)';
+  // top section
+  const top_h=Math.max(0,s1y-slitW_px/2);
+  if(top_h>0) sc.fillRect(BARRIER_X-bw/2,0,bw,top_h);
+  // middle section between slits
+  const mid_y=s1y+slitW_px/2;
+  const mid_h=Math.max(0,s2y-slitW_px/2-mid_y);
+  if(mid_h>0) sc.fillRect(BARRIER_X-bw/2,mid_y,bw,mid_h);
+  // bottom section
+  const bot_y=s2y+slitW_px/2;
+  const bot_h=Math.max(0,H-bot_y);
+  if(bot_h>0) sc.fillRect(BARRIER_X-bw/2,bot_y,bw,bot_h);
+
+  // ── SLIT GLOWS ──
+  [s1y,s2y].forEach(sy=>{
+    const gr=Math.max(1,slitW_px*2.5);
+    const sg2=sc.createRadialGradient(BARRIER_X,sy,0,BARRIER_X,sy,gr);
+    sg2.addColorStop(0,`${C},${0.9*wla})`);
+    sg2.addColorStop(0.6,`${C},${0.25*wla})`);
+    sg2.addColorStop(1,`${C},0)`);
+    sc.fillStyle=sg2;
+    sc.beginPath();sc.arc(BARRIER_X,sy,gr,0,Math.PI*2);sc.fill();
+  });
+
+  // ── HUYGENS WAVELETS — semicircles expanding right from each slit ──
+  // Each wavelet is drawn as a stroked arc only — no gradient (avoids radius crash)
+  const waveCount=12;
+  const maxR=SCREEN_X-BARRIER_X;
+  [s1y,s2y].forEach(sy=>{
+    for(let i=0;i<waveCount;i++){
+      const frac=((i/waveCount)+t)%1;  // 0→1, wraps
+      const radius=Math.max(2,frac*maxR);
+      // fade: bright when small, dim when large
+      const alpha=Math.max(0,(1-frac)*0.7*wla);
+      if(alpha<0.005) continue;
+      sc.strokeStyle=`${C},${alpha})`;
+      sc.lineWidth=Math.max(0.5,1.8*(1-frac));
+      sc.beginPath();
+      // Right-facing semicircle: from -90° to +90°
+      sc.arc(BARRIER_X,sy,radius,-Math.PI/2,Math.PI/2);
+      sc.stroke();
+    }
+  });
+
+  // ── INTERFERENCE FIELD — draw between barrier and screen ──
+  // Sample columns of pixels using the wave superposition formula
+  const fieldW=SCREEN_X-BARRIER_X-10;
+  const fieldStep=4; // px per column (performance)
+  for(let dx=fieldStep;dx<fieldW;dx+=fieldStep){
+    const px=BARRIER_X+dx;
+    for(let py=4;py<H-4;py+=3){
+      const y_m=(py-H/2)/H*0.04; // ±20mm at screen scale
+      const x_m=dx/fieldW*getD_m();
+      // Superposition from two slits
+      const d_m=getD_mm()*1e-3;
+      const dy1=Math.sqrt(x_m*x_m+(y_m-d_m/2)*(y_m-d_m/2));
+      const dy2=Math.sqrt(x_m*x_m+(y_m+d_m/2)*(y_m+d_m/2));
+      const lambda_m=params.lambda*1e-9;
+      const k=2*Math.PI/lambda_m;
+      // Wave phase from each slit
+      const ph1=k*dy1-t*Math.PI*8;
+      const ph2=k*dy2-t*Math.PI*8;
+      // Superposed amplitude (normalised)
+      const amp=(Math.cos(ph1)+Math.cos(ph2))/2;
+      const I=amp*amp;
+      const fade=Math.min(1,(dx/fieldW)*2.5); // fade in from barrier
+      const alpha=I*0.22*wla*fade;
+      if(alpha<0.01) continue;
+      sc.fillStyle=`${C},${alpha})`;
+      sc.fillRect(px,py,fieldStep,3);
+    }
+  }
+
+  // ── SCREEN — fringe pattern ──
+  const screenW=14;
+  for(let py=0;py<H;py++){
+    const y_mm=((py-H/2)/H)*40; // ±20mm
+    const I=intensity(y_mm);
+    const bright=I*255*wla;
+    sc.fillStyle=`rgba(${Math.round(r*bright/255)},${Math.round(g*bright/255)},${Math.round(b*bright/255)},${Math.min(1,I*wla)})`;
+    sc.fillRect(SCREEN_X,py,screenW,1);
+  }
+  // Screen border
+  sc.strokeStyle='rgba(255,255,255,0.12)';sc.lineWidth=1;
+  sc.beginPath();sc.moveTo(SCREEN_X,H*0.04);sc.lineTo(SCREEN_X,H*0.96);sc.stroke();
+
+  // ── FRINGE PATH GUIDES ──
+  const beta=getFringeWidth();
+  const scale=H/40;
+  sc.setLineDash([4,7]);
+  [0,1,-1,2,-2].forEach(n=>{
+    const y_px=H/2+n*beta*scale;
+    if(y_px>8&&y_px<H-8){
+      sc.strokeStyle=n===0?`${C},0.28)`:`${C},0.1)`;
+      sc.lineWidth=n===0?1.2:0.6;
+      sc.beginPath();
+      sc.moveTo(BARRIER_X,H/2);
+      sc.lineTo(SCREEN_X,y_px);
+      sc.stroke();
+    }
+  });
+  sc.setLineDash([]);
+}
+
+/* ══════════════════════════════════════════
+   INTENSITY GRAPH
+══════════════════════════════════════════ */
+function drawIntensity(){
+  ic.clearRect(0,0,IW,IH);
+
+  // Background
+  ic.fillStyle='rgba(3,1,12,0.8)';ic.fillRect(0,0,IW,IH);
+
+  const {r,g,b}=wavelengthToRGB(params.lambda);
+  const N=IW;
+  const yRange=30; // ±15mm
+
+  // Axes
+  ic.strokeStyle='rgba(255,255,255,0.08)';ic.lineWidth=1;
+  ic.beginPath();ic.moveTo(0,IH/2);ic.lineTo(IW,IH/2);ic.stroke();
+  ic.beginPath();ic.moveTo(0,0);ic.lineTo(0,IH);ic.stroke();
+
+  // Axis labels
+  ic.fillStyle='rgba(138,155,181,0.5)';ic.font=`10px DM Sans`;ic.textAlign='center';
+  ic.fillText('y (position on screen)',IW/2,IH-4);
+  ic.fillStyle='rgba(138,155,181,0.5)';ic.font=`10px DM Sans`;
+  ic.save();ic.translate(10,IH/2);ic.rotate(-Math.PI/2);ic.fillText('I',0,0);ic.restore();
+
+  // Plot
+  ic.beginPath();
+  let first=true;
+  for(let px=0;px<N;px++){
+    const y_mm=((px/N)-0.5)*yRange*2;
+    const I=intensity(y_mm);
+    const py=IH/2*(1-I); // I=1 → top
+    if(first){ic.moveTo(px,py);first=false;}
+    else ic.lineTo(px,py);
+  }
+  ic.strokeStyle=`rgba(${r},${g},${b},0.85)`;ic.lineWidth=2;ic.stroke();
+
+  // Fill under curve
+  ic.lineTo(N,IH/2);ic.lineTo(0,IH/2);ic.closePath();
+  ic.fillStyle=`rgba(${r},${g},${b},0.12)`;ic.fill();
+
+  // Central max label
+  ic.fillStyle=`rgba(${r},${g},${b},0.7)`;ic.font=`10px DM Mono`;ic.textAlign='center';
+  ic.fillText('n=0',IW/2,14);
+
+  // Fringe labels
+  const beta=getFringeWidth(); // mm
+  const scale=(IW/2)/(yRange); // px/mm
+  [-2,-1,1,2].forEach(n=>{
+    const px=IW/2+n*beta*scale;
+    if(px>10&&px<IW-10){
+      ic.fillStyle=`rgba(${r},${g},${b},0.5)`;
+      ic.font=`9px DM Mono`;ic.textAlign='center';
+      ic.fillText(`n=${n}`,px,14);
+      ic.strokeStyle=`rgba(${r},${g},${b},0.2)`;ic.lineWidth=0.5;ic.setLineDash([2,4]);
+      ic.beginPath();ic.moveTo(px,16);ic.lineTo(px,IH/2);ic.stroke();ic.setLineDash([]);
+    }
+  });
+}
+
+/* ══════════════════════════════════════════
+   READOUT UPDATE
+══════════════════════════════════════════ */
+function updateReadouts(){
+  const beta=getFringeWidth();
+  const pathDiff=params.lambda;
+  const d=getD_mm();
+  const D_m=getD_m();
+  const yRange=30;
+  const scale=(1)/(yRange);
+  const fringesVisible=Math.floor(15/beta)*2+1;
+
+  document.getElementById('rdBeta').innerHTML=beta.toFixed(3)+'<span class="readout-unit">mm</span>';
+  document.getElementById('rdPath').innerHTML=pathDiff+'<span class="readout-unit">nm</span>';
+  document.getElementById('rdWL').innerHTML=params.lambda+'<span class="readout-unit">nm</span>';
+  document.getElementById('rdFringes').innerHTML=Math.min(fringesVisible,50)+'';
+}
+
+/* ══════════════════════════════════════════
+   SLIDER VALUE DISPLAY
+══════════════════════════════════════════ */
+function updateSliderDisplays(){
+  const wl=parseInt(document.getElementById('wlSlider').value);
+  const d=parseInt(document.getElementById('dSlider').value);
+  const a=parseInt(document.getElementById('aSlider').value);
+  const D=parseInt(document.getElementById('DSlider').value);
+  const sp=parseInt(document.getElementById('speedSlider').value);
+  params.lambda=wl;params.d=d;params.a=a;params.D=D;params.speed=sp;
+
+  document.getElementById('wlVal').textContent=wl+' nm';
+  document.getElementById('dVal').textContent=getD_mm().toFixed(2)+' mm';
+  document.getElementById('aVal').textContent=getA_mm().toFixed(3)+' mm';
+  document.getElementById('DVal').textContent=getD_m().toFixed(2)+' m';
+  const speedLabels=['','Very Slow','Slow','Normal','Fast','Max'];
+  document.getElementById('speedVal').textContent=speedLabels[sp];
+
+  // slider gradient
+  ['wlSlider','dSlider','aSlider','DSlider','speedSlider'].forEach(id=>{
+    const el=document.getElementById(id);
+    const min=parseFloat(el.min),max=parseFloat(el.max),val=parseFloat(el.value);
+    el.style.setProperty('--pct',((val-min)/(max-min)*100)+'%');
+    if(id!=='wlSlider') el.style.background=`linear-gradient(90deg,var(--violet) var(--pct),rgba(255,255,255,0.08) var(--pct))`;
+  });
+}
+
+function updateAll(){
+  updateSliderDisplays();
+  updateReadouts();
+  drawIntensity();
+}
+
+/* ══════════════════════════════════════════
+   PRESETS
+══════════════════════════════════════════ */
+const PRESETS=[
+  {lambda:650,d:8,a:2,D:10},  // Red
+  {lambda:532,d:8,a:2,D:10},  // Green
+  {lambda:450,d:8,a:2,D:10},  // Blue
+  {lambda:550,d:3,a:2,D:10},  // Close slits
+  {lambda:550,d:16,a:4,D:10}  // Wide slits
+];
+function applyPreset(i,btn){
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const p=PRESETS[i];
+  document.getElementById('wlSlider').value=p.lambda;
+  document.getElementById('dSlider').value=p.d;
+  document.getElementById('aSlider').value=p.a;
+  document.getElementById('DSlider').value=p.D;
+  updateAll();
+}
+
+/* ══════════════════════════════════════════
+   PHASE BAR
+══════════════════════════════════════════ */
+let phaseReached=1;
+function checkPhase(t){
+  if(t>1&&phaseReached<2){ phaseReached=2; setPhase(2); }
+  if(t>3&&phaseReached<3){ phaseReached=3; setPhase(3); }
+  if(t>6&&phaseReached<4){ phaseReached=4; setPhase(4); drawIntensity(); }
+}
+function setPhase(n){
+  for(let i=1;i<=4;i++){
+    const el=document.getElementById('ph'+i);
+    el.classList.remove('active','done');
+    if(i===n) el.classList.add('active');
+    if(i<n) el.classList.add('done');
+  }
+}
+
+/* ══════════════════════════════════════════
+   MAIN ANIMATION LOOP
+══════════════════════════════════════════ */
+let t=0,last=null;
+function loop(ts){
+  if(!last) last=ts;
+  const dt=(ts-last)/1000;
+  last=ts;
+  const speedMap=[0,0.2,0.4,0.7,1.1,1.6];
+  t+=dt*speedMap[params.speed];
+  checkPhase(t);
+  drawSim(t%1);
+  animId=requestAnimationFrame(loop);
+}
+
+function drawAll(){ drawSim(0); drawIntensity(); }
+
+/* ── INIT ── */
+updateAll();
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
