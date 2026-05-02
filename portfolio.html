@@ -423,6 +423,61 @@
       font-size:0.72rem; color:var(--gold); letter-spacing:0.5px; font-weight:500;
     }
 
+    /* ── EXAMINATIONS ── */
+    .exams-section { background: var(--navy); }
+    .exams-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 52px;
+    }
+    .exam-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px 30px;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .exam-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 90% 10%, rgba(201,168,76,0.07) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .exam-card:hover::before { opacity: 1; }
+    .exam-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .exam-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .exam-badge {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); padding: 4px 12px; border-radius: 50px;
+    }
+    .exam-badge-defence {
+      background: rgba(77,184,255,0.08); border-color: rgba(77,184,255,0.3);
+      color: #4db8ff;
+    }
+    .exam-year {
+      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      color: var(--slate); letter-spacing: 1px;
+    }
+    .exam-title {
+      font-family: 'Playfair Display', serif; font-size: 1.6rem;
+      font-weight: 900; color: var(--white); margin-bottom: 4px; line-height: 1.1;
+    }
+    .exam-full {
+      font-size: 0.78rem; color: var(--gold); font-weight: 600;
+      letter-spacing: 0.3px; margin-bottom: 14px;
+    }
+    .exam-desc {
+      color: var(--slate); font-size: 0.88rem; line-height: 1.72; margin-bottom: 18px;
+    }
+    .exam-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
     /* ── SKILLS ── */
     .skills-section { background:linear-gradient(160deg,#0d1f3c 0%,#071120 100%); position:relative; overflow:hidden; }
     .skills-section::before {
@@ -446,7 +501,7 @@
     }
     .skill-card.visible { opacity:1; transform:translateY(0); }
     .skill-card:hover { border-color:var(--border-strong); box-shadow:0 20px 50px rgba(0,0,0,0.4); transform:translateY(-4px); }
-    .skill-icon { font-size:2.2rem; margin-bottom:18px; display:block; }
+    .skill-icon { display:none; }
     .skill-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; }
     .skill-desc { color:var(--slate); font-size:0.88rem; line-height:1.65; }
 
@@ -556,6 +611,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#courses">Courses</a></li>
+      <li><a href="#exams">Exams</a></li>
       <li><a href="espace.html">Espace</a></li>
       <li><a href="#connect">Contact</a></li>
       <li><a href="portfolio.html" class="active">Portfolio</a></li>
@@ -581,15 +637,15 @@
           A chemistry undergrad from St. John's College, Anchal who builds digital products people actually use — from Kerala's most organized FYUGP study portal to full-stack web experiences for emerging businesses.
         </p>
         <div class="hero-pills">
-          <span class="pill">🌐 Web Developer</span>
-          <span class="pill">📈 Digital Marketer</span>
-          <span class="pill">🔬 Chemistry Student</span>
-          <span class="pill">🧬 Drug Design Intern</span>
-          <span class="pill">🚀 Founder</span>
-          <span class="pill">📍 Kollam, Kerala</span>
+          <span class="pill">Web Developer</span>
+          <span class="pill">Digital Marketer</span>
+          <span class="pill">Chemistry Student</span>
+          <span class="pill">Drug Design Intern</span>
+          <span class="pill">Founder</span>
+          <span class="pill">Kollam, Kerala</span>
         </div>
         <div class="hero-cta">
-          <a href="espace.html" class="btn-primary">🚀 Espace Systems</a>
+          <a href="espace.html" class="btn-primary">Espace Systems</a>
           <a href="#experience" class="btn-outline">↓ My Journey</a>
         </div>
       </div>
@@ -641,7 +697,7 @@
           <div class="timeline-year">2024 – Present</div>
           <div class="timeline-card">
             <div class="timeline-role">Founder &amp; CEO</div>
-            <div class="timeline-org"><span>🚀</span> <a href="espace.html">Espace Systems</a></div>
+            <div class="timeline-org"><a href="espace.html">Espace Systems</a></div>
             <p class="timeline-desc">
               Founded Espace Systems to provide professional web design, SEO, and digital solutions for new businesses and emerging initiatives. Handles everything from branding and front-end development to search engine optimisation and digital strategy — helping small businesses establish a strong, credible online presence from day one.
             </p>
@@ -660,7 +716,7 @@
           <div class="timeline-year">2024 – Present</div>
           <div class="timeline-card">
             <div class="timeline-role">Developer &amp; Owner — FYUGP Study Portal</div>
-            <div class="timeline-org"><span>📚</span> <a href="index.html">sreeharis.in</a></div>
+            <div class="timeline-org"><a href="index.html">sreeharis.in</a></div>
             <p class="timeline-desc">
               Designed and built sreeharis.in — Kerala University's most comprehensive FYUGP resource hub — to solve the complexity students face navigating the Four Year Undergraduate Programme. The platform offers a library-like structure for syllabus, notes, question papers, and interactive science simulations. Students can also contribute their own notes and past papers, making it a living, community-driven resource.
             </p>
@@ -679,7 +735,7 @@
           <div class="timeline-year">2024 – Present</div>
           <div class="timeline-card">
             <div class="timeline-role">Digital Marketer</div>
-            <div class="timeline-org"><span>📈</span> DUB Technologies</div>
+            <div class="timeline-org">DUB Technologies</div>
             <p class="timeline-desc">
               Serving as digital marketer for 11+ technology-leading companies through DUB Technologies. Manages digital campaigns, social media presence, and online growth strategies across a diverse portfolio of tech clients — driving visibility and engagement for brands at the forefront of their industries.
             </p>
@@ -698,7 +754,7 @@
           <div class="timeline-year">2024</div>
           <div class="timeline-card">
             <div class="timeline-role">Campus Partner — Former</div>
-            <div class="timeline-org"><span>🤖</span> Perplexity AI</div>
+            <div class="timeline-org">Perplexity AI</div>
             <p class="timeline-desc">
               Served as Perplexity AI's campus partner, representing and promoting one of the world's leading AI-powered search platforms within the Kerala University student community. Facilitated adoption and awareness of cutting-edge AI tools among peers.
             </p>
@@ -716,7 +772,7 @@
           <div class="timeline-year">2025 – Present</div>
           <div class="timeline-card">
             <div class="timeline-role">Research Intern — Drug Designing</div>
-            <div class="timeline-org"><span>🧬</span> Digital University of Kerala, Trivandrum</div>
+            <div class="timeline-org">Digital University of Kerala, Trivandrum</div>
             <p class="timeline-desc">
               completed an internship under Dr. Aswin VS at the Digital University of Kerala on computational drug design. Working with RDKit in Python to model, analyse and screen molecular structures as part of drug discovery pipelines — bridging chemistry knowledge with computational tools at the intersection of science and technology.
             </p>
@@ -735,7 +791,7 @@
           <div class="timeline-year">2023 – Present</div>
           <div class="timeline-card">
             <div class="timeline-role">BSc Chemistry Student — FYUGP</div>
-            <div class="timeline-org"><span>🔬</span> St. John's College, Anchal · Kerala University</div>
+            <div class="timeline-org">St. John's College, Anchal · Kerala University</div>
             <p class="timeline-desc">
               Pursuing the Four Year Undergraduate Programme in Chemistry at St. John's College, Anchal, Kollam — affiliated to Kerala University. Alongside academics, has channelled coursework in semiconductors, renewable energy chemistry, and computational tools into real-world projects and public learning resources.
             </p>
@@ -746,6 +802,73 @@
               <span class="tag">St. John's Anchal</span>
               <span class="tag">Kollam</span>
             </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMINATIONS CLEARED -->
+  <section class="exams-section" id="exams">
+    <div class="section-inner">
+      <p class="section-label reveal">Competitive Examinations</p>
+      <h2 class="section-title reveal">Examinations<br><em style="color:var(--gold);font-style:normal">Cleared</em></h2>
+      <p class="reveal" style="color:var(--slate);font-size:0.97rem;line-height:1.75;margin-top:8px;max-width:540px;">
+        Cleared multiple national-level competitive and defence entrance examinations — demonstrating strong aptitude across science, mathematics and general intelligence.
+      </p>
+
+      <div class="exams-grid reveal">
+
+        <div class="exam-card">
+          <div class="exam-header">
+            <div class="exam-badge">National</div>
+            <div class="exam-year">2023</div>
+          </div>
+          <div class="exam-title">JEE Mains</div>
+          <div class="exam-full">Joint Entrance Examination — Mains</div>
+          <p class="exam-desc">
+            Cleared the Joint Entrance Examination (Mains) — India's premier national-level engineering entrance examination conducted by NTA. Tests Physics, Chemistry and Mathematics at an advanced level, with approximately 1.2 million candidates appearing annually.
+          </p>
+          <div class="exam-tags">
+            <span class="tag">NTA</span>
+            <span class="tag">Physics · Chemistry · Maths</span>
+            <span class="tag">National Level</span>
+          </div>
+        </div>
+
+        <div class="exam-card">
+          <div class="exam-header">
+            <div class="exam-badge exam-badge-defence">Defence</div>
+            <div class="exam-year">2023</div>
+          </div>
+          <div class="exam-title">INET</div>
+          <div class="exam-full">Indian Navy Entrance Test</div>
+          <p class="exam-desc">
+            Cleared the Indian Navy Entrance Test — the competitive examination conducted by the Indian Navy for recruitment into officer and sailor cadres. Tests English, reasoning, numerical ability and science, with rigorous qualifying standards.
+          </p>
+          <div class="exam-tags">
+            <span class="tag">Indian Navy</span>
+            <span class="tag">Defence Entrance</span>
+            <span class="tag">National Level</span>
+          </div>
+        </div>
+
+        <div class="exam-card">
+          <div class="exam-header">
+            <div class="exam-badge exam-badge-defence">Defence · Cleared Twice</div>
+            <div class="exam-year">2023 · 2024</div>
+          </div>
+          <div class="exam-title">CGEPT</div>
+          <div class="exam-full">Indian Coast Guard Enrolled Personnel Test</div>
+          <p class="exam-desc">
+            Cleared the Indian Coast Guard Enrolled Personnel Test on two separate occasions — a highly competitive national defence examination for recruitment into the Indian Coast Guard. Tests general science, mathematics, English and reasoning under stringent time conditions.
+          </p>
+          <div class="exam-tags">
+            <span class="tag">Indian Coast Guard</span>
+            <span class="tag">Cleared Twice</span>
+            <span class="tag">Defence Entrance</span>
+            <span class="tag">National Level</span>
           </div>
         </div>
 
@@ -804,11 +927,11 @@
       </p>
 
       <div class="connect-card reveal">
-        <a href="https://www.instagram.com/sre.youh" target="_blank" rel="noopener" class="btn-insta">📸 Instagram</a>
+        <a href="https://www.instagram.com/sre.youh" target="_blank" rel="noopener" class="btn-insta">Instagram</a>
         <a href="https://www.linkedin.com/in/sreehari-s-19950a248" target="_blank" rel="noopener" class="btn-linkedin">💼 LinkedIn</a>
-        <a href="https://t.me/sreyouh" target="_blank" rel="noopener" class="btn-telegram">✈️ Telegram</a>
-        <a href="/cdn-cgi/l/email-protection#55262730303d34273c26203b3c39646565153238343c397b363a38" class="btn-mail">✉️ Email</a>
-        <a href="espace.html" class="btn-primary" style="margin-top:20px;width:100%;justify-content:center">🚀 Hire via Espace Systems</a>
+        <a href="https://t.me/sreyouh" target="_blank" rel="noopener" class="btn-telegram">Telegram</a>
+        <a href="/cdn-cgi/l/email-protection#55262730303d34273c26203b3c39646565153238343c397b363a38" class="btn-mail">Email</a>
+        <a href="espace.html" class="btn-primary" style="margin-top:20px;width:100%;justify-content:center">Hire via Espace Systems</a>
       </div>
     </div>
   </section>
@@ -854,3 +977,4 @@
   </script>
 </body>
 </html>
+
