@@ -253,14 +253,7 @@ nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
   background:var(--white);
 }
 
-.service-icon{
-  width:52px;height:52px;border-radius:14px;
-  background:var(--blue-light);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;margin-bottom:20px;
-  transition:background .3s;
-}
-.service-card:hover .service-icon{background:rgba(26,86,219,0.15);}
+.service-icon{ display:none; }
 
 .service-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:10px;}
 .service-desc{color:var(--slate);font-size:0.88rem;line-height:1.7;}
@@ -320,6 +313,59 @@ nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
   width:40px;height:40px;border-radius:10px;
   background:var(--blue-light);
   display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+  overflow:hidden;position:relative;
+}
+
+/* ── Animated contact icons ── */
+/* Email — flying envelope */
+.icon-mail{width:22px;height:16px;position:relative;}
+.icon-mail-body{
+  width:22px;height:16px;border:2px solid var(--blue);border-radius:2px;
+  position:absolute;top:0;left:0;background:var(--blue-light);
+}
+.icon-mail-flap{
+  width:0;height:0;
+  border-left:11px solid transparent;border-right:11px solid transparent;
+  border-top:9px solid var(--blue);
+  position:absolute;top:0;left:0;
+  animation:mail-flap 2s ease-in-out infinite;
+  transform-origin:top center;
+}
+.icon-mail-v{
+  width:0;height:0;
+  border-left:11px solid transparent;border-right:11px solid transparent;
+  border-bottom:8px solid rgba(26,86,219,0.25);
+  position:absolute;top:2px;left:0;
+}
+@keyframes mail-flap{
+  0%,100%{transform:rotateX(0deg);}
+  40%{transform:rotateX(-140deg);}
+  60%{transform:rotateX(-140deg);}
+}
+/* Telegram — paper plane */
+.icon-plane{
+  width:22px;height:20px;position:relative;
+  animation:plane-wobble 2.4s ease-in-out infinite;
+}
+.icon-plane svg{width:22px;height:20px;}
+@keyframes plane-wobble{
+  0%,100%{transform:translate(0,0) rotate(-10deg);}
+  30%{transform:translate(2px,-3px) rotate(-14deg);}
+  60%{transform:translate(1px,-1px) rotate(-8deg);}
+}
+/* Instagram — camera with pulse */
+.icon-camera{
+  width:20px;height:20px;position:relative;
+}
+.icon-camera svg{width:20px;height:20px;}
+.icon-camera-pulse{
+  position:absolute;inset:-4px;border-radius:50%;
+  border:1.5px solid var(--blue);opacity:0;
+  animation:cam-pulse 2s ease-in-out infinite;
+}
+@keyframes cam-pulse{
+  0%{opacity:0.6;transform:scale(0.7);}
+  100%{opacity:0;transform:scale(1.4);}
 }
 .contact-link-label{font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--slate2);margin-bottom:2px;}
 .contact-link-val{font-weight:600;font-size:0.9rem;color:var(--navy);}
@@ -618,7 +664,7 @@ footer{background:var(--navy);padding:44px 24px;}
     <div class="hero-logo-wrap" style="margin-bottom:28px;animation:fade-up .6s ease both;">
       <img src="espacee.png" alt="Espace Systems" style="height:90px;width:auto;object-fit:contain;display:block;margin:0 auto;">
     </div>
-    <div class="hero-tag">⚡ Web Design · SEO · Digital Growth</div>
+    <div class="hero-tag">Web Design · SEO · Digital Growth</div>
 
     <h1>
       Your Business Deserves<br>
@@ -694,7 +740,7 @@ footer{background:var(--navy);padding:44px 24px;}
       </div>
 
       <div class="service-card reveal" style="transition-delay:.16s">
-        <div class="service-icon">🌐</div>
+        <div class="service-icon"></div>
         <div class="service-title">Domain & Hosting</div>
         <p class="service-desc">Complete domain registration and website hosting management. We handle the technical side so you can focus on running your business.</p>
         <span class="service-tag">Infrastructure →</span>
@@ -805,7 +851,7 @@ footer{background:var(--navy);padding:44px 24px;}
         </div>
         <p class="booking-note" style="margin-bottom:10px;">By submitting, you agree to our <a href="privacypolicy.html" style="color:var(--blue);text-decoration:none;font-weight:600;">Privacy Policy</a>.</p>
       <button class="btn-book" id="btnBook" onclick="submitBooking()">
-  🚀 Confirm Slot Booking
+  Confirm Slot Booking
 </button>
 <p class="booking-note">Your details will be sent directly and securely. We'll confirm your slot within 24 hours.</p>
 </div>
@@ -827,14 +873,25 @@ footer{background:var(--navy);padding:44px 24px;}
 
       <div class="contact-links">
         <a href="/cdn-cgi/l/email-protection#02717067676a63706b71776c6b6e33323242656f636b6e2c616d6f" class="contact-link-item">
-          <div class="contact-link-icon">✉️</div>
-          <div>
-            <div class="contact-link-label">Email</div>
+          <div class="contact-link-icon">
+            <div class="icon-mail">
+              <div class="icon-mail-body"></div>
+              <div class="icon-mail-v"></div>
+              <div class="icon-mail-flap"></div>
+            </div>
+          </div>
             <div class="contact-link-val">Mail me </div>
           </div>
         </a>
         <a href="https://t.me/sreyouh" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon"></div>
+          <div class="contact-link-icon">
+            <div class="icon-plane">
+              <svg viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 9.5L20 1L14 19L10 12L1 9.5Z" stroke="#1a56db" stroke-width="1.5" stroke-linejoin="round" fill="rgba(26,86,219,0.15)"/>
+                <path d="M10 12L13.5 8.5" stroke="#1a56db" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
           <div>
             <div class="contact-link-label">Telegram</div>
             <div class="contact-link-val">Get in touch </div>
@@ -848,7 +905,17 @@ footer{background:var(--navy);padding:44px 24px;}
           </div>
         </a>
         <a href="https://www.instagram.com/sre.youh" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon"></div>
+          <div class="contact-link-icon">
+            <div class="icon-camera">
+              <div class="icon-camera-pulse"></div>
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="5" width="18" height="13" rx="2.5" stroke="#1a56db" stroke-width="1.5" fill="rgba(26,86,219,0.1)"/>
+                <circle cx="10" cy="11.5" r="3" stroke="#1a56db" stroke-width="1.5"/>
+                <path d="M7 5L8.5 2.5H11.5L13 5" stroke="#1a56db" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="15.5" cy="8" r="1" fill="#1a56db"/>
+              </svg>
+            </div>
+          </div>
           <div>
             <div class="contact-link-label">Instagram</div>
             <div class="contact-link-val">View</div>
@@ -1253,6 +1320,54 @@ function submitBooking(){
 </script>
 </body>
   </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
