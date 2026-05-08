@@ -1043,7 +1043,24 @@
     }
 
     /* ── FOOTER ── */
-    footer {
+    /* ── ZENER CARD ── */
+    .viz-card.zener-card::before {
+      background: radial-gradient(circle at 50% 80%, rgba(255,77,77,0.08) 0%, transparent 55%),
+                  radial-gradient(circle at 80% 10%, rgba(57,232,122,0.06) 0%, transparent 50%);
+    }
+    .viz-card.zener-card:hover { border-color: rgba(255,77,77,0.4); box-shadow: 0 32px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,77,77,0.08); }
+    .viz-preview.zener-preview { background: linear-gradient(160deg,#07101e 0%,#0c1220 60%,#100808 100%); border-bottom: 1px solid rgba(255,77,77,0.15); position:relative; overflow:hidden; }
+    .preview-badge.zener-badge { background: rgba(255,77,77,0.12); border-color: rgba(255,77,77,0.35); color: #ff6b6b; }
+    .viz-tag.zener-tag { color: #ff6b6b; }
+    .viz-tag.zener-tag::before { background: #ff6b6b; box-shadow: 0 0 8px #ff6b6b; }
+    .viz-cta.zener-cta { background: linear-gradient(135deg,rgba(255,77,77,0.15),rgba(255,77,77,0.05)); border-color: rgba(255,77,77,0.3); color: #ff6b6b; }
+    .viz-cta.zener-cta:hover { background: linear-gradient(135deg,rgba(255,77,77,0.25),rgba(255,77,77,0.1)); border-color: rgba(255,77,77,0.55); }
+    .zener-mini { position:relative; width:100%; height:100%; }
+    .zener-curve-fwd { stroke-dasharray: 120; stroke-dashoffset: 120; animation: zener-draw 2s ease forwards 0.3s; }
+    .zener-curve-bk  { stroke-dasharray: 60;  stroke-dashoffset: 60;  animation: zener-draw 1.5s ease forwards 1.5s; }
+    @keyframes zener-draw { to { stroke-dashoffset: 0; } }
+
+    /* ── FOOTER ── */
       position: relative; z-index: 1;
       background: #060d19; border-top: 1px solid rgba(201,168,76,0.1); padding: 40px 24px;
     }
@@ -1098,7 +1115,7 @@
       </p>
       <div class="hub-stats">
         <div>
-          <span class="hub-stat-num">8</span>
+          <span class="hub-stat-num">9</span>
           <span class="hub-stat-label">Visualizations live</span>
         </div>
         <div>
@@ -1448,6 +1465,60 @@
         </div>
       </a>
 
+      <!-- CARD 9: Zener Diode I-V Characteristics -->
+      <a href="zener.html" class="viz-card zener-card" style="animation-delay:0.5s">
+        <div class="viz-preview zener-preview">
+          <div class="preview-badge zener-badge">⚡ Electronics</div>
+          <div class="zener-mini">
+            <!-- Mini circuit symbol -->
+            <svg width="210" height="130" viewBox="0 0 210 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+              <!-- Axes -->
+              <line x1="28" y1="110" x2="200" y2="110" stroke="rgba(138,155,181,0.3)" stroke-width="1"/>
+              <line x1="105" y1="10" x2="105" y2="125" stroke="rgba(138,155,181,0.3)" stroke-width="1"/>
+              <!-- Axis labels -->
+              <text x="196" y="108" fill="rgba(138,155,181,0.5)" font-size="7" font-family="monospace">V</text>
+              <text x="108" y="14" fill="rgba(138,155,181,0.5)" font-size="7" font-family="monospace">I</text>
+              <!-- Forward bias curve -->
+              <path d="M105,110 C120,110 138,108 148,90 C158,70 160,50 162,20" stroke="#39e87a" stroke-width="2" fill="none" class="zener-curve-fwd"/>
+              <!-- Reverse leakage flat -->
+              <path d="M30,112 C60,112 90,112 105,110" stroke="#f5c842" stroke-width="1.5" fill="none" opacity="0.7"/>
+              <!-- Breakdown knee -->
+              <path d="M60,110 C58,110 52,112 48,122" stroke="#ff4d4d" stroke-width="2" fill="none" class="zener-curve-bk"/>
+              <!-- Zener voltage label -->
+              <text x="40" y="125" fill="rgba(255,77,77,0.7)" font-size="6.5" font-family="monospace">−Vz</text>
+              <!-- Forward voltage label -->
+              <text x="148" y="125" fill="rgba(57,232,122,0.7)" font-size="6.5" font-family="monospace">Vf</text>
+              <!-- Animated dot on curve -->
+              <circle r="4" fill="#f5c842" opacity="0.9">
+                <animateMotion dur="3s" repeatCount="indefinite" path="M105,110 C120,110 138,108 148,90 C158,70 160,50 162,20"/>
+              </circle>
+              <!-- Zener diode symbol -->
+              <g transform="translate(82,38)">
+                <line x1="0" y1="8" x2="8" y2="8" stroke="rgba(201,168,76,0.7)" stroke-width="1.5"/>
+                <polygon points="8,2 8,14 18,8" fill="rgba(201,168,76,0.25)" stroke="rgba(201,168,76,0.7)" stroke-width="1.2"/>
+                <line x1="18" y1="2" x2="18" y2="14" stroke="rgba(201,168,76,0.7)" stroke-width="1.5"/>
+                <line x1="18" y1="2" x2="22" y2="2" stroke="rgba(201,168,76,0.7)" stroke-width="1.5"/>
+                <line x1="18" y1="14" x2="14" y2="14" stroke="rgba(201,168,76,0.7)" stroke-width="1.5"/>
+                <line x1="18" y1="8" x2="26" y2="8" stroke="rgba(201,168,76,0.7)" stroke-width="1.5"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="viz-card-body">
+          <div class="viz-tag zener-tag">Electronics · Semiconductors</div>
+          <div class="viz-title">Zener Diode I-V Characteristics</div>
+          <p class="viz-desc">
+            Sweep voltage from reverse breakdown to forward conduction — watch the I-V curve plot live. Observe the sharp Zener breakdown knee, leakage region, and explore voltage regulation. Real semiconductor physics, fully interactive.
+          </p>
+          <div class="viz-meta">
+            <div class="viz-meta-chip">⚡ Breakdown Region</div>
+            <div class="viz-meta-chip">📐 FYUGP Electronics</div>
+            <div class="viz-meta-chip">📊 Live I-V Curve</div>
+          </div>
+          <span class="viz-cta zener-cta">Launch Simulation <span class="viz-cta-arrow">→</span></span>
+        </div>
+      </a>
+
     </div>
 
   </main>
@@ -1550,6 +1621,14 @@
         icon: '🌊',
         iconBg: 'rgba(120,80,255,0.14)',
         keywords: ["young's double slit", "young's experiment", 'double slit', 'double slit experiment', 'YDSE', 'ydse', 'interference', 'interference pattern', 'fringe', 'fringe width', 'bright fringe', 'dark fringe', 'constructive interference', 'destructive interference', 'coherent light', 'coherence', 'path difference', 'phase difference', 'wavelength', 'slit width', 'slit separation', 'slit distance', 'screen distance', 'wave optics', 'huygens', 'huygens principle', 'wavefront', 'diffraction', 'young', 'thomas young', 'laser', 'monochromatic', 'light waves', 'intensity', 'intensity pattern', 'intensity graph', 'wave nature of light', 'light interference', 'optics', 'physics', 'FYUGP', 'beta', 'fringe spacing', 'central maximum', 'order', 'maxima', 'minima', 'bandwidth']
+      },
+      {
+        name: 'Zener Diode I-V Characteristics',
+        tag: 'Electronics · Semiconductors · FYUGP Physics',
+        url: 'zener.html',
+        icon: '⚡',
+        iconBg: 'rgba(255,77,77,0.12)',
+        keywords: ['zener', 'zener diode', 'zener diode iv characteristics', 'iv characteristics of zener diode', 'zener diode experiment', 'zener diode as voltage regulator', 'voltage regulator', 'breakdown voltage', 'zener breakdown', 'avalanche breakdown', 'reverse bias', 'forward bias', 'breakdown region', 'zener knee', 'zener voltage', 'vz', 'depletion region', 'semiconductor', 'diode', 'p-n junction', 'reverse leakage current', 'forward current', 'voltage stabilizer', 'voltage regulation', 'zener effect', 'tunneling', 'doping', 'heavily doped', 'electronics', 'FYUGP', 'physics', 'circuit', 'load regulation', 'line regulation', 'reference voltage', 'clipping', 'clamping', 'iv curve', 'characteristic curve', 'diode characteristics']
       }
     ];
 
@@ -1607,6 +1686,390 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
