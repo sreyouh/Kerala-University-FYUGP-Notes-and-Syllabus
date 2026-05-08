@@ -751,58 +751,50 @@ Sreeharis notes
       .sidebar { width: 300px; right: -320px; }
     }
 
-    /* ── NOTICE TICKER ── */
-    .notice-ticker-wrap {
-      display: flex; align-items: center;
-      background: rgba(201,168,76,0.06);
+    /* ── NOTICE BOARD ── */
+    .notice-board {
+      background: rgba(201,168,76,0.07);
       border-top: 1px solid rgba(201,168,76,0.2);
       border-bottom: 1px solid rgba(201,168,76,0.2);
-      overflow: hidden; height: 64px;
-      background: linear-gradient(90deg, rgba(201,168,76,0.06) 0%, rgba(201,168,76,0.03) 100%);
+      padding: 20px 24px;
     }
-    .notice-ticker-label {
-      flex-shrink: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 0.65rem; letter-spacing: 3px; font-weight: 700;
-      color: var(--gold); text-transform: uppercase;
-      padding: 0 22px; border-right: 1px solid rgba(201,168,76,0.25);
-      height: 100%; display: flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,0.1);
-      white-space: nowrap;
+    .notice-board-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: flex-start; gap: 28px;
     }
-    .notice-ticker-label::before {
-      content: ''; width: 7px; height: 7px; border-radius: 50%;
-      background: var(--gold); flex-shrink: 0;
-      box-shadow: 0 0 8px var(--gold);
+    .notice-board-left { flex-shrink: 0; }
+    .notice-board-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.58rem; letter-spacing: 2.5px; font-weight: 700;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+      padding: 3px 10px; border-radius: 3px; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 6px; white-space: nowrap;
+    }
+    .notice-board-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 6px var(--gold);
       animation: pulse-dot 1.5s ease-in-out infinite;
     }
-    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.6)} }
-    .notice-ticker-track { flex: 1; overflow: hidden; }
-    .notice-ticker-inner {
-      display: flex; align-items: center; gap: 0;
+    .notice-board-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--white);
       white-space: nowrap;
-      animation: ticker-scroll 22s linear infinite;
     }
-    .notice-ticker-wrap:hover .notice-ticker-inner { animation-play-state: paused; }
-    .notice-item {
-      font-size: 1rem; color: rgba(255,255,255,0.75);
-      padding: 0 36px; font-weight: 500; letter-spacing: 0.3px;
-      font-family: 'DM Sans', sans-serif;
+    .notice-board-body {
+      font-size: 0.84rem; color: rgba(255,255,255,0.55);
+      line-height: 1.7; padding-top: 2px;
     }
-    .notice-item strong { color: var(--white); font-weight: 700; }
-    .notice-link {
-      color: var(--gold); text-decoration: none; font-weight: 700;
-      border-bottom: 1.5px solid rgba(201,168,76,0.5);
-      transition: border-color 0.2s, color 0.2s;
-      font-family: 'Playfair Display', serif; font-style: italic;
+    .notice-board-link {
+      color: var(--gold); text-decoration: none; font-weight: 600;
+      border-bottom: 1px solid rgba(201,168,76,0.4);
+      transition: border-color 0.2s;
     }
-    .notice-link:hover { border-color: var(--gold); color: var(--gold-light); }
-    .notice-sep {
-      color: var(--gold); font-size: 1.4rem; flex-shrink: 0; opacity: 0.5;
-    }
-    @keyframes ticker-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .notice-board-link:hover { border-color: var(--gold); }
+    @media(max-width: 640px) {
+      .notice-board-inner { flex-direction: column; gap: 10px; }
+      .notice-board-title { white-space: normal; }
     }
 
     /* ── SIDEBAR ANIMATIONS ── */
@@ -1159,26 +1151,22 @@ Sreeharis notes
         <span class="stat-label">Free Access</span>
       </div>
       <div class="stat reveal" style="transition-delay:0.3s">
-        <span class="stat-num">Experiment Simulations </span>
-        <span class="stat-label">Free</span>
+        <span class="stat-num" style="font-size:1.1rem;"> virtual Experiments </span>
+        <span class="stat-label">Free & Interactive</span>
       </div>
     </div>
   </div>
 
-  <!-- NOTICE TICKER -->
-  <div class="notice-ticker-wrap">
-    <div class="notice-ticker-label">NOTICE</div>
-    <div class="notice-ticker-track">
-      <div class="notice-ticker-inner">
-        <span class="notice-item"><strong>Study Materials Needed —</strong> Notes, question papers & question banks are not yet available for most courses. If you have any materials from any FYUGP programme, please <a href="#contribute" class="notice-link">contribute them here</a>.</span>
-        <span class="notice-sep"> ✦ </span>
-        <span class="notice-item"><strong>Help Your Community —</strong> Every note you share helps a fellow FYUGP student prepare better. Upload your handwritten or typed notes and earn recognition.</span>
-        <span class="notice-sep"> ✦ </span>
-        <span class="notice-item"><strong>Study Materials Needed —</strong> Notes, question papers & question banks are not yet available for most courses. If you have any materials from any FYUGP programme, please <a href="#contribute" class="notice-link">contribute them here</a>.</span>
-        <span class="notice-sep"> ✦ </span>
-        <span class="notice-item"><strong>Help Your Community —</strong> Every note you share helps a fellow FYUGP student prepare better. Upload your handwritten or typed notes and earn recognition.</span>
-        <span class="notice-sep"> ✦ </span>
+  <!-- NOTICE BOARD -->
+  <div class="notice-board">
+    <div class="notice-board-inner">
+      <div class="notice-board-left">
+        <span class="notice-board-tag">Notice</span>
+        <p class="notice-board-title">Study Materials Not Yet Available</p>
       </div>
+      <p class="notice-board-body">
+        Notes, previous year question papers and question banks are currently unavailable for most courses. If you have any study materials from any FYUGP programme — handwritten notes, typed notes, question papers or references — please <a href="#contribute" class="notice-board-link">contribute them here</a>. Your contribution directly helps fellow students and earns you recognition in the community.
+      </p>
     </div>
   </div>
 
@@ -1420,6 +1408,10 @@ Sreeharis notes
   </script>
 </body>
         </html>
+
+
+
+               
 
 
 
