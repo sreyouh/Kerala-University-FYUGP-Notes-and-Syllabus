@@ -154,6 +154,8 @@ document.getElementById("submitBtn")?.addEventListener("click", () => {
     fileName = "economicss2/s2economics.html";
   } else if (semester === "3") {
     fileName = "economicss3/s3eco.html";
+  } else if (semester === "4") {
+    fileName = "economicss4/s4eco.html";
   } else {
     fileName = `eco${semester}.html`;
   }
