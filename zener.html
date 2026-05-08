@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zener Diode I-V Characteristics — Interactive Simulation | Breakdown Region | Voltage Regulator | Sreeharis FYUGP</title>
+<meta name="description" content="Interactive Zener Diode I-V characteristics simulation — sweep voltage across forward and reverse regions, observe Zener breakdown, leakage current, and voltage regulation. Real semiconductor physics with live plotting. Free for FYUGP Physics and Electronics students.">
+<meta name="keywords" content="zener diode, zener diode iv characteristics, iv characteristics of zener diode, zener diode experiment, zener diode as voltage regulator, zener breakdown, avalanche breakdown, breakdown region, zener knee, zener voltage, reverse bias diode, forward bias diode, semiconductor diode, voltage regulator circuit, zener diode simulation, zener diode interactive, voltage stabilizer, zener effect, tunneling effect, depletion region, p-n junction diode, diode characteristics, FYUGP physics, Kerala University electronics, characteristic curve diode, zener diode working, reverse leakage current, heavily doped semiconductor, voltage regulation, line regulation, load regulation, reference voltage zener, clipping circuit, zener diode circuit">
+<meta name="author" content="Sreeharis · Espace Systems">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://sreeharis.in/zener.html">
+<link rel="icon" type="image/png" href="espace.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zener Diode I-V Characteristics Interactive Simulation | Sreeharis">
+<meta property="og:description" content="Explore Zener diode I-V characteristics, breakdown region and voltage regulation with real-time interactive simulation. Free for FYUGP students.">
+<meta property="og:url" content="https://sreeharis.in/zener.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zener Diode I-V Characteristics Simulation | Sreeharis FYUGP">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LearningResource",
+  "name":"Zener Diode I-V Characteristics — Interactive Simulation",
+  "description":"Interactive simulation of the I-V characteristics of a Zener diode, including forward bias, reverse bias, Zener breakdown region and voltage regulation.",
+  "url":"https://sreeharis.in/zener.html",
+  "educationalLevel":"Undergraduate",
+  "about":["Zener Diode","I-V Characteristics","Semiconductor Electronics","Voltage Regulation"],
+  "keywords":"zener diode iv characteristics, zener breakdown, voltage regulator, FYUGP physics",
+  "creator":{"@type":"Organization","name":"Espace Systems","url":"https://sreeharis.in/espace.html"},
+  "isPartOf":{"@type":"WebSite","name":"Sreeharis Science Hub","url":"https://sreeharis.in/sciencehub.html"}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06090f;
+  --panel:#090e1c;
+  --panel2:#0c1220;
+  --border:#152030;
+  --gold:#c9a84c;
+  --gold2:#f0c96a;
+  --slate:#8a9bb5;
+  --white:#fff;
+  --red:#ff4d4d;
+  --red2:#ff6b6b;
+  --green:#39e87a;
+  --blue:#4db8ff;
+  --orange:#ff8c42;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;cursor:none;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 5% 10%,rgba(255,255,255,0.4)0%,transparent 100%),radial-gradient(1px 1px at 22% 65%,rgba(255,255,255,0.3)0%,transparent 100%),radial-gradient(1px 1px at 48% 5%,rgba(255,255,255,0.35)0%,transparent 100%),radial-gradient(1px 1px at 72% 80%,rgba(255,255,255,0.2)0%,transparent 100%),radial-gradient(1px 1px at 90% 28%,rgba(255,255,255,0.35)0%,transparent 100%),radial-gradient(1px 1px at 35% 90%,rgba(255,255,255,0.25)0%,transparent 100%);pointer-events:none;z-index:0;}
+.cursor{width:10px;height:10px;background:var(--red);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(255,77,77,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(6,9,15,0.85);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,77,77,0.1);transition:padding .4s;}
+nav.scrolled{padding:12px 52px;background:rgba(6,9,15,0.97);}
+.nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold);}
+.nav-logo-sub{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.nav-back{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:.85rem;padding:8px 18px;border-radius:50px;border:1px solid rgba(255,77,77,0.18);background:rgba(255,77,77,0.04);transition:all .2s;cursor:none;}
+.nav-back:hover{color:var(--red2);border-color:rgba(255,77,77,0.45);}
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:110px 20px 80px;}
+header{text-align:center;margin-bottom:44px;animation:fadeUp .7s ease both;}
+.header-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--red2);border:1px solid rgba(255,77,77,0.4);padding:5px 16px;border-radius:2px;margin-bottom:20px;box-shadow:0 0 20px rgba(255,77,77,0.15);}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4.2vw,46px);font-weight:900;line-height:1.1;background:linear-gradient(135deg,#fff 0%,var(--red2) 45%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;}
+header p{color:var(--slate);font-size:15px;font-weight:300;max-width:620px;margin:0 auto;}
+
+/* TABS */
+.mode-tabs{display:flex;gap:0;background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px;animation:fadeUp .7s .2s ease both;}
+.mode-tab{flex:1;padding:13px 10px;text-align:center;font-family:'DM Mono',monospace;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--slate);cursor:none;border:none;background:transparent;transition:all .25s;}
+.mode-tab.active{background:rgba(255,77,77,0.12);color:var(--red2);border-bottom:2px solid var(--red);}
+.mode-tab:hover:not(.active){color:var(--white);background:rgba(255,255,255,0.03);}
+
+/* MAIN LAYOUT */
+.main-layout{display:grid;grid-template-columns:260px 1fr 240px;gap:18px;margin-bottom:20px;animation:fadeUp .7s .3s ease both;}
+@media(max-width:1000px){.main-layout{grid-template-columns:1fr;}}
+
+/* CONTROL PANEL */
+.ctrl-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px 18px;display:flex;flex-direction:column;gap:18px;}
+.ctrl-panel h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);}
+.ctrl-group{}
+.ctrl-group label{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:7px;}
+.ctrl-select{width:100%;padding:9px 12px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:8px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.85rem;outline:none;cursor:none;transition:border-color .2s;}
+.ctrl-select:focus{border-color:rgba(255,77,77,0.4);}
+.ctrl-select option{background:#090e1c;}
+.slider-wrap{padding:2px 0;}
+.slider-val{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.slider-val span:first-child{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);}
+.slider-val .val-num{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--red2);}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--border);outline:none;cursor:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--red);cursor:none;box-shadow:0 0 8px rgba(255,77,77,0.6);}
+.sweep-btn{width:100%;padding:12px;border-radius:10px;background:linear-gradient(135deg,var(--red),#cc2222);color:#fff;font-weight:700;font-size:.88rem;border:none;cursor:none;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(255,77,77,0.35);font-family:'DM Sans',sans-serif;}
+.sweep-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,77,77,0.5);}
+.sweep-btn.sweeping{background:linear-gradient(135deg,var(--orange),#cc6600);}
+.reset-btn{width:100%;padding:10px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--slate);font-weight:600;font-size:.85rem;cursor:none;transition:all .2s;font-family:'DM Sans',sans-serif;margin-top:6px;}
+.reset-btn:hover{border-color:rgba(255,77,77,0.35);color:var(--red2);}
+
+/* GRAPH CARD */
+.graph-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.graph-header{padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.graph-header h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);}
+.op-point-badge{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:50px;background:rgba(255,77,77,0.1);border:1px solid rgba(255,77,77,0.3);color:var(--red2);}
+#ivCanvas{display:block;width:100%;}
+
+/* READOUT PANEL */
+.readout-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;}
+.readout-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+.readout-card .r-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:5px;}
+.readout-card .r-val{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;line-height:1;}
+.readout-card .r-unit{font-size:.72rem;color:var(--slate);margin-top:3px;}
+.region-badge{padding:8px 14px;border-radius:8px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;text-align:center;transition:all .4s;}
+.region-breakdown{background:rgba(255,77,77,0.15);border:1px solid rgba(255,77,77,0.4);color:var(--red2);}
+.region-leakage{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);}
+.region-forward{background:rgba(57,232,122,0.1);border:1px solid rgba(57,232,122,0.3);color:var(--green);}
+.power-bar-wrap{margin-top:4px;}
+.power-bar-track{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;margin-top:6px;}
+.power-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--green),var(--gold),var(--red));transition:width .3s;}
+
+/* CIRCUIT DIAGRAM */
+.circuit-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;animation:fadeUp .7s .4s ease both;}
+.circuit-header{padding:12px 20px;border-bottom:1px solid var(--border);}
+.circuit-header h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);}
+#circuitCanvas{display:block;width:100%;}
+
+/* VOLTAGE REGULATOR MODE */
+.vr-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;animation:fadeUp .6s ease both;}
+@media(max-width:700px){.vr-layout{grid-template-columns:1fr;}}
+.vr-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:24px;}
+.vr-card h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.vr-result{margin-top:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:14px 16px;}
+.vr-result .lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:4px;}
+.vr-result .val{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);}
+#vrCanvas{display:block;width:100%;}
+
+/* EXPLANATION */
+.explanation-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:20px;animation:fadeUp .7s .5s ease both;}
+.explanation-card h3{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red2);margin-bottom:18px;}
+.condition-display{padding:18px 20px;border-radius:12px;border-left:3px solid;transition:all .4s;}
+.cond-breakdown{background:rgba(255,77,77,0.06);border-color:var(--red);}
+.cond-leakage{background:rgba(201,168,76,0.06);border-color:var(--gold);}
+.cond-forward{background:rgba(57,232,122,0.06);border-color:var(--green);}
+.cond-title{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.cond-breakdown .cond-title{color:var(--red2);}
+.cond-leakage .cond-title{color:var(--gold);}
+.cond-forward .cond-title{color:var(--green);}
+.cond-text{font-size:.88rem;line-height:1.78;color:var(--slate);}
+.cond-text strong{color:var(--white);}
+
+/* NOTES */
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px;}
+.note-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:20px 18px;transition:border-color .3s;}
+.note-card:hover{border-color:rgba(255,77,77,0.25);}
+.note-card h4{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--red2);margin-bottom:10px;}
+.note-card p{font-size:.84rem;line-height:1.72;color:var(--slate);}
+.note-card p strong{color:var(--white);}
+
+/* SEO */
+.seo-section{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:36px;margin-bottom:20px;animation:fadeUp .7s .6s ease both;}
+.seo-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:16px;}
+.seo-section h3{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--red2);margin:22px 0 10px;}
+.seo-section p{font-size:.9rem;line-height:1.85;color:var(--slate);margin-bottom:10px;}
+.seo-section p strong{color:var(--white);font-weight:500;}
+.seo-divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:18px 0;}
+.kw-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.kw{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:1px;padding:4px 10px;border:1px solid var(--border);border-radius:3px;color:var(--slate);}
+
+footer{position:relative;z-index:1;background:#03050a;border-top:1px solid rgba(255,77,77,0.08);padding:36px 24px;}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1rem;}
+.footer-logo span{display:block;color:var(--slate);font-family:'DM Sans',sans-serif;font-size:.72rem;margin-top:3px;}
+.footer-copy{color:var(--slate);font-size:.8rem;}
+.footer-link{color:var(--gold);text-decoration:none;}
+.footer-link:hover{text-decoration:underline;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){nav{padding:14px 16px;}.wrap{padding:95px 14px 60px;}body{cursor:auto;}.cursor,.cursor-ring{display:none;}.mode-tab,.sweep-btn,.reset-btn,.ctrl-select{cursor:pointer;}input[type=range]{cursor:pointer;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">FYUGP Kerala University</span>
+    <span class="nav-logo-sub">Study Material Sharing Hub</span>
+  </a>
+  <a href="sciencehub.html" class="nav-back">← Science Hub</a>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="header-tag">⚡ Semiconductor Electronics</div>
+    <h1>Zener Diode<br>I-V Characteristics</h1>
+    <p>Explore the complete I-V characteristics of a Zener diode — from forward conduction through reverse leakage to the sharp Zener breakdown region. Adjust parameters and watch the curve plot live.</p>
+  </header>
+
+  <!-- MODE TABS -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" onclick="setMode('iv')" id="tab-iv">I-V Characteristics</button>
+    <button class="mode-tab" onclick="setMode('vr')" id="tab-vr">Voltage Regulator</button>
+  </div>
+
+  <!-- ═══════════ I-V MODE ═══════════ -->
+  <div id="ivMode">
+
+    <div class="main-layout">
+
+      <!-- CONTROLS -->
+      <div class="ctrl-panel">
+        <h3>⚙ Parameters</h3>
+
+        <div class="ctrl-group">
+          <label>Zener Diode Type</label>
+          <select class="ctrl-select" id="zenerType" onchange="onParamChange()">
+            <option value="3.3">3.3V Zener (1N4728)</option>
+            <option value="5.1" selected>5.1V Zener (1N4733)</option>
+            <option value="6.8">6.8V Zener (1N4735)</option>
+            <option value="9.1">9.1V Zener (1N4739)</option>
+            <option value="12">12V Zener (1N4742)</option>
+            <option value="15">15V Zener (1N4744)</option>
+          </select>
+        </div>
+
+        <div class="ctrl-group">
+          <label>Temperature</label>
+          <select class="ctrl-select" id="tempSelect" onchange="onParamChange()">
+            <option value="25" selected>25°C (Room Temp)</option>
+            <option value="50">50°C (Warm)</option>
+            <option value="100">100°C (Hot)</option>
+            <option value="0">0°C (Cold)</option>
+          </select>
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-val">
+            <span>Applied Voltage</span>
+            <span class="val-num" id="vAppliedDisplay">0.0 V</span>
+          </div>
+          <input type="range" id="vSlider" min="-20" max="2" step="0.05" value="0" oninput="onSliderChange()">
+        </div>
+
+        <div class="slider-wrap">
+          <div class="slider-val">
+            <span>Series Resistance</span>
+            <span class="val-num" id="rsDisplay">100 Ω</span>
+          </div>
+          <input type="range" id="rsSlider" min="10" max="1000" step="10" value="100" oninput="onSliderChange()">
+        </div>
+
+        <button class="sweep-btn" id="sweepBtn" onclick="startSweep()">▶ Auto Sweep</button>
+        <button class="reset-btn" onclick="resetSim()">↺ Reset</button>
+      </div>
+
+      <!-- GRAPH -->
+      <div class="graph-card">
+        <div class="graph-header">
+          <h3>📊 I-V Characteristic Curve</h3>
+          <span class="op-point-badge" id="opBadge">V = 0.0V · I = 0.0mA</span>
+        </div>
+        <canvas id="ivCanvas"></canvas>
+      </div>
+
+      <!-- READOUTS -->
+      <div class="readout-panel">
+        <div class="readout-card">
+          <div class="r-lbl">Voltage (V)</div>
+          <div class="r-val" id="readV" style="color:var(--blue)">0.00</div>
+          <div class="r-unit">Volts across diode</div>
+        </div>
+        <div class="readout-card">
+          <div class="r-lbl">Current (I)</div>
+          <div class="r-val" id="readI" style="color:var(--red2)">0.00</div>
+          <div class="r-unit">mA through diode</div>
+        </div>
+        <div class="readout-card">
+          <div class="r-lbl">Power (P = V×I)</div>
+          <div class="r-val" id="readP" style="color:var(--gold)">0.00</div>
+          <div class="r-unit">mW dissipated</div>
+          <div class="power-bar-wrap">
+            <div class="power-bar-track"><div class="power-bar-fill" id="powerBar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="region-badge region-leakage" id="regionBadge">Reverse Leakage Region</div>
+        <div class="readout-card" style="font-size:.78rem;color:var(--slate);line-height:1.65;" id="quickNote">
+          Move the voltage slider or press Auto Sweep to explore the I-V curve.
+        </div>
+      </div>
+    </div>
+
+    <!-- CIRCUIT DIAGRAM -->
+    <div class="circuit-card">
+      <div class="circuit-header">
+        <h3>🔌 Live Circuit Diagram</h3>
+      </div>
+      <canvas id="circuitCanvas"></canvas>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="explanation-card">
+      <h3>📖 Operating Region — Explanation</h3>
+      <div class="condition-display cond-leakage" id="condDisplay">
+        <div class="cond-title">Reverse Leakage Region</div>
+        <div class="cond-text" id="condText">
+          When a <strong>small reverse voltage</strong> is applied (less than the Zener voltage Vz), the depletion region widens. Only a tiny reverse saturation current (I₀ ≈ few µA) flows due to thermally generated minority carriers. This is the <strong>leakage region</strong> — the diode is essentially off.
+        </div>
+      </div>
+      <div class="notes-grid">
+        <div class="note-card">
+          <h4>Zener Breakdown (Zener Effect)</h4>
+          <p>In <strong>heavily doped</strong> Zener diodes (Vz &lt; 5V), the strong electric field at the reverse-biased junction causes <strong>quantum mechanical tunneling</strong> — electrons tunnel directly from the valence band of the p-side to the conduction band of the n-side. This produces a sharp, reproducible breakdown at Vz.</p>
+        </div>
+        <div class="note-card">
+          <h4>Avalanche Breakdown</h4>
+          <p>In <strong>lightly doped</strong> Zener diodes (Vz &gt; 8V), breakdown occurs by <strong>impact ionisation</strong> — carriers accelerated by the field collide with lattice atoms, creating new electron-hole pairs in an avalanche process. Higher Vz values use this mechanism.</p>
+        </div>
+        <div class="note-card">
+          <h4>Forward Bias Region</h4>
+          <p>When forward biased, the Zener diode behaves like a <strong>normal p-n junction</strong>. Current increases exponentially once the forward voltage exceeds ~0.65–0.7V (silicon). The knee of the curve appears around Vf = 0.65V for silicon Zener diodes.</p>
+        </div>
+        <div class="note-card">
+          <h4>Temperature Effect</h4>
+          <p>Zener diodes below ~5V have a <strong>negative temperature coefficient</strong> — Vz decreases as temperature rises (tunneling dominates). Above ~8V, the <strong>positive temperature coefficient</strong> means Vz increases with temperature (avalanche dominates). Near 5.1V, the coefficients nearly cancel — making <strong>5.1V Zener diodes ideal references</strong>.</p>
+        </div>
+        <div class="note-card">
+          <h4>Dynamic Resistance (rz)</h4>
+          <p>In the breakdown region, the Zener diode has a small <strong>dynamic resistance rz = ΔVz/ΔIz</strong>. A smaller rz means better voltage regulation. Typical values: 1–100Ω. The slope of the I-V curve in the breakdown region represents 1/rz.</p>
+        </div>
+        <div class="note-card">
+          <h4>Maximum Power Rating</h4>
+          <p>Every Zener diode has a <strong>maximum power dissipation Pmax = Vz × Iz(max)</strong>. Exceeding this destroys the device. A series resistor Rs is always used to limit current and keep power within safe limits. The power bar above shows the current dissipation.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ivMode -->
+
+  <!-- ═══════════ VOLTAGE REGULATOR MODE ═══════════ -->
+  <div id="vrMode" style="display:none">
+    <div class="vr-layout">
+      <div class="vr-card">
+        <h3>⚙ Voltage Regulator Parameters</h3>
+        <div class="ctrl-group" style="margin-bottom:16px;">
+          <label style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:7px;">Zener Voltage (Vz)</label>
+          <select class="ctrl-select" id="vrZenerType" onchange="updateVR()">
+            <option value="3.3">3.3V</option>
+            <option value="5.1" selected>5.1V</option>
+            <option value="6.8">6.8V</option>
+            <option value="9.1">9.1V</option>
+            <option value="12">12V</option>
+          </select>
+        </div>
+        <div class="slider-wrap" style="margin-bottom:14px;">
+          <div class="slider-val">
+            <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);">Input Voltage (Vin)</span>
+            <span class="val-num" id="vrVinDisplay">12.0 V</span>
+          </div>
+          <input type="range" id="vrVin" min="2" max="30" step="0.5" value="12" oninput="updateVR()">
+        </div>
+        <div class="slider-wrap" style="margin-bottom:14px;">
+          <div class="slider-val">
+            <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);">Series Resistor (Rs)</span>
+            <span class="val-num" id="vrRsDisplay">470 Ω</span>
+          </div>
+          <input type="range" id="vrRs" min="50" max="2000" step="10" value="470" oninput="updateVR()">
+        </div>
+        <div class="slider-wrap" style="margin-bottom:14px;">
+          <div class="slider-val">
+            <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);">Load Resistance (RL)</span>
+            <span class="val-num" id="vrRlDisplay">1000 Ω</span>
+          </div>
+          <input type="range" id="vrRl" min="100" max="10000" step="100" value="1000" oninput="updateVR()">
+        </div>
+
+        <div class="vr-result"><div class="lbl">Output Voltage (Vout)</div><div class="val" id="vrVout">—</div></div>
+        <div class="vr-result" style="margin-top:10px;"><div class="lbl">Zener Current (Iz)</div><div class="val" id="vrIz">—</div></div>
+        <div class="vr-result" style="margin-top:10px;"><div class="lbl">Load Current (IL)</div><div class="val" id="vrIl">—</div></div>
+        <div class="vr-result" style="margin-top:10px;"><div class="lbl">Series Resistor Current (Is)</div><div class="val" id="vrIs">—</div></div>
+        <div class="vr-result" style="margin-top:10px;"><div class="lbl">Regulator Status</div><div class="val" id="vrStatus" style="font-size:1rem;">—</div></div>
+      </div>
+
+      <div class="vr-card">
+        <h3>🔌 Voltage Regulator Circuit</h3>
+        <canvas id="vrCanvas"></canvas>
+        <div style="margin-top:16px;font-size:.84rem;line-height:1.72;color:var(--slate);">
+          <p>A <strong style="color:var(--white);">Zener voltage regulator</strong> maintains a constant output voltage across the load despite variations in input voltage or load current. The Zener diode operates in its <strong style="color:var(--white);">breakdown region</strong>, where voltage remains approximately constant over a wide current range. The series resistor Rs limits current to safe levels and absorbs voltage fluctuations.</p>
+          <p style="margin-top:10px;">For regulation to work, the Zener must remain in breakdown: <strong style="color:var(--gold);">Vin must be greater than Vz</strong>, and Rs must be sized correctly so Iz stays between Iz(min) and Iz(max).</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /vrMode -->
+
+  <!-- SEO TEXT -->
+  <div class="seo-section">
+    <h2>Zener Diode — I-V Characteristics, Breakdown Region & Voltage Regulation</h2>
+    <p>A <strong>Zener diode</strong> is a specially designed p-n junction diode that is manufactured to operate in the reverse breakdown region reliably and repeatedly. Unlike ordinary diodes where reverse breakdown can be destructive, the <strong>Zener diode breakdown voltage (Vz)</strong> is precisely controlled during fabrication through careful doping. This makes it invaluable as a <strong>voltage reference and voltage regulator</strong> in electronic circuits.</p>
+
+    <div class="seo-divider"></div>
+    <h3>I-V Characteristics of a Zener Diode</h3>
+    <p>The <strong>I-V characteristics of a Zener diode</strong> have three distinct regions. In the <strong>forward bias region</strong>, the Zener diode behaves exactly like a normal silicon diode — negligible current flows until the forward voltage reaches approximately 0.65–0.7V, after which current rises exponentially. In the <strong>reverse leakage region</strong> (applied reverse voltage less than Vz), only a tiny reverse saturation current (microamperes) flows. In the <strong>Zener breakdown region</strong>, once the reverse voltage reaches Vz, the current increases sharply while the voltage across the diode remains nearly constant at Vz — this is the defining characteristic that makes Zener diodes useful.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Zener Breakdown vs Avalanche Breakdown</h3>
+    <p>Two distinct mechanisms cause <strong>Zener diode breakdown</strong>. The <strong>Zener effect</strong> (quantum tunneling) dominates at lower voltages (Vz &lt; 5V) in heavily doped junctions — the intense electric field allows electrons to tunnel quantum mechanically through the thin depletion region. The <strong>avalanche breakdown</strong> mechanism dominates at higher voltages (Vz &gt; 8V) in lighter doped junctions — thermally generated carriers are accelerated by the field and collide with atoms, generating new electron-hole pairs in a cascade. Between 5–8V, both mechanisms contribute.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Zener Diode as a Voltage Regulator</h3>
+    <p>The most important application of a Zener diode is as a <strong>voltage regulator</strong>. In the breakdown region, the voltage across the Zener diode remains approximately constant at Vz even when the current varies significantly. A basic <strong>Zener voltage regulator circuit</strong> consists of a Zener diode in reverse bias, a series resistor Rs to limit current, and the load resistance RL in parallel with the Zener. The output voltage equals Vz regardless of variations in input voltage (line regulation) or load current (load regulation), as long as the Zener remains in breakdown.</p>
+    <p>The series resistor Rs must be chosen such that: (Vin − Vz)/Rs provides sufficient current to keep the Zener in breakdown under all load conditions. The Zener current Iz = Is − IL, where Is is the series resistor current and IL is the load current. If Vin drops or IL increases excessively, the Zener may come out of breakdown and regulation is lost.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Temperature Coefficient and Stability</h3>
+    <p>The temperature coefficient of Zener voltage is a critical specification. Zener diodes with Vz below ~5V have a <strong>negative temperature coefficient</strong> (Vz decreases with temperature), while those above ~8V have a <strong>positive temperature coefficient</strong>. Near 5.1V, the two mechanisms nearly cancel, resulting in an extremely stable reference voltage — which is why <strong>5.1V Zener diodes</strong> are preferred as precision voltage references in temperature-sensitive applications.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Relevance to FYUGP Physics and Electronics</h3>
+    <p>The <strong>Zener diode I-V characteristics experiment</strong> is a core practical in Kerala University FYUGP Physics and Electronics. Students plot the characteristic curve by varying the applied voltage and recording the current, identifying the forward conduction knee, reverse leakage, and the sharp breakdown at Vz. The experiment demonstrates the concept of voltage regulation and the practical use of semiconductor devices in electronic circuits.</p>
+
+    <div class="kw-row">
+      <span class="kw">zener diode</span>
+      <span class="kw">iv characteristics zener</span>
+      <span class="kw">zener diode experiment</span>
+      <span class="kw">zener breakdown</span>
+      <span class="kw">voltage regulator</span>
+      <span class="kw">breakdown region</span>
+      <span class="kw">zener voltage</span>
+      <span class="kw">avalanche breakdown</span>
+      <span class="kw">zener effect</span>
+      <span class="kw">semiconductor diode</span>
+      <span class="kw">FYUGP physics</span>
+      <span class="kw">Kerala University electronics</span>
+      <span class="kw">reverse bias</span>
+      <span class="kw">forward bias</span>
+      <span class="kw">voltage stabilizer</span>
+      <span class="kw">dynamic resistance</span>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Zener Diode Simulation
+      <span>Part of sreeharis.in · Developed by <a href="espace.html" class="footer-link">Espace Systems</a> · <a href="privacypolicy.html" class="footer-link">Privacy Policy</a></span>
+    </div>
+    <p class="footer-copy">© 2026 <a href="https://sreeharis.in/" class="footer-link" target="_blank">sreeharis.in</a></p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════
+//  PHYSICS MODEL
+// ═══════════════════════════════════════════
+function getZenerParams(vz, tempC){
+  const t = tempC - 25;
+  // Temperature coefficient
+  let tc = vz < 5 ? -0.002 : (vz > 8 ? 0.002 : 0.0005);
+  const vzT = vz * (1 + tc * t);
+  const rz = Math.max(2, 20 - vz);    // dynamic resistance
+  const Is = 1e-9 * (1 + 0.05*t);     // reverse sat current (A)
+  const n  = 1.5;                       // ideality factor
+  const Vt = 0.02585 * (1 + 0.003*t); // thermal voltage
+  return { vz: vzT, rz, Is, n, Vt };
+}
+
+function calcCurrent(v, vz, tempC){
+  // Returns current in AMPERES
+  // v: voltage across diode (positive = forward, negative = reverse)
+  const p = getZenerParams(vz, tempC);
+
+  if(v >= 0){
+    // Forward bias — Shockley equation
+    const arg = v / (p.n * p.Vt);
+    return p.Is * (Math.exp(Math.min(arg, 40)) - 1);
+  } else {
+    // Reverse bias
+    const vRev = Math.abs(v);
+    if(vRev < p.vz * 0.95){
+      // Leakage only
+      return -p.Is;
+    } else {
+      // Breakdown region
+      const excess = vRev - p.vz;
+      const izBreak = excess / p.rz;
+      return -(p.Is + izBreak);
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let currentV = 0;
+let tracePoints = [];
+let sweeping = false;
+let sweepDir = -1;
+let sweepV = 2;
+let animFrame;
+let mode = 'iv';
+
+// ═══════════════════════════════════════════
+//  CANVAS SETUP
+// ═══════════════════════════════════════════
+const ivCanvas = document.getElementById('ivCanvas');
+const ivCtx = ivCanvas.getContext('2d');
+const ccCanvas = document.getElementById('circuitCanvas');
+const ccCtx = ccCanvas.getContext('2d');
+
+function resizeCanvases(){
+  const iw = ivCanvas.parentElement.clientWidth;
+  ivCanvas.width = iw;
+  ivCanvas.height = Math.max(340, Math.min(480, iw * 0.48));
+  ccCanvas.width = ccCanvas.parentElement.clientWidth;
+  ccCanvas.height = 160;
+}
+resizeCanvases();
+window.addEventListener('resize', resizeCanvases);
+
+// ═══════════════════════════════════════════
+//  COORDINATE TRANSFORM
+// ═══════════════════════════════════════════
+function getAxisParams(vzVal){
+  const W = ivCanvas.width, H = ivCanvas.height;
+  const pad = {l:58, r:30, t:24, b:44};
+  const cW = W - pad.l - pad.r;
+  const cH = H - pad.t - pad.b;
+  // X: voltage range -vzVal*1.3 to 1.2
+  const vMin = -(vzVal * 1.35);
+  const vMax = 1.2;
+  // Y: current range
+  const iMax = 100; // mA
+  const iMin = -(vzVal > 8 ? 30 : 50); // mA negative
+  // Origin
+  const ox = pad.l + cW * Math.abs(vMin) / (vMax - vMin);
+  const oy = pad.t + cH * iMax / (iMax - iMin);
+  const sx = cW / (vMax - vMin); // px per volt
+  const sy = cH / (iMax - iMin); // px per mA (positive = upward)
+  return { pad, cW, cH, vMin, vMax, iMin, iMax, ox, oy, sx, sy };
+}
+
+function vToX(v, ax){ return ax.ox + v * ax.sx; }
+function iToY(imA, ax){ return ax.oy - imA * ax.sy; }
+
+// ═══════════════════════════════════════════
+//  DRAW I-V GRAPH
+// ═══════════════════════════════════════════
+function drawIV(){
+  const W = ivCanvas.width, H = ivCanvas.height;
+  ivCtx.clearRect(0,0,W,H);
+
+  const vz  = parseFloat(document.getElementById('zenerType').value);
+  const tc  = parseFloat(document.getElementById('tempSelect').value);
+  const ax  = getAxisParams(vz);
+
+  // Background
+  ivCtx.fillStyle = '#06090f';
+  ivCtx.fillRect(0,0,W,H);
+
+  // Grid
+  ivCtx.strokeStyle = 'rgba(21,32,48,0.9)';
+  ivCtx.lineWidth = 1;
+  // Vertical gridlines
+  for(let v = Math.ceil(ax.vMin); v <= Math.floor(ax.vMax); v++){
+    if(v===0) continue;
+    const x = vToX(v, ax);
+    ivCtx.beginPath(); ivCtx.moveTo(x, ax.pad.t); ivCtx.lineTo(x, ax.pad.t+ax.cH); ivCtx.stroke();
+  }
+  // Horizontal gridlines
+  for(let i = -40; i <= 100; i += 20){
+    const y = iToY(i, ax);
+    if(y < ax.pad.t || y > ax.pad.t + ax.cH) continue;
+    ivCtx.beginPath(); ivCtx.moveTo(ax.pad.l, y); ivCtx.lineTo(ax.pad.l+ax.cW, y); ivCtx.stroke();
+  }
+
+  // Axes
+  ivCtx.strokeStyle = 'rgba(138,155,181,0.5)';
+  ivCtx.lineWidth = 1.5;
+  // X axis
+  ivCtx.beginPath(); ivCtx.moveTo(ax.pad.l, ax.oy); ivCtx.lineTo(ax.pad.l+ax.cW+8, ax.oy); ivCtx.stroke();
+  // Y axis
+  ivCtx.beginPath(); ivCtx.moveTo(ax.ox, ax.pad.t-6); ivCtx.lineTo(ax.ox, ax.pad.t+ax.cH+4); ivCtx.stroke();
+
+  // Axis labels
+  ivCtx.fillStyle = 'rgba(138,155,181,0.7)';
+  ivCtx.font = '10px DM Mono, monospace';
+  ivCtx.textAlign = 'center';
+  // V labels
+  for(let v = Math.ceil(ax.vMin); v <= Math.floor(ax.vMax); v++){
+    if(v===0) continue;
+    const x = vToX(v, ax);
+    if(x < ax.pad.l+5 || x > ax.pad.l+ax.cW-5) continue;
+    ivCtx.fillText(v, x, ax.oy+14);
+  }
+  // I labels
+  ivCtx.textAlign = 'right';
+  for(let i = -40; i <= 100; i += 20){
+    const y = iToY(i, ax);
+    if(y < ax.pad.t || y > ax.pad.t + ax.cH) continue;
+    ivCtx.fillText(i, ax.pad.l-6, y+3);
+  }
+  ivCtx.textAlign = 'center';
+  ivCtx.fillStyle = 'rgba(138,155,181,0.6)';
+  ivCtx.fillText('V (Volts)', ax.pad.l+ax.cW, ax.oy-8);
+  ivCtx.save(); ivCtx.translate(14, ax.pad.t+ax.cH/2); ivCtx.rotate(-Math.PI/2);
+  ivCtx.fillText('I (mA)', 0, 0); ivCtx.restore();
+  ivCtx.fillText('O', ax.ox-6, ax.oy+12);
+
+  // Zener voltage marker
+  const vzX = vToX(-vz, ax);
+  ivCtx.strokeStyle = 'rgba(255,77,77,0.25)';
+  ivCtx.setLineDash([5,5]); ivCtx.lineWidth=1;
+  ivCtx.beginPath(); ivCtx.moveTo(vzX, ax.pad.t); ivCtx.lineTo(vzX, ax.pad.t+ax.cH); ivCtx.stroke();
+  ivCtx.setLineDash([]);
+  ivCtx.fillStyle = 'rgba(255,77,77,0.7)';
+  ivCtx.font = '9px DM Mono, monospace'; ivCtx.textAlign='center';
+  ivCtx.fillText(`−Vz = −${vz}V`, vzX, ax.pad.t+10);
+
+  // ─ THEORETICAL FULL CURVE (grey) ─
+  ivCtx.beginPath();
+  let started = false;
+  for(let v = ax.vMin; v <= ax.vMax; v += 0.02){
+    const iA = calcCurrent(v, vz, tc);
+    const imA = iA * 1000;
+    const x = vToX(v, ax);
+    const y = iToY(imA, ax);
+    if(y < ax.pad.t-10 || y > ax.pad.t+ax.cH+10){ started=false; continue; }
+    if(!started){ ivCtx.moveTo(x,y); started=true; } else { ivCtx.lineTo(x,y); }
+  }
+  ivCtx.strokeStyle = 'rgba(138,155,181,0.15)';
+  ivCtx.lineWidth = 1.5;
+  ivCtx.stroke();
+
+  // ─ TRACED CURVE (coloured) ─
+  if(tracePoints.length > 1){
+    // Draw in segments by region
+    const segments = [];
+    let seg = [tracePoints[0]];
+    let lastRegion = getRegion(tracePoints[0].v, vz);
+    for(let i=1; i<tracePoints.length; i++){
+      const r = getRegion(tracePoints[i].v, vz);
+      if(r === lastRegion){
+        seg.push(tracePoints[i]);
+      } else {
+        segments.push({pts:seg, region:lastRegion});
+        seg=[tracePoints[i-1],tracePoints[i]];
+        lastRegion=r;
+      }
+    }
+    segments.push({pts:seg, region:lastRegion});
+
+    segments.forEach(seg=>{
+      if(seg.pts.length < 2) return;
+      const colors={breakdown:'#ff4d4d', leakage:'#c9a84c', forward:'#39e87a'};
+      ivCtx.beginPath();
+      seg.pts.forEach((pt,i)=>{
+        const x=vToX(pt.v,ax), y=iToY(pt.imA,ax);
+        if(y<ax.pad.t-10||y>ax.pad.t+ax.cH+10) return;
+        i===0?ivCtx.moveTo(x,y):ivCtx.lineTo(x,y);
+      });
+      ivCtx.strokeStyle = colors[seg.region]||'#4db8ff';
+      ivCtx.lineWidth = 2.5;
+      ivCtx.stroke();
+    });
+  }
+
+  // ─ OPERATING POINT DOT ─
+  const iA = calcCurrent(currentV, vz, tc);
+  const imA = iA * 1000;
+  const opX = vToX(currentV, ax);
+  const opY = iToY(imA, ax);
+  if(opY >= ax.pad.t && opY <= ax.pad.t+ax.cH){
+    // Glow
+    const glowGrd = ivCtx.createRadialGradient(opX,opY,0,opX,opY,18);
+    const col = currentV<0&&Math.abs(currentV)>vz*0.95?'rgba(255,77,77,':currentV>0.5?'rgba(57,232,122,':'rgba(201,168,76,';
+    glowGrd.addColorStop(0, col+'0.3)');
+    glowGrd.addColorStop(1, col+'0)');
+    ivCtx.beginPath(); ivCtx.arc(opX,opY,18,0,Math.PI*2);
+    ivCtx.fillStyle=glowGrd; ivCtx.fill();
+    // Dot
+    ivCtx.beginPath(); ivCtx.arc(opX,opY,6,0,Math.PI*2);
+    ivCtx.fillStyle='#fff'; ivCtx.fill();
+    ivCtx.beginPath(); ivCtx.arc(opX,opY,4,0,Math.PI*2);
+    ivCtx.fillStyle=col+'1)'; ivCtx.fill();
+  }
+}
+
+function getRegion(v, vz){
+  if(v >= 0.5) return 'forward';
+  if(v < 0 && Math.abs(v) >= vz * 0.95) return 'breakdown';
+  return 'leakage';
+}
+
+// ═══════════════════════════════════════════
+//  DRAW CIRCUIT
+// ═══════════════════════════════════════════
+function drawCircuit(){
+  const W = ccCanvas.width, H = ccCanvas.height;
+  ccCtx.clearRect(0,0,W,H);
+  ccCtx.fillStyle = '#06090f';
+  ccCtx.fillRect(0,0,W,H);
+
+  const vz  = parseFloat(document.getElementById('zenerType').value);
+  const tc  = parseFloat(document.getElementById('tempSelect').value);
+  const rs  = parseFloat(document.getElementById('rsSlider').value);
+  const vIn = currentV;
+  const iA  = calcCurrent(vIn, vz, tc);
+  const imA = iA * 1000;
+
+  const isActive = Math.abs(imA) > 0.01;
+  const isBreak  = vIn < 0 && Math.abs(vIn) >= vz * 0.95;
+  const isFwd    = vIn > 0.5;
+  const wireCol  = isBreak ? '#ff4d4d' : isFwd ? '#39e87a' : 'rgba(138,155,181,0.5)';
+  const cx = W/2, cy = H/2;
+  const bx = 50, bx2 = W-50;
+
+  // Draw wires (rectangular loop)
+  ccCtx.strokeStyle = wireCol;
+  ccCtx.lineWidth = 2.5;
+  ccCtx.setLineDash([]);
+  ccCtx.beginPath();
+  ccCtx.moveTo(bx,cy-40); ccCtx.lineTo(bx2,cy-40);  // top
+  ccCtx.moveTo(bx,cy+40); ccCtx.lineTo(bx2,cy+40);  // bottom
+  ccCtx.moveTo(bx,cy-40); ccCtx.lineTo(bx,cy+40);   // left
+  ccCtx.moveTo(bx2,cy-40);ccCtx.lineTo(bx2,cy+40);  // right
+  ccCtx.stroke();
+
+  // ─ Voltage source (left) ─
+  ccCtx.strokeStyle='rgba(138,155,181,0.7)'; ccCtx.lineWidth=1.5;
+  ccCtx.beginPath(); ccCtx.arc(bx,cy,18,0,Math.PI*2); ccCtx.stroke();
+  ccCtx.fillStyle='rgba(201,168,76,0.8)'; ccCtx.font='bold 12px DM Sans';
+  ccCtx.textAlign='center'; ccCtx.fillText('V', bx, cy+4);
+  const vLabel = currentV.toFixed(1)+'V';
+  ccCtx.fillStyle='rgba(201,168,76,0.7)'; ccCtx.font='10px DM Mono';
+  ccCtx.fillText(vLabel, bx, cy-26);
+  ccCtx.fillStyle='rgba(138,155,181,0.5)'; ccCtx.font='9px DM Mono';
+  ccCtx.fillText('Source', bx, cy+28);
+
+  // ─ Series resistor (top wire, centre-right) ─
+  const rx1=cx-10, rx2=cx+40, ry=cy-40;
+  ccCtx.strokeStyle='rgba(138,155,181,0.7)'; ccCtx.lineWidth=1.5;
+  ccCtx.strokeRect(rx1,ry-9,50,18);
+  ccCtx.fillStyle='rgba(138,155,181,0.6)'; ccCtx.font='9px DM Mono';
+  ccCtx.textAlign='center';
+  ccCtx.fillText(`Rs=${rs}Ω`, cx+15, ry-14);
+
+  // ─ Zener diode (right wire) ─
+  const dx=bx2, dy1=cy-30, dy2=cy+30;
+  // Triangle
+  ccCtx.beginPath();
+  ccCtx.moveTo(dx-10,dy1); ccCtx.lineTo(dx-10,dy2); ccCtx.lineTo(dx+10,cy); ccCtx.closePath();
+  ccCtx.fillStyle = isBreak ? 'rgba(255,77,77,0.25)' : 'rgba(57,232,122,0.15)';
+  ccCtx.strokeStyle = isBreak ? '#ff4d4d' : 'rgba(138,155,181,0.6)';
+  ccCtx.lineWidth = 1.5; ccCtx.fill(); ccCtx.stroke();
+  // Bar (cathode) with Zener bends
+  ccCtx.strokeStyle = isBreak ? '#ff4d4d' : 'rgba(138,155,181,0.6)';
+  ccCtx.lineWidth = 2;
+  ccCtx.beginPath();
+  ccCtx.moveTo(dx+10,dy1); ccCtx.lineTo(dx+10,dy2);
+  ccCtx.moveTo(dx+10,dy1); ccCtx.lineTo(dx+15,dy1-5);  // Zener bend top
+  ccCtx.moveTo(dx+10,dy2); ccCtx.lineTo(dx+5,dy2+5);   // Zener bend bottom
+  ccCtx.stroke();
+  ccCtx.fillStyle='rgba(255,77,77,0.7)'; ccCtx.font='9px DM Mono';
+  ccCtx.fillText(`Vz=${vz}V`, dx, cy+48);
+
+  // Current label
+  ccCtx.fillStyle=wireCol; ccCtx.font='10px DM Mono';
+  ccCtx.textAlign='center';
+  ccCtx.fillText(`I = ${imA.toFixed(2)} mA`, W/2-30, cy+55);
+
+  // Current arrows (top wire) if flowing
+  if(Math.abs(imA)>0.1){
+    const arrowX = cx-50, arrowY = cy-40;
+    const dir = imA > 0 ? 1 : -1;
+    ccCtx.fillStyle=wireCol;
+    ccCtx.beginPath();
+    ccCtx.moveTo(arrowX+dir*10,arrowY); ccCtx.lineTo(arrowX-dir*4,arrowY-5); ccCtx.lineTo(arrowX-dir*4,arrowY+5);
+    ccCtx.closePath(); ccCtx.fill();
+  }
+}
+
+// ═══════════════════════════════════════════
+//  UPDATE READOUTS
+// ═══════════════════════════════════════════
+function updateReadouts(){
+  const vz = parseFloat(document.getElementById('zenerType').value);
+  const tc = parseFloat(document.getElementById('tempSelect').value);
+  const iA = calcCurrent(currentV, vz, tc);
+  const imA= iA * 1000;
+  const pMW= Math.abs(currentV * imA);
+
+  document.getElementById('readV').textContent = currentV.toFixed(3);
+  document.getElementById('readI').textContent = imA.toFixed(3);
+  document.getElementById('readP').textContent = pMW.toFixed(2);
+  document.getElementById('opBadge').textContent = `V = ${currentV.toFixed(2)}V · I = ${imA.toFixed(2)}mA`;
+
+  // Power bar (max ~500mW)
+  document.getElementById('powerBar').style.width = Math.min(100, pMW/5) + '%';
+
+  const region = getRegion(currentV, vz);
+  const rb = document.getElementById('regionBadge');
+  const cd = document.getElementById('condDisplay');
+  const ct = document.getElementById('condText');
+  const qn = document.getElementById('quickNote');
+
+  if(region === 'breakdown'){
+    rb.className='region-badge region-breakdown'; rb.textContent='Zener Breakdown Region';
+    cd.className='condition-display cond-breakdown';
+    cd.querySelector('.cond-title').textContent='Zener Breakdown Region';
+    ct.innerHTML=`The applied reverse voltage has exceeded the <strong>Zener voltage Vz = ${vz}V</strong>. The junction is in breakdown — the voltage across the diode remains approximately constant at −${vz}V despite increasing current. This is the key operating region for voltage regulation. Current is limited only by external resistance Rs. The mechanism (Zener tunneling or avalanche) depends on the doping level.`;
+    qn.innerHTML=`<strong style="color:var(--red2)">Breakdown active.</strong> Vz ≈ ${vz}V maintained. Current = ${imA.toFixed(1)} mA. Power dissipated = ${pMW.toFixed(1)} mW.`;
+  } else if(region==='forward'){
+    rb.className='region-badge region-forward'; rb.textContent='Forward Conduction Region';
+    cd.className='condition-display cond-forward';
+    cd.querySelector('.cond-title').textContent='Forward Conduction Region';
+    ct.innerHTML=`The diode is <strong>forward biased</strong>. Current increases exponentially once V exceeds ~0.65V (silicon cut-in voltage). The diode behaves like a normal p-n junction in this region. The Zener's breakdown property is not utilised in forward bias — it works as a conventional rectifier diode. Current = ${imA.toFixed(2)} mA at ${currentV.toFixed(2)}V.`;
+    qn.innerHTML=`<strong style="color:var(--green)">Forward conducting.</strong> V = ${currentV.toFixed(2)}V, I = ${imA.toFixed(2)} mA.`;
+  } else {
+    rb.className='region-badge region-leakage'; rb.textContent='Reverse Leakage Region';
+    cd.className='condition-display cond-leakage';
+    cd.querySelector('.cond-title').textContent='Reverse Leakage Region';
+    ct.innerHTML=`Reverse voltage is applied but is less than <strong>Vz = ${vz}V</strong>. Only a tiny reverse saturation current (µA range) flows due to thermally generated minority carriers. The depletion region has widened. The diode is essentially <strong>off</strong> — this is the blocking state. Increasing reverse voltage further will eventually trigger Zener breakdown at ${vz}V.`;
+    qn.innerHTML=`<strong style="color:var(--gold)">Reverse leakage.</strong> Blocking state. Vz = ${vz}V not yet reached.`;
+  }
+}
+
+// ═══════════════════════════════════════════
+//  SWEEP ANIMATION
+// ═══════════════════════════════════════════
+function startSweep(){
+  if(sweeping){ sweeping=false; document.getElementById('sweepBtn').textContent='▶ Auto Sweep'; document.getElementById('sweepBtn').classList.remove('sweeping'); return; }
+  sweeping=true;
+  tracePoints=[];
+  const vz=parseFloat(document.getElementById('zenerType').value);
+  sweepV= -(vz*1.3);
+  document.getElementById('sweepBtn').textContent='⏹ Stop Sweep';
+  document.getElementById('sweepBtn').classList.add('sweeping');
+}
+
+function doSweep(){
+  if(!sweeping) return;
+  const vz=parseFloat(document.getElementById('zenerType').value);
+  sweepV += 0.04;
+  if(sweepV > 1.2){ sweeping=false; document.getElementById('sweepBtn').textContent='▶ Auto Sweep'; document.getElementById('sweepBtn').classList.remove('sweeping'); return; }
+  currentV = sweepV;
+  document.getElementById('vSlider').value = currentV;
+  document.getElementById('vAppliedDisplay').textContent = currentV.toFixed(2)+' V';
+  addTracePoint();
+  updateReadouts();
+}
+
+function addTracePoint(){
+  const vz=parseFloat(document.getElementById('zenerType').value);
+  const tc=parseFloat(document.getElementById('tempSelect').value);
+  const iA=calcCurrent(currentV,vz,tc);
+  const imA=iA*1000;
+  if(Math.abs(imA) < 500){
+    tracePoints.push({v:currentV, imA});
+  }
+}
+
+// ═══════════════════════════════════════════
+//  MAIN LOOP
+// ═══════════════════════════════════════════
+function loop(){
+  if(sweeping) doSweep();
+  drawIV();
+  drawCircuit();
+  animFrame = requestAnimationFrame(loop);
+}
+
+// ═══════════════════════════════════════════
+//  VOLTAGE REGULATOR
+// ═══════════════════════════════════════════
+const vrCanvas = document.getElementById('vrCanvas');
+const vrCtx = vrCanvas.getContext('2d');
+function resizeVR(){
+  vrCanvas.width = vrCanvas.parentElement.clientWidth - 48;
+  vrCanvas.height = 220;
+}
+resizeVR();
+window.addEventListener('resize', resizeVR);
+
+function updateVR(){
+  const vz = parseFloat(document.getElementById('vrZenerType').value);
+  const vin= parseFloat(document.getElementById('vrVin').value);
+  const rs = parseFloat(document.getElementById('vrRs').value);
+  const rl = parseFloat(document.getElementById('vrRl').value);
+
+  document.getElementById('vrVinDisplay').textContent = vin.toFixed(1)+' V';
+  document.getElementById('vrRsDisplay').textContent  = rs+' Ω';
+  document.getElementById('vrRlDisplay').textContent  = rl+' Ω';
+
+  // VR calculation
+  // Thevenin: Vth = Vin*RL/(Rs+RL), Rth = Rs*RL/(Rs+RL)
+  // If Vth > Vz: Zener in breakdown, Vout = Vz
+  // IL = Vz/RL, Is=(Vin-Vz)/Rs, Iz=Is-IL
+  const vth = vin * rl / (rs + rl);
+  const isRegulating = vth > vz && vin > vz;
+
+  let vout, iz, il, is, status;
+  if(isRegulating){
+    vout = vz;
+    il   = vz / rl;
+    is   = (vin - vz) / rs;
+    iz   = is - il;
+    status = iz > 0
+      ? `Regulating ✓ (Iz = ${(iz*1000).toFixed(1)} mA, safe)`
+      : `⚠ Iz < 0 — Increase Vin or decrease RL`;
+  } else {
+    // Not regulating
+    vout = vin * rl / (rs + rl);
+    il   = vout / rl;
+    is   = il;
+    iz   = 0;
+    status = `Not regulating — Vin (${vin}V) must exceed Vz (${vz}V)`;
+  }
+
+  document.getElementById('vrVout').textContent = vout.toFixed(2)+' V';
+  document.getElementById('vrIz').textContent   = ((iz||0)*1000).toFixed(2)+' mA';
+  document.getElementById('vrIl').textContent   = (il*1000).toFixed(2)+' mA';
+  document.getElementById('vrIs').textContent   = (is*1000).toFixed(2)+' mA';
+  document.getElementById('vrStatus').textContent = status;
+
+  drawVRCircuit(vz, vin, rs, rl, vout, il, is, iz, isRegulating);
+}
+
+function drawVRCircuit(vz, vin, rs, rl, vout, il, is, iz, reg){
+  const W=vrCanvas.width, H=vrCanvas.height;
+  vrCtx.clearRect(0,0,W,H);
+  vrCtx.fillStyle='#06090f'; vrCtx.fillRect(0,0,W,H);
+
+  const wireCol = reg ? '#39e87a' : 'rgba(138,155,181,0.5)';
+  const pad=40;
+
+  // Main loop points
+  const L=pad, R=W-pad, T=pad, B=H-pad, MX=W/2;
+
+  // Top wire: L-top → Rs box → MX-top
+  vrCtx.strokeStyle=wireCol; vrCtx.lineWidth=2; vrCtx.setLineDash([]);
+  vrCtx.beginPath(); vrCtx.moveTo(L,T); vrCtx.lineTo(R,T); vrCtx.stroke();
+  vrCtx.beginPath(); vrCtx.moveTo(L,B); vrCtx.lineTo(R,B); vrCtx.stroke();
+  vrCtx.beginPath(); vrCtx.moveTo(L,T); vrCtx.lineTo(L,B); vrCtx.stroke();
+
+  // Vertical load line
+  vrCtx.beginPath(); vrCtx.moveTo(R-50,T); vrCtx.lineTo(R-50,B); vrCtx.stroke();
+
+  // ─ Source ─
+  vrCtx.strokeStyle='rgba(201,168,76,0.7)'; vrCtx.lineWidth=1.5;
+  vrCtx.beginPath(); vrCtx.arc(L,(T+B)/2,20,0,Math.PI*2); vrCtx.stroke();
+  vrCtx.fillStyle='rgba(201,168,76,0.8)'; vrCtx.font='bold 11px DM Sans'; vrCtx.textAlign='center';
+  vrCtx.fillText('Vin', L,(T+B)/2+4);
+  vrCtx.fillStyle='rgba(201,168,76,0.6)'; vrCtx.font='9px DM Mono';
+  vrCtx.fillText(vin.toFixed(1)+'V', L,(T+B)/2-27);
+
+  // ─ Rs ─
+  const rsX1=L+45, rsX2=L+45+70;
+  vrCtx.strokeStyle='rgba(138,155,181,0.6)'; vrCtx.lineWidth=1.5;
+  vrCtx.strokeRect(rsX1,T-10,70,20);
+  vrCtx.fillStyle='rgba(138,155,181,0.7)'; vrCtx.font='9px DM Mono'; vrCtx.textAlign='center';
+  vrCtx.fillText(`Rs=${rs}Ω`, rsX1+35, T-14);
+  vrCtx.fillStyle=wireCol; vrCtx.font='8px DM Mono';
+  vrCtx.fillText(`Is=${(is*1000).toFixed(1)}mA`, rsX1+35, T+24);
+
+  // ─ Zener ─
+  const zX=R, zY1=T+20, zY2=B-20;
+  vrCtx.beginPath();
+  vrCtx.moveTo(zX-10,zY1); vrCtx.lineTo(zX-10,zY2); vrCtx.lineTo(zX+10,(zY1+zY2)/2); vrCtx.closePath();
+  vrCtx.fillStyle= reg?'rgba(255,77,77,0.2)':'rgba(100,100,100,0.1)';
+  vrCtx.strokeStyle= reg?'#ff4d4d':'rgba(138,155,181,0.4)'; vrCtx.lineWidth=1.5;
+  vrCtx.fill(); vrCtx.stroke();
+  vrCtx.beginPath(); vrCtx.moveTo(zX+10,zY1); vrCtx.lineTo(zX+10,zY2);
+  vrCtx.moveTo(zX+10,zY1); vrCtx.lineTo(zX+15,zY1-5);
+  vrCtx.moveTo(zX+10,zY2); vrCtx.lineTo(zX+5,zY2+5);
+  vrCtx.strokeStyle= reg?'#ff4d4d':'rgba(138,155,181,0.4)'; vrCtx.stroke();
+  vrCtx.fillStyle='rgba(255,77,77,0.7)'; vrCtx.font='8px DM Mono'; vrCtx.textAlign='center';
+  vrCtx.fillText(`Vz=${vz}V`, zX, B+12);
+  if(reg) vrCtx.fillText(`Iz=${(iz*1000).toFixed(1)}mA`, zX, zY1-8);
+
+  // ─ Load ─
+  const lX=R-50, lY1=T+20, lY2=B-20;
+  vrCtx.strokeStyle='rgba(77,184,255,0.6)'; vrCtx.lineWidth=1.5;
+  vrCtx.strokeRect(lX-12,lY1,24,lY2-lY1);
+  vrCtx.fillStyle='rgba(77,184,255,0.7)'; vrCtx.font='8px DM Mono'; vrCtx.textAlign='center';
+  vrCtx.fillText(`RL`, lX, lY1-5);
+  vrCtx.fillText(`${rl}Ω`, lX, lY1+8);
+  vrCtx.fillStyle='rgba(57,232,122,0.8)';
+  vrCtx.fillText(`Vout=${vout.toFixed(2)}V`, lX, B+12);
+}
+
+// ═══════════════════════════════════════════
+//  CONTROLS
+// ═══════════════════════════════════════════
+function onSliderChange(){
+  currentV = parseFloat(document.getElementById('vSlider').value);
+  document.getElementById('vAppliedDisplay').textContent = currentV.toFixed(2)+' V';
+  document.getElementById('rsDisplay').textContent = document.getElementById('rsSlider').value+' Ω';
+  if(!sweeping) addTracePoint();
+  updateReadouts();
+}
+
+function onParamChange(){
+  tracePoints=[];
+  currentV=0;
+  document.getElementById('vSlider').value=0;
+  document.getElementById('vAppliedDisplay').textContent='0.0 V';
+  updateReadouts();
+}
+
+function resetSim(){
+  sweeping=false;
+  tracePoints=[];
+  currentV=0;
+  sweepV= -10;
+  document.getElementById('vSlider').value=0;
+  document.getElementById('vAppliedDisplay').textContent='0.0 V';
+  document.getElementById('sweepBtn').textContent='▶ Auto Sweep';
+  document.getElementById('sweepBtn').classList.remove('sweeping');
+  updateReadouts();
+}
+
+function setMode(m){
+  mode=m;
+  document.getElementById('ivMode').style.display = m==='iv'?'block':'none';
+  document.getElementById('vrMode').style.display = m==='vr'?'block':'none';
+  document.getElementById('tab-iv').classList.toggle('active', m==='iv');
+  document.getElementById('tab-vr').classList.toggle('active', m==='vr');
+  if(m==='vr'){ resizeVR(); updateVR(); }
+}
+
+// ═══════════════════════════════════════════
+//  CURSOR & NAV
+// ═══════════════════════════════════════════
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,select,input').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='16px';cursor.style.height='16px';ring.style.width='54px';ring.style.height='54px';ring.style.borderColor='rgba(255,77,77,0.8)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(255,77,77,0.5)';});
+});
+document.getElementById('navbar').addEventListener('scroll',()=>{});
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60));
+
+// INIT
+updateReadouts();
+updateVR();
+loop();
+</script>
+</body>
+</html>
