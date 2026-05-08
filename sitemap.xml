@@ -601,6 +601,65 @@
   <changefreq>monthly</changefreq>
   <priority>0.55</priority>
 </url>
+      <url>
+  <loc>https://sreeharis.in/economicss4/s4eco.html</loc>
+  <priority>1.0</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSCECO200.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSCECO201.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSCECO202.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSCECO203.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSCECO204.html</loc>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSEECO200.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4DSEECO201.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4SECECO200.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4SECECO201.html</loc>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4VACECO200.html</loc>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://sreeharis.in/economicss4/UK4VACECO201.html</loc>
+  <priority>0.7</priority>
+</url>
 <url>
   <loc>https://sreeharis.in/chemistrys3/UK3DSECHE207.html</loc>
   <lastmod>2026-03-12T14:09:13+00:00</lastmod>
