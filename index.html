@@ -750,6 +750,261 @@ Sreeharis notes
       .sidebar-nav-item:not(.disabled) { cursor: pointer; }
       .sidebar { width: 300px; right: -320px; }
     }
+
+    /* ── NOTICE TICKER ── */
+    .notice-ticker-wrap {
+      display: flex; align-items: center;
+      background: rgba(201,168,76,0.06);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      overflow: hidden; height: 64px;
+      background: linear-gradient(90deg, rgba(201,168,76,0.06) 0%, rgba(201,168,76,0.03) 100%);
+    }
+    .notice-ticker-label {
+      flex-shrink: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem; letter-spacing: 3px; font-weight: 700;
+      color: var(--gold); text-transform: uppercase;
+      padding: 0 22px; border-right: 1px solid rgba(201,168,76,0.25);
+      height: 100%; display: flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,0.1);
+      white-space: nowrap;
+    }
+    .notice-ticker-label::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+      box-shadow: 0 0 8px var(--gold);
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.6)} }
+    .notice-ticker-track { flex: 1; overflow: hidden; }
+    .notice-ticker-inner {
+      display: flex; align-items: center; gap: 0;
+      white-space: nowrap;
+      animation: ticker-scroll 22s linear infinite;
+    }
+    .notice-ticker-wrap:hover .notice-ticker-inner { animation-play-state: paused; }
+    .notice-item {
+      font-size: 1rem; color: rgba(255,255,255,0.75);
+      padding: 0 36px; font-weight: 500; letter-spacing: 0.3px;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .notice-item strong { color: var(--white); font-weight: 700; }
+    .notice-link {
+      color: var(--gold); text-decoration: none; font-weight: 700;
+      border-bottom: 1.5px solid rgba(201,168,76,0.5);
+      transition: border-color 0.2s, color 0.2s;
+      font-family: 'Playfair Display', serif; font-style: italic;
+    }
+    .notice-link:hover { border-color: var(--gold); color: var(--gold-light); }
+    .notice-sep {
+      color: var(--gold); font-size: 1.4rem; flex-shrink: 0; opacity: 0.5;
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SIDEBAR ANIMATIONS ── */
+    /* Science Hub — atom */
+    .atom-icon {
+      width: 44px; height: 44px; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .atom-nucleus {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold); position: absolute; z-index: 2;
+      box-shadow: 0 0 8px rgba(201,168,76,0.8);
+    }
+    .atom-orbit {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.55);
+    }
+    .atom-orbit-1 {
+      width: 38px; height: 18px;
+      animation: orbit-spin-1 2.4s linear infinite;
+    }
+    .atom-orbit-2 {
+      width: 38px; height: 18px;
+      animation: orbit-spin-2 3s linear infinite;
+    }
+    .atom-orbit-3 {
+      width: 38px; height: 18px;
+      animation: orbit-spin-3 2s linear infinite;
+    }
+    .atom-electron {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--gold); position: absolute; top: -2px; left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 4px var(--gold);
+    }
+    @keyframes orbit-spin-1 {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes orbit-spin-2 {
+      from { transform: rotate(60deg); }
+      to   { transform: rotate(420deg); }
+    }
+    @keyframes orbit-spin-3 {
+      from { transform: rotate(120deg); }
+      to   { transform: rotate(480deg); }
+    }
+
+    /* Espace — logo image */
+    .espace-logo-icon {
+      width: 30px; height: 30px; object-fit: contain;
+      filter: drop-shadow(0 0 4px rgba(201,168,76,0.4));
+      transition: filter 0.3s;
+    }
+    .sidebar-nav-item:hover .espace-logo-icon {
+      filter: drop-shadow(0 0 8px rgba(201,168,76,0.7));
+    }
+
+    /* Portfolio — person figure */
+    .person-icon {
+      width: 44px; height: 44px; position: relative;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .person-head {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--gold); position: absolute; top: 5px; left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 6px rgba(201,168,76,0.5);
+    }
+    .person-body {
+      width: 14px; height: 11px;
+      background: rgba(201,168,76,0.7);
+      border-radius: 4px 4px 0 0;
+      position: absolute; top: 17px; left: 50%;
+      transform: translateX(-50%);
+    }
+    .person-leg {
+      width: 5px; height: 9px;
+      background: rgba(201,168,76,0.6);
+      border-radius: 0 0 3px 3px;
+      position: absolute; bottom: 3px;
+      animation: person-walk 1.2s ease-in-out infinite alternate;
+    }
+    .person-leg-l { left: calc(50% - 6px); animation-delay: 0s; }
+    .person-leg-r { left: calc(50% + 1px); animation-delay: 0.6s; }
+    .person-arm {
+      width: 4px; height: 9px;
+      background: rgba(201,168,76,0.5);
+      border-radius: 2px; position: absolute; top: 19px;
+      animation: person-arm-swing 1.2s ease-in-out infinite alternate;
+    }
+    .person-arm-l { left: calc(50% - 11px); transform-origin: top center; animation-delay: 0.6s; }
+    .person-arm-r { left: calc(50% + 7px); transform-origin: top center; animation-delay: 0s; }
+    @keyframes person-walk {
+      from { transform: rotate(-18deg); }
+      to   { transform: rotate(18deg); }
+    }
+    @keyframes person-arm-swing {
+      from { transform: rotate(-20deg); }
+      to   { transform: rotate(20deg); }
+    }
+
+    /* ── COURSE CARD ANIMATIONS ── */
+    .card-emoji { display: none; } /* hide emoji */
+
+    /* Card animation container */
+    .card-anim {
+      width: 72px; height: 72px; margin-bottom: 22px;
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* BSc — large atom animation */
+    .bsc-anim { position: relative; }
+    .bsc-nucleus {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-light), var(--gold));
+      position: absolute; z-index: 2;
+      box-shadow: 0 0 14px rgba(201,168,76,0.9), 0 0 28px rgba(201,168,76,0.4);
+    }
+    .bsc-orbit {
+      position: absolute; border-radius: 50%;
+      border: 1.5px solid rgba(201,168,76,0.5);
+    }
+    .bsc-orbit-1 { width: 58px; height: 26px; animation: bsc-spin-1 2s linear infinite; }
+    .bsc-orbit-2 { width: 58px; height: 26px; animation: bsc-spin-2 2.8s linear infinite; }
+    .bsc-orbit-3 { width: 58px; height: 26px; animation: bsc-spin-3 3.5s linear infinite; }
+    .bsc-electron {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); position: absolute; top: -3px; left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 8px var(--gold), 0 0 16px rgba(201,168,76,0.5);
+    }
+    @keyframes bsc-spin-1 { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes bsc-spin-2 { from{transform:rotate(60deg)} to{transform:rotate(420deg)} }
+    @keyframes bsc-spin-3 { from{transform:rotate(120deg)} to{transform:rotate(480deg)} }
+
+    /* BA — open book with turning pages */
+    .ba-anim { position: relative; }
+    .ba-book-base {
+      width: 64px; height: 44px; position: relative;
+    }
+    .ba-spine {
+      width: 2px; height: 46px; background: var(--gold);
+      position: absolute; left: 50%; top: -1px; transform: translateX(-50%);
+      box-shadow: 0 0 6px rgba(201,168,76,0.5);
+    }
+    .ba-page {
+      width: 27px; height: 42px; position: absolute; top: 1px;
+      border-radius: 2px;
+      border: 1.5px solid rgba(201,168,76,0.5);
+    }
+    .ba-page-l {
+      right: calc(50% + 1px);
+      border-right: none; border-radius: 4px 0 0 4px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
+      transform-origin: right center;
+      animation: page-turn-l 3s ease-in-out infinite;
+    }
+    .ba-page-r {
+      left: calc(50% + 1px);
+      border-left: none; border-radius: 0 4px 4px 0;
+      background: linear-gradient(225deg, rgba(201,168,76,0.12), rgba(201,168,76,0.04));
+      transform-origin: left center;
+      animation: page-turn-r 3s ease-in-out infinite;
+    }
+    .ba-line {
+      height: 2px; background: rgba(201,168,76,0.2);
+      border-radius: 1px; margin: 5px 4px;
+    }
+    .ba-lines-l { position: absolute; top: 6px; left: 4px; right: calc(50% + 6px); }
+    .ba-lines-r { position: absolute; top: 6px; left: calc(50% + 6px); right: 4px; }
+    @keyframes page-turn-l {
+      0%,100% { transform: rotateY(0deg); }
+      45%,55% { transform: rotateY(25deg); }
+    }
+    @keyframes page-turn-r {
+      0%,100% { transform: rotateY(0deg); }
+      45%,55% { transform: rotateY(-25deg); }
+    }
+
+    /* BCom — rising bar chart */
+    .bcom-anim { position: relative; align-items: flex-end; }
+    .bcom-bar {
+      border-radius: 3px 3px 0 0;
+      width: 12px;
+      background: linear-gradient(180deg, var(--gold), rgba(201,168,76,0.4));
+      margin: 0 3px;
+      box-shadow: 0 0 8px rgba(201,168,76,0.25);
+    }
+    .bcom-bar-1 { animation: bar-rise 2.2s ease-in-out infinite; }
+    .bcom-bar-2 { animation: bar-rise 2.2s ease-in-out infinite 0.25s; }
+    .bcom-bar-3 { animation: bar-rise 2.2s ease-in-out infinite 0.5s; }
+    .bcom-bar-4 { animation: bar-rise 2.2s ease-in-out infinite 0.75s; }
+    @keyframes bar-rise {
+      0%,100% { height: 28px; opacity: 0.7; }
+      50% { height: 54px; opacity: 1; }
+    }
+    .bcom-baseline {
+      position: absolute; bottom: 0; left: 4px; right: 4px;
+      height: 1.5px; background: rgba(201,168,76,0.35); border-radius: 1px;
+    }
+
   </style>
 </head>
 <body>
@@ -771,7 +1026,14 @@ Sreeharis notes
 
     <nav class="sidebar-nav">
       <a href="sciencehub.html" class="sidebar-nav-item">
-        <div class="sidebar-item-icon">🔭</div>
+        <div class="sidebar-item-icon">
+          <div class="atom-icon">
+            <div class="atom-nucleus"></div>
+            <div class="atom-orbit atom-orbit-1"><div class="atom-electron"></div></div>
+            <div class="atom-orbit atom-orbit-2"><div class="atom-electron"></div></div>
+            <div class="atom-orbit atom-orbit-3"><div class="atom-electron"></div></div>
+          </div>
+        </div>
         <div class="sidebar-item-text">
           <div class="sidebar-item-name">Science Hub</div>
           <div class="sidebar-item-desc">Interactive visualizations & simulations</div>
@@ -780,7 +1042,9 @@ Sreeharis notes
       </a>
 
       <a href="espace.html" class="sidebar-nav-item">
-        <div class="sidebar-item-icon">🚀</div>
+        <div class="sidebar-item-icon">
+          <img src="espace.png" alt="Espace Systems" class="espace-logo-icon">
+        </div>
         <div class="sidebar-item-text">
           <div class="sidebar-item-name">Espace Systems</div>
           <div class="sidebar-item-desc">Web design, SEO & digital solutions</div>
@@ -789,7 +1053,16 @@ Sreeharis notes
       </a>
 
       <a href="portfolio.html" class="sidebar-nav-item">
-        <div class="sidebar-item-icon">👨‍💻</div>
+        <div class="sidebar-item-icon">
+          <div class="person-icon">
+            <div class="person-head"></div>
+            <div class="person-body"></div>
+            <div class="person-arm person-arm-l"></div>
+            <div class="person-arm person-arm-r"></div>
+            <div class="person-leg person-leg-l"></div>
+            <div class="person-leg person-leg-r"></div>
+          </div>
+        </div>
         <div class="sidebar-item-text">
           <div class="sidebar-item-name">Portfolio</div>
           <div class="sidebar-item-desc">Developer, Founder & Student</div>
@@ -892,6 +1165,23 @@ Sreeharis notes
     </div>
   </div>
 
+  <!-- NOTICE TICKER -->
+  <div class="notice-ticker-wrap">
+    <div class="notice-ticker-label">NOTICE</div>
+    <div class="notice-ticker-track">
+      <div class="notice-ticker-inner">
+        <span class="notice-item"><strong>Study Materials Needed —</strong> Notes, question papers & question banks are not yet available for most courses. If you have any materials from any FYUGP programme, please <a href="#contribute" class="notice-link">contribute them here</a>.</span>
+        <span class="notice-sep"> ✦ </span>
+        <span class="notice-item"><strong>Help Your Community —</strong> Every note you share helps a fellow FYUGP student prepare better. Upload your handwritten or typed notes and earn recognition.</span>
+        <span class="notice-sep"> ✦ </span>
+        <span class="notice-item"><strong>Study Materials Needed —</strong> Notes, question papers & question banks are not yet available for most courses. If you have any materials from any FYUGP programme, please <a href="#contribute" class="notice-link">contribute them here</a>.</span>
+        <span class="notice-sep"> ✦ </span>
+        <span class="notice-item"><strong>Help Your Community —</strong> Every note you share helps a fellow FYUGP student prepare better. Upload your handwritten or typed notes and earn recognition.</span>
+        <span class="notice-sep"> ✦ </span>
+      </div>
+    </div>
+  </div>
+
   <!-- COURSES -->
   <section class="courses-section" id="courses">
     <div class="courses-inner">
@@ -905,6 +1195,12 @@ Sreeharis notes
 
       <div class="courses-grid">
         <a href="bsc.html" class="course-card reveal">
+          <div class="card-anim bsc-anim">
+            <div class="bsc-nucleus"></div>
+            <div class="bsc-orbit bsc-orbit-1"><div class="bsc-electron"></div></div>
+            <div class="bsc-orbit bsc-orbit-2"><div class="bsc-electron"></div></div>
+            <div class="bsc-orbit bsc-orbit-3"><div class="bsc-electron"></div></div>
+          </div>
           <span class="card-emoji">🔬</span>
           <span class="card-tag">Science</span>
           <div class="card-title">BSc</div>
@@ -913,6 +1209,27 @@ Sreeharis notes
         </a>
 
         <a href="ba.html" class="course-card reveal" style="transition-delay:0.1s">
+          <div class="card-anim ba-anim">
+            <div class="ba-book-base">
+              <div class="ba-spine"></div>
+              <div class="ba-page ba-page-l">
+                <div class="ba-lines-l">
+                  <div class="ba-line"></div>
+                  <div class="ba-line" style="width:75%"></div>
+                  <div class="ba-line"></div>
+                  <div class="ba-line" style="width:60%"></div>
+                </div>
+              </div>
+              <div class="ba-page ba-page-r">
+                <div class="ba-lines-r">
+                  <div class="ba-line"></div>
+                  <div class="ba-line" style="width:80%"></div>
+                  <div class="ba-line"></div>
+                  <div class="ba-line" style="width:55%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
           <span class="card-emoji">📕</span>
           <span class="card-tag">Arts & Humanities</span>
           <div class="card-title">BA</div>
@@ -921,6 +1238,13 @@ Sreeharis notes
         </a>
 
         <a href="bcom.html" class="course-card reveal" style="transition-delay:0.2s">
+          <div class="card-anim bcom-anim">
+            <div class="bcom-bar bcom-bar-1"></div>
+            <div class="bcom-bar bcom-bar-2"></div>
+            <div class="bcom-bar bcom-bar-3"></div>
+            <div class="bcom-bar bcom-bar-4"></div>
+            <div class="bcom-baseline"></div>
+          </div>
           <span class="card-emoji">🏦</span>
           <span class="card-tag">Commerce</span>
           <div class="card-title">BCom</div>
@@ -1096,6 +1420,10 @@ Sreeharis notes
   </script>
 </body>
         </html>
+
+
+
+
 
 
 
