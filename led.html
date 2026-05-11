@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LED I-V Characteristics Interactive Simulation — Light Emitting Diode Experiment | Sreeharis FYUGP</title>
+<meta name="description" content="Interactive LED I-V characteristics simulation — explore how LEDs emit different colours, why bandgap energy determines wavelength, and how forward current controls brightness. Simulate 8 LED types with live I-V curve, emission spectrum, and glow animation. Free for FYUGP Electronics students.">
+<meta name="keywords" content="LED iv characteristics, light emitting diode experiment, LED forward voltage, LED simulation, why LED emits light, LED colour wavelength, bandgap energy LED, LED characteristic curve, LED forward current, luminous intensity LED, red LED green LED blue LED, LED semiconductor material, electroluminescence, LED turn on voltage, LED threshold voltage, FYUGP electronics experiment, Kerala University LED experiment, LED working principle, LED emission spectrum, LED brightness current, optoelectronics simulation, LED virtual lab, LED temperature effect, GaAs LED, InGaN LED, GaAsP LED, photon emission diode">
+<meta name="author" content="Sreeharis · Espace Systems">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://sreeharis.in/led.html">
+<link rel="icon" type="image/png" href="espace.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LED I-V Characteristics Interactive Simulation | Sreeharis FYUGP">
+<meta property="og:description" content="Interactive LED simulation — explore colour, bandgap, forward current, brightness and emission spectrum for 8 LED types. Free for FYUGP students.">
+<meta property="og:url" content="https://sreeharis.in/led.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LED I-V Characteristics Simulation | Sreeharis FYUGP Electronics">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LearningResource",
+  "name":"LED I-V Characteristics — Interactive Simulation",
+  "description":"Interactive simulation of the I-V characteristics of light emitting diodes. Explore forward voltage, current, bandgap energy, emission spectrum and colour for 8 LED types.",
+  "url":"https://sreeharis.in/led.html",
+  "educationalLevel":"Undergraduate",
+  "about":["LED I-V Characteristics","Light Emitting Diode","Semiconductor Optoelectronics","Bandgap Energy","Electroluminescence"],
+  "keywords":"LED iv characteristics, light emitting diode experiment, bandgap energy, FYUGP electronics",
+  "creator":{"@type":"Organization","name":"Espace Systems","url":"https://sreeharis.in/espace.html"},
+  "isPartOf":{"@type":"WebSite","name":"Sreeharis Science Hub","url":"https://sreeharis.in/sciencehub.html"}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06080e;
+  --panel:#090d18;
+  --panel2:#0b1020;
+  --border:#142030;
+  --slate:#8a9bb5;
+  --white:#ffffff;
+}
+/* LED accent colours - updated by JS */
+:root{
+  --led-c:#ff4444;
+  --led-c2:#ff8888;
+  --led-glow:rgba(255,68,68,0.4);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;cursor:none;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 5% 12%,rgba(255,255,255,0.4)0%,transparent 100%),radial-gradient(1px 1px at 25% 60%,rgba(255,255,255,0.25)0%,transparent 100%),radial-gradient(1px 1px at 50% 8%,rgba(255,255,255,0.3)0%,transparent 100%),radial-gradient(1px 1px at 75% 75%,rgba(255,255,255,0.2)0%,transparent 100%),radial-gradient(1px 1px at 92% 32%,rgba(255,255,255,0.35)0%,transparent 100%),radial-gradient(1px 1px at 38% 88%,rgba(255,255,255,0.22)0%,transparent 100%);pointer-events:none;z-index:0;}
+.cursor{width:10px;height:10px;background:var(--led-c);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;}
+.cursor-ring{width:36px;height:36px;border:1px solid var(--led-glow);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;background:rgba(6,8,14,0.85);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,0.07);transition:padding .4s;}
+nav.scrolled{padding:12px 52px;background:rgba(6,8,14,0.97);}
+.nav-logo{display:flex;flex-direction:column;gap:2px;text-decoration:none;}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--led-c2);transition:color .4s;}
+.nav-logo-sub{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.nav-back{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:.85rem;padding:8px 18px;border-radius:50px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);transition:all .2s;cursor:none;}
+.nav-back:hover{color:var(--white);border-color:rgba(255,255,255,0.25);}
+
+.wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:110px 20px 80px;}
+
+header{text-align:center;margin-bottom:44px;animation:fadeUp .7s ease both;}
+.header-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--led-c2);border:1px solid var(--led-glow);padding:5px 16px;border-radius:2px;margin-bottom:20px;box-shadow:0 0 20px var(--led-glow);transition:color .4s,border-color .4s,box-shadow .4s;}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4.2vw,46px);font-weight:900;line-height:1.1;background:linear-gradient(135deg,#fff 0%,var(--led-c2) 50%,#fff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;transition:background .4s;}
+header p{color:var(--slate);font-size:15px;font-weight:300;max-width:620px;margin:0 auto;}
+
+/* LED SELECTOR */
+.led-selector-section{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:24px;animation:fadeUp .7s .2s ease both;}
+.led-selector-section h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--slate);margin-bottom:18px;}
+.led-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;}
+.led-btn{
+  padding:14px 10px;border-radius:12px;
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:none;transition:all .25s;position:relative;overflow:hidden;
+}
+.led-btn::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;}
+.led-btn:hover::before,.led-btn.active::before{opacity:1;}
+.led-btn.active{border-color:transparent;}
+.led-dome-btn{width:28px;height:28px;border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;transition:box-shadow .3s;}
+.led-btn-name{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:1px;text-transform:uppercase;color:var(--slate);transition:color .3s;}
+.led-btn.active .led-btn-name{color:var(--white);}
+.led-btn-wl{font-size:.62rem;color:rgba(255,255,255,0.3);}
+
+/* MAIN LAYOUT */
+.main-layout{display:grid;grid-template-columns:240px 1fr 220px;gap:18px;margin-bottom:20px;animation:fadeUp .7s .3s ease both;}
+@media(max-width:1000px){.main-layout{grid-template-columns:1fr;}}
+
+/* CTRL PANEL */
+.ctrl-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px 16px;display:flex;flex-direction:column;gap:16px;}
+.ctrl-panel h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--slate);}
+.ctrl-group label{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:7px;}
+.slider-val{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.slider-val span:first-child{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);}
+.slider-num{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--led-c2);transition:color .4s;}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--border);outline:none;cursor:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--led-c);cursor:none;box-shadow:0 0 8px var(--led-glow);transition:background .4s,box-shadow .4s;}
+.sweep-btn{width:100%;padding:12px;border-radius:10px;color:#fff;font-weight:700;font-size:.88rem;border:none;cursor:none;transition:transform .2s,box-shadow .2s,background .4s;font-family:'DM Sans',sans-serif;background:var(--led-c);}
+.sweep-btn:hover{transform:translateY(-2px);}
+.sweep-btn.sweeping{background:rgba(255,140,50,1);}
+.reset-btn{width:100%;padding:10px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--slate);font-weight:600;font-size:.85rem;cursor:none;transition:all .2s;font-family:'DM Sans',sans-serif;margin-top:4px;}
+.reset-btn:hover{border-color:rgba(255,255,255,0.2);color:var(--white);}
+
+/* GRAPH CARD */
+.graph-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.graph-header{padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.graph-header h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);}
+.op-badge{font-family:'DM Mono',monospace;font-size:11px;padding:4px 12px;border-radius:50px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--led-c2);transition:color .4s,border-color .4s;}
+#ivCanvas{display:block;width:100%;}
+
+/* READOUT PANEL */
+.readout-panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;}
+.r-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+.r-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:5px;}
+.r-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;line-height:1;transition:color .4s;}
+.r-unit{font-size:.7rem;color:var(--slate);margin-top:3px;}
+.region-badge{padding:8px 12px;border-radius:8px;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;text-align:center;transition:all .4s;}
+.led-off-badge{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--slate);}
+.led-threshold-badge{background:rgba(255,200,50,0.1);border:1px solid rgba(255,200,50,0.3);color:#fbbf24;}
+.led-on-badge{border:1px solid;color:var(--led-c2);}
+
+/* VISUAL + SPECTRUM ROW */
+.vis-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;animation:fadeUp .7s .4s ease both;}
+@media(max-width:768px){.vis-row{grid-template-columns:1fr;}}
+
+/* LED VISUAL */
+.led-visual-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.led-visual-card h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);padding:12px 20px;border-bottom:1px solid var(--border);}
+.led-visual-inner{display:flex;align-items:center;justify-content:center;height:200px;position:relative;overflow:hidden;}
+.led-glow-bg{
+  position:absolute;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,var(--led-glow) 0%,transparent 70%);
+  opacity:0;transition:opacity .4s,background .4s;
+}
+.led-3d{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;}
+.led-3d-dome{
+  width:60px;height:60px;
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,0.5),var(--led-c));
+  transition:background .4s,box-shadow .4s;
+  box-shadow:0 0 0 0 transparent;
+  position:relative;overflow:hidden;
+}
+.led-3d-dome::after{
+  content:'';position:absolute;
+  width:20px;height:12px;border-radius:50%;
+  background:rgba(255,255,255,0.35);
+  top:10px;left:12px;
+  transform:rotate(-30deg);
+}
+.led-3d-flat{width:60px;height:16px;background:rgba(138,155,181,0.2);border-radius:0 0 6px 6px;border-top:2px solid rgba(255,255,255,0.1);}
+.led-3d-legs{display:flex;gap:14px;margin-top:2px;}
+.led-3d-leg{width:2.5px;height:28px;border-radius:1px;}
+.led-3d-leg.anode{background:rgba(138,155,181,0.5);position:relative;}
+.led-3d-leg.anode::after{content:'(+)';position:absolute;bottom:-16px;left:-6px;font-size:.6rem;font-family:'DM Mono',monospace;color:rgba(138,155,181,0.6);}
+.led-3d-leg.cathode{background:rgba(138,155,181,0.35);position:relative;}
+.led-3d-leg.cathode::after{content:'(−)';position:absolute;bottom:-16px;left:-6px;font-size:.6rem;font-family:'DM Mono',monospace;color:rgba(138,155,181,0.6);}
+.led-label{position:absolute;top:12px;left:20px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);}
+.led-emit-label{
+  position:absolute;bottom:16px;
+  font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:1px;
+  color:var(--led-c2);opacity:0;transition:opacity .4s,color .4s;
+  text-align:center;
+}
+
+/* SPECTRUM */
+.spectrum-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.spectrum-card h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);padding:12px 20px;border-bottom:1px solid var(--border);}
+#spectrumCanvas{display:block;width:100%;}
+
+/* LUMINOUS INTENSITY */
+.lux-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;animation:fadeUp .7s .45s ease both;}
+.lux-card h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);padding:12px 20px;border-bottom:1px solid var(--border);}
+#luxCanvas{display:block;width:100%;}
+
+/* EXPLANATION */
+.explanation-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:28px 32px;margin-bottom:20px;animation:fadeUp .7s .5s ease both;}
+.explanation-card h3{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--led-c2);margin-bottom:18px;transition:color .4s;}
+.region-display{padding:18px 20px;border-radius:12px;border-left:3px solid;transition:all .4s;}
+.region-off{background:rgba(138,155,181,0.04);border-color:var(--slate);}
+.region-thresh{background:rgba(255,200,50,0.06);border-color:#fbbf24;}
+.region-on{border-color:var(--led-c);}
+.region-title{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;transition:color .4s;}
+.region-text{font-size:.88rem;line-height:1.78;color:var(--slate);}
+.region-text strong{color:var(--white);}
+
+/* NOTES */
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:22px;}
+.note-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:20px 18px;transition:border-color .3s;}
+.note-card:hover{border-color:rgba(255,255,255,0.12);}
+.note-card h4{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--led-c2);margin-bottom:10px;transition:color .4s;}
+.note-card p{font-size:.84rem;line-height:1.72;color:var(--slate);}
+.note-card p strong{color:var(--white);}
+
+/* COMPARE TABLE */
+.compare-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;animation:fadeUp .7s .55s ease both;}
+.compare-card h3{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);padding:12px 20px;border-bottom:1px solid var(--border);}
+.compare-table{width:100%;border-collapse:collapse;font-size:.82rem;}
+.compare-table th{padding:11px 16px;text-align:left;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--slate);background:rgba(255,255,255,0.02);}
+.compare-table td{padding:12px 16px;border-top:1px solid var(--border);vertical-align:middle;}
+.compare-table tr:hover td{background:rgba(255,255,255,0.02);}
+.color-swatch{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:middle;box-shadow:0 0 6px 2px;}
+.hl-row td{background:rgba(255,255,255,0.04)!important;font-weight:600;}
+
+/* SEO */
+.seo-section{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:36px;margin-bottom:20px;animation:fadeUp .7s .6s ease both;}
+.seo-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:16px;}
+.seo-section h3{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--led-c2);margin:22px 0 10px;transition:color .4s;}
+.seo-section p{font-size:.9rem;line-height:1.85;color:var(--slate);margin-bottom:10px;}
+.seo-section p strong{color:var(--white);font-weight:500;}
+.seo-divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:18px 0;}
+.kw-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.kw{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:1px;padding:4px 10px;border:1px solid var(--border);border-radius:3px;color:var(--slate);}
+
+footer{position:relative;z-index:1;background:#030508;border-top:1px solid rgba(255,255,255,0.06);padding:36px 24px;}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-logo{font-family:'Playfair Display',serif;color:var(--led-c2);font-size:1rem;transition:color .4s;}
+.footer-logo span{display:block;color:var(--slate);font-family:'DM Sans',sans-serif;font-size:.72rem;margin-top:3px;}
+.footer-copy{color:var(--slate);font-size:.8rem;}
+.footer-link{color:var(--led-c2);text-decoration:none;transition:color .4s;}
+.footer-link:hover{text-decoration:underline;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){nav{padding:14px 16px;}.wrap{padding:95px 14px 60px;}body{cursor:auto;}.cursor,.cursor-ring{display:none;}.sweep-btn,.reset-btn,.led-btn{cursor:pointer;}input[type=range]{cursor:pointer;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main" id="navLogoMain">FYUGP Kerala University</span>
+    <span class="nav-logo-sub">Study Material Sharing Hub</span>
+  </a>
+  <a href="sciencehub.html" class="nav-back">← Science Hub</a>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="header-tag" id="headerTag">💡 Optoelectronics</div>
+    <h1>LED I-V Characteristics<br>Interactive Laboratory</h1>
+    <p>Discover why LEDs emit different colours, how bandgap energy determines wavelength, and how forward current controls brightness — with real-time I-V curve plotting, emission spectrum, and glowing LED visualisation.</p>
+  </header>
+
+  <!-- LED SELECTOR -->
+  <div class="led-selector-section">
+    <h3>🎨 Select LED Type</h3>
+    <div class="led-grid" id="ledGrid"></div>
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="main-layout">
+
+    <!-- CONTROLS -->
+    <div class="ctrl-panel">
+      <h3>⚙ Controls</h3>
+      <div class="ctrl-group">
+        <div class="slider-val">
+          <span>Applied Voltage</span>
+          <span class="slider-num" id="vDisplay">0.0 V</span>
+        </div>
+        <input type="range" id="vSlider" min="0" max="5" step="0.02" value="0" oninput="onSlide()">
+      </div>
+      <div class="ctrl-group">
+        <div class="slider-val">
+          <span>Series Resistance</span>
+          <span class="slider-num" id="rsDisplay">100 Ω</span>
+        </div>
+        <input type="range" id="rsSlider" min="10" max="1000" step="10" value="100" oninput="onSlide()">
+      </div>
+      <div class="ctrl-group">
+        <div class="slider-val">
+          <span>Temperature</span>
+          <span class="slider-num" id="tcDisplay">25 °C</span>
+        </div>
+        <input type="range" id="tcSlider" min="0" max="100" step="5" value="25" oninput="onSlide()">
+      </div>
+      <button class="sweep-btn" id="sweepBtn" onclick="toggleSweep()">▶ Auto Sweep</button>
+      <button class="reset-btn" onclick="resetSim()">↺ Reset</button>
+    </div>
+
+    <!-- GRAPH -->
+    <div class="graph-card">
+      <div class="graph-header">
+        <h3>📊 I-V Characteristic Curve</h3>
+        <span class="op-badge" id="opBadge">V = 0.00V · I = 0.00mA</span>
+      </div>
+      <canvas id="ivCanvas"></canvas>
+    </div>
+
+    <!-- READOUTS -->
+    <div class="readout-panel">
+      <div class="r-card">
+        <div class="r-lbl">Voltage (V)</div>
+        <div class="r-val" id="readV" style="color:#4db8ff">0.00</div>
+        <div class="r-unit">Volts across LED</div>
+      </div>
+      <div class="r-card">
+        <div class="r-lbl">Current (I)</div>
+        <div class="r-val" id="readI">0.00</div>
+        <div class="r-unit">mA forward current</div>
+      </div>
+      <div class="r-card">
+        <div class="r-lbl">Power</div>
+        <div class="r-val" id="readP" style="color:#fbbf24">0.00</div>
+        <div class="r-unit">mW dissipated</div>
+      </div>
+      <div class="r-card">
+        <div class="r-lbl">Luminous Intensity</div>
+        <div class="r-val" id="readLux">0.0</div>
+        <div class="r-unit">% max brightness</div>
+      </div>
+      <div class="region-badge led-off-badge" id="regionBadge">LED Off</div>
+    </div>
+  </div>
+
+  <!-- VISUAL + SPECTRUM -->
+  <div class="vis-row">
+    <div class="led-visual-card">
+      <h3 id="ledVisTitle">LED — Infrared (850nm)</h3>
+      <div class="led-visual-inner">
+        <div class="led-glow-bg" id="ledGlowBg"></div>
+        <div class="led-3d">
+          <div class="led-3d-dome" id="led3dDome">
+            <span class="led-label" id="ledLabel">OFF</span>
+          </div>
+          <div class="led-3d-flat"></div>
+          <div class="led-3d-legs">
+            <div class="led-3d-leg anode"></div>
+            <div class="led-3d-leg cathode"></div>
+          </div>
+        </div>
+        <div class="led-emit-label" id="ledEmitLabel"></div>
+      </div>
+    </div>
+
+    <div class="spectrum-card">
+      <h3>🌈 Emission Spectrum</h3>
+      <canvas id="spectrumCanvas"></canvas>
+    </div>
+  </div>
+
+  <!-- LUMINOUS INTENSITY CURVE -->
+  <div class="lux-card">
+    <h3>💡 Luminous Intensity vs Forward Current</h3>
+    <canvas id="luxCanvas"></canvas>
+  </div>
+
+  <!-- EXPLANATION -->
+  <div class="explanation-card">
+    <h3 id="explTitle">📖 Operating Region — Explanation</h3>
+    <div class="region-display region-off" id="regionDisplay">
+      <div class="region-title" id="regionTitle" style="color:var(--slate)">LED Off Region</div>
+      <div class="region-text" id="regionText">
+        No forward voltage applied. The LED is <strong>off</strong> — the depletion region at the p-n junction blocks current flow. No electron-hole recombination occurs, so no photons are emitted. Move the voltage slider upward to start exploring.
+      </div>
+    </div>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h4 id="noteH1">Why Do LEDs Emit Light?</h4>
+        <p>LEDs emit light through <strong>electroluminescence</strong> — when a forward voltage is applied, electrons from the n-region recombine with holes from the p-region at the junction. Each recombination event releases energy equal to the bandgap energy (Eg) as a <strong>photon of light</strong>. The frequency of the photon is given by: f = Eg/h, where h is Planck's constant.</p>
+      </div>
+      <div class="note-card">
+        <h4>Why Different Colours?</h4>
+        <p>The colour (wavelength) of emitted light depends entirely on the <strong>bandgap energy (Eg)</strong> of the semiconductor material. λ = hc/Eg. A larger bandgap → shorter wavelength (blue, UV). A smaller bandgap → longer wavelength (red, IR). Different materials: GaAs (IR), GaAsP (Red/Orange), GaP (Yellow/Green), InGaN (Blue/Green/White), AlGaN (UV).</p>
+      </div>
+      <div class="note-card">
+        <h4>Turn-On Voltage (Vth)</h4>
+        <p>The <strong>threshold voltage</strong> (also called cut-in or knee voltage) is the forward voltage at which significant current and light emission begin. It is approximately equal to Eg/e (where e is electron charge). Red LEDs: ~1.8–2.0V. Green: ~2.0–3.5V. Blue/White: ~3.0–3.6V. UV: ~3.5–4.5V. This is higher than ordinary silicon diodes (0.7V) because LEDs use wider-bandgap materials.</p>
+      </div>
+      <div class="note-card">
+        <h4>Current Controls Brightness</h4>
+        <p>Above the threshold, <strong>luminous intensity is proportional to forward current</strong>. Doubling the current roughly doubles the brightness. However, at very high currents, efficiency drops due to heating and non-radiative recombination — this is called <strong>efficiency droop</strong>. LEDs are always operated with a series resistor to limit current safely.</p>
+      </div>
+      <div class="note-card">
+        <h4>Temperature Effect</h4>
+        <p>As temperature increases, the <strong>forward voltage decreases</strong> (negative temperature coefficient, like all p-n junctions). The threshold voltage shifts lower by approximately 2mV/°C. At higher temperatures, non-radiative recombination increases, reducing <strong>efficiency and brightness</strong> for the same current. This is why LEDs require thermal management in high-power applications.</p>
+      </div>
+      <div class="note-card">
+        <h4>Series Resistance (Rs)</h4>
+        <p>A <strong>series resistor Rs</strong> is always connected with an LED to limit forward current. Without it, a small increase in voltage causes a huge current surge (exponential I-V). Rs = (Vs − Vf) / If. For example, driving a red LED (Vf = 2V) from 5V with If = 20mA: Rs = (5−2)/0.02 = 150Ω. This is fundamental to all LED circuit design.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-card">
+    <h3>📋 LED Types — Specifications Comparison</h3>
+    <div style="overflow-x:auto">
+      <table class="compare-table" id="compareTable"></table>
+    </div>
+  </div>
+
+  <!-- SEO TEXT -->
+  <div class="seo-section">
+    <h2>LED I-V Characteristics — Theory, Working & Colour Emission</h2>
+    <p>A <strong>Light Emitting Diode (LED)</strong> is a forward-biased p-n junction semiconductor device that converts electrical energy directly into light through the process of <strong>electroluminescence</strong>. Unlike conventional diodes that dissipate energy as heat, LEDs are designed using direct-bandgap semiconductor materials where electron-hole recombination produces photons of light instead of heat.</p>
+
+    <div class="seo-divider"></div>
+    <h3>I-V Characteristics of a Light Emitting Diode</h3>
+    <p>The <strong>I-V characteristics of an LED</strong> are similar to a conventional p-n junction diode but with a higher threshold (turn-on) voltage determined by the bandgap of the semiconductor material. In the reverse bias region, virtually no current flows and no light is emitted. In the forward bias region below the threshold voltage, only a tiny leakage current flows and the LED remains off. Above the <strong>threshold voltage (Vth)</strong>, current increases exponentially and the LED emits light with intensity proportional to forward current.</p>
+
+    <div class="seo-divider"></div>
+    <h3>Why Do LEDs Emit Different Colours?</h3>
+    <p>The <strong>colour of light emitted by an LED</strong> is determined by the bandgap energy (Eg) of its semiconductor material, through the relation: λ = hc/Eg, where h is Planck's constant and c is the speed of light. Semiconductors with a larger bandgap emit photons at shorter wavelengths (higher energy — blue, violet, UV), while materials with smaller bandgaps emit longer wavelengths (lower energy — red, infrared). Key materials: <strong>GaAs</strong> for infrared, <strong>GaAsP</strong> for red and orange, <strong>GaP</strong> for yellow and green, <strong>InGaN</strong> for blue, green, and white, <strong>AlGaN</strong> for ultraviolet LEDs.</p>
+
+    <div class="seo-divider"></div>
+    <h3>LED Forward Voltage and Threshold</h3>
+    <p>The <strong>LED forward voltage (Vf)</strong> is approximately equal to the bandgap energy divided by the electron charge: Vf ≈ Eg/e. This is why blue LEDs (larger bandgap ≈ 2.65 eV) require a higher forward voltage (~3.0–3.6V) than red LEDs (smaller bandgap ≈ 1.9 eV, ~1.8–2.2V). The <strong>threshold voltage</strong> marks the knee of the I-V curve — the point at which current and light emission begin to rise sharply. This is a key parameter in LED circuit design and the LED experiment in FYUGP Physics and Electronics.</p>
+
+    <div class="seo-divider"></div>
+    <h3>LED as a FYUGP Electronics Experiment</h3>
+    <p>The <strong>LED I-V characteristics experiment</strong> is an important practical in Kerala University FYUGP Electronics and Physics labs. Students plot the I-V curve by varying forward voltage and recording current, identify the threshold voltage for different LEDs, observe how luminous intensity varies with current, and compare the forward voltages of different coloured LEDs to verify the relationship λ = hc/Eg. This simulation provides a complete interactive environment to perform and understand this experiment before entering the physical lab.</p>
+
+    <div class="kw-row">
+      <span class="kw">LED iv characteristics</span>
+      <span class="kw">light emitting diode</span>
+      <span class="kw">LED experiment</span>
+      <span class="kw">LED forward voltage</span>
+      <span class="kw">LED colour wavelength</span>
+      <span class="kw">bandgap energy</span>
+      <span class="kw">electroluminescence</span>
+      <span class="kw">LED threshold voltage</span>
+      <span class="kw">LED brightness current</span>
+      <span class="kw">FYUGP electronics</span>
+      <span class="kw">InGaN LED</span>
+      <span class="kw">GaAsP LED</span>
+      <span class="kw">emission spectrum</span>
+      <span class="kw">Kerala University LED</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo" id="footerLogo">
+      LED I-V Simulation
+      <span>Part of sreeharis.in · Developed by <a href="espace.html" class="footer-link">Espace Systems</a> · <a href="privacypolicy.html" class="footer-link">Privacy Policy</a></span>
+    </div>
+    <p class="footer-copy">© 2026 <a href="https://sreeharis.in/" class="footer-link" target="_blank">sreeharis.in</a></p>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════
+//  LED DATA — real-world specs
+// ═══════════════════════════════════════════════
+const LEDS = [
+  { id:'ir',    name:'Infrared',    short:'IR',   wl:850,  Eg:1.46, Vth:1.3, color:'#440000', glowColor:'rgba(100,0,0,0.5)',   hex:'#ff0000', material:'GaAs',         nA:1.5e-10, n:1.8, accent:'#ff4444', accent2:'#ff8888' },
+  { id:'red',   name:'Red',         short:'Red',  wl:660,  Eg:1.88, Vth:1.8, color:'#cc2200', glowColor:'rgba(200,30,0,0.6)',  hex:'#ff3300', material:'GaAsP/AlGaInP', nA:1e-10,   n:1.7, accent:'#ff4444', accent2:'#ff8888' },
+  { id:'ora',   name:'Orange',      short:'ORA',  wl:612,  Eg:2.03, Vth:2.0, color:'#cc5500', glowColor:'rgba(200,80,0,0.6)',  hex:'#ff6600', material:'GaAsP',         nA:8e-11,   n:1.7, accent:'#ff8c42', accent2:'#ffaa80' },
+  { id:'yel',   name:'Yellow',      short:'YEL',  wl:590,  Eg:2.10, Vth:2.1, color:'#886600', glowColor:'rgba(200,160,0,0.6)', hex:'#ffcc00', material:'GaAsP',         nA:7e-11,   n:1.7, accent:'#fbbf24', accent2:'#fde68a' },
+  { id:'grn',   name:'Green',       short:'GRN',  wl:525,  Eg:2.36, Vth:2.2, color:'#006622', glowColor:'rgba(0,160,60,0.6)',  hex:'#00cc44', material:'InGaN/GaP',     nA:5e-11,   n:1.6, accent:'#39e87a', accent2:'#86efac' },
+  { id:'blu',   name:'Blue',        short:'BLU',  wl:470,  Eg:2.64, Vth:3.0, color:'#002288', glowColor:'rgba(0,80,220,0.6)',  hex:'#3366ff', material:'InGaN',         nA:2e-11,   n:1.5, accent:'#4db8ff', accent2:'#93c5fd' },
+  { id:'wht',   name:'White',       short:'WHT',  wl:0,    Eg:2.64, Vth:3.1, color:'#667788', glowColor:'rgba(200,220,255,0.5)',hex:'#ffffff', material:'InGaN+Phosphor', nA:2e-11,  n:1.5, accent:'#e2e8f0', accent2:'#f8fafc' },
+  { id:'uv',    name:'UV',          short:'UV',   wl:370,  Eg:3.35, Vth:3.5, color:'#220044', glowColor:'rgba(120,0,200,0.5)', hex:'#aa00ff', material:'AlGaN',         nA:5e-12,   n:1.4, accent:'#c084fc', accent2:'#e9d5ff' },
+];
+
+// ═══════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════
+let currentLED  = LEDS[1]; // Red default
+let vApplied    = 0;
+let tracePoints = [];
+let luxPoints   = [];
+let sweeping    = false;
+let sweepV      = 0;
+
+// ═══════════════════════════════════════════════
+//  PHYSICS
+// ═══════════════════════════════════════════════
+function calcCurrent(V, led, tempC) {
+  const Vt  = 0.02585 * (1 + 0.003 * (tempC - 25));
+  const Vf  = led.Vth - 0.002 * (tempC - 25); // temp shift
+  if (V <= 0) return 0;
+  // Modified Shockley with threshold shift
+  const arg = (V - Vf * 0.6) / (led.n * Vt);
+  let I = led.nA * (Math.exp(Math.min(arg, 40)) - 1);
+  return Math.max(0, I * 1000); // mA
+}
+
+function calcLuminousIntensity(imA) {
+  // Roughly linear above threshold, with efficiency droop at high I
+  const peak = 20; // mA rated
+  if (imA <= 0) return 0;
+  const efficiency = Math.exp(-0.01 * Math.max(0, imA - peak)); // droop
+  return Math.min(100, (imA / peak) * efficiency * 100);
+}
+
+function getRegion(imA, V, led) {
+  if (V < led.Vth * 0.7) return 'off';
+  if (imA < 0.5) return 'threshold';
+  return 'on';
+}
+
+// ═══════════════════════════════════════════════
+//  CANVAS SETUP
+// ═══════════════════════════════════════════════
+const ivCanvas  = document.getElementById('ivCanvas');
+const ivCtx     = ivCanvas.getContext('2d');
+const specCanvas= document.getElementById('spectrumCanvas');
+const specCtx   = specCanvas.getContext('2d');
+const luxCanvas = document.getElementById('luxCanvas');
+const luxCtx    = luxCanvas.getContext('2d');
+
+function resizeCanvases() {
+  // I-V canvas
+  const iw = ivCanvas.parentElement.clientWidth;
+  ivCanvas.width  = iw;
+  ivCanvas.height = Math.max(320, Math.min(460, iw * 0.46));
+  // Spectrum
+  const sw = specCanvas.parentElement.clientWidth;
+  specCanvas.width  = sw;
+  specCanvas.height = 200;
+  // Lux
+  const lw = luxCanvas.parentElement.clientWidth;
+  luxCanvas.width  = lw;
+  luxCanvas.height = 180;
+}
+resizeCanvases();
+window.addEventListener('resize', resizeCanvases);
+
+// ═══════════════════════════════════════════════
+//  DRAW I-V CURVE
+// ═══════════════════════════════════════════════
+function drawIV() {
+  const W = ivCanvas.width, H = ivCanvas.height;
+  ivCtx.clearRect(0, 0, W, H);
+  ivCtx.fillStyle = '#06080e';
+  ivCtx.fillRect(0, 0, W, H);
+
+  const led   = currentLED;
+  const tempC = parseInt(document.getElementById('tcSlider').value);
+  const pad   = { l:52, r:24, t:22, b:40 };
+  const cW    = W - pad.l - pad.r;
+  const cH    = H - pad.t - pad.b;
+
+  const vMax = led.Vth * 2.0;
+  const iMax = 80; // mA
+
+  const vToX = v  => pad.l + (v / vMax) * cW;
+  const iToY = im => pad.t + cH * (1 - im / iMax);
+
+  // Grid
+  ivCtx.strokeStyle = 'rgba(21,32,48,0.9)';
+  ivCtx.lineWidth   = 1;
+  for (let v = 0; v <= vMax; v += 0.5) {
+    const x = vToX(v);
+    ivCtx.beginPath(); ivCtx.moveTo(x, pad.t); ivCtx.lineTo(x, pad.t + cH); ivCtx.stroke();
+  }
+  for (let i = 0; i <= iMax; i += 20) {
+    const y = iToY(i);
+    ivCtx.beginPath(); ivCtx.moveTo(pad.l, y); ivCtx.lineTo(pad.l + cW, y); ivCtx.stroke();
+  }
+
+  // Axes
+  ivCtx.strokeStyle = 'rgba(138,155,181,0.45)';
+  ivCtx.lineWidth   = 1.5;
+  ivCtx.beginPath();
+  ivCtx.moveTo(pad.l, pad.t); ivCtx.lineTo(pad.l, pad.t + cH + 6);
+  ivCtx.moveTo(pad.l - 6, pad.t + cH); ivCtx.lineTo(pad.l + cW + 8, pad.t + cH);
+  ivCtx.stroke();
+
+  // Axis labels
+  ivCtx.fillStyle = 'rgba(138,155,181,0.65)';
+  ivCtx.font      = '10px DM Mono, monospace';
+  ivCtx.textAlign = 'center';
+  for (let v = 0.5; v <= vMax; v += 0.5) {
+    const x = vToX(v);
+    ivCtx.fillText(v.toFixed(1), x, pad.t + cH + 14);
+  }
+  ivCtx.textAlign = 'right';
+  for (let i = 0; i <= iMax; i += 20) {
+    ivCtx.fillText(i, pad.l - 6, iToY(i) + 3);
+  }
+  ivCtx.textAlign = 'center';
+  ivCtx.fillStyle = 'rgba(138,155,181,0.55)';
+  ivCtx.fillText('V (Volts)', pad.l + cW / 2, H - 4);
+  ivCtx.save(); ivCtx.translate(12, pad.t + cH / 2); ivCtx.rotate(-Math.PI / 2);
+  ivCtx.fillText('I (mA)', 0, 0); ivCtx.restore();
+
+  // Threshold line
+  const vthX = vToX(led.Vth);
+  ivCtx.strokeStyle = 'rgba(255,200,50,0.2)';
+  ivCtx.setLineDash([4, 6]); ivCtx.lineWidth = 1;
+  ivCtx.beginPath(); ivCtx.moveTo(vthX, pad.t); ivCtx.lineTo(vthX, pad.t + cH); ivCtx.stroke();
+  ivCtx.setLineDash([]);
+  ivCtx.fillStyle = 'rgba(255,200,50,0.6)';
+  ivCtx.font = '9px DM Mono, monospace'; ivCtx.textAlign = 'center';
+  ivCtx.fillText(`Vth=${led.Vth}V`, vthX, pad.t + 10);
+
+  // Theoretical curve (ghost)
+  ivCtx.beginPath();
+  let started = false;
+  for (let v = 0; v <= vMax; v += 0.02) {
+    const im = calcCurrent(v, led, tempC);
+    if (im > iMax + 5) { started = false; continue; }
+    const x = vToX(v), y = iToY(im);
+    if (!started) { ivCtx.moveTo(x, y); started = true; } else ivCtx.lineTo(x, y);
+  }
+  ivCtx.strokeStyle = 'rgba(138,155,181,0.12)';
+  ivCtx.lineWidth = 1.5; ivCtx.stroke();
+
+  // Traced curve
+  if (tracePoints.length > 1) {
+    ivCtx.beginPath();
+    tracePoints.forEach((pt, i) => {
+      const x = vToX(pt.v), y = iToY(pt.im);
+      if (y < pad.t - 5 || y > pad.t + cH + 5) return;
+      i === 0 ? ivCtx.moveTo(x, y) : ivCtx.lineTo(x, y);
+    });
+    ivCtx.strokeStyle = led.accent;
+    ivCtx.lineWidth   = 2.5;
+    ivCtx.stroke();
+  }
+
+  // Operating point dot
+  const im  = calcCurrent(vApplied, led, tempC);
+  const opX = vToX(vApplied);
+  const opY = iToY(Math.min(im, iMax));
+  if (opY >= pad.t - 5 && opY <= pad.t + cH + 5) {
+    const grd = ivCtx.createRadialGradient(opX, opY, 0, opX, opY, 16);
+    grd.addColorStop(0, led.glowColor);
+    grd.addColorStop(1, 'transparent');
+    ivCtx.beginPath(); ivCtx.arc(opX, opY, 16, 0, Math.PI * 2);
+    ivCtx.fillStyle = grd; ivCtx.fill();
+    ivCtx.beginPath(); ivCtx.arc(opX, opY, 6, 0, Math.PI * 2);
+    ivCtx.fillStyle = '#fff'; ivCtx.fill();
+    ivCtx.beginPath(); ivCtx.arc(opX, opY, 4, 0, Math.PI * 2);
+    ivCtx.fillStyle = led.accent; ivCtx.fill();
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW SPECTRUM
+// ═══════════════════════════════════════════════
+function drawSpectrum() {
+  const W = specCanvas.width, H = specCanvas.height;
+  specCtx.clearRect(0, 0, W, H);
+  specCtx.fillStyle = '#06080e';
+  specCtx.fillRect(0, 0, W, H);
+
+  const led   = currentLED;
+  const pad   = { l:40, r:16, t:16, b:36 };
+  const cW    = W - pad.l - pad.r;
+  const cH    = H - pad.t - pad.b;
+
+  // Visible spectrum background (380–780nm)
+  const specGrd = specCtx.createLinearGradient(pad.l, 0, pad.l + cW, 0);
+  specGrd.addColorStop(0,    'rgba(80,0,120,0.08)');  // 380nm UV
+  specGrd.addColorStop(0.08, 'rgba(100,0,200,0.12)'); // 410nm violet
+  specGrd.addColorStop(0.18, 'rgba(0,0,255,0.12)');   // 450nm blue
+  specGrd.addColorStop(0.32, 'rgba(0,200,200,0.1)');  // 500nm cyan
+  specGrd.addColorStop(0.42, 'rgba(0,200,0,0.1)');    // 530nm green
+  specGrd.addColorStop(0.58, 'rgba(200,200,0,0.1)');  // 580nm yellow
+  specGrd.addColorStop(0.72, 'rgba(255,100,0,0.1)');  // 620nm orange
+  specGrd.addColorStop(0.88, 'rgba(200,0,0,0.1)');    // 680nm red
+  specGrd.addColorStop(1,    'rgba(80,0,0,0.06)');    // 780nm IR
+  specCtx.fillStyle = specGrd;
+  specCtx.fillRect(pad.l, pad.t, cW, cH);
+
+  // X axis: 350nm to 850nm
+  const wlMin = 350, wlMax = 850;
+  const wlToX = wl => pad.l + ((wl - wlMin) / (wlMax - wlMin)) * cW;
+
+  // Emission peak curve
+  const im   = calcCurrent(vApplied, led, parseInt(document.getElementById('tcSlider').value));
+  const intensity = Math.min(1, im / 20);
+
+  if (intensity > 0.01) {
+    const peak = led.wl > 0 ? led.wl : 550; // white LED centered at 550nm
+    const sigma = led.id === 'wht' ? 120 : 18; // white is broad
+
+    specCtx.beginPath();
+    let started2 = false;
+    for (let wl = wlMin; wl <= wlMax; wl += 2) {
+      const gauss = Math.exp(-((wl - peak) ** 2) / (2 * sigma ** 2));
+      const iy = pad.t + cH - gauss * intensity * cH * 0.88;
+      const x  = wlToX(wl);
+      if (!started2) { specCtx.moveTo(x, pad.t + cH); started2 = true; }
+      specCtx.lineTo(x, iy);
+    }
+    specCtx.lineTo(wlToX(wlMax), pad.t + cH);
+    specCtx.closePath();
+    specCtx.fillStyle = led.glowColor.replace('0.6)', `${0.25 + intensity * 0.4})`);
+    specCtx.fill();
+
+    // Line
+    specCtx.beginPath();
+    started2 = false;
+    for (let wl = wlMin; wl <= wlMax; wl += 2) {
+      const gauss = Math.exp(-((wl - peak) ** 2) / (2 * sigma ** 2));
+      const iy = pad.t + cH - gauss * intensity * cH * 0.88;
+      const x  = wlToX(wl);
+      if (!started2) { specCtx.moveTo(x, iy); started2 = true; } else specCtx.lineTo(x, iy);
+    }
+    specCtx.strokeStyle = led.accent;
+    specCtx.lineWidth   = 2;
+    specCtx.stroke();
+
+    // Peak marker
+    if (led.wl > 0) {
+      const pkX = wlToX(peak);
+      specCtx.strokeStyle = 'rgba(255,255,255,0.25)';
+      specCtx.setLineDash([3, 5]); specCtx.lineWidth = 1;
+      specCtx.beginPath(); specCtx.moveTo(pkX, pad.t); specCtx.lineTo(pkX, pad.t + cH); specCtx.stroke();
+      specCtx.setLineDash([]);
+      specCtx.fillStyle = led.accent2;
+      specCtx.font = '10px DM Mono, monospace'; specCtx.textAlign = 'center';
+      specCtx.fillText(`${peak}nm`, pkX, pad.t + 12);
+    }
+  }
+
+  // X axis labels
+  specCtx.fillStyle = 'rgba(138,155,181,0.55)';
+  specCtx.font = '9px DM Mono, monospace'; specCtx.textAlign = 'center';
+  [380, 450, 530, 590, 620, 700, 780].forEach(wl => {
+    const x = wlToX(wl);
+    if (x < pad.l + 15 || x > pad.l + cW - 15) return;
+    specCtx.fillText(`${wl}`, x, H - 8);
+  });
+  specCtx.textAlign = 'center';
+  specCtx.fillText('Wavelength (nm)', pad.l + cW / 2, H - 20);
+
+  // Label: visible range markers
+  specCtx.fillStyle = 'rgba(138,155,181,0.25)';
+  specCtx.font = '8px DM Mono, monospace';
+  const uvX  = wlToX(400), visX = wlToX(750);
+  specCtx.fillText('UV', wlToX(370), pad.t + 10);
+  specCtx.fillText('Visible', pad.l + cW * 0.38, pad.t + 10);
+  specCtx.fillText('IR', wlToX(800), pad.t + 10);
+}
+
+// ═══════════════════════════════════════════════
+//  DRAW LUMINOUS INTENSITY CURVE
+// ═══════════════════════════════════════════════
+function drawLux() {
+  const W = luxCanvas.width, H = luxCanvas.height;
+  luxCtx.clearRect(0, 0, W, H);
+  luxCtx.fillStyle = '#06080e';
+  luxCtx.fillRect(0, 0, W, H);
+
+  const led   = currentLED;
+  const pad   = { l:52, r:20, t:16, b:36 };
+  const cW    = W - pad.l - pad.r;
+  const cH    = H - pad.t - pad.b;
+  const iMax  = 40;
+  const luxMax= 100;
+
+  const iToX  = im  => pad.l + (im / iMax) * cW;
+  const lToY  = lux => pad.t + cH * (1 - lux / luxMax);
+
+  // Grid
+  luxCtx.strokeStyle = 'rgba(21,32,48,0.9)'; luxCtx.lineWidth = 1;
+  for (let i = 0; i <= iMax; i += 10) {
+    luxCtx.beginPath(); luxCtx.moveTo(iToX(i), pad.t); luxCtx.lineTo(iToX(i), pad.t + cH); luxCtx.stroke();
+  }
+  for (let l = 0; l <= luxMax; l += 25) {
+    luxCtx.beginPath(); luxCtx.moveTo(pad.l, lToY(l)); luxCtx.lineTo(pad.l + cW, lToY(l)); luxCtx.stroke();
+  }
+  // Axes
+  luxCtx.strokeStyle = 'rgba(138,155,181,0.4)'; luxCtx.lineWidth = 1.5;
+  luxCtx.beginPath();
+  luxCtx.moveTo(pad.l, pad.t); luxCtx.lineTo(pad.l, pad.t + cH);
+  luxCtx.moveTo(pad.l, pad.t + cH); luxCtx.lineTo(pad.l + cW + 6, pad.t + cH);
+  luxCtx.stroke();
+
+  // Labels
+  luxCtx.fillStyle = 'rgba(138,155,181,0.55)'; luxCtx.font = '9px DM Mono, monospace';
+  luxCtx.textAlign = 'center';
+  [0,10,20,30,40].forEach(i => luxCtx.fillText(`${i}mA`, iToX(i), H - 6));
+  luxCtx.textAlign = 'right';
+  [0,25,50,75,100].forEach(l => luxCtx.fillText(`${l}%`, pad.l - 5, lToY(l) + 3));
+  luxCtx.textAlign = 'center';
+  luxCtx.fillText('Forward Current (mA)', pad.l + cW / 2, H - 18);
+  luxCtx.save(); luxCtx.translate(12, pad.t + cH / 2); luxCtx.rotate(-Math.PI / 2);
+  luxCtx.fillText('Luminous Intensity (%)', 0, 0); luxCtx.restore();
+
+  // Theoretical lux curve
+  luxCtx.beginPath();
+  let s = false;
+  for (let im = 0; im <= iMax; im += 0.5) {
+    const lux = calcLuminousIntensity(im);
+    const x = iToX(im), y = lToY(lux);
+    if (!s) { luxCtx.moveTo(x, y); s = true; } else luxCtx.lineTo(x, y);
+  }
+  luxCtx.strokeStyle = 'rgba(138,155,181,0.12)'; luxCtx.lineWidth = 1.5; luxCtx.stroke();
+
+  // Traced lux points
+  if (luxPoints.length > 1) {
+    luxCtx.beginPath();
+    luxPoints.forEach((pt, i) => {
+      const x = iToX(pt.im), y = lToY(pt.lux);
+      if (y < pad.t - 5 || y > pad.t + cH + 5) return;
+      i === 0 ? luxCtx.moveTo(x, y) : luxCtx.lineTo(x, y);
+    });
+    const grd2 = luxCtx.createLinearGradient(pad.l, 0, pad.l + cW, 0);
+    grd2.addColorStop(0, led.accent + '88');
+    grd2.addColorStop(1, led.accent);
+    luxCtx.strokeStyle = led.accent; luxCtx.lineWidth = 2.5; luxCtx.stroke();
+  }
+
+  // Droop annotation
+  luxCtx.fillStyle = 'rgba(255,140,50,0.5)'; luxCtx.font = '8px DM Mono, monospace'; luxCtx.textAlign = 'right';
+  luxCtx.fillText('Efficiency Droop →', pad.l + cW - 4, pad.t + 14);
+}
+
+// ═══════════════════════════════════════════════
+//  UPDATE LED VISUAL
+// ═══════════════════════════════════════════════
+function updateLEDVisual(im) {
+  const led   = currentLED;
+  const norm  = Math.min(1, im / 25);
+  const dome  = document.getElementById('led3dDome');
+  const glow  = document.getElementById('ledGlowBg');
+  const label = document.getElementById('ledLabel');
+  const emit  = document.getElementById('ledEmitLabel');
+
+  if (norm < 0.01) {
+    dome.style.background = `radial-gradient(circle at 35% 30%, rgba(80,80,80,0.5), #222)`;
+    dome.style.boxShadow  = 'none';
+    glow.style.opacity    = '0';
+    label.textContent     = 'OFF';
+    label.style.color     = 'rgba(138,155,181,0.5)';
+    emit.style.opacity    = '0';
+  } else {
+    const brightness = 0.2 + norm * 0.8;
+    dome.style.background = `radial-gradient(circle at 35% 30%, rgba(255,255,255,${brightness * 0.7}), ${led.hex})`;
+    dome.style.boxShadow  = `0 0 ${10 + norm * 40}px ${5 + norm * 20}px ${led.glowColor}`;
+    glow.style.opacity    = String(norm * 0.8);
+    glow.style.background = `radial-gradient(circle, ${led.glowColor} 0%, transparent 70%)`;
+    label.textContent     = im.toFixed(0) + ' mA';
+    label.style.color     = led.wl === 0 ? '#111' : 'rgba(255,255,255,0.8)';
+    emit.style.opacity    = '1';
+    emit.style.color      = led.accent;
+    const wlStr = led.wl > 0 ? `λ = ${led.wl} nm` : 'λ = ~550nm (White)';
+    emit.textContent = wlStr;
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  UPDATE EXPLANATION
+// ═══════════════════════════════════════════════
+function updateExplanation(im, region) {
+  const led   = currentLED;
+  const rd    = document.getElementById('regionDisplay');
+  const rt    = document.getElementById('regionTitle');
+  const rtxt  = document.getElementById('regionText');
+
+  if (region === 'off') {
+    rd.className = 'region-display region-off';
+    rt.textContent = 'LED Off Region';
+    rt.style.color = 'var(--slate)';
+    rtxt.innerHTML = `No significant current flows — the applied voltage (<strong>${vApplied.toFixed(2)}V</strong>) is well below the threshold voltage of <strong>${led.name} LED (Vth ≈ ${led.Vth}V)</strong>. The depletion region blocks carrier flow and no electron-hole recombination occurs. The LED is completely off. <strong>No light is emitted.</strong>`;
+    document.getElementById('regionBadge').className = 'region-badge led-off-badge';
+    document.getElementById('regionBadge').textContent = 'LED Off';
+  } else if (region === 'threshold') {
+    rd.className = 'region-display region-thresh';
+    rt.textContent = 'Threshold / Turn-On Region';
+    rt.style.color = '#fbbf24';
+    rtxt.innerHTML = `The applied voltage is approaching the threshold. The LED is beginning to conduct — a small forward current flows (<strong>I = ${im.toFixed(2)} mA</strong>) and very faint light emission begins. The junction barrier is being overcome. Vth for <strong>${led.name} LED = ${led.Vth}V</strong> — determined by bandgap energy Eg = ${led.Eg.toFixed(2)} eV (material: ${led.material}).`;
+    document.getElementById('regionBadge').className = 'region-badge led-threshold-badge';
+    document.getElementById('regionBadge').textContent = 'Approaching Turn-On';
+  } else {
+    rd.className = 'region-display region-on';
+    rd.style.background = led.glowColor.replace(/[\d.]+\)/, '0.05)');
+    rd.style.borderLeftColor = led.accent;
+    rt.textContent = `${led.name} LED — Forward Conduction & Light Emission`;
+    rt.style.color = led.accent;
+    rtxt.innerHTML = `The LED is <strong>fully conducting</strong> — forward current I = <strong>${im.toFixed(2)} mA</strong> flows through the junction. Electron-hole recombination is releasing photons at wavelength <strong>${led.wl > 0 ? led.wl + 'nm' : '~400–700nm (White)'}</strong>. Bandgap energy Eg = ${led.Eg.toFixed(2)} eV (material: <strong>${led.material}</strong>). Luminous intensity ∝ forward current. Power dissipated = ${(vApplied * im).toFixed(2)} mW. <strong>Increasing current increases brightness</strong>, but stay within the rated maximum to avoid damage.`;
+    document.getElementById('regionBadge').className = 'region-badge led-on-badge';
+    document.getElementById('regionBadge').style.background = led.glowColor.replace(/[\d.]+\)/, '0.12)');
+    document.getElementById('regionBadge').style.borderColor = led.accent;
+    document.getElementById('regionBadge').style.color = led.accent2;
+    document.getElementById('regionBadge').textContent = `Emitting — ${led.name} Light`;
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  UPDATE ALL READOUTS
+// ═══════════════════════════════════════════════
+function updateAll() {
+  const led   = currentLED;
+  const tempC = parseInt(document.getElementById('tcSlider').value);
+  const im    = calcCurrent(vApplied, led, tempC);
+  const lux   = calcLuminousIntensity(im);
+  const pMW   = vApplied * im;
+  const region= getRegion(im, vApplied, led);
+
+  document.getElementById('readV').textContent = vApplied.toFixed(3);
+  document.getElementById('readV').style.color = '#4db8ff';
+  document.getElementById('readI').textContent = im.toFixed(3);
+  document.getElementById('readI').style.color = led.accent;
+  document.getElementById('readP').textContent = pMW.toFixed(2);
+  document.getElementById('readLux').textContent = lux.toFixed(1);
+  document.getElementById('opBadge').textContent = `V=${vApplied.toFixed(2)}V · I=${im.toFixed(2)}mA`;
+
+  updateLEDVisual(im);
+  updateExplanation(im, region);
+
+  if (!sweeping) {
+    tracePoints.push({ v: vApplied, im });
+    luxPoints.push({ im, lux });
+    // Keep sorted
+    tracePoints.sort((a, b) => a.v - b.v);
+    luxPoints.sort((a, b) => a.im - b.im);
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  SWEEP
+// ═══════════════════════════════════════════════
+function toggleSweep() {
+  sweeping = !sweeping;
+  const btn = document.getElementById('sweepBtn');
+  if (sweeping) {
+    tracePoints = []; luxPoints = [];
+    sweepV = 0;
+    btn.textContent = '⏹ Stop';
+    btn.classList.add('sweeping');
+  } else {
+    btn.textContent = '▶ Auto Sweep';
+    btn.classList.remove('sweeping');
+  }
+}
+
+function doSweep() {
+  if (!sweeping) return;
+  sweepV += 0.015;
+  const led = currentLED;
+  if (sweepV > led.Vth * 2.1) {
+    sweeping = false;
+    document.getElementById('sweepBtn').textContent = '▶ Auto Sweep';
+    document.getElementById('sweepBtn').classList.remove('sweeping');
+    return;
+  }
+  vApplied = sweepV;
+  document.getElementById('vSlider').value = vApplied;
+  document.getElementById('vDisplay').textContent = vApplied.toFixed(2) + ' V';
+  const tempC = parseInt(document.getElementById('tcSlider').value);
+  const im = calcCurrent(vApplied, led, tempC);
+  const lux = calcLuminousIntensity(im);
+  if (im < 100) { tracePoints.push({ v: vApplied, im }); luxPoints.push({ im, lux }); }
+  updateAll();
+}
+
+// ═══════════════════════════════════════════════
+//  CONTROLS
+// ═══════════════════════════════════════════════
+function onSlide() {
+  vApplied = parseFloat(document.getElementById('vSlider').value);
+  document.getElementById('vDisplay').textContent = vApplied.toFixed(2) + ' V';
+  document.getElementById('rsDisplay').textContent = document.getElementById('rsSlider').value + ' Ω';
+  document.getElementById('tcDisplay').textContent = document.getElementById('tcSlider').value + ' °C';
+  updateAll();
+}
+
+function resetSim() {
+  sweeping = false;
+  tracePoints = []; luxPoints = [];
+  vApplied = 0; sweepV = 0;
+  document.getElementById('vSlider').value = 0;
+  document.getElementById('vDisplay').textContent = '0.0 V';
+  document.getElementById('sweepBtn').textContent = '▶ Auto Sweep';
+  document.getElementById('sweepBtn').classList.remove('sweeping');
+  updateAll();
+}
+
+// ═══════════════════════════════════════════════
+//  LED SELECTOR
+// ═══════════════════════════════════════════════
+function buildLEDGrid() {
+  const grid = document.getElementById('ledGrid');
+  LEDS.forEach((led, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'led-btn' + (i === 1 ? ' active' : '');
+    btn.id = `ledBtn_${led.id}`;
+    btn.innerHTML = `
+      <div class="led-dome-btn" id="dome_${led.id}" style="background:radial-gradient(circle at 35% 30%,${led.accent2}88,${led.hex});box-shadow:0 0 12px 4px ${led.glowColor};"></div>
+      <span class="led-btn-name">${led.name}</span>
+      <span class="led-btn-wl">${led.wl > 0 ? led.wl+'nm' : 'Broad'}</span>
+    `;
+    btn.style.cssText = ``;
+    btn.addEventListener('click', () => selectLED(led));
+    grid.appendChild(btn);
+  });
+  updateButtonStyle(LEDS[1]);
+}
+
+function selectLED(led) {
+  currentLED = led;
+  document.querySelectorAll('.led-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`ledBtn_${led.id}`).classList.add('active');
+  updateButtonStyle(led);
+  // Reset trace
+  tracePoints = []; luxPoints = [];
+  vApplied = 0;
+  document.getElementById('vSlider').value = 0;
+  document.getElementById('vSlider').max   = led.Vth * 2.0;
+  document.getElementById('vDisplay').textContent = '0.0 V';
+  updateTheme(led);
+  updateAll();
+  buildCompareTable();
+}
+
+function updateButtonStyle(led) {
+  document.querySelectorAll('.led-btn').forEach(b => {
+    b.style.background = '';
+    b.style.borderColor = '';
+  });
+  const activeBtn = document.getElementById(`ledBtn_${led.id}`);
+  if (activeBtn) {
+    activeBtn.style.background = led.glowColor.replace(/[\d.]+\)/, '0.15)');
+    activeBtn.style.borderColor = led.accent;
+  }
+}
+
+function updateTheme(led) {
+  document.documentElement.style.setProperty('--led-c',  led.accent);
+  document.documentElement.style.setProperty('--led-c2', led.accent2);
+  document.documentElement.style.setProperty('--led-glow', led.glowColor);
+  document.getElementById('led3dDome').style.background = `radial-gradient(circle at 35% 30%, rgba(255,255,255,0.3), ${led.hex})`;
+  document.getElementById('cursor').style.background = led.accent;
+  document.getElementById('navLogoMain').style.color = led.accent2;
+  document.getElementById('headerTag').style.color = led.accent2;
+  document.getElementById('headerTag').style.borderColor = led.glowColor;
+  document.getElementById('ledVisTitle').textContent = `LED — ${led.name} (${led.wl > 0 ? led.wl+'nm' : 'Broadband White'})`;
+}
+
+// ═══════════════════════════════════════════════
+//  COMPARE TABLE
+// ═══════════════════════════════════════════════
+function buildCompareTable() {
+  const table = document.getElementById('compareTable');
+  table.innerHTML = `
+    <tr>
+      <th>LED</th><th>Colour / Wavelength</th><th>Material</th><th>Bandgap (Eg)</th><th>Threshold (Vth)</th><th>Spectral Width</th>
+    </tr>
+    ${LEDS.map(led => `
+      <tr class="${led.id === currentLED.id ? 'hl-row' : ''}">
+        <td>
+          <span class="color-swatch" style="background:${led.hex};box-shadow:0 0 6px 2px ${led.glowColor}"></span>
+          ${led.name}
+        </td>
+        <td style="font-family:'DM Mono',monospace;font-size:.8rem;color:${led.accent}">${led.wl > 0 ? led.wl+' nm' : 'Broad (~400–700nm)'}</td>
+        <td style="color:var(--slate);font-family:'DM Mono',monospace;font-size:.78rem">${led.material}</td>
+        <td style="font-family:'DM Mono',monospace;font-size:.82rem">${led.Eg.toFixed(2)} eV</td>
+        <td style="font-family:'DM Mono',monospace;font-size:.82rem;color:${led.accent}">${led.Vth.toFixed(1)} V</td>
+        <td style="color:var(--slate);font-size:.8rem">±${led.id === 'wht' ? '100' : '15'} nm</td>
+      </tr>
+    `).join('')}
+  `;
+}
+
+// ═══════════════════════════════════════════════
+//  MAIN LOOP
+// ═══════════════════════════════════════════════
+function loop() {
+  if (sweeping) doSweep();
+  drawIV();
+  drawSpectrum();
+  drawLux();
+  requestAnimationFrame(loop);
+}
+
+// ═══════════════════════════════════════════════
+//  CURSOR + NAV
+// ═══════════════════════════════════════════════
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursorRing');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+});
+(function animRing(){
+  rx += (mx-rx)*.13; ry += (my-ry)*.13;
+  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,input').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width='16px'; cursor.style.height='16px';
+    ring.style.width='54px'; ring.style.height='54px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width='10px'; cursor.style.height='10px';
+    ring.style.width='36px'; ring.style.height='36px';
+  });
+});
+window.addEventListener('scroll', () =>
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60)
+);
+
+// INIT
+buildLEDGrid();
+buildCompareTable();
+updateTheme(currentLED);
+document.getElementById('vSlider').max = currentLED.Vth * 2.0;
+updateAll();
+loop();
+</script>
+</body>
+</html>
