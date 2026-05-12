@@ -1700,6 +1700,61 @@
   <changefreq>monthly</changefreq>
   <priority>0.65</priority>
 </url>
+      <url>
+  <loc>https://sreeharis.in/politicals4/s4poli</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4DSCPOS200</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4DSCPOS201</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4DSEPOS200</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4DSEPOS201</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4DSEPOS202</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4DSEPOS203</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4VACPOS200</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4VACPOS201</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4SECPOS200</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://sreeharis.in/politicals4/UK4SECPOS201</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
 <url>
   <loc>https://sreeharis.in/zoologys3/UK3DSCZOO204.html</loc>
   <lastmod>2026-03-12T14:09:13+00:00</lastmod>
