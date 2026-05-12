@@ -1,1 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="espace.png">
+  <link rel="shortcut icon" type="image/png" href="espace.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ══ PRIMARY SEO ══ -->
+  <title>Simple Pendulum Experiment Simulation — Interactive Virtual Lab | Sreeharis Science Hub</title>
+  <meta name="title" content="Simple Pendulum Experiment Simulation — Interactive Virtual Lab | Sreeharis Science Hub">
+  <meta name="description" content="Free interactive Simple Pendulum virtual experiment simulator. Adjust string length, bob mass, gravity, and damping. Observe time period, frequency, angular velocity, energy graphs, and verify T=2π√(L/g) in real time. Perfect for FYUGP Physics students.">
+  <meta name="keywords" content="simple pendulum experiment, simple pendulum simulation, simple pendulum virtual lab, pendulum experiment online, pendulum physics simulation, pendulum time period, T=2pi sqrt L/g, pendulum formula, pendulum experiment class 11, pendulum experiment class 12, FYUGP physics pendulum, Kerala University physics pendulum, pendulum period frequency, simple harmonic motion simulation, SHM simulation, pendulum SHM, pendulum angular displacement, pendulum energy graph, pendulum displacement vs time, pendulum velocity vs time, pendulum experiment observation table, simple pendulum virtual experiment, pendulum experiment gravity, pendulum length experiment, how does length affect pendulum period, pendulum damping simulation, air resistance pendulum, pendulum bob mass experiment, pendulum experiment notes, simple pendulum class practical, pendulum lab report, virtual physics lab India, pendulum experiment for students, interactive pendulum, pendulum slow motion, pendulum stopwatch, pendulum oscillation count, free pendulum experiment, sreeharis pendulum, espace systems science, simple pendulum interactive, pendulum gravitational acceleration, g from pendulum experiment, pendulum angle release, pendulum period vs length graph, pendulum experiment advanced mode">
+  <meta name="author" content="Sreehari S, Espace Systems">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#0a1628">
+
+  <!-- ══ CANONICAL ══ -->
+  <link rel="canonical" href="https://sreeharis.in/pendulum.html">
+
+  <!-- ══ OPEN GRAPH ══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Simple Pendulum Experiment Simulation — Interactive Virtual Lab | Sreeharis Science Hub">
+  <meta property="og:description" content="Drag the bob, set length and gravity, watch live graphs and verify the pendulum time period formula T=2π√(L/g). Free interactive virtual lab for Physics students.">
+  <meta property="og:url" content="https://sreeharis.in/pendulum.html">
+  <meta property="og:site_name" content="Sreeharis Science Hub">
+  <meta property="og:image" content="https://sreeharis.in/preview.jpg">
+
+  <!-- ══ TWITTER CARD ══ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simple Pendulum Virtual Lab — Interactive Physics Simulation | Sreeharis">
+  <meta name="twitter:description" content="Interactive simple pendulum simulator. Adjust length, gravity, damping. Live displacement, velocity and energy graphs. Verify T=2π√(L/g) yourself.">
+  <meta name="twitter:image" content="https://sreeharis.in/preview.jpg">
+
+  <!-- ══ STRUCTURED DATA: WebPage ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Simple Pendulum Experiment Simulation — Interactive Virtual Lab",
+    "url": "https://sreeharis.in/pendulum.html",
+    "description": "Free interactive Simple Pendulum virtual experiment simulator for Physics students. Adjust string length, bob mass, gravity, and damping. Live graphs for displacement, velocity and energy. Verify the pendulum time period formula T=2π√(L/g).",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://sreeharis.in/"},
+        {"@type":"ListItem","position":2,"name":"Science Hub","item":"https://sreeharis.in/sciencehub.html"},
+        {"@type":"ListItem","position":3,"name":"Simple Pendulum Simulation","item":"https://sreeharis.in/pendulum.html"}
+      ]
+    },
+    "author": {"@type":"Person","name":"Sreehari S","url":"https://sreeharis.in/portfolio.html"},
+    "isPartOf": {"@type":"WebSite","name":"Sreeharis FYUGP Portal","url":"https://sreeharis.in/"},
+    "educationalLevel": "undergraduate",
+    "teaches": "Simple Harmonic Motion, Pendulum Physics, T=2π√(L/g)",
+    "audience": {"@type":"EducationalAudience","educationalRole":"student","audienceType":"Physics students, FYUGP, Class 11, Class 12"}
+  }
+  </script>
+
+  <!-- ══ STRUCTURED DATA: LearningResource ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    "name": "Simple Pendulum Virtual Experiment Simulator",
+    "url": "https://sreeharis.in/pendulum.html",
+    "description": "An interactive simple pendulum simulation allowing students to explore pendulum physics by adjusting string length, bob mass, gravity, initial angle, and damping. Displays live time period, frequency, angular displacement, velocity, acceleration and energy graphs. Includes observation table, stopwatch and trial counter.",
+    "educationalLevel": ["high school","undergraduate"],
+    "learningResourceType": "simulation",
+    "teaches": ["Simple Harmonic Motion","Pendulum Period Formula T=2pi sqrt(L/g)","Effect of length on time period","Effect of gravity on time period","Energy conservation in pendulum","Angular displacement","Angular velocity","Angular acceleration"],
+    "keywords": "simple pendulum, pendulum experiment, SHM, time period, virtual lab",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "provider": {"@type":"Organization","name":"Espace Systems","url":"https://sreeharis.in/espace.html"}
+  }
+  </script>
+
+  <!-- ══ STRUCTURED DATA: FAQPage ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the formula for the time period of a simple pendulum?",
+        "acceptedAnswer": {"@type":"Answer","text":"The time period of a simple pendulum is given by T = 2π√(L/g), where L is the length of the pendulum string and g is the acceleration due to gravity. This formula shows that the period depends only on length and gravity, not on the mass of the bob or the amplitude (for small angles)."}
+      },
+      {
+        "@type": "Question",
+        "name": "How does length affect the time period of a pendulum?",
+        "acceptedAnswer": {"@type":"Answer","text":"The time period is directly proportional to the square root of the length. If you quadruple the length, the period doubles. Longer pendulums swing more slowly and have a greater time period."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does mass affect the time period of a simple pendulum?",
+        "acceptedAnswer": {"@type":"Answer","text":"No, the mass of the bob does not affect the time period of a simple pendulum. The formula T = 2π√(L/g) has no mass term, which means whether the bob is heavy or light, it completes its oscillation in the same time (for the same length and gravity)."}
+      },
+      {
+        "@type": "Question",
+        "name": "What is simple harmonic motion in a pendulum?",
+        "acceptedAnswer": {"@type":"Answer","text":"A simple pendulum exhibits simple harmonic motion (SHM) for small angles (less than ~15°). In SHM, the restoring force is proportional to the displacement, causing the pendulum to oscillate sinusoidally. The equation of motion is d²θ/dt² = -(g/L)θ for small angles."}
+      },
+      {
+        "@type": "Question",
+        "name": "How can I find g from a pendulum experiment?",
+        "acceptedAnswer": {"@type":"Answer","text":"By rearranging T = 2π√(L/g), we get g = 4π²L/T². Measure the time period T for a known length L, then calculate g. Plotting T² vs L gives a straight line with slope 4π²/g, from which g can be determined accurately."}
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0a1628;
+      --deep: #0d1f3c;
+      --gold: #c9a84c;
+      --gold-light: #f0c96a;
+      --slate: #8a9bb5;
+      --white: #ffffff;
+      --card-bg: rgba(255,255,255,0.04);
+      --border: rgba(201,168,76,0.2);
+      --teal: #3ecfcf;
+      --pink: #ff4d8d;
+      --blue: #4db8ff;
+      --violet: #a78bfa;
+      --green: #34d399;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      cursor: none;
+      min-height: 100vh;
+    }
+
+    /* ── CURSOR ── */
+    .cursor { width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s; }
+    .cursor-ring { width:36px;height:36px;border:1px solid rgba(201,168,76,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s; }
+
+    /* ── BACKGROUND ── */
+    .page-bg { position:fixed;inset:0;z-index:0;pointer-events:none;
+      background: radial-gradient(ellipse 70% 50% at 20% 0%,rgba(167,139,250,0.05) 0%,transparent 60%),
+                  radial-gradient(ellipse 60% 60% at 80% 100%,rgba(201,168,76,0.07) 0%,transparent 60%),
+                  linear-gradient(160deg,#0a1628 0%,#0d1f3c 60%,#071120 100%); }
+    .page-grid { position:fixed;inset:0;z-index:0;pointer-events:none;
+      background-image:linear-gradient(rgba(201,168,76,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.025) 1px,transparent 1px);
+      background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent); }
+    .orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none;animation:float-orb 10s ease-in-out infinite;}
+    .orb-1{width:500px;height:500px;background:rgba(167,139,250,0.04);top:-150px;left:-100px;}
+    .orb-2{width:380px;height:380px;background:rgba(201,168,76,0.05);bottom:-100px;right:-80px;animation-delay:-4s;}
+    @keyframes float-orb{0%,100%{transform:translateY(0)}50%{transform:translateY(-28px)}}
+
+    /* ── NAV ── */
+    nav { position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 52px;background:rgba(10,22,40,0.7);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:padding .4s,background .4s; }
+    nav.scrolled { padding:13px 52px;background:rgba(10,22,40,0.96); }
+    .nav-logo { display:flex;flex-direction:column;gap:2px;text-decoration:none; }
+    .nav-logo-main { font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold);letter-spacing:.3px; }
+    .nav-logo-sub { font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.42);font-weight:400; }
+    .nav-back { display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);text-decoration:none;font-size:.85rem;letter-spacing:.5px;transition:color .2s;padding:8px 18px;border-radius:50px;border:1px solid rgba(201,168,76,.15);background:rgba(201,168,76,.04);backdrop-filter:blur(8px); }
+    .nav-back:hover { color:var(--gold);border-color:rgba(201,168,76,.4);background:rgba(201,168,76,.08); }
+    .nav-back-arrow { transition:transform .2s; }
+    .nav-back:hover .nav-back-arrow { transform:translateX(-3px); }
+
+    /* ── HERO ── */
+    main { position:relative;z-index:1;padding:120px 24px 60px;max-width:1200px;margin:0 auto; }
+    .exp-hero { display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:52px;animation:fade-up .8s ease both; }
+    .exp-hero-left { flex:1;min-width:280px; }
+    .exp-label { display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:16px;font-weight:500; }
+    .exp-label::before { content:'';width:24px;height:1px;background:var(--violet);display:inline-block; }
+    .exp-title { font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:14px; }
+    .exp-title em { font-style:italic;background:linear-gradient(135deg,var(--violet) 10%,var(--gold-light) 90%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+    .exp-desc { color:var(--slate);font-size:.95rem;line-height:1.75;font-weight:300;max-width:480px; }
+    .exp-badges { display:flex;gap:10px;flex-wrap:wrap;margin-top:20px; }
+    .exp-badge { display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:50px;font-size:.68rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600; }
+    .badge-phys { background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:var(--violet); }
+    .badge-shm  { background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--green); }
+    .badge-free { background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold); }
+
+    /* ── MODE TOGGLE ── */
+    .mode-toggle { display:flex;align-items:center;gap:0;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:28px; }
+    .mode-btn { flex:1;padding:10px 24px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.5px;background:transparent;border:none;color:var(--slate);cursor:pointer;transition:all .3s; }
+    .mode-btn.active { background:rgba(167,139,250,.15);color:var(--violet); }
+
+    /* ── SIMULATOR LAYOUT ── */
+    .sim-layout { display:grid;grid-template-columns:1fr 340px;gap:24px;margin-bottom:32px; }
+    @media(max-width:900px){ .sim-layout{grid-template-columns:1fr;} }
+
+    /* ── CANVAS PANEL ── */
+    .canvas-panel { background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:24px;overflow:hidden;position:relative;display:flex;flex-direction:column; }
+    .canvas-toolbar { display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid rgba(201,168,76,.1);flex-wrap:wrap; }
+    .toolbar-btn { display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:.5px;border:none;cursor:pointer;transition:all .25s;font-family:'DM Sans',sans-serif; }
+    .btn-play  { background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.35);color:var(--green); }
+    .btn-play:hover  { background:rgba(52,211,153,.25);border-color:rgba(52,211,153,.6); }
+    .btn-reset { background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold); }
+    .btn-reset:hover { background:rgba(201,168,76,.2);border-color:rgba(201,168,76,.5); }
+    .btn-slow  { background:rgba(77,184,255,.1);border:1px solid rgba(77,184,255,.25);color:var(--blue); }
+    .btn-slow:hover  { background:rgba(77,184,255,.2);border-color:rgba(77,184,255,.5); }
+    .btn-slow.active { background:rgba(77,184,255,.25);border-color:rgba(77,184,255,.6);box-shadow:0 0 12px rgba(77,184,255,.2); }
+    .toolbar-sep { width:1px;height:24px;background:rgba(255,255,255,.07); }
+    .stopwatch-display { font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);letter-spacing:1px; }
+    .osc-counter { font-size:.75rem;color:var(--slate);margin-left:auto; }
+    .osc-count-val { color:var(--violet);font-weight:700; }
+
+    #pendulumCanvas { width:100%;display:block;cursor:grab;background:transparent; }
+    #pendulumCanvas:active { cursor:grabbing; }
+    #pendulumCanvas.dragging { cursor:grabbing; }
+
+    /* ── LIVE METRICS ── */
+    .metrics-strip { display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(201,168,76,.1); }
+    .metric-cell { padding:14px 18px;border-right:1px solid rgba(201,168,76,.07);text-align:center; }
+    .metric-cell:last-child { border-right:none; }
+    .metric-label { font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:4px; }
+    .metric-val { font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700; }
+    .mv-period  { color:var(--violet); }
+    .mv-freq    { color:var(--teal); }
+    .mv-angle   { color:var(--gold); }
+    .mv-vel     { color:var(--blue); }
+    .mv-acc     { color:var(--pink); }
+    .mv-energy  { color:var(--green); }
+
+    /* ── CONTROL PANEL ── */
+    .ctrl-panel { display:flex;flex-direction:column;gap:16px; }
+    .ctrl-card { background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:20px; }
+    .ctrl-section-title { font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px; }
+    .ctrl-section-title::after { content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,.2),transparent); }
+
+    .slider-row { margin-bottom:14px; }
+    .slider-row:last-child { margin-bottom:0; }
+    .slider-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:6px; }
+    .slider-name { font-size:.8rem;color:rgba(255,255,255,.7);font-weight:400; }
+    .slider-value { font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700; }
+    .sv-length { color:var(--violet); }
+    .sv-mass   { color:var(--teal); }
+    .sv-grav   { color:var(--gold); }
+    .sv-angle  { color:var(--pink); }
+    .sv-damp   { color:var(--blue); }
+
+    input[type=range] { -webkit-appearance:none;width:100%;height:4px;border-radius:4px;outline:none;cursor:pointer; }
+    input[type=range].r-violet { background:linear-gradient(90deg,var(--violet) var(--pct,50%),rgba(255,255,255,.1) var(--pct,50%)); }
+    input[type=range].r-teal   { background:linear-gradient(90deg,var(--teal)   var(--pct,50%),rgba(255,255,255,.1) var(--pct,50%)); }
+    input[type=range].r-gold   { background:linear-gradient(90deg,var(--gold)   var(--pct,50%),rgba(255,255,255,.1) var(--pct,50%)); }
+    input[type=range].r-pink   { background:linear-gradient(90deg,var(--pink)   var(--pct,50%),rgba(255,255,255,.1) var(--pct,50%)); }
+    input[type=range].r-blue   { background:linear-gradient(90deg,var(--blue)   var(--pct,50%),rgba(255,255,255,.1) var(--pct,50%)); }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--white);box-shadow:0 0 8px rgba(0,0,0,.4);cursor:pointer;transition:transform .2s; }
+    input[type=range]::-webkit-slider-thumb:hover { transform:scale(1.25); }
+
+    /* Gravity preset buttons */
+    .grav-presets { display:flex;gap:6px;flex-wrap:wrap;margin-top:8px; }
+    .grav-btn { padding:4px 10px;border-radius:6px;font-size:.65rem;font-weight:600;letter-spacing:.5px;border:1px solid rgba(201,168,76,.2);background:rgba(201,168,76,.06);color:var(--slate);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif; }
+    .grav-btn:hover,.grav-btn.active { background:rgba(201,168,76,.18);border-color:rgba(201,168,76,.5);color:var(--gold); }
+
+    /* Advanced extras */
+    .advanced-section { display:none; }
+    .advanced-section.visible { display:block; }
+
+    /* ── GRAPHS PANEL ── */
+    .graphs-layout { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px; }
+    @media(max-width:800px){ .graphs-layout{grid-template-columns:1fr;} }
+    .graph-card { background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:18px;animation:fade-up .7s .3s ease both; }
+    .graph-title { font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px; }
+    .gt-disp { color:var(--violet); }
+    .gt-vel  { color:var(--blue); }
+    .gt-energy { color:var(--green); }
+    .graph-canvas { width:100%;display:block;border-radius:8px;background:rgba(0,0,0,.25); }
+
+    /* ── OBSERVATION TABLE ── */
+    .table-section { background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:24px;margin-bottom:32px;animation:fade-up .7s .35s ease both; }
+    .table-header-row { display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px; }
+    .table-title { font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700; }
+    .btn-add-obs { display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:50px;font-size:.75rem;font-weight:600;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--green);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s; }
+    .btn-add-obs:hover { background:rgba(52,211,153,.2);border-color:rgba(52,211,153,.6); }
+    .btn-clear-obs { display:inline-flex;align-items:center;gap:7px;padding:8px 18px;border-radius:50px;font-size:.75rem;font-weight:600;background:rgba(255,77,141,.07);border:1px solid rgba(255,77,141,.2);color:var(--pink);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s; }
+    .btn-clear-obs:hover { background:rgba(255,77,141,.15);border-color:rgba(255,77,141,.5); }
+    .obs-table-wrap { overflow-x:auto; }
+    table.obs-table { width:100%;border-collapse:collapse;font-size:.82rem; }
+    table.obs-table th { padding:10px 14px;text-align:center;font-size:.63rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);font-weight:600;border-bottom:1px solid rgba(201,168,76,.15);white-space:nowrap; }
+    table.obs-table td { padding:9px 14px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.8); }
+    table.obs-table tr:last-child td { border-bottom:none; }
+    table.obs-table tr:hover td { background:rgba(167,139,250,.04); }
+    .td-num { font-family:'Playfair Display',serif;font-weight:700;color:var(--violet); }
+    .no-obs { text-align:center;padding:32px;color:rgba(138,155,181,.4);font-style:italic;font-size:.88rem; }
+
+    /* ── NOTES SECTION ── */
+    .notes-section { animation:fade-up .7s .4s ease both; }
+    .notes-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px; }
+    .note-card { background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:18px;padding:24px; }
+    .note-card-title { font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:12px;color:var(--white); }
+    .note-card-title span { color:var(--violet); }
+    .note-card p { color:var(--slate);font-size:.85rem;line-height:1.7;margin-bottom:10px; }
+    .note-card p:last-child { margin-bottom:0; }
+    .formula-box { background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:12px 16px;margin:12px 0;text-align:center;font-family:'Playfair Display',serif;font-size:1rem;color:var(--violet); }
+    .note-list { list-style:none;padding:0; }
+    .note-list li { color:var(--slate);font-size:.85rem;line-height:1.7;padding:4px 0 4px 20px;position:relative; }
+    .note-list li::before { content:'→';position:absolute;left:0;color:var(--violet);font-size:.75rem; }
+
+    /* ── FAQ ── */
+    .faq-section { margin-top:32px;animation:fade-up .7s .45s ease both; }
+    .faq-title { font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:24px; }
+    .faq-item { border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden; }
+    .faq-q { display:flex;align-items:center;justify-content:space-between;padding:16px 22px;cursor:pointer;font-size:.9rem;font-weight:500;gap:12px;user-select:none; }
+    .faq-q:hover { background:rgba(255,255,255,.02); }
+    .faq-icon { color:var(--violet);font-size:1.1rem;flex-shrink:0;transition:transform .3s; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-a { display:none;padding:0 22px 16px;color:var(--slate);font-size:.87rem;line-height:1.7; }
+    .faq-item.open .faq-a { display:block; }
+
+    /* ── FOOTER ── */
+    footer { position:relative;z-index:1;border-top:1px solid var(--border);margin-top:80px;padding:48px 24px 36px; }
+    .footer-inner { max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px; }
+    .footer-brand { font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--gold); }
+    .footer-brand span { font-family:'DM Sans',sans-serif;font-size:.75rem;color:var(--slate);font-weight:300;display:block;margin-top:3px; }
+    .footer-links { display:flex;gap:24px;flex-wrap:wrap; }
+    .footer-links a { color:var(--slate);text-decoration:none;font-size:.8rem;transition:color .2s; }
+    .footer-links a:hover { color:var(--gold); }
+    .footer-copy { color:rgba(138,155,181,.4);font-size:.75rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fade-up { from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)} }
+
+    /* ── TRAIL CANVAS ── */
+    #trailCanvas { position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none; }
+
+    /* Energy bar */
+    .energy-bar-wrap { padding:14px 18px;border-top:1px solid rgba(201,168,76,.1); }
+    .energy-bar-title { font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:8px; }
+    .energy-bars { display:flex;flex-direction:column;gap:5px; }
+    .ebar-row { display:flex;align-items:center;gap:10px; }
+    .ebar-label { font-size:.65rem;width:24px;color:var(--slate); }
+    .ebar-track { flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden; }
+    .ebar-fill { height:100%;border-radius:6px;transition:width .1s linear; }
+    .ebar-ke { background:linear-gradient(90deg,var(--blue),rgba(77,184,255,.6)); }
+    .ebar-pe { background:linear-gradient(90deg,var(--violet),rgba(167,139,250,.6)); }
+    .ebar-te { background:linear-gradient(90deg,var(--green),rgba(52,211,153,.6)); }
+    .ebar-val { font-size:.65rem;width:46px;text-align:right;color:rgba(255,255,255,.5); }
+
+    /* Section divider */
+    .section-div { display:flex;align-items:center;gap:16px;margin:36px 0 24px; }
+    .section-div-line { flex:1;height:1px;background:linear-gradient(90deg,rgba(201,168,76,.25),transparent); }
+    .section-div-label { font-size:.68rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap; }
+
+    @media(max-width:600px){
+      nav{padding:16px 20px;}
+      nav.scrolled{padding:12px 20px;}
+      main{padding:100px 16px 48px;}
+      .metrics-strip{grid-template-columns:repeat(2,1fr);}
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="page-bg"></div>
+<div class="page-grid"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="mainNav">
+  <a href="sciencehub.html" class="nav-logo">
+    <span class="nav-logo-main">Science Hub</span>
+    <span class="nav-logo-sub">sreeharis.in</span>
+  </a>
+  <a href="sciencehub.html" class="nav-back">
+    <span class="nav-back-arrow">←</span> All Experiments
+  </a>
+</nav>
+
+<main>
+
+  <!-- ══ HERO ══ -->
+  <div class="exp-hero">
+    <div class="exp-hero-left">
+      <div class="exp-label">Physics · SHM</div>
+      <h1 class="exp-title">Simple <em>Pendulum</em></h1>
+      <p class="exp-desc">Drag the bob to any angle and release. Adjust length, gravity, mass and damping. Watch live graphs and verify T = 2π√(L/g) with your own observations.</p>
+      <div class="exp-badges">
+        <span class="exp-badge badge-phys">⚛ Physics</span>
+        <span class="exp-badge badge-shm">〜 SHM</span>
+        <span class="exp-badge badge-free">★ Free</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MODE TOGGLE ══ -->
+  <div class="mode-toggle" id="modeToggle">
+    <button class="mode-btn active" id="btnBasic" onclick="setMode('basic')">🎓 Basic Mode</button>
+    <button class="mode-btn" id="btnAdv" onclick="setMode('advanced')">🔬 Advanced Mode</button>
+  </div>
+
+  <!-- ══ SIMULATOR ══ -->
+  <div class="sim-layout">
+
+    <!-- Canvas -->
+    <div class="canvas-panel">
+      <div class="canvas-toolbar">
+        <button class="toolbar-btn btn-play" id="playBtn" onclick="togglePlay()">⏸ Pause</button>
+        <button class="toolbar-btn btn-reset" onclick="resetSim()">↺ Reset</button>
+        <button class="toolbar-btn btn-slow" id="slowBtn" onclick="toggleSlow()">🐢 Slow-Mo</button>
+        <div class="toolbar-sep"></div>
+        <span class="stopwatch-display" id="stopwatchDisplay">⏱ 0.000 s</span>
+        <div style="flex:1"></div>
+        <span class="osc-counter">Oscillations: <span class="osc-count-val" id="oscCount">0</span></span>
+      </div>
+      <div style="position:relative;">
+        <canvas id="pendulumCanvas" height="400"></canvas>
+      </div>
+      <div class="metrics-strip">
+        <div class="metric-cell">
+          <div class="metric-label">Period T</div>
+          <div class="metric-val mv-period" id="mvPeriod">—</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Frequency</div>
+          <div class="metric-val mv-freq" id="mvFreq">—</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Angle θ</div>
+          <div class="metric-val mv-angle" id="mvAngle">—</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Angular Vel ω</div>
+          <div class="metric-val mv-vel" id="mvVel">—</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Angular Acc α</div>
+          <div class="metric-val mv-acc" id="mvAcc">—</div>
+        </div>
+        <div class="metric-cell">
+          <div class="metric-label">Total Energy</div>
+          <div class="metric-val mv-energy" id="mvEnergy">—</div>
+        </div>
+      </div>
+      <!-- Energy bars -->
+      <div class="energy-bar-wrap">
+        <div class="energy-bar-title">Energy Distribution</div>
+        <div class="energy-bars">
+          <div class="ebar-row">
+            <div class="ebar-label" style="color:var(--blue)">KE</div>
+            <div class="ebar-track"><div class="ebar-fill ebar-ke" id="ebarKE" style="width:0%"></div></div>
+            <div class="ebar-val" id="evalKE">0 mJ</div>
+          </div>
+          <div class="ebar-row">
+            <div class="ebar-label" style="color:var(--violet)">PE</div>
+            <div class="ebar-track"><div class="ebar-fill ebar-pe" id="ebarPE" style="width:50%"></div></div>
+            <div class="ebar-val" id="evalPE">0 mJ</div>
+          </div>
+          <div class="ebar-row">
+            <div class="ebar-label" style="color:var(--green)">TE</div>
+            <div class="ebar-track"><div class="ebar-fill ebar-te" id="ebarTE" style="width:50%"></div></div>
+            <div class="ebar-val" id="evalTE">0 mJ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="ctrl-panel">
+      <div class="ctrl-card">
+        <div class="ctrl-section-title">Parameters</div>
+
+        <div class="slider-row">
+          <div class="slider-header">
+            <span class="slider-name">String Length (L)</span>
+            <span class="slider-value sv-length" id="valLength">1.00 m</span>
+          </div>
+          <input type="range" id="slLength" class="r-violet" min="0.2" max="3.0" step="0.05" value="1.0" oninput="updateParam('length',this)">
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-header">
+            <span class="slider-name">Bob Mass (m)</span>
+            <span class="slider-value sv-mass" id="valMass">1.0 kg</span>
+          </div>
+          <input type="range" id="slMass" class="r-teal" min="0.1" max="5.0" step="0.1" value="1.0" oninput="updateParam('mass',this)">
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-header">
+            <span class="slider-name">Initial Angle (θ₀)</span>
+            <span class="slider-value sv-angle" id="valAngle">20°</span>
+          </div>
+          <input type="range" id="slAngle" class="r-pink" min="1" max="85" step="1" value="20" oninput="updateParam('angle',this)">
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-header">
+            <span class="slider-name">Gravity (g)</span>
+            <span class="slider-value sv-grav" id="valGrav">9.81 m/s²</span>
+          </div>
+          <input type="range" id="slGrav" class="r-gold" min="1.0" max="25.0" step="0.1" value="9.81" oninput="updateParam('gravity',this)">
+          <div class="grav-presets">
+            <button class="grav-btn" onclick="setGrav(1.62,'Moon')">🌙 Moon</button>
+            <button class="grav-btn active" onclick="setGrav(9.81,'Earth')">🌍 Earth</button>
+            <button class="grav-btn" onclick="setGrav(3.72,'Mars')">🔴 Mars</button>
+            <button class="grav-btn" onclick="setGrav(24.79,'Jupiter')">🪐 Jupiter</button>
+          </div>
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-header">
+            <span class="slider-name">Damping (b)</span>
+            <span class="slider-value sv-damp" id="valDamp">0.00</span>
+          </div>
+          <input type="range" id="slDamp" class="r-blue" min="0" max="1.0" step="0.01" value="0" oninput="updateParam('damping',this)">
+        </div>
+      </div>
+
+      <!-- Advanced only -->
+      <div class="ctrl-card advanced-section" id="advCard">
+        <div class="ctrl-section-title">Advanced Display</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.84rem;color:var(--slate);">
+            <input type="checkbox" id="chkTrail" checked onchange="toggleTrail(this)" style="accent-color:var(--violet);"> Show bob trail
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.84rem;color:var(--slate);">
+            <input type="checkbox" id="chkForce" onchange="toggleForce(this)" style="accent-color:var(--violet);"> Show force vectors
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.84rem;color:var(--slate);">
+            <input type="checkbox" id="chkAngle" checked onchange="toggleAngleArc(this)" style="accent-color:var(--violet);"> Show angle arc
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.84rem;color:var(--slate);">
+            <input type="checkbox" id="chkGrid" onchange="toggleGrid(this)" style="accent-color:var(--violet);"> Show equilibrium line
+          </label>
+        </div>
+      </div>
+
+      <div class="ctrl-card">
+        <div class="ctrl-section-title">Derived Values</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;">
+            <span style="color:var(--slate)">T (theoretical)</span>
+            <span style="color:var(--violet);font-family:'Playfair Display',serif;font-weight:700" id="dvPeriod">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;">
+            <span style="color:var(--slate)">ω₀ = √(g/L)</span>
+            <span style="color:var(--teal);font-family:'Playfair Display',serif;font-weight:700" id="dvOmega">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;">
+            <span style="color:var(--slate)">Max Velocity</span>
+            <span style="color:var(--blue);font-family:'Playfair Display',serif;font-weight:700" id="dvVmax">—</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:.82rem;">
+            <span style="color:var(--slate)">Max Height (h)</span>
+            <span style="color:var(--gold);font-family:'Playfair Display',serif;font-weight:700" id="dvHeight">—</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-add-obs" onclick="addObservation()" style="width:100%;justify-content:center;">
+        + Record Observation
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ GRAPHS ══ -->
+  <div class="section-div">
+    <div class="section-div-line"></div>
+    <div class="section-div-label">Live Graphs</div>
+    <div class="section-div-line"></div>
+  </div>
+  <div class="graphs-layout">
+    <div class="graph-card">
+      <div class="graph-title gt-disp">〜 Displacement vs Time</div>
+      <canvas class="graph-canvas" id="graphDisp" height="120"></canvas>
+    </div>
+    <div class="graph-card">
+      <div class="graph-title gt-vel">⚡ Velocity vs Time</div>
+      <canvas class="graph-canvas" id="graphVel" height="120"></canvas>
+    </div>
+    <div class="graph-card">
+      <div class="graph-title gt-energy">⚡ Energy vs Time</div>
+      <canvas class="graph-canvas" id="graphEnergy" height="120"></canvas>
+    </div>
+  </div>
+
+  <!-- ══ OBSERVATION TABLE ══ -->
+  <div class="section-div">
+    <div class="section-div-line"></div>
+    <div class="section-div-label">Observation Table</div>
+    <div class="section-div-line"></div>
+  </div>
+  <div class="table-section">
+    <div class="table-header-row">
+      <div class="table-title">Recorded Observations</div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-add-obs" onclick="addObservation()">+ Record</button>
+        <button class="btn-clear-obs" onclick="clearObs()">✕ Clear</button>
+      </div>
+    </div>
+    <div class="obs-table-wrap">
+      <table class="obs-table" id="obsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Length L (m)</th>
+            <th>Mass m (kg)</th>
+            <th>Gravity g (m/s²)</th>
+            <th>Angle θ₀ (°)</th>
+            <th>Damping b</th>
+            <th>T measured (s)</th>
+            <th>T formula (s)</th>
+            <th>Frequency f (Hz)</th>
+          </tr>
+        </thead>
+        <tbody id="obsBody">
+          <tr><td colspan="9" class="no-obs">No observations yet. Press "+ Record" to save current values.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ NOTES ══ -->
+  <div class="section-div">
+    <div class="section-div-line"></div>
+    <div class="section-div-label">Experiment Notes</div>
+    <div class="section-div-line"></div>
+  </div>
+  <div class="notes-section">
+    <div class="notes-grid">
+
+      <div class="note-card">
+        <h2 class="note-card-title"><span>Theory</span> — Simple Pendulum</h2>
+        <p>A simple pendulum consists of a point mass (bob) suspended from a fixed pivot by a massless, inextensible string. When displaced from its equilibrium and released, the bob oscillates under gravity in a periodic motion.</p>
+        <p>For small angles (θ &lt; 15°), the motion approximates simple harmonic motion (SHM), where the restoring force is proportional to the displacement from equilibrium.</p>
+        <div class="formula-box">d²θ/dt² = −(g/L) θ</div>
+        <p>This gives sinusoidal oscillation: θ(t) = θ₀ cos(ω₀t), where ω₀ = √(g/L) is the natural angular frequency.</p>
+      </div>
+
+      <div class="note-card">
+        <h2 class="note-card-title">The <span>Period Formula</span></h2>
+        <p>The time period (T) is the time for one complete oscillation. For small angles it is given by:</p>
+        <div class="formula-box">T = 2π √(L / g)</div>
+        <p><strong style="color:var(--white)">Key observations from the formula:</strong></p>
+        <ul class="note-list">
+          <li>T increases with length L (longer = slower)</li>
+          <li>T decreases as gravity g increases (stronger gravity = faster)</li>
+          <li>T does NOT depend on mass of the bob</li>
+          <li>T is independent of amplitude for small angles</li>
+          <li>Doubling L increases T by a factor of √2 ≈ 1.41</li>
+        </ul>
+      </div>
+
+      <div class="note-card">
+        <h2 class="note-card-title"><span>Energy</span> in a Pendulum</h2>
+        <p>As the pendulum swings, energy continuously converts between kinetic and potential forms, but total mechanical energy is conserved (when damping = 0).</p>
+        <ul class="note-list">
+          <li>At max displacement: all PE, KE = 0</li>
+          <li>At equilibrium: all KE, PE = 0</li>
+          <li>PE = mgL(1 − cosθ)</li>
+          <li>KE = ½mL²ω²</li>
+          <li>Total E = mgL(1 − cosθ₀)</li>
+        </ul>
+        <p>With damping, energy is lost per cycle and amplitude decreases exponentially over time.</p>
+      </div>
+
+      <div class="note-card">
+        <h2 class="note-card-title"><span>Finding g</span> from Pendulum</h2>
+        <p>The pendulum is a classic way to determine the local acceleration due to gravity. Rearranging the period formula:</p>
+        <div class="formula-box">g = 4π²L / T²</div>
+        <p>Practical method: Plot T² vs L. The slope of the straight line equals 4π²/g, allowing precise determination of g from the gradient.</p>
+        <p>This experiment is used in standard physics labs worldwide to verify g ≈ 9.81 m/s² on Earth's surface.</p>
+      </div>
+
+      <div class="note-card">
+        <h2 class="note-card-title"><span>Sources</span> of Error</h2>
+        <ul class="note-list">
+          <li>Air resistance causes damping and amplitude decay</li>
+          <li>Large angles break the small-angle approximation (period increases)</li>
+          <li>String elasticity introduces non-ideal behavior</li>
+          <li>Human timing error when using a stopwatch</li>
+          <li>Bob is not a true point mass (rotational inertia)</li>
+          <li>Friction at the pivot increases effective damping</li>
+        </ul>
+        <p>Use small angles (&lt;15°) and average over many oscillations (20–50) for best accuracy.</p>
+      </div>
+
+      <div class="note-card">
+        <h2 class="note-card-title"><span>Planetary</span> Gravity Comparison</h2>
+        <ul class="note-list">
+          <li>Moon: g = 1.62 m/s² — period ~2.46× longer than Earth</li>
+          <li>Mars: g = 3.72 m/s² — period ~1.62× longer than Earth</li>
+          <li>Earth: g = 9.81 m/s² — standard reference</li>
+          <li>Jupiter: g = 24.79 m/s² — period ~0.63× of Earth</li>
+        </ul>
+        <p>Try switching gravity presets in the simulator and observe how the oscillation speed changes in real time!</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ FAQ ══ -->
+  <div class="faq-section">
+    <h2 class="faq-title">Frequently Asked <span style="color:var(--violet)">Questions</span></h2>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q"><span>What is the formula for time period of a simple pendulum?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">The time period of a simple pendulum is T = 2π√(L/g), where L is the string length and g is gravitational acceleration. This formula holds for small oscillation angles (less than ~15°). For larger angles, the actual period is slightly longer than this formula predicts.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q"><span>Does mass affect the time period of a pendulum?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">No! The mass of the bob has no effect on the time period. T = 2π√(L/g) contains no mass term. You can verify this in this simulator — change the bob mass slider and observe that the period displayed remains unchanged. This is one of the most important and counterintuitive results in pendulum physics.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q"><span>What is simple harmonic motion in a pendulum?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">A pendulum undergoes simple harmonic motion (SHM) when the oscillation amplitude is small (typically &lt;15°). In SHM, the restoring force is proportional to displacement, giving sinusoidal motion θ(t) = θ₀cos(ω₀t). The displacement, velocity and acceleration all vary sinusoidally with time, offset by 90° phase angles from each other.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q"><span>How can I determine g using a pendulum experiment?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Measure the time period T for several string lengths L. Calculate T² for each reading. Plot T² on the y-axis and L on the x-axis. The slope of the straight line is 4π²/g, so g = 4π²/slope. Alternatively use g = 4π²L/T² directly. Average multiple trials for greater accuracy.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q"><span>Why does the pendulum slow down over time in the simulator?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">When the damping slider is set above 0, energy is removed from the system each swing (simulating air resistance and pivot friction). The amplitude decays exponentially over time while the period remains almost the same. Set damping to 0 for ideal undamped oscillation with constant amplitude and perfect energy conservation.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      <div class="faq-q"><span>What is the difference between time period and frequency?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a">Time period (T) is the time in seconds for one complete oscillation (one full swing back and forth). Frequency (f) is the number of complete oscillations per second, measured in Hertz (Hz). They are reciprocals of each other: f = 1/T. Angular frequency ω = 2πf = 2π/T gives the rate of rotation in radians per second.</div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      Sreeharis Science Hub
+      <span>Interactive Science Experiment Simulations</span>
+    </div>
+    <div class="footer-links">
+      <a href="sciencehub.html">All Experiments</a>
+      <a href="espace.html">Espace Systems</a>
+      <a href="privacypolicy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">Developed by <a href="espace.html" style="color:var(--gold);text-decoration:none;">Espace Systems</a> · © 2025</div>
+  </div>
+</footer>
+
+<!-- ══ SCRIPT ══ -->
+<script>
+/* ─── CURSOR ─── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+
+/* ─── NAV SCROLL ─── */
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60));
+
+/* ─── FAQ ─── */
+function toggleFAQ(el){el.classList.toggle('open');}
+
+/* ─── MODE ─── */
+let currentMode='basic';
+function setMode(m){
+  currentMode=m;
+  document.getElementById('btnBasic').classList.toggle('active',m==='basic');
+  document.getElementById('btnAdv').classList.toggle('active',m==='advanced');
+  document.getElementById('advCard').classList.toggle('visible',m==='advanced');
+}
+
+/* ─── GRAVITY PRESETS ─── */
+function setGrav(v,name){
+  document.getElementById('slGrav').value=v;
+  document.querySelectorAll('.grav-btn').forEach(b=>b.classList.toggle('active',b.textContent.includes(name)));
+  updateParam('gravity',document.getElementById('slGrav'));
+}
+
+/* ─── PENDULUM STATE ─── */
+const STATE = {
+  length: 1.0,
+  mass: 1.0,
+  gravity: 9.81,
+  angle0: 20 * Math.PI / 180,
+  damping: 0.0,
+  theta: 20 * Math.PI / 180,
+  omega: 0,
+  playing: true,
+  slowMo: false,
+  showTrail: true,
+  showForce: false,
+  showAngleArc: true,
+  showGrid: false,
+  elapsed: 0,
+  oscCount: 0,
+  lastSign: 1,
+  dragging: false,
+  initE: 0
+};
+
+/* trail */
+const TRAIL = [];
+const MAX_TRAIL = 120;
+
+/* graph data */
+const GDATA = { disp:[], vel:[], ke:[], pe:[], te:[], t:[] };
+const MAX_G = 300;
+
+let observations = [];
+let lastTime = null;
+
+/* canvas */
+const canvas = document.getElementById('pendulumCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas(){
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetWidth < 500 ? 360 : 400;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+function pivot(){
+  return { x: canvas.width/2, y: canvas.height * 0.12 };
+}
+
+function bobPos(){
+  const p = pivot();
+  const px = canvas.width / Math.min(canvas.width, 600); // scale factor
+  const scale = Math.min(canvas.width, 560) * 0.55;
+  return {
+    x: p.x + Math.sin(STATE.theta) * STATE.length * scale,
+    y: p.y + Math.cos(STATE.theta) * STATE.length * scale
+  };
+}
+
+/* ─── DRAW ─── */
+function drawPendulum(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  const p = pivot();
+  const b = bobPos();
+  const scale = Math.min(canvas.width, 560) * 0.55;
+  const bobR = Math.max(10, Math.min(22, 8 + STATE.mass * 2.5));
+
+  // Grid / equilibrium line
+  if(STATE.showGrid){
+    ctx.save();
+    ctx.strokeStyle='rgba(201,168,76,0.15)';
+    ctx.lineWidth=1;
+    ctx.setLineDash([6,6]);
+    ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x,p.y+STATE.length*scale+bobR+10);ctx.stroke();
+    ctx.restore();
+  }
+
+  // Trail
+  if(STATE.showTrail && TRAIL.length > 1){
+    ctx.save();
+    for(let i=1;i<TRAIL.length;i++){
+      const alpha = (i/TRAIL.length)*0.6;
+      ctx.strokeStyle=`rgba(167,139,250,${alpha})`;
+      ctx.lineWidth = 1.5*(i/TRAIL.length);
+      ctx.beginPath();
+      ctx.moveTo(TRAIL[i-1].x, TRAIL[i-1].y);
+      ctx.lineTo(TRAIL[i].x, TRAIL[i].y);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  // Angle arc
+  if(STATE.showAngleArc && Math.abs(STATE.theta) > 0.01){
+    ctx.save();
+    ctx.strokeStyle='rgba(201,168,76,0.4)';
+    ctx.lineWidth=1.5;
+    ctx.setLineDash([4,4]);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, scale*STATE.length*0.28, Math.PI/2, Math.PI/2+STATE.theta, STATE.theta<0);
+    ctx.stroke();
+    // angle label
+    const labelR = scale*STATE.length*0.32;
+    const midAngle = Math.PI/2 + STATE.theta*0.5;
+    ctx.setLineDash([]);
+    ctx.fillStyle='rgba(201,168,76,0.8)';
+    ctx.font=`500 ${Math.max(10,Math.min(13,canvas.width/38))}px DM Sans`;
+    ctx.textAlign='center';
+    ctx.fillText((STATE.theta*180/Math.PI).toFixed(1)+'°',
+      p.x + Math.cos(midAngle)*labelR, p.y + Math.sin(midAngle)*labelR);
+    ctx.restore();
+  }
+
+  // String shadow/glow
+  ctx.save();
+  ctx.shadowColor='rgba(167,139,250,0.15)';
+  ctx.shadowBlur=4;
+  ctx.strokeStyle='rgba(255,255,255,0.6)';
+  ctx.lineWidth=1.5;
+  ctx.beginPath();
+  ctx.moveTo(p.x, p.y);
+  ctx.lineTo(b.x, b.y);
+  ctx.stroke();
+  ctx.restore();
+
+  // Force vectors (advanced)
+  if(STATE.showForce){
+    const gForce = STATE.mass * STATE.gravity;
+    const fScale = Math.min(40, gForce*3);
+    // gravity vector (downward)
+    drawArrow(ctx, b.x, b.y, b.x, b.y+fScale, 'rgba(255,77,141,0.85)', 'mg');
+    // tension (along string toward pivot)
+    const tension = STATE.mass*(STATE.gravity*Math.cos(STATE.theta) + STATE.length*STATE.omega*STATE.omega);
+    const tScale = Math.min(50, tension*2.5);
+    const dx = (p.x-b.x)/Math.hypot(p.x-b.x,p.y-b.y);
+    const dy = (p.y-b.y)/Math.hypot(p.x-b.x,p.y-b.y);
+    drawArrow(ctx, b.x, b.y, b.x+dx*tScale, b.y+dy*tScale, 'rgba(52,211,153,0.85)', 'T');
+  }
+
+  // Pivot support bracket
+  ctx.save();
+  ctx.fillStyle='rgba(255,255,255,0.12)';
+  ctx.strokeStyle='rgba(255,255,255,0.2)';
+  ctx.lineWidth=1;
+  ctx.beginPath();
+  ctx.moveTo(p.x-18, p.y-4);
+  ctx.lineTo(p.x+18, p.y-4);
+  ctx.lineTo(p.x+14, p.y-14);
+  ctx.lineTo(p.x-14, p.y-14);
+  ctx.closePath();
+  ctx.fill(); ctx.stroke();
+  // Hatch
+  for(let i=-3;i<=3;i++){
+    ctx.beginPath();ctx.moveTo(p.x+i*5-8,p.y-14);ctx.lineTo(p.x+i*5-14,p.y-20);ctx.stroke();
+  }
+  ctx.restore();
+
+  // Pivot pin
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, 5, 0, Math.PI*2);
+  ctx.fillStyle='rgba(201,168,76,0.9)';
+  ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,0.3)';
+  ctx.lineWidth=1;
+  ctx.stroke();
+  ctx.restore();
+
+  // Bob shadow
+  ctx.save();
+  ctx.shadowColor='rgba(167,139,250,0.5)';
+  ctx.shadowBlur=STATE.dragging?30:16;
+  const gradient = ctx.createRadialGradient(b.x-bobR*0.3, b.y-bobR*0.3, 0, b.x, b.y, bobR);
+  gradient.addColorStop(0,'rgba(220,200,255,0.95)');
+  gradient.addColorStop(0.5,'rgba(167,139,250,0.9)');
+  gradient.addColorStop(1,'rgba(90,60,180,0.85)');
+  ctx.beginPath();
+  ctx.arc(b.x, b.y, bobR, 0, Math.PI*2);
+  ctx.fillStyle=gradient;
+  ctx.fill();
+  ctx.strokeStyle='rgba(167,139,250,0.8)';
+  ctx.lineWidth=1.5;
+  ctx.stroke();
+  ctx.restore();
+
+  // Bob highlight
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(b.x-bobR*0.28, b.y-bobR*0.28, bobR*0.28, 0, Math.PI*2);
+  ctx.fillStyle='rgba(255,255,255,0.35)';
+  ctx.fill();
+  ctx.restore();
+
+  // Drag hint on hover
+  if(STATE.dragging){
+    ctx.save();
+    ctx.strokeStyle='rgba(201,168,76,0.5)';
+    ctx.lineWidth=1;
+    ctx.setLineDash([4,4]);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, STATE.length*scale, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+function drawArrow(ctx,x1,y1,x2,y2,color,label){
+  const dx=x2-x1,dy=y2-y1,len=Math.hypot(dx,dy);
+  if(len<2)return;
+  ctx.save();
+  ctx.strokeStyle=color;ctx.fillStyle=color;
+  ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  const ang=Math.atan2(dy,dx);
+  ctx.beginPath();
+  ctx.moveTo(x2,y2);
+  ctx.lineTo(x2-8*Math.cos(ang-0.4),y2-8*Math.sin(ang-0.4));
+  ctx.lineTo(x2-8*Math.cos(ang+0.4),y2-8*Math.sin(ang+0.4));
+  ctx.closePath();ctx.fill();
+  if(label){
+    ctx.font='11px DM Sans';ctx.textAlign='center';
+    ctx.fillText(label,x2+10*Math.cos(ang+Math.PI/2),y2+10*Math.sin(ang+Math.PI/2));
+  }
+  ctx.restore();
+}
+
+/* ─── PHYSICS UPDATE ─── */
+function updatePhysics(dt){
+  // RK4 integration for accuracy
+  const g=STATE.gravity, L=STATE.length, b=STATE.damping;
+  const f = (theta,omega) => -(g/L)*Math.sin(theta) - b*omega;
+
+  const k1_t = STATE.omega;
+  const k1_o = f(STATE.theta, STATE.omega);
+
+  const k2_t = STATE.omega + 0.5*dt*k1_o;
+  const k2_o = f(STATE.theta+0.5*dt*k1_t, STATE.omega+0.5*dt*k1_o);
+
+  const k3_t = STATE.omega + 0.5*dt*k2_o;
+  const k3_o = f(STATE.theta+0.5*dt*k2_t, STATE.omega+0.5*dt*k2_o);
+
+  const k4_t = STATE.omega + dt*k3_o;
+  const k4_o = f(STATE.theta+dt*k3_t, STATE.omega+dt*k3_o);
+
+  const newTheta = STATE.theta + (dt/6)*(k1_t+2*k2_t+2*k3_t+k4_t);
+  const newOmega = STATE.omega + (dt/6)*(k1_o+2*k2_o+2*k3_o+k4_o);
+
+  // count oscillations
+  const sign = Math.sign(newTheta);
+  if(sign!==0 && sign!==STATE.lastSign && STATE.lastSign!==0 && Math.abs(newTheta)<0.15){
+    STATE.oscCount++;
+    document.getElementById('oscCount').textContent = Math.floor(STATE.oscCount/2);
+  }
+  STATE.lastSign = sign;
+
+  STATE.theta = newTheta;
+  STATE.omega = newOmega;
+  STATE.elapsed += dt;
+}
+
+/* ─── METRICS UPDATE ─── */
+function updateMetrics(){
+  const L=STATE.length, g=STATE.gravity, m=STATE.mass;
+  const T = 2*Math.PI*Math.sqrt(L/g);
+  const f = 1/T;
+  const omega0 = Math.sqrt(g/L);
+  const linVel = STATE.omega * L;
+  const angAcc = -(g/L)*Math.sin(STATE.theta);
+  const PE = m*g*L*(1-Math.cos(STATE.theta));
+  const KE = 0.5*m*L*L*STATE.omega*STATE.omega;
+  const TE = PE+KE;
+  const maxE = m*g*L*(1-Math.cos(STATE.angle0));
+  const vmax = Math.sqrt(2*g*L*(1-Math.cos(STATE.angle0)));
+  const hmax = L*(1-Math.cos(STATE.angle0));
+
+  document.getElementById('mvPeriod').textContent = T.toFixed(3)+' s';
+  document.getElementById('mvFreq').textContent = f.toFixed(3)+' Hz';
+  document.getElementById('mvAngle').textContent = (STATE.theta*180/Math.PI).toFixed(2)+'°';
+  document.getElementById('mvVel').textContent = STATE.omega.toFixed(3)+' rad/s';
+  document.getElementById('mvAcc').textContent = angAcc.toFixed(3)+' rad/s²';
+  document.getElementById('mvEnergy').textContent = (TE*1000).toFixed(2)+' mJ';
+
+  document.getElementById('dvPeriod').textContent = T.toFixed(4)+' s';
+  document.getElementById('dvOmega').textContent = omega0.toFixed(4)+' rad/s';
+  document.getElementById('dvVmax').textContent = vmax.toFixed(3)+' m/s';
+  document.getElementById('dvHeight').textContent = hmax.toFixed(4)+' m';
+
+  // Energy bars
+  const pct = v => maxE>0 ? Math.min(100, v/maxE*100) : 0;
+  document.getElementById('ebarKE').style.width = pct(KE)+'%';
+  document.getElementById('ebarPE').style.width = pct(PE)+'%';
+  document.getElementById('ebarTE').style.width = pct(TE)+'%';
+  document.getElementById('evalKE').textContent = (KE*1000).toFixed(1)+' mJ';
+  document.getElementById('evalPE').textContent = (PE*1000).toFixed(1)+' mJ';
+  document.getElementById('evalTE').textContent = (TE*1000).toFixed(1)+' mJ';
+
+  // Push graph data
+  GDATA.t.push(STATE.elapsed);
+  GDATA.disp.push(STATE.theta);
+  GDATA.vel.push(STATE.omega);
+  GDATA.ke.push(KE);
+  GDATA.pe.push(PE);
+  GDATA.te.push(TE);
+  if(GDATA.t.length > MAX_G){
+    GDATA.t.shift();GDATA.disp.shift();GDATA.vel.shift();
+    GDATA.ke.shift();GDATA.pe.shift();GDATA.te.shift();
+  }
+
+  // Trail
+  const bpos = bobPos();
+  TRAIL.push({x:bpos.x, y:bpos.y});
+  if(TRAIL.length > MAX_TRAIL) TRAIL.shift();
+}
+
+/* ─── GRAPH DRAWING ─── */
+function drawGraph(canvasId, data, color, label){
+  const gc = document.getElementById(canvasId);
+  if(!gc) return;
+  gc.width = gc.offsetWidth || 300;
+  const gctx = gc.getContext('2d');
+  const W=gc.width, H=gc.height;
+  gctx.clearRect(0,0,W,H);
+
+  // Background
+  gctx.fillStyle='rgba(0,0,0,0.2)';
+  gctx.fillRect(0,0,W,H);
+
+  if(data.length < 2) return;
+
+  const mn = Math.min(...data), mx2 = Math.max(...data);
+  const range = mx2-mn || 1;
+
+  // Grid lines
+  gctx.strokeStyle='rgba(255,255,255,0.05)';
+  gctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=H*(i/4);
+    gctx.beginPath();gctx.moveTo(0,y);gctx.lineTo(W,y);gctx.stroke();
+  }
+  // Zero line
+  const zy = H - ((0-mn)/range)*H;
+  gctx.strokeStyle='rgba(255,255,255,0.15)';
+  gctx.setLineDash([4,4]);
+  gctx.beginPath();gctx.moveTo(0,zy);gctx.lineTo(W,zy);gctx.stroke();
+  gctx.setLineDash([]);
+
+  // Curve with gradient fill
+  const grad = gctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0, color.replace(')',',0.25)').replace('rgb','rgba'));
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+
+  gctx.beginPath();
+  data.forEach((v,i)=>{
+    const x=(i/(data.length-1))*W;
+    const y=H-((v-mn)/range)*H;
+    i===0?gctx.moveTo(x,y):gctx.lineTo(x,y);
+  });
+  // Fill under
+  const lastX=W, lastY=H-((data[data.length-1]-mn)/range)*H;
+  gctx.lineTo(lastX,H);gctx.lineTo(0,H);gctx.closePath();
+  gctx.fillStyle=grad;gctx.fill();
+
+  // Line
+  gctx.beginPath();
+  data.forEach((v,i)=>{
+    const x=(i/(data.length-1))*W;
+    const y=H-((v-mn)/range)*H;
+    i===0?gctx.moveTo(x,y):gctx.lineTo(x,y);
+  });
+  gctx.strokeStyle=color;
+  gctx.lineWidth=2;
+  gctx.stroke();
+
+  // Current value dot
+  const lastV = data[data.length-1];
+  const dotX=W-2;
+  const dotY=H-((lastV-mn)/range)*H;
+  gctx.beginPath();gctx.arc(dotX,dotY,4,0,Math.PI*2);
+  gctx.fillStyle=color;gctx.fill();
+}
+
+function drawEnergyGraph(){
+  const gc = document.getElementById('graphEnergy');
+  if(!gc) return;
+  gc.width = gc.offsetWidth || 300;
+  const gctx = gc.getContext('2d');
+  const W=gc.width, H=gc.height;
+  gctx.clearRect(0,0,W,H);
+  gctx.fillStyle='rgba(0,0,0,0.2)';gctx.fillRect(0,0,W,H);
+  if(GDATA.te.length<2) return;
+
+  const maxE = Math.max(...GDATA.te) || 0.001;
+
+  const drawLine = (arr,col) => {
+    gctx.beginPath();
+    arr.forEach((v,i)=>{
+      const x=(i/(arr.length-1))*W, y=H-(v/maxE)*H*0.92+H*0.04;
+      i===0?gctx.moveTo(x,y):gctx.lineTo(x,y);
+    });
+    gctx.strokeStyle=col;gctx.lineWidth=1.8;gctx.stroke();
+  };
+  // Grid
+  gctx.strokeStyle='rgba(255,255,255,0.05)';gctx.lineWidth=1;
+  for(let i=0;i<=3;i++){const y=H*(i/3);gctx.beginPath();gctx.moveTo(0,y);gctx.lineTo(W,y);gctx.stroke();}
+
+  drawLine(GDATA.ke,'rgba(77,184,255,0.9)');
+  drawLine(GDATA.pe,'rgba(167,139,250,0.9)');
+  drawLine(GDATA.te,'rgba(52,211,153,0.9)');
+
+  // Legend
+  [['KE','rgba(77,184,255,0.9)'],['PE','rgba(167,139,250,0.9)'],['TE','rgba(52,211,153,0.9)']].forEach(([l,c],i)=>{
+    gctx.fillStyle=c;
+    gctx.fillRect(6+i*32,5,10,4);
+    gctx.font='9px DM Sans';gctx.fillText(l,6+i*32,18);
+  });
+}
+
+/* ─── ANIMATION LOOP ─── */
+function loop(ts){
+  if(lastTime!==null && STATE.playing && !STATE.dragging){
+    const rawDt = Math.min((ts-lastTime)/1000, 0.05);
+    const dt = STATE.slowMo ? rawDt*0.2 : rawDt;
+    updatePhysics(dt);
+    updateMetrics();
+    document.getElementById('stopwatchDisplay').textContent = '⏱ '+STATE.elapsed.toFixed(3)+' s';
+  }
+  lastTime = ts;
+
+  drawPendulum();
+  drawGraph('graphDisp',GDATA.disp,'rgb(167,139,250)','θ');
+  drawGraph('graphVel',GDATA.vel,'rgb(77,184,255)','ω');
+  drawEnergyGraph();
+
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+/* ─── CONTROLS ─── */
+function togglePlay(){
+  STATE.playing=!STATE.playing;
+  document.getElementById('playBtn').textContent = STATE.playing ? '⏸ Pause' : '▶ Play';
+}
+
+function resetSim(){
+  STATE.theta=STATE.angle0;
+  STATE.omega=0;
+  STATE.elapsed=0;
+  STATE.oscCount=0;
+  STATE.lastSign=1;
+  TRAIL.length=0;
+  GDATA.t.length=0;GDATA.disp.length=0;GDATA.vel.length=0;
+  GDATA.ke.length=0;GDATA.pe.length=0;GDATA.te.length=0;
+  STATE.playing=true;
+  document.getElementById('playBtn').textContent='⏸ Pause';
+  document.getElementById('oscCount').textContent='0';
+  lastTime=null;
+}
+
+function toggleSlow(){
+  STATE.slowMo=!STATE.slowMo;
+  document.getElementById('slowBtn').classList.toggle('active',STATE.slowMo);
+  document.getElementById('slowBtn').textContent = STATE.slowMo ? '🐢 1× Speed' : '🐢 Slow-Mo';
+}
+
+function toggleTrail(cb){ STATE.showTrail=cb.checked; if(!cb.checked) TRAIL.length=0; }
+function toggleForce(cb){ STATE.showForce=cb.checked; }
+function toggleAngleArc(cb){ STATE.showAngleArc=cb.checked; }
+function toggleGrid(cb){ STATE.showGrid=cb.checked; }
+
+function updateParam(param, el){
+  const v = parseFloat(el.value);
+  const min = parseFloat(el.min), max = parseFloat(el.max);
+  const pct = ((v-min)/(max-min)*100).toFixed(1)+'%';
+  el.style.setProperty('--pct', pct);
+
+  if(param==='length'){
+    STATE.length=v;
+    document.getElementById('valLength').textContent=v.toFixed(2)+' m';
+  } else if(param==='mass'){
+    STATE.mass=v;
+    document.getElementById('valMass').textContent=v.toFixed(1)+' kg';
+  } else if(param==='gravity'){
+    STATE.gravity=v;
+    document.getElementById('valGrav').textContent=v.toFixed(2)+' m/s²';
+  } else if(param==='angle'){
+    STATE.angle0=v*Math.PI/180;
+    STATE.theta=STATE.angle0;
+    STATE.omega=0;
+    TRAIL.length=0;
+    document.getElementById('valAngle').textContent=v+'°';
+  } else if(param==='damping'){
+    STATE.damping=v;
+    document.getElementById('valDamp').textContent=v.toFixed(2);
+  }
+  // re-init slider bg
+  ['slLength','slMass','slGrav','slAngle','slDamp'].forEach(id=>{
+    const s=document.getElementById(id);
+    const mn=parseFloat(s.min),mx2=parseFloat(s.max),val=parseFloat(s.value);
+    s.style.setProperty('--pct',((val-mn)/(mx2-mn)*100).toFixed(1)+'%');
+  });
+}
+
+// Init slider backgrounds
+window.addEventListener('load',()=>{
+  ['slLength','slMass','slGrav','slAngle','slDamp'].forEach(id=>{
+    const s=document.getElementById(id);
+    const mn=parseFloat(s.min),mx2=parseFloat(s.max),val=parseFloat(s.value);
+    s.style.setProperty('--pct',((val-mn)/(mx2-mn)*100).toFixed(1)+'%');
+  });
+});
+
+/* ─── DRAG BOB ─── */
+function getCanvasPos(e){
+  const rect=canvas.getBoundingClientRect();
+  const scaleX=canvas.width/rect.width;
+  const scaleY=canvas.height/rect.height;
+  const cx=(e.touches?e.touches[0].clientX:e.clientX)-rect.left;
+  const cy=(e.touches?e.touches[0].clientY:e.clientY)-rect.top;
+  return {x:cx*scaleX, y:cy*scaleY};
+}
+
+function startDrag(e){
+  const pos=getCanvasPos(e);
+  const b=bobPos();
+  const bobR=Math.max(10,Math.min(22,8+STATE.mass*2.5));
+  if(Math.hypot(pos.x-b.x,pos.y-b.y)<bobR+20){
+    STATE.dragging=true;
+    STATE.playing=false;
+    canvas.classList.add('dragging');
+    document.getElementById('playBtn').textContent='▶ Play';
+  }
+}
+
+function moveDrag(e){
+  if(!STATE.dragging)return;
+  e.preventDefault();
+  const pos=getCanvasPos(e);
+  const p=pivot();
+  const dx=pos.x-p.x, dy=pos.y-p.y;
+  let ang=Math.atan2(dx,dy);
+  ang=Math.max(-Math.PI*0.92,Math.min(Math.PI*0.92,ang));
+  STATE.theta=ang;
+  STATE.omega=0;
+  TRAIL.length=0;
+}
+
+function endDrag(){
+  if(!STATE.dragging)return;
+  STATE.dragging=false;
+  canvas.classList.remove('dragging');
+  STATE.angle0=STATE.theta;
+  document.getElementById('slAngle').value=Math.abs(STATE.theta*180/Math.PI).toFixed(0);
+  document.getElementById('valAngle').textContent=Math.abs(STATE.theta*180/Math.PI).toFixed(0)+'°';
+  const s=document.getElementById('slAngle');
+  const mn=parseFloat(s.min),mx2=parseFloat(s.max),val=parseFloat(s.value);
+  s.style.setProperty('--pct',((val-mn)/(mx2-mn)*100).toFixed(1)+'%');
+  STATE.playing=true;
+  document.getElementById('playBtn').textContent='⏸ Pause';
+  lastTime=null;
+}
+
+canvas.addEventListener('mousedown',startDrag);
+canvas.addEventListener('mousemove',moveDrag);
+canvas.addEventListener('mouseup',endDrag);
+canvas.addEventListener('touchstart',startDrag,{passive:false});
+canvas.addEventListener('touchmove',moveDrag,{passive:false});
+canvas.addEventListener('touchend',endDrag);
+
+/* ─── OBSERVATIONS ─── */
+function addObservation(){
+  const L=STATE.length, g=STATE.gravity, m=STATE.mass;
+  const T_formula = 2*Math.PI*Math.sqrt(L/g);
+  const T_meas = STATE.elapsed > 0.5 && STATE.oscCount > 1 ?
+    (STATE.elapsed / (STATE.oscCount/2)).toFixed(4) : T_formula.toFixed(4);
+  const f = 1/parseFloat(T_meas);
+  observations.push({
+    n: observations.length+1,
+    L: L.toFixed(2),
+    m: m.toFixed(1),
+    g: g.toFixed(2),
+    angle: (STATE.angle0*180/Math.PI).toFixed(1),
+    damp: STATE.damping.toFixed(2),
+    Tmeas: parseFloat(T_meas).toFixed(4),
+    Tform: T_formula.toFixed(4),
+    f: f.toFixed(4)
+  });
+  renderTable();
+}
+
+function renderTable(){
+  const tbody=document.getElementById('obsBody');
+  if(observations.length===0){
+    tbody.innerHTML='<tr><td colspan="9" class="no-obs">No observations yet. Press "+ Record" to save current values.</td></tr>';
+    return;
+  }
+  tbody.innerHTML=observations.map(o=>`
+    <tr>
+      <td class="td-num">${o.n}</td>
+      <td>${o.L}</td><td>${o.m}</td><td>${o.g}</td>
+      <td>${o.angle}</td><td>${o.damp}</td>
+      <td style="color:var(--teal)">${o.Tmeas}</td>
+      <td style="color:var(--violet)">${o.Tform}</td>
+      <td style="color:var(--gold)">${o.f}</td>
+    </tr>`).join('');
+}
+
+function clearObs(){
+  observations=[];
+  renderTable();
+}
+</script>
+</body>
+</html>
 
