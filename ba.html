@@ -396,6 +396,64 @@
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── SUBJECT SVG ANIMATIONS ── */
+    .disc-icon { display:inline-flex; align-items:center; justify-content:center; }
+    .disc-icon svg { width:18px; height:18px; }
+    .panel-icon { display:flex; align-items:center; justify-content:center; }
+    .panel-icon svg { width:52px; height:52px; }
+
+    /* ── ECONOMICS – animated bar chart with rising bars ── */
+    @keyframes eco-bar1 { 0%,100%{transform:scaleY(0.5)} 50%{transform:scaleY(1)} }
+    @keyframes eco-bar2 { 0%,100%{transform:scaleY(0.7)} 50%{transform:scaleY(1)} }
+    @keyframes eco-bar3 { 0%,100%{transform:scaleY(0.4)} 50%{transform:scaleY(1)} }
+    @keyframes eco-bar4 { 0%,100%{transform:scaleY(0.8)} 50%{transform:scaleY(1)} }
+    @keyframes eco-trend-sm { 0%{stroke-dashoffset:40} 100%{stroke-dashoffset:0} }
+    @keyframes eco-trend-lg { 0%{stroke-dashoffset:80} 100%{stroke-dashoffset:0} }
+    .anim-economics .bar1 { animation: eco-bar1 2.2s ease-in-out infinite;       transform-origin: center bottom; }
+    .anim-economics .bar2 { animation: eco-bar2 2.2s ease-in-out infinite 0.2s;  transform-origin: center bottom; }
+    .anim-economics .bar3 { animation: eco-bar3 2.2s ease-in-out infinite 0.4s;  transform-origin: center bottom; }
+    .anim-economics .bar4 { animation: eco-bar4 2.2s ease-in-out infinite 0.6s;  transform-origin: center bottom; }
+    .disc-icon .anim-economics .trend { animation: eco-trend-sm 2s ease-in-out infinite alternate; }
+    .panel-icon .anim-economics .trend { animation: eco-trend-lg 2s ease-in-out infinite alternate; }
+
+    /* ── POLITICAL SCIENCE – pillars of a building, flag waving ── */
+    @keyframes pol-flag { 0%,100%{d:path("M28 8 Q34 10 40 8 L40 16 Q34 14 28 16Z")} 50%{d:path("M28 8 Q35 7 40 10 L40 18 Q35 15 28 16Z")} }
+    @keyframes pol-glow  { 0%,100%{opacity:0.5} 50%{opacity:1} }
+    .anim-political .flag     { animation: pol-flag 2s ease-in-out infinite; }
+    .anim-political .dome-glow{ animation: pol-glow 3s ease-in-out infinite; }
+
+    /* ── ENGLISH – open book with lines appearing, quill nib glint ── */
+    @keyframes eng-line1 { 0%,100%{transform:scaleX(0)} 40%,60%{transform:scaleX(1)} }
+    @keyframes eng-line2 { 0%,20%{transform:scaleX(0)} 60%,80%{transform:scaleX(0.8)} 100%{transform:scaleX(0)} }
+    @keyframes eng-line3 { 0%,30%{transform:scaleX(0)} 70%,90%{transform:scaleX(0.6)} 100%{transform:scaleX(0)} }
+    @keyframes eng-quill  { 0%,100%{transform:rotate(-10deg) translateY(0)} 50%{transform:rotate(-10deg) translateY(-3px)} }
+    @keyframes eng-glint  { 0%,80%{opacity:0} 90%{opacity:1} 100%{opacity:0} }
+    .anim-english .quill      { animation: eng-quill 2s ease-in-out infinite; transform-origin:12px 18px; }
+    .anim-english .glint      { animation: eng-glint 2s ease-in-out infinite; }
+    .anim-english .txt-line1  { animation: eng-line1 3s ease-in-out infinite; transform-origin:left center; }
+    .anim-english .txt-line2  { animation: eng-line2 3s ease-in-out infinite 0.4s; transform-origin:left center; }
+    .anim-english .txt-line3  { animation: eng-line3 3s ease-in-out infinite 0.8s; transform-origin:left center; }
+
+    /* ── MALAYALAM – pen writing + coconut tree swaying ── */
+    @keyframes mal-pen   { 0%,100%{transform:translate(0,0)} 25%{transform:translate(2px,-1px)} 50%{transform:translate(4px,0)} 75%{transform:translate(2px,1px)} }
+    @keyframes mal-ink   { 0%{stroke-dashoffset:18} 60%{stroke-dashoffset:0} 100%{stroke-dashoffset:0} }
+    @keyframes mal-tree  { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+    @keyframes mal-leaf1 { 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(4deg)} }
+    @keyframes mal-leaf2 { 0%,100%{transform:rotate(6deg)} 50%{transform:rotate(-6deg)} }
+    @keyframes mal-leaf3 { 0%,100%{transform:rotate(-4deg)} 50%{transform:rotate(8deg)} }
+    .anim-malayalam .pen   { animation: mal-pen  2s ease-in-out infinite; }
+    .anim-malayalam .ink   { stroke-dasharray:18; animation: mal-ink 2s ease-in-out infinite; }
+    .anim-malayalam .trunk { animation: mal-tree 3s ease-in-out infinite; transform-origin: bottom center; }
+    .anim-malayalam .leaf1 { animation: mal-leaf1 2.5s ease-in-out infinite; }
+    .anim-malayalam .leaf2 { animation: mal-leaf2 2.8s ease-in-out infinite 0.3s; }
+    .anim-malayalam .leaf3 { animation: mal-leaf3 3s ease-in-out infinite 0.6s; }
+
+    /* panel-size bar chart transform origins */
+    .panel-icon .anim-economics .bar1,
+    .panel-icon .anim-economics .bar2,
+    .panel-icon .anim-economics .bar3,
+    .panel-icon .anim-economics .bar4 { transform-origin: center 44px; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
@@ -437,7 +495,8 @@
 
     <div class="hero-content">
       <div class="hero-badge">
-        📕 &nbsp;Bachelor of Arts &nbsp;·&nbsp; Kerala University FYUGP
+        <svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4 Q4 2 6 2 L12 2 L12 20 L6 20 Q4 20 4 18Z" fill="#c9a84c" opacity="0.8"/><path d="M12 2 L18 2 Q20 2 20 4 L20 18 Q20 20 18 20 L12 20Z" fill="#f0c96a" opacity="0.6"/><line x1="12" y1="2" x2="12" y2="20" stroke="#0a1628" stroke-width="0.8"/><line x1="6" y1="7" x2="10" y2="7" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" stroke-linecap="round"/><line x1="6" y1="10" x2="10" y2="10" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" stroke-linecap="round"/></svg>
+        &nbsp;Bachelor of Arts &nbsp;·&nbsp; Kerala University FYUGP
       </div>
       <h1>
         BA <em>Arts &</em><br><em>Humanities</em> Resources
@@ -461,23 +520,37 @@
       <!-- Discipline Tabs -->
       <div class="discipline-tabs reveal" style="transition-delay:0.1s">
         <button class="disc-tab active" data-disc="economics" onclick="switchDiscipline('economics',this)">
-          <span class="disc-icon">📊</span> Economics
+          <span class="disc-icon"><svg class="anim-economics" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="2" y1="20" x2="22" y2="20" stroke="#8a9bb5" stroke-width="0.8" opacity="0.5"/><rect class="bar1" x="3" y="12" width="3.5" height="8" rx="0.5" fill="#c9a84c" opacity="0.85"/><rect class="bar2" x="8" y="9" width="3.5" height="11" rx="0.5" fill="#f0c96a" opacity="0.85"/><rect class="bar3" x="13" y="14" width="3.5" height="6" rx="0.5" fill="#c9a84c" opacity="0.7"/><rect class="bar4" x="18" y="7" width="3.5" height="13" rx="0.5" fill="#f0c96a" opacity="0.9"/><path class="trend" d="M3 16 Q8 8 13 12 Q18 6 22 4" stroke="#60a5fa" stroke-width="1.2" fill="none" stroke-linecap="round"/></svg></span> Economics
         </button>
         <button class="disc-tab" data-disc="political" onclick="switchDiscipline('political',this)">
-          <span class="disc-icon">🏛️</span> Political Science
+          <span class="disc-icon"><svg class="anim-political" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="18" width="18" height="2.5" rx="0.5" fill="#c9a84c" opacity="0.7"/><rect x="4" y="13" width="2.5" height="5" fill="#8a9bb5" opacity="0.7"/><rect x="7.5" y="11" width="2.5" height="7" fill="#8a9bb5" opacity="0.7"/><rect x="11" y="13" width="2.5" height="5" fill="#8a9bb5" opacity="0.7"/><rect x="14.5" y="11" width="2.5" height="7" fill="#8a9bb5" opacity="0.7"/><rect x="18" y="13" width="2.5" height="5" fill="#8a9bb5" opacity="0.7"/><path d="M12 3 L16 8 L8 8 Z" fill="#c9a84c" opacity="0.85"/><rect x="10.5" y="3" width="1" height="2" fill="#c9a84c"/><path class="flag" d="M11.5 2 Q15 3 19 2 L19 7 Q15 8 11.5 7Z" fill="#f0c96a" opacity="0.8"/><circle class="dome-glow" cx="12" cy="8.5" r="1.2" fill="#f0c96a" opacity="0.6"/></svg></span> Political Science
         </button>
         <button class="disc-tab" data-disc="english" onclick="switchDiscipline('english',this)">
-          <span class="disc-icon">📖</span> English
+          <span class="disc-icon"><svg class="anim-english" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 4 Q3 2 5 2 L11 2 L11 19 L5 20 Q3 20 3 18Z" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" stroke-width="0.8"/><path d="M13 2 L19 2 Q21 2 21 4 L21 18 Q21 20 19 20 L13 19 L13 2Z" fill="rgba(240,201,106,0.1)" stroke="#f0c96a" stroke-width="0.8"/><line x1="11" y1="2" x2="13" y2="2" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><rect class="txt-line1" x="5" y="7" height="1.2" fill="#c9a84c" opacity="0.7" rx="0.5"/><rect class="txt-line2" x="5" y="10" height="1.2" fill="#c9a84c" opacity="0.5" rx="0.5"/><rect class="txt-line3" x="5" y="13" height="1.2" fill="#c9a84c" opacity="0.4" rx="0.5"/><g class="quill"><path d="M15 18 Q18 10 20 4 Q17 8 14 16Z" fill="#f0c96a" opacity="0.75"/><line x1="15" y1="18" x2="16.5" y2="14" stroke="#f0c96a" stroke-width="0.8"/><circle class="glint" cx="19.5" cy="5" r="0.8" fill="white" opacity="0"/></g></svg></span> English
         </button>
         <button class="disc-tab" data-disc="malayalam" onclick="switchDiscipline('malayalam',this)">
-          <span class="disc-icon">🌺</span> Malayalam
+          <span class="disc-icon"><svg class="anim-malayalam" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- coconut tree (right side) -->
+  <g class="trunk"><line x1="17" y1="22" x2="15" y2="10" stroke="#a16207" stroke-width="1.4" stroke-linecap="round"/></g>
+  <path class="leaf1" d="M15 10 Q10 6 8 8" stroke="#22c55e" stroke-width="1.3" fill="none" stroke-linecap="round" style="transform-origin:15px 10px"/>
+  <path class="leaf2" d="M15 10 Q17 5 20 6" stroke="#16a34a" stroke-width="1.3" fill="none" stroke-linecap="round" style="transform-origin:15px 10px"/>
+  <path class="leaf3" d="M15 10 Q13 7 14 4" stroke="#22c55e" stroke-width="1.3" fill="none" stroke-linecap="round" style="transform-origin:15px 10px"/>
+  <circle cx="15" cy="11" r="1.2" fill="#a16207" opacity="0.7"/>
+  <!-- pen (left side) -->
+  <g class="pen">
+    <path d="M3 18 L7 8 L9 9 L5 19Z" fill="#c9a84c" opacity="0.85"/>
+    <path d="M7 8 L9 9 L8.5 7 Z" fill="#f0c96a"/>
+    <line x1="3" y1="18" x2="5" y2="19" stroke="#92400e" stroke-width="0.8"/>
+    <path class="ink" d="M4 20 Q6 21 8 20" stroke="#c9a84c" stroke-width="1" fill="none" stroke-linecap="round"/>
+  </g>
+</svg></span> Malayalam
         </button>
       </div>
 
       <!-- ── ECONOMICS PANEL ── -->
       <div class="discipline-panel active reveal" id="panel-economics" style="transition-delay:0.15s">
         <div class="panel-header">
-          <div class="panel-icon">📊</div>
+          <div class="panel-icon"><svg class="anim-economics" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="44" x2="48" y2="44" stroke="#8a9bb5" stroke-width="1" opacity="0.4"/><rect class="bar1" x="6"  y="26" width="7" height="18" rx="1" fill="#c9a84c" opacity="0.85"/><rect class="bar2" x="16" y="20" width="7" height="24" rx="1" fill="#f0c96a" opacity="0.85"/><rect class="bar3" x="26" y="30" width="7" height="14" rx="1" fill="#c9a84c" opacity="0.7"/><rect class="bar4" x="36" y="14" width="7" height="30" rx="1" fill="#f0c96a" opacity="0.9"/><path class="trend" d="M6 34 Q16 18 26 26 Q36 14 48 8" stroke="#60a5fa" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="80"/></svg></div>
           <div>
             <div class="panel-title">Economics</div>
             <div class="panel-desc">Micro & Macro Economics, Statistics, Development Economics under FYUGP curriculum.</div>
@@ -524,7 +597,7 @@
       <!-- ── POLITICAL SCIENCE PANEL ── -->
       <div class="discipline-panel" id="panel-political">
         <div class="panel-header">
-          <div class="panel-icon">🏛️</div>
+          <div class="panel-icon"><svg class="anim-political" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="40" width="40" height="5" rx="1" fill="#c9a84c" opacity="0.6"/><rect x="8"  y="28" width="5" height="12" fill="#8a9bb5" opacity="0.65"/><rect x="16" y="24" width="5" height="16" fill="#8a9bb5" opacity="0.65"/><rect x="24" y="28" width="5" height="12" fill="#8a9bb5" opacity="0.65"/><rect x="32" y="24" width="5" height="16" fill="#8a9bb5" opacity="0.65"/><rect x="40" y="28" width="5" height="12" fill="#8a9bb5" opacity="0.65"/><path d="M26 8 L34 18 L18 18 Z" fill="#c9a84c" opacity="0.85"/><rect x="24.5" y="6" width="2" height="4" fill="#c9a84c"/><path class="flag" d="M26.5 5 Q34 7 42 5 L42 13 Q34 15 26.5 13Z" fill="#f0c96a" opacity="0.85"/><circle class="dome-glow" cx="26" cy="19" r="2.5" fill="#f0c96a" opacity="0.5"/></svg></div>
           <div>
             <div class="panel-title">Political Science</div>
             <div class="panel-desc">Political Theory, Indian Government, International Relations under FYUGP.</div>
@@ -571,14 +644,14 @@
       <!-- ── ENGLISH PANEL ── -->
       <div class="discipline-panel" id="panel-english">
         <div class="panel-header">
-          <div class="panel-icon">📖</div>
+          <div class="panel-icon"><svg class="anim-english" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8 Q6 4 10 4 L24 4 L24 44 L10 46 Q6 46 6 42Z" fill="rgba(201,168,76,0.12)" stroke="#c9a84c" stroke-width="1.5"/><path d="M28 4 L42 4 Q46 4 46 8 L46 42 Q46 46 42 46 L28 44 L28 4Z" fill="rgba(240,201,106,0.08)" stroke="#f0c96a" stroke-width="1.5"/><line x1="24" y1="4" x2="28" y2="4" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/><rect class="txt-line1" x="10" y="14" height="2.5" fill="#c9a84c" opacity="0.7" rx="1"/><rect class="txt-line2" x="10" y="21" height="2.5" fill="#c9a84c" opacity="0.55" rx="1"/><rect class="txt-line3" x="10" y="28" height="2.5" fill="#c9a84c" opacity="0.4" rx="1"/><g class="quill"><path d="M32 44 Q40 24 44 8 Q38 18 30 38Z" fill="#f0c96a" opacity="0.8"/><line x1="32" y1="44" x2="36" y2="32" stroke="#f0c96a" stroke-width="1.5" stroke-linecap="round"/><circle class="glint" cx="43" cy="10" r="1.8" fill="white" opacity="0"/></g></svg></div>
           <div>
             <div class="panel-title">English</div>
             <div class="panel-desc">Literature, Linguistics, Writing & Communication Studies under FYUGP Kerala University.</div>
           </div>
         </div>
         <div class="note-pill">
-          ℹ️ &nbsp;<span>Semesters 1–4 share a unified resource page</span>
+          <svg style="width:13px;height:13px;flex-shrink:0" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#c9a84c" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="7" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="5" r="0.8" fill="#c9a84c"/></svg> &nbsp;<span>Semesters 1–4 share a unified resource page</span>
         </div>
         <div class="semester-grid">
           <a class="sem-card" href="english/english.html">
@@ -621,14 +694,29 @@
       <!-- ── MALAYALAM PANEL ── -->
       <div class="discipline-panel" id="panel-malayalam">
         <div class="panel-header">
-          <div class="panel-icon">🌺</div>
+          <div class="panel-icon"><svg class="anim-malayalam" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- coconut tree (right) -->
+  <g class="trunk"><line x1="36" y1="48" x2="30" y2="18" stroke="#a16207" stroke-width="3" stroke-linecap="round"/></g>
+  <path class="leaf1" d="M30 18 Q18 10 13 14" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round" style="transform-origin:30px 18px"/>
+  <path class="leaf2" d="M30 18 Q34 8 42 10" stroke="#16a34a" stroke-width="2.5" fill="none" stroke-linecap="round" style="transform-origin:30px 18px"/>
+  <path class="leaf3" d="M30 18 Q26 10 28 4" stroke="#22c55e" stroke-width="2.5" fill="none" stroke-linecap="round" style="transform-origin:30px 18px"/>
+  <circle cx="30" cy="20" r="2.8" fill="#a16207" opacity="0.75"/>
+  <circle cx="34" cy="22" r="2" fill="#92400e" opacity="0.5"/>
+  <!-- pen (left) -->
+  <g class="pen">
+    <path d="M6 42 L14 18 L20 21 L12 45Z" fill="#c9a84c" opacity="0.9"/>
+    <path d="M14 18 L20 21 L18 15Z" fill="#f0c96a"/>
+    <line x1="6" y1="42" x2="12" y2="45" stroke="#92400e" stroke-width="1.5"/>
+    <path class="ink" d="M8 46 Q12 48 16 46" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg></div>
           <div>
             <div class="panel-title">Malayalam</div>
             <div class="panel-desc">Malayalam Literature, Linguistics, Classical Texts & Modern Writing under FYUGP.</div>
           </div>
         </div>
         <div class="note-pill">
-          ℹ️ &nbsp;<span>All semesters are available on a single unified resource page</span>
+          <svg style="width:13px;height:13px;flex-shrink:0" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#c9a84c" stroke-width="1.2" opacity="0.7"/><line x1="8" y1="7" x2="8" y2="11" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="5" r="0.8" fill="#c9a84c"/></svg> &nbsp;<span>All semesters are available on a single unified resource page</span>
         </div>
         <div class="semester-grid">
           <a class="sem-card" href="malayalam/malayalam.html">
@@ -853,6 +941,10 @@
   </script>
 </body>
 </html>
+
+
+
+
 
 
 
