@@ -397,6 +397,77 @@
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── SUBJECT SVG ANIMATIONS ── */
+    .disc-icon { display:inline-flex; align-items:center; justify-content:center; }
+    .disc-icon svg { width:18px; height:18px; }
+    .panel-icon svg { width:52px; height:52px; }
+
+    /* Chemistry – bubbling flask */
+    @keyframes chem-bubble1 { 0%,100%{transform:translateY(0) scale(1);opacity:0.9} 50%{transform:translateY(-7px) scale(1.1);opacity:0.5} }
+    @keyframes chem-bubble2 { 0%,100%{transform:translateY(0) scale(1);opacity:0.7} 50%{transform:translateY(-9px) scale(1.15);opacity:0.3} }
+    @keyframes chem-liquid  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-2px)} }
+    @keyframes chem-steam   { 0%{opacity:0;transform:translateY(0) scaleX(1)} 60%{opacity:0.7} 100%{opacity:0;transform:translateY(-10px) scaleX(1.4)} }
+    .anim-chemistry .bubble1 { animation: chem-bubble1 1.8s ease-in-out infinite; }
+    .anim-chemistry .bubble2 { animation: chem-bubble2 2.2s ease-in-out infinite 0.4s; }
+    .anim-chemistry .liquid  { animation: chem-liquid  2s ease-in-out infinite; }
+    .anim-chemistry .steam1  { animation: chem-steam 2.4s ease-in-out infinite; }
+    .anim-chemistry .steam2  { animation: chem-steam 2.4s ease-in-out infinite 0.8s; }
+
+    /* Physics – orbiting electron */
+    @keyframes phy-orbit { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes phy-orbit2{ from{transform:rotate(60deg)} to{transform:rotate(420deg)} }
+    @keyframes phy-orbit3{ from{transform:rotate(120deg)} to{transform:rotate(480deg)} }
+    @keyframes phy-pulse { 0%,100%{r:3;opacity:1} 50%{r:4.5;opacity:0.7} }
+    .anim-physics .orbit1 { animation: phy-orbit  2.8s linear infinite; transform-origin:12px 12px; }
+    .anim-physics .orbit2 { animation: phy-orbit2 3.5s linear infinite; transform-origin:12px 12px; }
+    .anim-physics .orbit3 { animation: phy-orbit3 4.2s linear infinite; transform-origin:12px 12px; }
+    .anim-physics .nucleus { animation: phy-pulse  2s ease-in-out infinite; }
+    /* panel size orbit origins */
+    .panel-icon .anim-physics .orbit1 { transform-origin:26px 26px; }
+    .panel-icon .anim-physics .orbit2 { transform-origin:26px 26px; }
+    .panel-icon .anim-physics .orbit3 { transform-origin:26px 26px; }
+    /* panel size zoology wing origins */
+    .panel-icon .anim-zoology .wing-l { transform-origin:26px 22px; }
+    .panel-icon .anim-zoology .wing-r { transform-origin:26px 22px; }
+    .panel-icon .anim-zoology .body   { transform-origin:26px 29px; }
+    /* panel size botany leaf origins */
+    .panel-icon .anim-botany .main-leaf { transform-origin:20px 34px; }
+    .panel-icon .anim-botany .side-leaf { transform-origin:26px 36px; }
+
+    /* Mathematics – sine wave drawing */
+    @keyframes math-dash-sm { from{stroke-dashoffset:80} to{stroke-dashoffset:0} }
+    @keyframes math-dash-lg { from{stroke-dashoffset:150} to{stroke-dashoffset:0} }
+    @keyframes math-dot  { 0%,100%{transform:translateX(0)} 50%{transform:translateX(8px)} }
+    .anim-maths .wave-path { animation: math-dash-sm 2s ease-in-out infinite alternate; }
+    .panel-icon .anim-maths .wave-path { animation: math-dash-lg 2s ease-in-out infinite alternate; }
+    .anim-maths .dot-point  { animation: math-dot 2s ease-in-out infinite; }
+
+    /* Botany – growing leaf */
+    @keyframes bot-sway    { 0%,100%{transform:rotate(-4deg) scale(1)} 50%{transform:rotate(4deg) scale(1.04)} }
+    @keyframes bot-sprout  { 0%{transform:scaleY(0)} 100%{transform:scaleY(1)} }
+    @keyframes bot-leaf2   { 0%,100%{transform:rotate(10deg) scale(1)} 50%{transform:rotate(20deg) scale(1.05)} }
+    .anim-botany .main-leaf { animation: bot-sway 3s ease-in-out infinite; transform-origin:9px 16px; }
+    .anim-botany .side-leaf { animation: bot-leaf2 3.4s ease-in-out infinite 0.3s; transform-origin:5px 12px; }
+    .anim-botany .stem      { animation: bot-sprout 1s ease-out 1 both; transform-origin:bottom; }
+
+    /* Zoology – butterfly wing flap */
+    @keyframes zoo-flap-l { 0%,100%{transform:scaleX(1) rotate(-5deg)} 50%{transform:scaleX(0.55) rotate(5deg)} }
+    @keyframes zoo-flap-r { 0%,100%{transform:scaleX(1) rotate(5deg)} 50%{transform:scaleX(0.55) rotate(-5deg)} }
+    @keyframes zoo-body   { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(1.06)} }
+    .anim-zoology .wing-l { animation: zoo-flap-l 1.4s ease-in-out infinite; transform-origin:11px 10px; }
+    .anim-zoology .wing-r { animation: zoo-flap-r 1.4s ease-in-out infinite; transform-origin:13px 10px; }
+    .anim-zoology .body   { animation: zoo-body   1.4s ease-in-out infinite; transform-origin:12px 12px; }
+
+    /* Computer Science – blinking cursor + code lines */
+    @keyframes cs-blink  { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes cs-type1  { 0%{width:0} 100%{width:10px} }
+    @keyframes cs-type2  { 0%{width:0} 100%{width:7px} }
+    @keyframes cs-scan   { 0%,100%{transform:translateY(0);opacity:0.6} 50%{transform:translateY(6px);opacity:1} }
+    .anim-cs .cursor-bar { animation: cs-blink 1s step-end infinite; }
+    .anim-cs .line1      { animation: cs-type1 1.5s steps(5) infinite alternate; overflow:hidden; }
+    .anim-cs .line2      { animation: cs-type2 1.8s steps(4) infinite alternate 0.4s; overflow:hidden; }
+    .anim-cs .scan-line  { animation: cs-scan 2.5s ease-in-out infinite; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
@@ -437,9 +508,10 @@
     <div class="orb orb-2"></div>
 
     <div class="hero-content">
-      <div class="hero-badge">
-        🔬 &nbsp;Bachelor of Science &nbsp;·&nbsp; Kerala University FYUGP
-      </div>
+        <div class="hero-badge">
+          <svg style="width:14px;height:14px;flex-shrink:0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="2" width="4" height="10" rx="2" fill="#c9a84c" opacity="0.9"/><rect x="9" y="10" width="6" height="3" rx="1" fill="#c9a84c"/><rect x="7" y="13" width="10" height="2" rx="1" fill="#f0c96a"/><line x1="12" y1="15" x2="12" y2="19" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="22" x2="18" y2="22" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><line x1="9" y1="22" x2="9" y2="19" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg>
+          &nbsp;Bachelor of Science &nbsp;·&nbsp; Kerala University FYUGP
+        </div>
       <h1>
         BSc <em>Science</em><br>Resources
       </h1>
@@ -462,29 +534,29 @@
       <!-- Discipline Tabs -->
       <div class="discipline-tabs reveal" style="transition-delay:0.1s">
         <button class="disc-tab active" data-disc="chemistry" onclick="switchDiscipline('chemistry',this)">
-          <span class="disc-icon">⚗️</span> Chemistry
+          <span class="disc-icon"><svg class="anim-chemistry" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="2" width="6" height="7" rx="1" fill="none" stroke="#c9a84c" stroke-width="1.2"/><path class="liquid" d="M7 20 Q12 14 17 20 Q17 22 7 22 Z" fill="#4a9eff" opacity="0.7"/><path d="M9 9 L6 20 Q6 22 12 22 Q18 22 18 20 L15 9" stroke="#c9a84c" stroke-width="1.2" fill="none"/><circle class="bubble1" cx="11" cy="18" r="1.2" fill="#7dd3fc" opacity="0.8"/><circle class="bubble2" cx="14" cy="16.5" r="0.9" fill="#7dd3fc" opacity="0.7"/><path class="steam1" d="M10 8 Q9 5 10 3" stroke="#94a3b8" stroke-width="1" fill="none" stroke-linecap="round"/><path class="steam2" d="M13 8 Q14 5 13 3" stroke="#94a3b8" stroke-width="1" fill="none" stroke-linecap="round"/></svg></span> Chemistry
         </button>
         <button class="disc-tab" data-disc="physics" onclick="switchDiscipline('physics',this)">
-          <span class="disc-icon">⚛️</span> Physics
+          <span class="disc-icon"><svg class="anim-physics" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="nucleus" cx="12" cy="12" r="3" fill="#c9a84c" opacity="0.9"/><g class="orbit1"><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#60a5fa" stroke-width="0.9" fill="none" opacity="0.7"/><circle cx="22" cy="12" r="1.5" fill="#60a5fa"/></g><g class="orbit2"><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#34d399" stroke-width="0.9" fill="none" opacity="0.7" transform="rotate(60 12 12)"/><circle cx="17" cy="3.3" r="1.5" fill="#34d399"/></g><g class="orbit3"><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#f472b6" stroke-width="0.9" fill="none" opacity="0.6" transform="rotate(120 12 12)"/><circle cx="2.5" cy="7.5" r="1.5" fill="#f472b6"/></g></svg></span> Physics
         </button>
         <button class="disc-tab" data-disc="maths" onclick="switchDiscipline('maths',this)">
-          <span class="disc-icon">📐</span> Mathematics
+          <span class="disc-icon"><svg class="anim-maths" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="wave-path" d="M2 12 Q5 6 8 12 Q11 18 14 12 Q17 6 20 12 Q22 15 23 12" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="80"/><circle class="dot-point" cx="8" cy="12" r="1.5" fill="#f0c96a"/><line x1="2" y1="20" x2="22" y2="20" stroke="#8a9bb5" stroke-width="0.7" opacity="0.5"/><line x1="2" y1="4" x2="2" y2="20" stroke="#8a9bb5" stroke-width="0.7" opacity="0.5"/></svg></span> Mathematics
         </button>
         <button class="disc-tab" data-disc="botany" onclick="switchDiscipline('botany',this)">
-          <span class="disc-icon">🌿</span> Botany
+          <span class="disc-icon"><svg class="anim-botany" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line class="stem" x1="12" y1="22" x2="12" y2="10" stroke="#4ade80" stroke-width="1.4" stroke-linecap="round"/><path class="main-leaf" d="M12 14 Q6 10 8 4 Q14 6 12 14Z" fill="#22c55e" opacity="0.85"/><path class="side-leaf" d="M12 18 Q16 15 20 16 Q18 20 12 18Z" fill="#4ade80" opacity="0.7"/></svg></span> Botany
         </button>
         <button class="disc-tab" data-disc="zoology" onclick="switchDiscipline('zoology',this)">
-          <span class="disc-icon">🦋</span> Zoology
+          <span class="disc-icon"><svg class="anim-zoology" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="wing-l" d="M12 10 Q4 4 3 10 Q4 16 12 14Z" fill="#f59e0b" opacity="0.85"/><path class="wing-r" d="M12 10 Q20 4 21 10 Q20 16 12 14Z" fill="#f59e0b" opacity="0.85"/><path class="wing-l" d="M12 14 Q5 14 4 19 Q8 21 12 18Z" fill="#fbbf24" opacity="0.7"/><path class="wing-r" d="M12 14 Q19 14 20 19 Q16 21 12 18Z" fill="#fbbf24" opacity="0.7"/><ellipse class="body" cx="12" cy="13" rx="1.4" ry="5" fill="#92400e"/><circle cx="12" cy="7" r="1.2" fill="#78350f"/></svg></span> Zoology
         </button>
         <button class="disc-tab" data-disc="cs" onclick="switchDiscipline('cs',this)">
-          <span class="disc-icon">💻</span> Computer Science
+          <span class="disc-icon"><svg class="anim-cs" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="15" rx="2" stroke="#c9a84c" stroke-width="1.2" fill="none"/><rect class="scan-line" x="3" y="6" width="18" height="1" fill="#c9a84c" opacity="0.4" rx="0.5"/><rect class="line1" x="4" y="10" height="1.5" fill="#60a5fa" rx="0.5"/><rect class="line2" x="4" y="13" height="1.5" fill="#34d399" rx="0.5"/><rect class="cursor-bar" x="15" y="10" width="1.2" height="4" fill="#f0c96a" rx="0.5"/><line x1="8" y1="21" x2="16" y2="21" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg></span> Computer Science
         </button>
       </div>
 
       <!-- ── CHEMISTRY PANEL ── -->
       <div class="discipline-panel active reveal" id="panel-chemistry" style="transition-delay:0.15s">
         <div class="panel-header">
-          <div class="panel-icon">⚗️</div>
+          <div class="panel-icon"><svg class="anim-chemistry" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="4" width="12" height="14" rx="2" fill="none" stroke="#c9a84c" stroke-width="2"/><path class="liquid" d="M14 42 Q26 28 38 42 Q38 48 14 48 Z" fill="#4a9eff" opacity="0.7"/><path d="M20 18 L12 42 Q11 48 26 48 Q41 48 40 42 L32 18" stroke="#c9a84c" stroke-width="2" fill="none"/><circle class="bubble1" cx="22" cy="38" r="2.5" fill="#7dd3fc" opacity="0.85"/><circle class="bubble2" cx="30" cy="34" r="1.8" fill="#7dd3fc" opacity="0.7"/><circle cx="25" cy="30" r="1.2" fill="#bfdbfe" opacity="0.5"/><path class="steam1" d="M22 17 Q20 10 22 5" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-linecap="round"/><path class="steam2" d="M29 17 Q31 10 29 5" stroke="#94a3b8" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
           <div>
             <div class="panel-title">Chemistry</div>
             <div class="panel-desc">Organic, Inorganic & Physical Chemistry — all semesters under FYUGP curriculum.</div>
@@ -532,7 +604,7 @@
       <!-- ── PHYSICS PANEL ── -->
       <div class="discipline-panel" id="panel-physics">
         <div class="panel-header">
-          <div class="panel-icon">⚛️</div>
+          <div class="panel-icon"><svg class="anim-physics" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><circle class="nucleus" cx="26" cy="26" r="7" fill="#c9a84c" opacity="0.9"/><g class="orbit1"><ellipse cx="26" cy="26" rx="23" ry="9" stroke="#60a5fa" stroke-width="1.5" fill="none" opacity="0.7"/><circle cx="49" cy="26" r="3" fill="#60a5fa"/></g><g class="orbit2"><ellipse cx="26" cy="26" rx="23" ry="9" stroke="#34d399" stroke-width="1.5" fill="none" opacity="0.7" transform="rotate(60 26 26)"/><circle cx="37.5" cy="6.2" r="3" fill="#34d399"/></g><g class="orbit3"><ellipse cx="26" cy="26" rx="23" ry="9" stroke="#f472b6" stroke-width="1.5" fill="none" opacity="0.6" transform="rotate(120 26 26)"/><circle cx="3.5" cy="15.5" r="3" fill="#f472b6"/></g></svg></div>
           <div>
             <div class="panel-title">Physics</div>
             <div class="panel-desc">Classical Mechanics, Electromagnetism, Quantum & Modern Physics under FYUGP.</div>
@@ -579,7 +651,7 @@
       <!-- ── MATHEMATICS PANEL ── -->
       <div class="discipline-panel" id="panel-maths">
         <div class="panel-header">
-          <div class="panel-icon">📐</div>
+          <div class="panel-icon"><svg class="anim-maths" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="wave-path" d="M4 26 Q10 12 17 26 Q24 40 31 26 Q38 12 45 26 Q48 32 50 26" stroke="#c9a84c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-dasharray="150" stroke-dashoffset="150"/><circle class="dot-point" cx="17" cy="26" r="3" fill="#f0c96a"/><line x1="4" y1="44" x2="48" y2="44" stroke="#8a9bb5" stroke-width="1" opacity="0.4"/><line x1="4" y1="8" x2="4" y2="44" stroke="#8a9bb5" stroke-width="1" opacity="0.4"/><text x="44" y="48" font-size="8" fill="#8a9bb5" font-family="serif" opacity="0.5">x</text><text x="0" y="11" font-size="8" fill="#8a9bb5" font-family="serif" opacity="0.5">y</text></svg></div>
           <div>
             <div class="panel-title">Mathematics</div>
             <div class="panel-desc">Calculus, Algebra, Analysis & Applied Mathematics across all FYUGP semesters.</div>
@@ -626,7 +698,7 @@
       <!-- ── BOTANY PANEL ── -->
       <div class="discipline-panel" id="panel-botany">
         <div class="panel-header">
-          <div class="panel-icon">🌿</div>
+          <div class="panel-icon"><svg class="anim-botany" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><line class="stem" x1="26" y1="48" x2="26" y2="22" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/><path class="main-leaf" d="M26 30 Q10 20 14 6 Q30 10 26 30Z" fill="#22c55e" opacity="0.9"/><path class="side-leaf" d="M26 40 Q38 34 44 36 Q40 45 26 40Z" fill="#4ade80" opacity="0.75"/><circle cx="26" cy="10" r="3" fill="#86efac" opacity="0.6"/></svg></div>
           <div>
             <div class="panel-title">Botany</div>
             <div class="panel-desc">Plant Biology, Taxonomy, Ecology & Molecular Botany under FYUGP.</div>
@@ -673,7 +745,7 @@
       <!-- ── ZOOLOGY PANEL ── -->
       <div class="discipline-panel" id="panel-zoology">
         <div class="panel-header">
-          <div class="panel-icon">🦋</div>
+          <div class="panel-icon"><svg class="anim-zoology" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="wing-l" d="M26 22 Q8 8 6 22 Q8 36 26 30Z" fill="#f59e0b" opacity="0.9"/><path class="wing-r" d="M26 22 Q44 8 46 22 Q44 36 26 30Z" fill="#f59e0b" opacity="0.9"/><path class="wing-l" d="M26 30 Q10 30 8 42 Q16 46 26 40Z" fill="#fbbf24" opacity="0.75"/><path class="wing-r" d="M26 30 Q42 30 44 42 Q36 46 26 40Z" fill="#fbbf24" opacity="0.75"/><ellipse class="body" cx="26" cy="29" rx="3" ry="11" fill="#92400e"/><circle cx="26" cy="16" r="2.8" fill="#78350f"/><line x1="24" y1="14" x2="20" y2="8" stroke="#78350f" stroke-width="1.2" stroke-linecap="round"/><line x1="28" y1="14" x2="32" y2="8" stroke="#78350f" stroke-width="1.2" stroke-linecap="round"/></svg></div>
           <div>
             <div class="panel-title">Zoology</div>
             <div class="panel-desc">Animal Diversity, Physiology, Genetics & Ecology under FYUGP Kerala University.</div>
@@ -720,7 +792,7 @@
       <!-- ── COMPUTER SCIENCE PANEL ── -->
       <div class="discipline-panel" id="panel-cs">
         <div class="panel-header">
-          <div class="panel-icon">💻</div>
+          <div class="panel-icon"><svg class="anim-cs" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="6" width="44" height="32" rx="4" stroke="#c9a84c" stroke-width="2" fill="none"/><rect class="scan-line" x="6" y="12" width="40" height="2" fill="#c9a84c" opacity="0.35" rx="1"/><rect class="line1" x="8" y="20" height="3" fill="#60a5fa" rx="1"/><rect class="line2" x="8" y="27" height="3" fill="#34d399" rx="1"/><rect class="cursor-bar" x="32" y="20" width="2.5" height="10" fill="#f0c96a" rx="1"/><line x1="18" y1="44" x2="34" y2="44" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/></svg></div>
           <div>
             <div class="panel-title">Computer Science</div>
             <div class="panel-desc">Programming, Data Structures, Algorithms & Systems under FYUGP Kerala University.</div>
@@ -1000,4 +1072,6 @@
   </script>
 </body>
 </html>
+
+
 
