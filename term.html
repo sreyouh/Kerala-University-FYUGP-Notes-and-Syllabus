@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms & Conditions — Espace Systems</title>
+<meta name="description" content="Terms and Conditions for Espace Systems — Web Design, SEO & Digital Solutions.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="espace.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --white: #ffffff;
+  --off: #f8f9fc;
+  --bg2: #f0f3f9;
+  --navy: #0b1d3a;
+  --navy2: #132952;
+  --blue: #1a56db;
+  --blue2: #2d6ef5;
+  --blue-light: #e8effe;
+  --slate: #4a5c7a;
+  --slate2: #6b7fa0;
+  --border: #e2e8f4;
+  --shadow: rgba(11,29,58,0.08);
+  --shadow2: rgba(26,86,219,0.18);
+  --text: #0b1d3a;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CURSOR ── */
+.cursor{width:10px;height:10px;background:var(--blue);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s;}
+.cursor-ring{width:34px;height:34px;border:1.5px solid rgba(26,86,219,0.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 60px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:padding .4s,box-shadow .3s;
+}
+nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-brand-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.nav-brand-icon img{width:100%;height:100%;object-fit:contain;}
+.nav-brand-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--navy);letter-spacing:0.3px;}
+.nav-brand-sub{font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate2);}
+.nav-back-pill{
+  display:flex;align-items:center;gap:6px;
+  color:var(--slate);text-decoration:none;font-size:0.82rem;font-weight:500;
+  padding:7px 14px;border-radius:8px;border:1px solid var(--border);
+  transition:all .2s;cursor:none;
+}
+.nav-back-pill:hover{color:var(--blue);border-color:var(--blue);background:var(--blue-light);}
+
+/* ── HERO / PAGE HEADER ── */
+.page-header{
+  padding:140px 24px 80px;
+  background:linear-gradient(160deg,var(--white) 0%,var(--off) 50%,var(--bg2) 100%);
+  position:relative;overflow:hidden;text-align:center;
+}
+.page-header-geo{position:absolute;inset:0;pointer-events:none;}
+.ph-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(26,86,219,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(26,86,219,0.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+}
+.ph-circle{position:absolute;border-radius:50%;border:1px solid rgba(26,86,219,0.07);}
+.ph-c1{width:500px;height:500px;top:-200px;right:-150px;}
+.ph-c2{width:300px;height:300px;bottom:-100px;left:-100px;}
+
+.page-header-content{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.page-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue-light);border:1px solid rgba(26,86,219,0.2);
+  padding:7px 18px;border-radius:50px;
+  font-size:0.78rem;font-weight:600;color:var(--blue);
+  letter-spacing:0.5px;margin-bottom:24px;
+  animation:fade-up .7s ease both;
+}
+.page-header h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,4vw,3.4rem);
+  font-weight:800;line-height:1.08;
+  color:var(--navy);margin-bottom:20px;
+  letter-spacing:-0.8px;
+  animation:fade-up .7s .1s ease both;
+}
+.page-header h1 span{
+  background:linear-gradient(135deg,var(--blue) 0%,#5b8df5 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.page-header-meta{
+  font-size:0.84rem;color:var(--slate2);
+  animation:fade-up .7s .2s ease both;
+}
+.page-header-meta strong{color:var(--slate);font-weight:500;}
+
+@keyframes fade-up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── MAIN CONTENT ── */
+.terms-wrap{
+  max-width:860px;margin:0 auto;
+  padding:72px 24px 100px;
+}
+
+/* Quick nav / TOC */
+.toc-card{
+  background:var(--off);border:1px solid var(--border);
+  border-radius:16px;padding:28px 32px;margin-bottom:56px;
+}
+.toc-card h2{
+  font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);
+  margin-bottom:18px;
+}
+.toc-list{
+  list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 20px;
+}
+.toc-list li a{
+  display:flex;align-items:center;gap:8px;
+  font-size:0.84rem;color:var(--slate);text-decoration:none;font-weight:500;
+  padding:6px 0;border-bottom:1px dashed transparent;
+  transition:color .2s,border-color .2s;
+}
+.toc-list li a:hover{color:var(--blue);border-color:rgba(26,86,219,0.2);}
+.toc-list li a::before{
+  content:'';display:inline-block;width:6px;height:6px;
+  border-radius:50%;background:var(--blue);opacity:0.4;flex-shrink:0;
+}
+
+/* Sections */
+.terms-section{margin-bottom:52px;}
+.terms-section:last-child{margin-bottom:0;}
+
+.section-anchor{display:block;height:80px;margin-top:-80px;visibility:hidden;}
+
+.section-num{
+  display:inline-block;
+  font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--blue);font-weight:700;
+  background:var(--blue-light);padding:4px 10px;border-radius:4px;
+  margin-bottom:12px;
+}
+.section-title{
+  font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;
+  color:var(--navy);margin-bottom:18px;line-height:1.25;
+  padding-bottom:14px;border-bottom:2px solid var(--border);
+}
+
+.terms-section p{
+  color:var(--slate);font-size:0.92rem;line-height:1.85;margin-bottom:14px;
+}
+.terms-section p:last-child{margin-bottom:0;}
+.terms-section p strong{color:var(--navy);font-weight:600;}
+
+.terms-section ul{
+  list-style:none;margin:14px 0;display:flex;flex-direction:column;gap:10px;
+}
+.terms-section ul li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:0.91rem;color:var(--slate);line-height:1.75;
+}
+.terms-section ul li::before{
+  content:'';display:inline-block;width:6px;height:6px;
+  border-radius:50%;background:var(--blue);opacity:0.6;
+  flex-shrink:0;margin-top:9px;
+}
+.terms-section ul li strong{color:var(--navy);}
+
+/* Callout boxes */
+.callout{
+  border-radius:12px;padding:18px 22px;margin:20px 0;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.callout-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+.callout-body{font-size:0.87rem;color:var(--slate);line-height:1.75;}
+.callout-body strong{display:block;font-size:0.82rem;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;}
+
+.callout-warn{background:#fff8ed;border:1px solid #f5c97a;}
+.callout-warn .callout-body strong{color:#b45309;}
+.callout-warn .callout-body{color:#78450c;}
+
+.callout-info{background:var(--blue-light);border:1px solid rgba(26,86,219,0.2);}
+.callout-info .callout-body strong{color:var(--blue);}
+.callout-info .callout-body{color:#2d4a80;}
+
+.callout-danger{background:#fff0f0;border:1px solid #fca5a5;}
+.callout-danger .callout-body strong{color:#b91c1c;}
+.callout-danger .callout-body{color:#7f1d1d;}
+
+.callout-ok{background:#f0fdf4;border:1px solid #86efac;}
+.callout-ok .callout-body strong{color:#166534;}
+.callout-ok .callout-body{color:#14532d;}
+
+/* Divider */
+.terms-divider{height:1px;background:var(--border);margin:52px 0;}
+
+/* Agreement banner */
+.agree-banner{
+  background:var(--navy);border-radius:16px;
+  padding:32px 36px;text-align:center;margin-top:60px;
+}
+.agree-banner p{
+  color:rgba(255,255,255,0.55);font-size:0.88rem;line-height:1.75;margin-bottom:16px;
+}
+.agree-banner p strong{color:white;font-weight:600;}
+.agree-banner a{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:10px;
+  background:var(--blue);color:white;
+  font-weight:600;font-size:0.88rem;text-decoration:none;cursor:none;
+  transition:background .2s,transform .2s,box-shadow .2s;
+  box-shadow:0 6px 20px rgba(26,86,219,0.4);
+}
+.agree-banner a:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(26,86,219,0.5);}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:44px 24px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-family:'Syne',sans-serif;color:white;font-size:1rem;font-weight:700;}
+.footer-brand span{display:block;color:rgba(255,255,255,0.35);font-family:'Inter',sans-serif;font-size:0.72rem;margin-top:3px;font-weight:400;}
+.footer-right{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.footer-copy{color:rgba(255,255,255,0.35);font-size:0.78rem;}
+.footer-link{color:rgba(100,160,255,0.8);text-decoration:none;font-size:0.78rem;}
+.footer-link:hover{color:white;}
+.footer-back{
+  display:flex;align-items:center;gap:6px;
+  color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;
+  padding:7px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);
+  transition:all .2s;
+}
+.footer-back:hover{color:white;border-color:rgba(255,255,255,0.3);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  nav.scrolled{padding:10px 20px;}
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  .nav-back-pill{cursor:pointer;}
+  .agree-banner a{cursor:pointer;}
+  .toc-list{grid-template-columns:1fr;}
+  .agree-banner{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="espace.html" class="nav-brand">
+    <div class="nav-brand-icon"><img src="espacee.png" alt="Espace Systems Logo"></div>
+    <div>
+      <div class="nav-brand-name">Espace Systems</div>
+      <div class="nav-brand-sub">Digital Solutions</div>
+    </div>
+  </a>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="espace.html" class="nav-back-pill">← Back to Espace</a>
+    <a href="index.html" class="nav-back-pill">← sreeharis.in</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="page-header-geo">
+    <div class="ph-grid"></div>
+    <div class="ph-circle ph-c1"></div>
+    <div class="ph-circle ph-c2"></div>
+  </div>
+  <div class="page-header-content">
+    <div class="page-tag">Legal · Espace Systems</div>
+    <h1>Terms &amp; <span>Conditions</span></h1>
+    <p class="page-header-meta">
+      <strong>Effective Date: 1 January 2025</strong> &nbsp;·&nbsp; Last updated: May 2026 &nbsp;·&nbsp; Applies to all Espace Systems services
+    </p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<div class="terms-wrap">
+
+  <!-- Table of Contents -->
+  <div class="toc-card reveal">
+    <h2>Contents</h2>
+    <ul class="toc-list">
+      <li><a href="#s1">1. Agreement &amp; Acceptance</a></li>
+      <li><a href="#s2">2. Scope of Services</a></li>
+      <li><a href="#s3">3. Email &amp; Account Details</a></li>
+      <li><a href="#s4">4. Free Service Period</a></li>
+      <li><a href="#s5">5. Website Security &amp; Hacking</a></li>
+      <li><a href="#s6">6. Google Account Access</a></li>
+      <li><a href="#s7">7. Payment Terms</a></li>
+      <li><a href="#s8">8. Refund Policy</a></li>
+      <li><a href="#s9">9. Uptime &amp; Support</a></li>
+      <li><a href="#s10">10. Limitation of Liability</a></li>
+      <li><a href="#s11">11. Changes to Terms</a></li>
+      <li><a href="#s12">12. Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- 1 -->
+  <div class="terms-section reveal" id="s1">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 01</div>
+    <h2 class="section-title">Agreement &amp; Acceptance</h2>
+    <p>
+      By engaging Espace Systems for any service — whether through a booking form, direct message, email, or any other means — you confirm that you have read, understood, and agree to be bound by these Terms &amp; Conditions in full.
+    </p>
+    <p>
+      These terms constitute the entire agreement between you (the <strong>"Client"</strong>) and <strong>Espace Systems</strong> (referred to as <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>) with respect to any service provided. No verbal assurances or informal agreements override these written terms.
+    </p>
+    <p>
+      If you do not agree with any part of these terms, you must not proceed with engaging our services.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 2 -->
+  <div class="terms-section reveal" id="s2">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 02</div>
+    <h2 class="section-title">Scope of Services</h2>
+    <p>Espace Systems provides the following digital services only:</p>
+    <ul>
+      <li><strong>Website design and development</strong> — custom-built, mobile-first websites.</li>
+      <li><strong>Search Engine Optimisation (SEO)</strong> — on-page, technical, and keyword strategy.</li>
+      <li><strong>Domain registration and management</strong> — purchasing and configuring your domain name.</li>
+      <li><strong>Website hosting setup and management</strong> — server configuration and hosting administration.</li>
+      <li><strong>Website maintenance</strong> — minor edits, updates, and technical issue resolution within the agreed service period.</li>
+      <li><strong>Dead website revival</strong> — diagnosing and reviving underperforming or outdated websites.</li>
+    </ul>
+
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>Not included in our services</strong>
+        The following are explicitly outside Espace Systems' scope and are not our responsibility under any circumstance:
+        <br><br>
+        — Managing or moderating your social media profiles (Instagram, Facebook, X/Twitter, YouTube, etc.)<br>
+        — Resolving problems on your social media accounts (bans, restrictions, account recovery, etc.)<br>
+        — Lead generation, digital advertising, or paid media campaigns<br>
+        — Content creation beyond the initial website build (unless separately agreed in writing)<br>
+        — Any service not listed above under our offered services
+      </div>
+    </div>
+
+    <p>
+      Any request outside the above scope will require a separate written agreement and may incur additional charges. We reserve the right to decline requests outside our service range.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 3 -->
+  <div class="terms-section reveal" id="s3">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 03</div>
+    <h2 class="section-title">Email &amp; Account Details</h2>
+    <p>
+      We strongly recommend that you provide us with your <strong>own active, business-connected email address</strong> at the start of the project. This ensures you retain full ownership and control of all accounts, platforms, and services set up on your behalf from day one.
+    </p>
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>If we create an email for you</strong>
+        In cases where the client does not have or provide an active email address and requests us to create one for them — Espace Systems will do so as a courtesy. However, <strong>we will not be held responsible for any inconvenience, access issues, security problems, or loss of data</strong> that occurs after the work is completed and access is handed over. This includes but is not limited to: forgotten passwords, loss of access, email provider restrictions, or account verification issues.
+      </div>
+    </div>
+    <p>
+      We strongly advise clients to maintain their own email credentials securely and independently of Espace Systems.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 4 -->
+  <div class="terms-section reveal" id="s4">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 04</div>
+    <h2 class="section-title">Free Service Period (Post-Launch Support)</h2>
+    <p>
+      Following the completion and launch of your website, Espace Systems provides <strong>one (1) year of complimentary support</strong>, included at no additional cost.
+    </p>
+
+    <div class="callout callout-ok">
+      <span class="callout-icon">✅</span>
+      <div class="callout-body">
+        <strong>What is covered in the free 1-year support period</strong>
+        — Adding or replacing images on the website<br>
+        — Adding customer reviews or testimonials<br>
+        — Minor text edits and content updates<br>
+        — Resolving technical issues affecting website functionality<br>
+        — Basic performance or compatibility fixes
+      </div>
+    </div>
+
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>What is not covered under free support</strong>
+        — Complete redesigns or structural changes to the website<br>
+        — Adding entirely new pages or major new features<br>
+        — SEO strategy overhauls (unless part of an ongoing SEO package)<br>
+        — Social media management or any out-of-scope services<br>
+        — Work requiring more than 2–3 hours per request
+      </div>
+    </div>
+
+    <p>
+      After the 1-year free support period expires, continued maintenance and support will be available under a separate paid maintenance agreement. Details will be provided prior to the expiry of the free period.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 5 -->
+  <div class="terms-section reveal" id="s5">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 05</div>
+    <h2 class="section-title">Website Security &amp; Hacking</h2>
+    <p>
+      Espace Systems implements <strong>industry-standard security practices</strong> during the development and deployment of every website, including secure hosting configurations, SSL certificates, security plugins (where applicable), and access control best practices.
+    </p>
+
+    <div class="callout callout-danger">
+      <span class="callout-icon">🔒</span>
+      <div class="callout-body">
+        <strong>Limitation of liability for hacking / security breaches</strong>
+        Despite our best efforts, Espace Systems <strong>cannot be held responsible</strong> for any hacking, data breach, malware injection, or unauthorised access to your website after the project is delivered. If a security incident occurs after handover, it is most likely due to the sharing of login credentials, hosting account details, or admin passwords with unauthorised parties. We will not be liable for any loss of data, business, revenue, or reputation resulting from such incidents.
+      </div>
+    </div>
+
+    <p>
+      To protect yourself, we advise:
+    </p>
+    <ul>
+      <li>Never share your hosting panel, domain registrar, or website admin login with anyone outside your team.</li>
+      <li>Use strong, unique passwords and enable two-factor authentication (2FA) wherever available.</li>
+      <li>Inform us immediately if you suspect any breach — we will advise on remediation at our discretion.</li>
+    </ul>
+    <p>
+      Any assistance provided in recovering from a hacking incident post-handover will be treated as a new service request and may be billed separately.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 6 -->
+  <div class="terms-section reveal" id="s6">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 06</div>
+    <h2 class="section-title">Google Account Access</h2>
+    <p>
+      In certain cases, Espace Systems may request limited access to your Google account — for example, to set up Google Search Console, Google Analytics, Google Business Profile, or similar services that assist in the website build or SEO configuration.
+    </p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <strong>Our commitment regarding your Google account</strong>
+        Espace Systems will <strong>not view, download, access, or use</strong> any personal files, emails, documents, photos, Drive contents, or any other data within your Google account beyond what is strictly necessary for website creation and setup. Access is used solely for technical configuration purposes and nothing else.
+      </div>
+    </div>
+
+    <p>
+      We recommend that clients use <strong>Google's built-in sharing and delegation features</strong> (such as adding Espace Systems as a verified owner in Search Console) rather than sharing account passwords. This is more secure and limits access appropriately.
+    </p>
+    <p>
+      Once the relevant setup is complete, you are advised to review and revoke any access permissions granted to third parties, including Espace Systems, at your own discretion.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 7 -->
+  <div class="terms-section reveal" id="s7">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 07</div>
+    <h2 class="section-title">Payment Terms</h2>
+    <p>
+      Payment for all services must be settled as per the agreed quote prior to or upon project delivery. Specific payment terms are as follows:
+    </p>
+    <ul>
+      <li>A <strong>deposit or advance payment</strong> may be required before work commences, as agreed during the initial consultation.</li>
+      <li><strong>Final payment is due within 24 hours</strong> of the project being delivered or made live for review.</li>
+      <li>If full payment is not received within 24 hours of delivery, Espace Systems reserves the right to <strong>suspend, disable, or take down the purchased domain and associated website</strong> without prior notice.</li>
+      <li>Once access is withheld due to non-payment, services will only be restored upon receipt of full outstanding payment.</li>
+    </ul>
+
+    <div class="callout callout-danger">
+      <span class="callout-icon">🚨</span>
+      <div class="callout-body">
+        <strong>Non-payment consequence</strong>
+        Failure to make payment within 24 hours of project delivery will result in the domain being disabled and website access being suspended. Espace Systems will not be liable for any business disruption, loss of traffic, or revenue impact during this period.
+      </div>
+    </div>
+
+    <p>
+      All prices are agreed upon in writing prior to commencement of work. Any scope changes requested by the client after the project has begun may result in revised pricing, which must be agreed upon before additional work is carried out.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 8 -->
+  <div class="terms-section reveal" id="s8">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 08</div>
+    <h2 class="section-title">Refund Policy</h2>
+    <p>
+      Espace Systems has a limited and clearly defined refund policy. Please read this section carefully before engaging our services.
+    </p>
+
+    <div class="callout callout-danger">
+      <span class="callout-icon">❌</span>
+      <div class="callout-body">
+        <strong>Website design &amp; development fees — non-refundable</strong>
+        The fee charged for website design, development, SEO work, or any creative or technical service is <strong>strictly non-refundable</strong> once work has commenced. This is because design and development work represents time, effort, and expertise that cannot be recovered.
+      </div>
+    </div>
+
+    <div class="callout callout-ok">
+      <span class="callout-icon">✅</span>
+      <div class="callout-body">
+        <strong>Domain purchase fee — refundable under conditions</strong>
+        If a domain was purchased on your behalf as part of the project and you wish to receive a refund for the domain registration cost, you must notify Espace Systems in writing <strong>within 3 weeks (21 days) of the domain purchase date</strong>. Refund requests made after this 3-week window will not be accepted, as domain registrars impose their own non-refundable policies beyond this period. Domain refunds are subject to the registrar's own refund policy, and Espace Systems will facilitate the process but cannot guarantee full recovery of all fees in every case.
+      </div>
+    </div>
+
+    <p><strong>Refund eligibility summary:</strong></p>
+    <ul>
+      <li>Website design / development fee: <strong>Not refundable</strong></li>
+      <li>SEO services fee: <strong>Not refundable</strong></li>
+      <li>Domain registration fee: <strong>Refundable if requested within 3 weeks</strong> of purchase date</li>
+      <li>Hosting fees: Subject to hosting provider's own refund policy — Espace Systems will assist where possible</li>
+    </ul>
+
+    <p>
+      To request a domain refund, contact us via email or Telegram with your project details and the subject line <strong>"Domain Refund Request"</strong> within the 3-week window.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 9 -->
+  <div class="terms-section reveal" id="s9">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 09</div>
+    <h2 class="section-title">Uptime, Support &amp; Response Time</h2>
+    <p>
+      Espace Systems is committed to ensuring your website remains live, functional, and performing well throughout our engagement.
+    </p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">⏱️</span>
+      <div class="callout-body">
+        <strong>Issue resolution commitment</strong>
+        In the event of any technical issue, outage, or malfunction affecting your website, Espace Systems will work to resolve the problem <strong>within 48 hours</strong> of being notified, during the active service or free support period.
+      </div>
+    </div>
+
+    <p>
+      <strong>No refund for downtime:</strong> As long as your website is operational on your domain and we are actively working to resolve any reported issues within the 48-hour window, refund claims based on temporary downtime or performance issues will not be accepted. Temporary issues are a normal part of web hosting and will always be addressed promptly.
+    </p>
+    <p>
+      To report an issue, contact us via Telegram or email with a description of the problem. We will acknowledge your report and provide an update within 24 hours.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 10 -->
+  <div class="terms-section reveal" id="s10">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 10</div>
+    <h2 class="section-title">Limitation of Liability</h2>
+    <p>
+      To the maximum extent permitted by applicable law, Espace Systems shall not be liable for any indirect, incidental, consequential, special, or punitive damages, including but not limited to loss of revenue, loss of business, loss of data, or loss of reputation, arising out of or in connection with our services.
+    </p>
+    <p>
+      Our total liability to any client, in any circumstances, shall not exceed the total amount paid by that client for the specific service in question.
+    </p>
+    <p>
+      We are not responsible for:
+    </p>
+    <ul>
+      <li>Downtime or outages caused by third-party hosting providers, domain registrars, or internet infrastructure.</li>
+      <li>Security breaches resulting from client actions, shared credentials, or third-party vulnerabilities outside our control.</li>
+      <li>Loss of rankings or traffic resulting from search engine algorithm changes after project delivery.</li>
+      <li>Any business decisions made based on our recommendations or the performance of the website.</li>
+      <li>Issues arising from email accounts, social media profiles, or platforms not created or managed by us.</li>
+    </ul>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 11 -->
+  <div class="terms-section reveal" id="s11">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 11</div>
+    <h2 class="section-title">Changes to These Terms</h2>
+    <p>
+      Espace Systems reserves the right to update or modify these Terms &amp; Conditions at any time. Changes will be reflected on this page with an updated effective date. It is your responsibility to review these terms periodically.
+    </p>
+    <p>
+      Continued use of our services after any changes constitutes your acceptance of the revised terms. For ongoing projects, significant changes will be communicated directly.
+    </p>
+  </div>
+
+  <div class="terms-divider"></div>
+
+  <!-- 12 -->
+  <div class="terms-section reveal" id="s12">
+    <span class="section-anchor"></span>
+    <div class="section-num">Section 12</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding these Terms &amp; Conditions or any of our services, please reach out:</p>
+    <ul>
+      <li><strong>Telegram:</strong> <a href="https://t.me/sreyouh" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:600;">t.me/sreyouh</a></li>
+      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:600;">Espace Systems on LinkedIn</a></li>
+      <li><strong>Website:</strong> <a href="espace.html" style="color:var(--blue);text-decoration:none;font-weight:600;">sreeharis.in/espace.html</a></li>
+    </ul>
+    <p style="margin-top:16px;">
+      We aim to respond to all enquiries within <strong>24–48 hours</strong>.
+    </p>
+  </div>
+
+  <!-- Agreement banner -->
+  <div class="agree-banner reveal">
+    <p>By using any Espace Systems service, you confirm that you have read and agreed to these Terms &amp; Conditions in full. <strong>Ready to build something great?</strong></p>
+    <a href="espace.html#contact">Book a Free Slot →</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      Espace Systems
+      <span>Web Design · SEO · Digital Solutions</span>
+    </div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="footer-link">LinkedIn</a>
+      <a href="https://t.me/sreyouh" target="_blank" class="footer-link">Telegram</a>
+      <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
+      <span class="footer-copy">© 2026 Espace Systems</span>
+      <a href="index.html" class="footer-back">← sreeharis.in</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='16px';cursor.style.height='16px';ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='var(--blue)';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='34px';ring.style.height='34px';ring.style.borderColor='rgba(26,86,219,0.4)';});
+});
+
+// Navbar
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+
+// Reveal
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
