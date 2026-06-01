@@ -1,4 +1,4 @@
-               <!DOCTYPE html>
+                              <!DOCTYPE html>
 <html lang="en">
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5048983871892176"
@@ -722,6 +722,99 @@ Sreeharis notes
     .contact-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
     .contact-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
+    /* ── SCIENCE HUB SECTION ── */
+    .sciencehub-section {
+      background: linear-gradient(160deg, #071120 0%, #0a1628 50%, #0d1f3c 100%);
+      position: relative; overflow: hidden;
+    }
+    .sciencehub-section::before {
+      content: ''; position: absolute; top: -150px; left: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .sciencehub-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .sciencehub-sims {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+    }
+    .sim-chip {
+      font-size: 0.78rem; padding: 6px 14px; border-radius: 50px;
+      background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.22);
+      color: rgba(255,255,255,0.75); transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .sim-chip:hover { background: rgba(201,168,76,0.16); color: var(--white); border-color: rgba(201,168,76,0.45); }
+
+    /* Science Hub preview card */
+    .sciencehub-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 24px; padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+    .sh-card-label {
+      font-size: 0.62rem; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px; font-weight: 500;
+    }
+    .sh-card-screen {
+      background: rgba(0,0,0,0.3); border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 14px; height: 170px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; margin-bottom: 20px;
+    }
+    /* Atom in preview card */
+    .sh-atom-wrap { position: relative; width: 90px; height: 90px; display: flex; align-items: center; justify-content: center; }
+    .sh-nucleus {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-light), var(--gold));
+      position: absolute; z-index: 2;
+      box-shadow: 0 0 18px rgba(201,168,76,0.9), 0 0 36px rgba(201,168,76,0.35);
+    }
+    .sh-orbit {
+      position: absolute; border-radius: 50%;
+      border: 1.5px solid rgba(201,168,76,0.45);
+    }
+    .sh-orbit-1 { width: 72px; height: 30px; animation: sh-spin-1 2s linear infinite; }
+    .sh-orbit-2 { width: 72px; height: 30px; animation: sh-spin-2 3s linear infinite; }
+    .sh-orbit-3 { width: 72px; height: 30px; animation: sh-spin-3 2.5s linear infinite; }
+    .sh-electron {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--gold); position: absolute; top: -3.5px; left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px var(--gold), 0 0 20px rgba(201,168,76,0.4);
+    }
+    @keyframes sh-spin-1 { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    @keyframes sh-spin-2 { from{transform:rotate(60deg)} to{transform:rotate(420deg)} }
+    @keyframes sh-spin-3 { from{transform:rotate(120deg)} to{transform:rotate(480deg)} }
+    /* graph lines in preview */
+    .sh-graph-lines {
+      position: absolute; bottom: 18px; right: 18px;
+      display: flex; align-items: flex-end; gap: 4px;
+    }
+    .sh-graph-line {
+      width: 6px; border-radius: 2px 2px 0 0;
+      background: linear-gradient(to top, rgba(201,168,76,0.7), rgba(201,168,76,0.2));
+    }
+    .sh-gl-1 { height: 22px; animation: sh-bar 2s ease-in-out infinite; }
+    .sh-gl-2 { height: 34px; animation: sh-bar 2s ease-in-out infinite 0.3s; }
+    .sh-gl-3 { height: 18px; animation: sh-bar 2s ease-in-out infinite 0.6s; }
+    @keyframes sh-bar { 0%,100%{opacity:0.5;transform:scaleY(0.8)} 50%{opacity:1;transform:scaleY(1)} }
+
+    .sh-card-stats { display: flex; align-items: center; justify-content: space-around; }
+    .sh-stat { text-align: center; }
+    .sh-stat-num {
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--gold); line-height: 1;
+    }
+    .sh-stat-lab { font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate); margin-top: 4px; display: block; }
+    .sh-stat-divider { width: 1px; height: 32px; background: rgba(201,168,76,0.15); }
+
+    @media (max-width: 768px) {
+      .sciencehub-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sciencehub-visual { display: none; }
+    }
+
     /* ── FOOTER ── */
     footer { background: #060d19; border-top: 1px solid rgba(201,168,76,0.1); padding: 40px 24px; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
@@ -730,6 +823,30 @@ Sreeharis notes
     .footer-copy { color: var(--slate); font-size: 0.8rem; }
     .footer-link { color: var(--gold); text-decoration: none; }
     .footer-link:hover { text-decoration: underline; }
+    .footer-social { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .footer-social-link {
+      font-size: 0.78rem; font-weight: 600; text-decoration: none;
+      padding: 6px 14px; border-radius: 50px;
+      transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s;
+      display: inline-flex; align-items: center; gap: 5px;
+    }
+    .footer-social-link:hover { transform: translateY(-2px); opacity: 0.9; }
+    .footer-social-insta {
+      background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+      color: #fff; box-shadow: 0 4px 14px rgba(253,29,29,0.25);
+    }
+    .footer-social-linkedin {
+      background: #0a66c2; color: #fff;
+      box-shadow: 0 4px 14px rgba(10,102,194,0.25);
+    }
+    .footer-social-mail {
+      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+    }
+    .footer-social-telegram {
+      background: #229ed9; color: #fff;
+      box-shadow: 0 4px 14px rgba(34,158,217,0.25);
+    }
 
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -1086,9 +1203,9 @@ Sreeharis notes
     </div>
     <ul class="nav-links">
       <li><a href="#courses">Courses</a></li>
+      <li><a href="#sciencehub">Science Hub</a></li>
       <li><a href="#contribute">Contribute</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -1139,7 +1256,7 @@ Sreeharis notes
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="stat reveal">
-        <span class="stat-num" data-count="400+" data-suffix="+">350+</span>
+        <span class="stat-num" data-count="400+" data-suffix="+">400+</span>
         <span class="stat-label">courses covered</span>
       </div>
       <div class="stat reveal" style="transition-delay:0.1s">
@@ -1157,15 +1274,28 @@ Sreeharis notes
     </div>
   </div>
 
+  <!-- EXAM WISH NOTICE -->
+  <div class="notice-board" style="background:rgba(201,168,76,0.05);border-color:rgba(201,168,76,0.25);">
+    <div class="notice-board-inner">
+      <div class="notice-board-left">
+        <span class="notice-board-tag" style="background:rgba(201,168,76,0.18);border-color:rgba(201,168,76,0.5);">🎓 Exams</span>
+        <p class="notice-board-title" style="color:var(--gold-light);">Best Wishes — S2 & S4 Students!</p>
+      </div>
+      <p class="notice-board-body">
+        Wishing all Kerala University 2024&25 FYUGP <strong style="color:rgba(255,255,255,0.8)">Semester 2</strong> and <strong style="color:rgba(255,255,255,0.8)">Semester 4</strong> students the very best for your upcoming examinations! Study smart, stay confident — you've got this. 🌟 Once your exams are done, please <a href="#contribute" class="notice-board-link">upload your question papers</a> so future batches can prepare better. Your contribution makes a huge difference!
+      </p>
+    </div>
+  </div>
+
   <!-- NOTICE BOARD -->
   <div class="notice-board">
     <div class="notice-board-inner">
       <div class="notice-board-left">
         <span class="notice-board-tag">Notice</span>
-        <p class="notice-board-title">Study Materials Not Yet Available</p>
+        <p class="notice-board-title">Please Upload Your Notes</p>
       </div>
       <p class="notice-board-body">
-        Notes, previous year question papers and question banks are currently unavailable for most courses. If you have any study materials from any FYUGP programme — handwritten notes, typed notes, question papers or references — please <a href="#contribute" class="notice-board-link">contribute them here</a>. Your contribution directly helps fellow students and earns you recognition in the community.
+        We're building a community-powered study portal and need <em>your</em> help! Notes, question papers and study materials are still sparse for most courses. If you have handwritten notes, typed notes, question papers or reference materials from any FYUGP programme, please <a href="#contribute" class="notice-board-link">upload them here</a>. Your contribution directly helps fellow students and earns you recognition in the community.
       </p>
     </div>
   </div>
@@ -1243,6 +1373,54 @@ Sreeharis notes
     </div>
   </section>
 
+  <!-- SCIENCE HUB SECTION -->
+  <section class="sciencehub-section" id="sciencehub">
+    <div class="sciencehub-inner">
+      <div class="sciencehub-text reveal">
+        <p class="section-label">Virtual Lab</p>
+        <h2 class="section-title">Science<br><em style="color:var(--gold);font-style:normal">Hub</em></h2>
+        <p class="section-desc">Explore chemistry and physics through 15+ fully interactive browser-based simulations — no downloads, no logins, just science.</p>
+        <div class="sciencehub-sims">
+          <span class="sim-chip">🔥 Flame Test</span>
+          <span class="sim-chip">⚗️ Acid-Base Titration</span>
+          <span class="sim-chip">☢️ Rutherford Scattering</span>
+          <span class="sim-chip">🌊 Young's Double Slit</span>
+          <span class="sim-chip">⚡ Zener Diode</span>
+          <span class="sim-chip">💡 LED I-V Curve</span>
+          <span class="sim-chip">🔌 Ohm's Law</span>
+          <span class="sim-chip">+ Many more</span>
+        </div>
+        <a href="sciencehub.html" class="btn-primary" style="margin-top:32px;display:inline-flex">⚗️ Open Science Hub →</a>
+      </div>
+      <div class="sciencehub-visual reveal" style="transition-delay:0.15s">
+        <div class="sciencehub-card">
+          <div class="sh-card-label">Interactive Simulation</div>
+          <div class="sh-card-screen">
+            <!-- Animated atom in the preview card -->
+            <div class="sh-atom-wrap">
+              <div class="sh-nucleus"></div>
+              <div class="sh-orbit sh-orbit-1"><div class="sh-electron"></div></div>
+              <div class="sh-orbit sh-orbit-2"><div class="sh-electron"></div></div>
+              <div class="sh-orbit sh-orbit-3"><div class="sh-electron"></div></div>
+            </div>
+            <div class="sh-graph-lines">
+              <div class="sh-graph-line sh-gl-1"></div>
+              <div class="sh-graph-line sh-gl-2"></div>
+              <div class="sh-graph-line sh-gl-3"></div>
+            </div>
+          </div>
+          <div class="sh-card-stats">
+            <div class="sh-stat"><span class="sh-stat-num">11</span><span class="sh-stat-lab">Simulations</span></div>
+            <div class="sh-stat-divider"></div>
+            <div class="sh-stat"><span class="sh-stat-num">Free</span><span class="sh-stat-lab">No Login</span></div>
+            <div class="sh-stat-divider"></div>
+            <div class="sh-stat"><span class="sh-stat-num">Live</span><span class="sh-stat-lab">Graphs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTRIBUTE -->
   <section class="contribute-section" id="contribute">
     <div class="contribute-inner">
@@ -1304,34 +1482,7 @@ Sreeharis notes
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact-section" id="contact">
-    <div class="contact-inner">
-      <p class="section-label reveal">Get in Touch</p>
-      <h2 class="section-title reveal">Connect With Me</h2>
-      <p class="section-desc reveal">Reach out for queries about the portal, contributions, or anything FYUGP related.</p>
 
-      <div class="contact-card reveal">
-    
-        <div>
-          <div class="contact-name">Developer</div>
-          <div class="contact-role">Owner & CEO of <a href="espace.html" style="color:var(--gold);text-decoration:none;">Espace Systems</a> · Kerala University FYUGP Student</div>
-        </div>
-        <div class="contact-divider"></div>
-        <div class="contact-btns">
-          <a href="mailto:mailtoespacesystems@gmail.com" class="btn-mail">
-   ✉️ E-mail
-          </a>
-          <a href="https://www.instagram.com/sre.youh?igsh=MW9ucTBncHJ1Zm9lNw==" target="_blank" class="btn-insta">
-            Instagram
-          </a>
-          <a href="https://www.linkedin.com/in/sreehari-s-19950a248" target="_blank" class="btn-linkedin">
-            💼 LinkedIn
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -1339,6 +1490,12 @@ Sreeharis notes
       <div class="footer-logo">
         Kerala University FYUGP
         <span>Syllabus & Notes Portal</span>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sre.youh?igsh=MW9ucTBncHJ1Zm9lNw==" target="_blank" class="footer-social-link footer-social-insta">Instagram</a>
+        <a href="https://www.linkedin.com/in/sreehari-s-19950a248" target="_blank" class="footer-social-link footer-social-linkedin">LinkedIn</a>
+        <a href="mailto:mailtoespacesystems@gmail.com" class="footer-social-link footer-social-mail">✉ Mail</a>
+        <a href="https://t.me/sreyouh" target="_blank" class="footer-social-link footer-social-telegram">Telegram</a>
       </div>
       <p class="footer-copy">
         © 2026 <a href="https://sreeharis.in/" class="footer-link" target="_blank">sreeharis.in</a> · <a href="espace.html" class="footer-link">Espace Systems</a> · <a href="privacypolicy.html" class="footer-link">Privacy Policy</a>
@@ -1464,6 +1621,22 @@ Sreeharis notes
   </script>
 </body>
         </html>
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+              
 
 
 
