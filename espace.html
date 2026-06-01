@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Espace Systems — Web Design, SEO & Digital Solutions for Small Businesses</title>
-<meta name="description" content="Espace Systems builds modern, high-performance websites for small businesses, startups and initiatives. Affordable custom web design, SEO services, domain management and website revival. Contact us today.">
-<meta name="keywords" content="website for small businesses, affordable web design, small business website, web design Kerala, SEO services small business, custom website development, website for startups, affordable website design, business website design, web solutions Kerala, SEO Kerala, website management, dead website revival, Espace Systems">
+<title>Espace Systems — Web Design, SEO, Penetration Testing & Digital Solutions</title>
+<meta name="description" content="Espace Systems builds modern websites for small businesses and offers affordable penetration testing & vulnerability reporting. 24-hour PDF reports, custom web design, SEO, domain management and website revival. Contact us today.">
+<meta name="keywords" content="affordable penetration testing, vulnerability testing service, penetration test report, website security testing India, affordable pen test Kerala, vulnerability assessment and reporting, authorized web app penetration testing, security audit small business, 24 hour pentest report, website for small businesses, affordable web design, small business website, web design Kerala, SEO services small business, custom website development, website for startups, affordable website design, business website design, web solutions Kerala, SEO Kerala, website management, dead website revival, Espace Systems">
 <meta name="author" content="Espace Systems">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sreeharis.in/espace.html">
 <link rel="icon" type="image/png" href="espace.png">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Espace Systems — Web Design & SEO for Small Businesses">
-<meta property="og:description" content="Modern websites and SEO services for small businesses and startups. Affordable, professional, results-driven.">
+<meta property="og:title" content="Espace Systems — Web Design, SEO & Penetration Testing">
+<meta property="og:description" content="Modern websites, SEO services, and affordable authorized penetration testing with 24-hour PDF vulnerability reports for small businesses and startups.">
 <meta property="og:url" content="https://sreeharis.in/espace.html">
 <meta property="og:site_name" content="Espace Systems">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Espace Systems — Web Design & SEO for Small Businesses">
-<meta name="twitter:description" content="Modern websites and SEO services for small businesses and startups.">
+<meta name="twitter:title" content="Espace Systems — Web Design, SEO & Penetration Testing">
+<meta name="twitter:description" content="Modern websites, SEO, and affordable authorized penetration testing with 24-hour PDF vulnerability reports.">
 
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "description": "Modern web design, SEO and digital solutions for small businesses, startups and initiatives.",
   "founder": { "@type": "Person", "name": "Sreehari" },
   "sameAs": ["https://www.linkedin.com/company/espace-systems/"],
-  "serviceType": ["Web Design", "SEO", "Website Development", "Domain Registration", "Website Management"],
+  "serviceType": ["Web Design", "SEO", "Website Development", "Domain Registration", "Website Management", "Penetration Testing", "Vulnerability Assessment"],
   "areaServed": "India",
   "priceRange": "$$"
 }
@@ -162,8 +162,7 @@ nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
   letter-spacing:0.5px;margin-bottom:28px;
   animation:fade-up .7s ease both;
 }
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);animation:blink 1.5s ease infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
 
 .hero h1{
   font-family:'Syne',sans-serif;
@@ -261,7 +260,10 @@ nav.scrolled{padding:12px 60px;box-shadow:0 4px 24px var(--shadow);}
   display:inline-block;margin-top:18px;
   font-size:0.7rem;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--blue);font-weight:600;
+  text-decoration:none;
+  transition:color .2s,letter-spacing .2s;
 }
+.service-tag:hover{color:var(--navy);letter-spacing:2px;}
 
 /* ── WHY US ── */
 .why{padding:100px 24px;background:var(--navy);position:relative;overflow:hidden;}
@@ -603,7 +605,6 @@ footer{background:var(--navy);padding:44px 24px;}
 }
 .footer-back:hover{color:white;border-color:rgba(255,255,255,0.3);}
 
-/* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
@@ -664,7 +665,7 @@ footer{background:var(--navy);padding:44px 24px;}
     <div class="hero-logo-wrap" style="margin-bottom:28px;animation:fade-up .6s ease both;">
       <img src="espacee.png" alt="Espace Systems" style="height:90px;width:auto;object-fit:contain;display:block;margin:0 auto;">
     </div>
-    <div class="hero-tag">Web Design · SEO · Digital Growth</div>
+    <div class="hero-tag">Web Design · SEO · Security Testing</div>
 
     <h1>
       Your Business Deserves<br>
@@ -677,7 +678,6 @@ footer{background:var(--navy);padding:44px 24px;}
 
     <div class="hero-btns">
       <a href="#contact" class="btn-primary"> Book a Free Slot</a>
-      <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="btn-secondary">💼 View LinkedIn</a>
     </div>
 
     <a href="#partners" class="hero-partners-badge">
@@ -728,42 +728,53 @@ footer{background:var(--navy);padding:44px 24px;}
         <div class="service-icon"></div>
         <div class="service-title">Custom Website Design</div>
         <p class="service-desc">Modern, mobile-first websites designed from scratch to reflect your brand identity. No templates — every site is uniquely yours, built for speed and impact.</p>
-        <span class="service-tag">Design & Development →</span>
+        <a href="#contact" class="service-tag">Design & Development →</a>
       </div>
 
       <div class="service-card reveal" style="transition-delay:.08s">
         <div class="service-icon"></div>
         <div class="service-title">SEO Services</div>
         <p class="service-desc">We optimise your website to rank on Google and attract organic traffic. From keyword strategy to technical SEO — we make sure your business gets found online.</p>
-        <span class="service-tag">Search Engine Optimisation →</span>
+        <a href="#contact" class="service-tag">Search Engine Optimisation →</a>
       </div>
 
       <div class="service-card reveal" style="transition-delay:.16s">
         <div class="service-icon"></div>
         <div class="service-title">Domain & Hosting</div>
         <p class="service-desc">Complete domain registration and website hosting management. We handle the technical side so you can focus on running your business.</p>
-        <span class="service-tag">Infrastructure →</span>
+        <a href="#contact" class="service-tag">Infrastructure →</a>
       </div>
 
       <div class="service-card reveal" style="transition-delay:.24s">
         <div class="service-icon"></div>
         <div class="service-title">Website Management</div>
         <p class="service-desc">Ongoing maintenance, updates, security and performance monitoring. Your website stays fast, secure and up to date — always.</p>
-        <span class="service-tag">Managed Services →</span>
+        <a href="#contact" class="service-tag">Managed Services →</a>
       </div>
 
       <div class="service-card reveal" style="transition-delay:.32s">
         <div class="service-icon"></div>
         <div class="service-title">Dead Website Revival</div>
         <p class="service-desc">Underperforming or outdated website? We diagnose, optimise and revive it — improving speed, design, content and SEO to bring it back to life.</p>
-        <span class="service-tag">Website Optimisation →</span>
+        <a href="#contact" class="service-tag">Website Optimisation →</a>
       </div>
 
       <div class="service-card reveal" style="transition-delay:.4s">
         <div class="service-icon"></div>
         <div class="service-title">Small Business Websites</div>
         <p class="service-desc">Affordable professional websites specifically built for small businesses, local shops, freelancers and startups. Making digital presence accessible for everyone.</p>
-        <span class="service-tag">Small Business Focus →</span>
+        <a href="#contact" class="service-tag">Small Business Focus →</a>
+      </div>
+
+      <div class="service-card reveal" style="transition-delay:.48s;border-color:rgba(220,38,38,0.2);background:linear-gradient(135deg,var(--off) 0%,rgba(220,38,38,0.04) 100%);">
+        <div class="service-icon"></div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);padding:4px 12px;border-radius:50px;margin-bottom:12px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#dc2626;display:inline-block;animation:blink 1.5s ease infinite;"></span>
+          <span style="font-size:0.68rem;font-weight:600;letter-spacing:0.5px;color:#dc2626;text-transform:uppercase;">Authorized Testing</span>
+        </div>
+        <div class="service-title">Penetration Testing & Vulnerability Reporting</div>
+        <p class="service-desc">Authorized security assessments for websites and web applications. We perform thorough vulnerability testing and deliver a comprehensive PDF report within 24 hours — covering findings, risk ratings and remediation steps.</p>
+        <a href="#contact" class="service-tag" style="color:#dc2626;">Security Audit →</a>
       </div>
     </div>
   </div>
@@ -841,6 +852,7 @@ footer{background:var(--navy);padding:44px 24px;}
             <option>Website Revival / Optimisation</option>
             <option>Website Management</option>
             <option>Domain & Hosting</option>
+            <option>Penetration Testing & Vulnerability Report</option>
             <option>Other / Not sure yet</option>
           </select>
         </div>
@@ -897,7 +909,14 @@ footer{background:var(--navy);padding:44px 24px;}
           </div>
         </a>
         <a href="https://www.linkedin.com/company/espace-systems/" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon">💼</div>
+          <div class="contact-link-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+              <rect x="1" y="1" width="18" height="18" rx="3.5" fill="#1a56db"/>
+              <rect x="4.5" y="8" width="2.5" height="7.5" fill="white"/>
+              <circle cx="5.75" cy="5.75" r="1.4" fill="white"/>
+              <path d="M9.5 8h2.3v1.05C12.15 8.4 13 8 14 8c2.2 0 2.5 1.45 2.5 3.3V15.5H14V11.7c0-.8-.02-1.85-1.13-1.85-1.13 0-1.37.88-1.37 1.79V15.5H9.5V8Z" fill="white"/>
+            </svg>
+          </div>
           <div>
             <div class="contact-link-label">LinkedIn</div>
             <div class="contact-link-val">Espace Systems</div>
@@ -928,21 +947,30 @@ footer{background:var(--navy);padding:44px 24px;}
 <!-- SEO TEXT -->
 <section class="seo-band">
   <div class="seo-inner reveal">
-    <h2>Website Design & SEO Services for Small Businesses — Espace Systems</h2>
+    <h2>Web Design, SEO & Affordable Penetration Testing — Espace Systems</h2>
     <p>
-      <strong>Espace Systems</strong> is a web design and digital solutions company focused on helping small businesses, local startups and emerging initiatives establish a powerful online presence. We specialise in building <strong>modern, high-performance websites</strong> at affordable prices — making professional digital presence accessible to everyone.
+      <strong>Espace Systems</strong> is a web design, digital solutions and security testing company focused on helping small businesses, local startups and emerging initiatives establish a powerful and secure online presence. We specialise in building <strong>modern, high-performance websites</strong> at affordable prices — making professional digital presence accessible to everyone.
     </p>
     <p>
-      Whether you need a <strong>new website for your small business</strong>, effective <strong>SEO services to rank on Google</strong>, or help reviving an existing underperforming website — Espace delivers reliable, scalable and cost-effective solutions designed for long-term success.
+      Whether you need a <strong>new website for your small business</strong>, effective <strong>SEO services to rank on Google</strong>, help reviving an underperforming website — or an <strong>authorized penetration test with a 24-hour vulnerability report</strong> — Espace delivers reliable, scalable and cost-effective solutions.
     </p>
 
     <div class="seo-divider"></div>
     <h3>What We Offer</h3>
     <p>
-      Our services include <strong>custom website design and development</strong>, <strong>search engine optimisation (SEO)</strong>, domain registration, complete website management, and website revival for dead or outdated sites. Every website we build is mobile-first, fast-loading, and SEO-ready from day one — giving your business the best possible chance to rank organically and attract customers.
+      Our services include <strong>custom website design and development</strong>, <strong>search engine optimisation (SEO)</strong>, domain registration, complete website management, website revival, and <strong>authorized vulnerability & penetration testing</strong>. Every website we build is mobile-first, fast-loading, and SEO-ready from day one.
     </p>
     <p>
-      We also work with businesses that already have a website but aren't seeing results. Through technical improvements, content strategy and on-page SEO enhancements, we optimise and revive underperforming websites to start generating real traffic and leads.
+      We also work with businesses that already have a website but aren't seeing results. Through technical improvements, content strategy and on-page SEO enhancements, we optimise and revive underperforming websites to generate real traffic and leads.
+    </p>
+
+    <div class="seo-divider"></div>
+    <h3>Affordable Penetration Testing & Vulnerability Reporting</h3>
+    <p>
+      Espace Systems provides <strong>authorized penetration testing and vulnerability assessments</strong> for websites and web applications. Our security team conducts thorough ethical hacking exercises and delivers a professional <strong>PDF vulnerability report within 24 hours</strong> — covering all identified risks, severity ratings, and clear remediation recommendations.
+    </p>
+    <p>
+      Whether you are a small business, startup or developer looking for an <strong>affordable pen test</strong> with fast turnaround, our service makes security testing accessible. All testing is conducted with explicit written authorisation and follows responsible disclosure practices.
     </p>
 
     <div class="seo-divider"></div>
@@ -1304,6 +1332,197 @@ function submitBooking(){
 </script>
 </body>
   </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
