@@ -1496,6 +1496,12 @@
   <changefreq>monthly</changefreq>
   <priority>0.55</priority>
 </url>
+      <url>
+  <loc>https://sreeharis.in/Qp/Chemistry/scientific.pdf</loc>
+  <lastmod>2026-06-10</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
 <url>
   <loc>https://sreeharis.in/botanys2/UK2MDCBOT102.html</loc>
   <lastmod>2026-03-12T14:09:13+00:00</lastmod>
