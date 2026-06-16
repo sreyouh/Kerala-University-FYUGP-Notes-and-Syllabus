@@ -1,4 +1,4 @@
-                              <!DOCTYPE html>
+                                <!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" sizes="32x32" href="/espace.png">
@@ -452,20 +452,11 @@ Sreeharis notes
     .hero-content { position: relative; z-index: 1; text-align: center; max-width: 880px; }
 
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.38);
-      padding: 10px 26px; border-radius: 50px;
-      font-size: 0.88rem; color: var(--white); margin-bottom: 30px;
-      animation: fade-up 0.8s ease both;
-      box-shadow: 0 0 32px rgba(201,168,76,0.12);
+      font-size: 0.9rem; color: var(--gold-light); font-style: italic;
+      margin-bottom: 24px; animation: fade-up 0.8s ease both;
+      letter-spacing: 0.3px;
     }
     .hero-badge strong { color: var(--gold-light); font-weight: 600; font-style: italic; }
-    .hero-badge::before {
-      content: ''; width: 7px; height: 7px; flex-shrink: 0;
-      background: var(--gold-light); border-radius: 50%;
-      animation: blink 1.5s ease infinite; box-shadow: 0 0 8px var(--gold);
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
@@ -496,8 +487,50 @@ Sreeharis notes
       font-size: 0.84rem; color: rgba(255,255,255,0.7);
       backdrop-filter: blur(10px);
       transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.3s;
+      cursor: pointer;
     }
     .feat-chip:hover { border-color: rgba(201,168,76,0.5); color: var(--white); background: rgba(201,168,76,0.06); transform: translateY(-2px); }
+
+    /* Program Picker Modal */
+    #programPicker {
+      display: none; position: fixed; inset: 0;
+      background: rgba(6,13,25,0.82); backdrop-filter: blur(6px);
+      z-index: 998; align-items: center; justify-content: center;
+    }
+    #programPicker.open { display: flex; }
+    .pp-box {
+      background: linear-gradient(160deg,#0d1f3c 0%,#0a1628 100%);
+      border: 1px solid rgba(201,168,76,0.3); border-radius: 20px;
+      padding: 36px 32px; width: 92%; max-width: 420px; position: relative;
+      animation: fade-up 0.28s ease both;
+    }
+    .pp-title {
+      font-family: 'Playfair Display', serif; color: var(--gold);
+      font-size: 1.2rem; margin-bottom: 6px;
+    }
+    .pp-sub { color: var(--slate); font-size: 0.8rem; margin-bottom: 24px; }
+    .pp-options { display: flex; flex-direction: column; gap: 12px; }
+    .pp-btn {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 12px; padding: 14px 18px; text-decoration: none;
+      color: var(--white); font-size: 0.9rem;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .pp-btn:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.5); transform: translateX(4px); }
+    .pp-btn-icon { font-size: 1.5rem; }
+    .pp-btn-label { display: flex; flex-direction: column; }
+    .pp-btn-label span:first-child { font-weight: 600; color: var(--gold-light); }
+    .pp-btn-label span:last-child { font-size: 0.75rem; color: var(--slate); margin-top: 2px; }
+    .pp-close {
+      position: absolute; top: 14px; right: 18px;
+      background: none; border: none; color: rgba(255,255,255,0.4);
+      font-size: 1.4rem; cursor: pointer; line-height: 1;
+    }
+
+    /* Upload button animation */
+    @keyframes upload-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+    .upload-icon { display: inline-flex; animation: upload-bounce 1.4s ease-in-out infinite; }
 
     .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fade-up 0.8s 0.4s ease both; }
 
@@ -1233,11 +1266,34 @@ Sreeharis notes
       </p>
 
       <div class="features-row">
-        <div class="feat-chip"><span>📘</span> Course-wise Syllabus</div>
-        <div class="feat-chip"><span>📝</span> Curated Notes</div>
-        <div class="feat-chip"><span>📚</span> Reference Texts</div>
-        <div class="feat-chip"><span>🗃️</span> Question Banks</div>
-        <div class="feat-chip"><span>📄</span> Previous Year Papers</div>
+        <div class="feat-chip" onclick="openPicker('syllabus')"><span>📘</span> Course-wise Syllabus</div>
+        <div class="feat-chip" onclick="openPicker('notes')"><span>📝</span> Curated Notes</div>
+        <div class="feat-chip" onclick="openPicker('reference')"><span>📚</span> Reference Texts</div>
+        <div class="feat-chip" onclick="openPicker('qbank')"><span>🗃️</span> Question Banks</div>
+        <div class="feat-chip" onclick="openPicker('pyq')"><span>📄</span> Previous Year Papers</div>
+      </div>
+
+      <!-- Program Picker -->
+      <div id="programPicker">
+        <div class="pp-box">
+          <button class="pp-close" onclick="closePicker()">×</button>
+          <div class="pp-title" id="ppTitle">Choose Your Programme</div>
+          <div class="pp-sub">Select your degree to go to the right page</div>
+          <div class="pp-options">
+            <a class="pp-btn" id="ppBA" href="ba.html">
+              <span class="pp-btn-icon">🎨</span>
+              <span class="pp-btn-label"><span>BA — Arts & Humanities</span><span>Economics · Political Science · English · Malayalam</span></span>
+            </a>
+            <a class="pp-btn" id="ppBSc" href="bsc.html">
+              <span class="pp-btn-icon">🔬</span>
+              <span class="pp-btn-label"><span>BSc — Science</span><span>Chemistry · Physics · Mathematics · Botany · Zoology · CS</span></span>
+            </a>
+            <a class="pp-btn" id="ppBCom" href="bcom.html">
+              <span class="pp-btn-icon">📊</span>
+              <span class="pp-btn-label"><span>BCom — Commerce</span><span>Accountancy · Finance · Business Studies</span></span>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="hero-cta">
@@ -1455,9 +1511,9 @@ Sreeharis notes
         </div>
 
         <div class="contribute-cta">
-          <button onclick="document.getElementById('uploadModal').style.display='flex'" class="btn-primary" style="font-size:0.85rem;padding:12px 22px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif">⬆️ Upload Now</button>
+          <button onclick="document.getElementById('uploadModal').style.display='flex'" class="btn-primary" style="font-size:0.85rem;padding:12px 22px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif"><span class="upload-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg></span> Upload Now</button>
           <a href="instructions.pdf" download class="btn-outline" style="font-size:0.85rem;padding:12px 22px">📄 Guidelines</a>
-          <a href="https://t.me/sreyouh" target="_blank" class="btn-primary" style="font-size:0.85rem;padding:12px 22px">✈️ Via Telegram</a>
+          <a href="https://t.me/sreyouh" target="_blank" class="btn-primary" style="font-size:0.85rem;padding:12px 22px">Via Telegram</a>
           <a href="mailto:sreeharisunil100@gmail.com" class="btn-mail" style="font-size:0.85rem;padding:12px 22px">✉️ Via Email</a>
         </div>
 
@@ -1579,7 +1635,29 @@ Sreeharis notes
     });
     sidebarOverlay.addEventListener('click', closeSidebar);
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeSidebar();
+      if (e.key === 'Escape') { closeSidebar(); closePicker(); }
+    });
+  </script>
+
+  <script>
+    const sectionAnchors = {
+      syllabus: '#syllabus', notes: '#notes',
+      reference: '#reference', qbank: '#qbank', pyq: '#pyq'
+    };
+    function openPicker(section) {
+      ['ppBA','ppBSc','ppBCom'].forEach(id => {
+        const base = id === 'ppBA' ? 'ba.html' : id === 'ppBSc' ? 'bsc.html' : 'bcom.html';
+        document.getElementById(id).href = base;
+      });
+      document.getElementById('programPicker').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePicker() {
+      document.getElementById('programPicker').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('programPicker').addEventListener('click', function(e) {
+      if (e.target === this) closePicker();
     });
   </script>
 
@@ -1624,6 +1702,68 @@ Sreeharis notes
         </html>
 
 
+
+               
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+
+               
+
+
+
+
+
+
+
+
+
+
+
+              
 
                
 
