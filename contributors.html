@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Contributor | Project Credits</title>
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="Meet the incredible contributor who helped build and shape this project.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Our Contributor | Project Credits">
+    <meta property="og:description" content="Meet the incredible contributor who helped build and shape this project.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Aesthetic: Dark-Blue & Gold */
+        :root {
+            --bg-dark-blue: #0a192f;
+            --bg-card-blue: #112240;
+            --gold-primary: #f59e0b;
+            --gold-hover: #fbbf24;
+            --text-light: #e2e8f0;
+            --text-muted: #8892b0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: none; /* Hide default cursor for custom cursor */
+        }
+
+        body {
+            background-color: var(--bg-dark-blue);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem;
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor Styling */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, background-color 0.2s ease;
+        }
+
+        .custom-cursor-dot {
+            width: 4px;
+            height: 4px;
+            background-color: var(--gold-primary);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Header Layout */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Contributor Container */
+        .contributors-grid {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* Contributor Card styling */
+        .contributor-card {
+            background-color: var(--bg-card-blue);
+            border: 1px solid rgba(245, 158, 11, 0.1);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .contributor-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--gold-primary);
+            margin: 0 auto;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            display: block;
+        }
+
+        .contributor-card h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .role {
+            font-size: 0.95rem;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+        }
+
+        .profile-link {
+            display: inline-block;
+            color: var(--bg-dark-blue);
+            background-color: var(--gold-primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .profile-link:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* Hover states for custom cursor interaction */
+        a:hover ~ .custom-cursor, 
+        .contributor-card:hover ~ .custom-cursor {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <header>
+        <h1>Project Contributor</h1>
+        <p>The brilliant mind and passionate developer behind the success of this project. Thank you for your dedication and impact.</p>
+    </header>
+
+    <!-- Contributors Container with Schema.org Microdata for AI/SEO Optimization -->
+    <main class="contributors-grid" itemscope itemtype="https://schema.org/AboutPage">
+        
+        <!-- Sole Contributor -->
+        <div class="contributor-card" itemprop="contributor" itemscope itemtype="https://schema.org/Person">
+            <img src="https://via.placeholder.com/150" alt="Gauri Nandana Portrait" class="avatar" itemprop="image">
+            <h2 itemprop="name">Gauri Nandana</h2>
+            <div class="role" itemprop="jobTitle">Lead Contributor</div>
+            <p class="bio" itemprop="description">Instrumental in driving the project's success, shaping the core features, and ensuring exceptional quality across the board.</p>
+            <a href="#" class="profile-link" itemprop="url">View Profile</a>
+        </div>
+
+    </main>
+
+    <!-- Custom Cursor Script -->
+    <script>
+        const cursor = document.getElementById('customCursor');
+        const dot = document.getElementById('customCursorDot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            dot.style.left = e.clientX + 'px';
+            dot.style.top = e.clientY + 'px';
+        });
+
+        // Add expansion effect on hoverable elements
+        const links = document.querySelectorAll('.profile-link, .contributor-card');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
+                cursor.style.backgroundColor = 'rgba(245, 158, 11, 0.15)';
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+    </script>
+</body>
+</html>
+
